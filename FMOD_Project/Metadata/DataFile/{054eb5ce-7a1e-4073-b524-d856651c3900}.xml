@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{054eb5ce-7a1e-4073-b524-d856651c3900}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/__MACOSX/Electronic Ambient Music Pack/Asphalt (RT 3.764)/._ElecAmbient Aphalt Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

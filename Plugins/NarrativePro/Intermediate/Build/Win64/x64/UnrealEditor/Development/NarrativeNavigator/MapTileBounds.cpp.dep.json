@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\private\\maptilebounds.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativenavigator\\definitions.narrativenavigator.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\maptilebounds.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativenavigator\\uht\\maptilebounds.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\boxcomponent.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\components\\shapecomponent.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\shapecomponent.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\boxcomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\maptileboundsdebugdraw.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativenavigator\\uht\\maptileboundsdebugdraw.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

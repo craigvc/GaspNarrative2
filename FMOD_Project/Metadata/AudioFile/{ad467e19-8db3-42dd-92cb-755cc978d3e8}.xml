@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{ad467e19-8db3-42dd-92cb-755cc978d3e8}">
+		<property name="assetPath">
+			<value>Game/Cinematic_Hits_and_Transitions_2/wavs/cinematic_hit_164.WAV</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>7.409433106575964</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

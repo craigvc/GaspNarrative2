@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3d509029-4f06-4669-88a3-f8c308a9bc59}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Fire/._Large Fireball Cast A.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

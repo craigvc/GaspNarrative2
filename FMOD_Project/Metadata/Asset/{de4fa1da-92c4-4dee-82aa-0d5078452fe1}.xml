@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{de4fa1da-92c4-4dee-82aa-0d5078452fe1}">
+		<property name="assetPath">
+			<value>Game/UrokTheOrc/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

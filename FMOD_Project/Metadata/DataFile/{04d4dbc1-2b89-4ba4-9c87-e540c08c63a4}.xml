@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{04d4dbc1-2b89-4ba4-9c87-e540c08c63a4}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Dark/._Nightshade Curse.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

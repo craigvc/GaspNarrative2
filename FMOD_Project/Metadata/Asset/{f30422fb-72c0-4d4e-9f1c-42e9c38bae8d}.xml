@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{f30422fb-72c0-4d4e-9f1c-42e9c38bae8d}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/Fantasy Vol 3 Music Pack/Plunder (RT 2.5)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

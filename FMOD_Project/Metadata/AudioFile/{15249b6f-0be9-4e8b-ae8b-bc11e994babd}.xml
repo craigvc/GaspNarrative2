@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{15249b6f-0be9-4e8b-ae8b-bc11e994babd}">
+		<property name="assetPath">
+			<value>Game/BleakHorizons/Maps/BaseAssets/AbandonedFactory/Audio/FootstepsMetal_01/S_FootstepsMetal_01_05_Run.WAV</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>44.0999985</value>
+		</property>
+		<property name="channelCount">
+			<value>1</value>
+		</property>
+		<property name="length">
+			<value>0.36986394557823127</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

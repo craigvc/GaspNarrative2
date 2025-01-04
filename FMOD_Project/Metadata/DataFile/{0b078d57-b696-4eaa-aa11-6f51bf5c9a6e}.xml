@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0b078d57-b696-4eaa-aa11-6f51bf5c9a6e}">
+		<property name="assetPath">
+			<value>Music/Audio Odyssey Vol1/00 Terms and conditions.pdf</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

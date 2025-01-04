@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{a4386cb4-fa69-4ad0-ad3f-19ed7c6a50ef}">
+		<property name="assetPath">
+			<value>Music/Synthpop Music Pack/__MACOSX/Synthpop Music Pack/._Food Court (RT 4.051)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{74b0db15-f2f9-449c-9d59-a62a1c17312f}">
+		<property name="assetPath">
+			<value>Music/Keys Music Pack Vol. 2/Surface (RT 3.000)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

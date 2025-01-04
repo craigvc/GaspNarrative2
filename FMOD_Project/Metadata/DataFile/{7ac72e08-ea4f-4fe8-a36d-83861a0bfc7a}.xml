@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{7ac72e08-ea4f-4fe8-a36d-83861a0bfc7a}">
+		<property name="assetPath">
+			<value>Music/Electronic Vol4 Music Pack/__MACOSX/Electronic Vol4 Music Pack/Dreamscape (RT 1.224)/._Electronic Vol4 Dreamscape Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

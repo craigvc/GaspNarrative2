@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{ca548f2c-8142-47ef-9d74-34574d4dc90c}">
+		<property name="assetPath">
+			<value>Music/Comedic/__MACOSX/Comedic/No Loop/._Comedic - Clumsy Mime.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

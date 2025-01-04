@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{8269a83d-2e8f-43ae-9673-31c96424cf13}">
+		<property name="assetPath">
+			<value>Music/Ethereal Music Pack/Poison Meadow (RT 2)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

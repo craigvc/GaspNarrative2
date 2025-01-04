@@ -1,0 +1,32 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\skilltrees\\skilltreecomponent.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenal\\definitions.narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\skilltrees\\skilltreecomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesavablecomponent.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavablecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\skilltrees\\treeskill.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\treeskill.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\skilltreecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\skilltrees\\treeperk.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\mediaassets\\public\\mediasource.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\media\\public\\imediaoptions.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\mediaassets\\public\\mediasourceoptions.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\mediaassets\\uht\\mediasourceoptions.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\mediaassets\\uht\\mediasource.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\treeperk.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

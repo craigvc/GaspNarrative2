@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{000861ab-117a-418d-b69d-e5b761d83f4f}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/__MACOSX/Synth Fantasy Music Pack Vol. 2/._Embers (RT 6)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

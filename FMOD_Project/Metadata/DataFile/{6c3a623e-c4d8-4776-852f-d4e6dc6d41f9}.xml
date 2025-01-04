@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{6c3a623e-c4d8-4776-852f-d4e6dc6d41f9}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/__MACOSX/Synth Fantasy Music Pack Vol. 2/Adventurers Kicks (RT 4.571)/._SynFantasy Vol2 Adventurers Kicks Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

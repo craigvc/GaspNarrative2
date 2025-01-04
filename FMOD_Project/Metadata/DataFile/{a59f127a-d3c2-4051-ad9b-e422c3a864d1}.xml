@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{a59f127a-d3c2-4051-ad9b-e422c3a864d1}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/__MACOSX/Casual Music Pack/Pony Ride (RT 2.824)/._Casual Pony Ride Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

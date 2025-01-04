@@ -1,0 +1,34 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteraction\\module.narrativeinteraction.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteraction\\definitions.narrativeinteraction.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactablecomponent.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\interactablecomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactablecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interaction.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\interaction.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interaction.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactioncomponent.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\interactioncomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactioncomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactionfunctionlibrary.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\interactionfunctionlibrary.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactionfunctionlibrary.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\narrativeinteraction.init.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteraction\\permoduleinline.gen.cpp",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,24 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeCommonUI.cpp.obj": [
+			"NarrativeActivatableWidget.gen.cpp.obj",
+			"NarrativeCommonButtonBase.gen.cpp.obj",
+			"NarrativeCommonHUD.gen.cpp.obj",
+			"NarrativeCommonTextBlock.gen.cpp.obj",
+			"NarrativeCommonUI.init.gen.cpp.obj",
+			"NarrativeCommonUIFunctionLibrary.gen.cpp.obj",
+			"NarrativeCommonUISubsystem.gen.cpp.obj",
+			"NarrativeCommonVideoPlayer.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"NarrativeActivatableWidget.cpp.obj",
+			"NarrativeCommonHUD.cpp.obj",
+			"NarrativeCommonUI.cpp.obj",
+			"NarrativeCommonUIFunctionLibrary.cpp.obj",
+			"NarrativeCommonUISubsystem.cpp.obj",
+			"NarrativeCommonButtonBase.cpp.obj",
+			"NarrativeCommonTextBlock.cpp.obj",
+			"NarrativeCommonVideoPlayer.cpp.obj"
+		]
+	}
+}

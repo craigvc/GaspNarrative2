@@ -1,0 +1,81 @@
+{
+	"FileVersion": 3,
+	"Version": 8,
+	"VersionName": "2.2.3",
+	"FriendlyName": "Ninja Factions",
+	"Description": "Factions and Reputation management for Players and AI Agents.",
+	"Category": "Gameplay",
+	"CreatedBy": "Ninja Bear Studio Inc.",
+	"CreatedByURL": "https://www.ninjabear.studio",
+	"DocsURL": "https://tech.ninjabear.studio/fct-overview.html",
+	"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/bda9ddb0-0067-493f-9923-052a2fe1db5d",
+	"SupportURL": "https://discord.gg/mkB5cQmDws",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "NinjaFactions",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NinjaFactionsBehaviorTree",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NinjaFactionsEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NinjaFactionsFeatures",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NinjaFactionsStateTree",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "GameplayStateTree",
+			"Enabled": true
+		},
+		{
+			"Name": "GameFeatures",
+			"Enabled": true
+		},
+		{
+			"Name": "ModularGameplay",
+			"Enabled": true
+		},
+		{
+			"Name": "StateTree",
+			"Enabled": true
+		}
+	]
+}

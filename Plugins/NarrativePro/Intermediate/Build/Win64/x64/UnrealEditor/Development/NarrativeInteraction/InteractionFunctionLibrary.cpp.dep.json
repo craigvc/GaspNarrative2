@@ -1,0 +1,15 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\private\\interactionfunctionlibrary.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteraction\\definitions.narrativeinteraction.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\interactionfunctionlibrary.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinteraction\\uht\\interactionfunctionlibrary.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

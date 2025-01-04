@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{90f2adc7-e20e-429a-9f9c-7267d7cf4e65}">
+		<property name="assetPath">
+			<value>Music/Synthpop Music Pack/__MACOSX/Synthpop Music Pack/Free Java (RT 1.175)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{35672633-879a-4ffe-baf7-666adb13bc01}">
+		<property name="assetPath">
+			<value>Music/Synthpop Music Pack/__MACOSX/Synthpop Music Pack/Apollo (RT 2.172)/._Synthpop Apollo Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

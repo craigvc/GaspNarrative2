@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{5e7d9c50-4a5a-4a0d-b24a-483427051fd1}">
+		<property name="assetPath">
+			<value>Music/Jingles &amp; Stingers SFX 2/__MACOSX/Jingles &amp; Stingers SFX 2/Steampunk/._Steampunk Mecha Gong B.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

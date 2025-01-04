@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{69a26ca9-f8f1-41bf-a6e2-7f6faf9bc310}">
+		<property name="assetPath">
+			<value>Music/Orchestral Rock Vol 2/Orchestral Rock Vol 2/Just in Time (RT 5.146)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

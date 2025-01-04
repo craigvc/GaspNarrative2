@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f65ba2fd-7989-456d-ad3b-6d053a376fa9}">
+		<property name="assetPath">
+			<value>Music/Electronic Vol4 Music Pack/__MACOSX/Electronic Vol4 Music Pack/Midnight (RT 3.545)/._Electronic Vol4 Midnight Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{e75e68c7-cfc4-4492-a685-18d20e630b8d}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Air/._Aero Blade Cast B.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

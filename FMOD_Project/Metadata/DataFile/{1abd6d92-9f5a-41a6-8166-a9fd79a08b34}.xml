@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{1abd6d92-9f5a-41a6-8166-a9fd79a08b34}">
+		<property name="assetPath">
+			<value>Music/Western Music Pack/__MACOSX/Western Music Pack/New Spurs (RT 6.011)/._Western New Spurs Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

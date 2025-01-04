@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeNavigatorEditor.cpp.obj": [
+			"NarrativeNavigatorEditor.init.gen.cpp.obj",
+			"NavigatorFunctionLibrary.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"NarrativeNavigatorEditorModule.cpp.obj",
+			"NarrativeNavigatorStyle.cpp.obj",
+			"NavigatorFunctionLibrary.cpp.obj"
+		]
+	}
+}

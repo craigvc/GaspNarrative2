@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{8dcf1b43-d1c7-4360-84d6-3d09374d5ecf}">
+		<property name="assetPath">
+			<value>Sonniss.com - Game Audio Monthly - #4/The AudioVille - Atmospheres of India/ambience - police radio communication - police station interior atmosphere - office activity in bg - colombo - sri lanka - sinhalese - radio communication.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

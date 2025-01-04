@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3f175a20-4d58-4d33-ad4c-3383c536a5b7}">
+		<property name="assetPath">
+			<value>Music/Synthpop Music Pack/__MACOSX/Synthpop Music Pack/Most Wanted (RT 3.03)/._Synthpop Most Wanted Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

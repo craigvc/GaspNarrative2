@@ -1,0 +1,29 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialoguegraphnode_root.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativedialogueeditor\\definitions.narrativedialogueeditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialoguegraphnode_root.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialoguegraphnode_npc.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialoguegraphnode.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativedialogueeditor\\uht\\dialoguegraphnode.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativedialogueeditor\\uht\\dialoguegraphnode_npc.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativedialogueeditor\\uht\\dialoguegraphnode_root.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialogueeditortypes.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativedialogueeditor\\uht\\dialogueeditortypes.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialogueeditorsettings.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativedialogueeditor\\uht\\dialogueeditorsettings.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

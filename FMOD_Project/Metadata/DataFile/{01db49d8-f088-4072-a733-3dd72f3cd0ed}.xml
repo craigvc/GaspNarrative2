@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{01db49d8-f088-4072-a733-3dd72f3cd0ed}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/__MACOSX/Casual Music Pack/Tiki Party (RT 2.095)/._Casual Tiki Party Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

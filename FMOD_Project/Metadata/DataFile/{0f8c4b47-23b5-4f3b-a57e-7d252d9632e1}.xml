@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0f8c4b47-23b5-4f3b-a57e-7d252d9632e1}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/__MACOSX/Synth Fantasy Music Pack/Yemen (RT 4.149)/._SynFantasy Yemen Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

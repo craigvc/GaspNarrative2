@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0940e241-d63a-41a1-9215-fcd778f3326a}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 2-1705730329499/Hip Hop Vol 2 Music Pack/__MACOSX/Hip Hop Vol 2 Music Pack/Go DJ (RT 1.546)/._Hip Hop Vol2 Go DJ Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

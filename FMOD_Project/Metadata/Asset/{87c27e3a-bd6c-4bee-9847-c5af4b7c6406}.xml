@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{87c27e3a-bd6c-4bee-9847-c5af4b7c6406}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/__MACOSX/Magical Music Pack/Village Visit (RT 3)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

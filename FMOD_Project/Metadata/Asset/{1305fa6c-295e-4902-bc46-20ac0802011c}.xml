@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{1305fa6c-295e-4902-bc46-20ac0802011c}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/__MACOSX/Casual Music Pack/Pony Ride (RT 2.824)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

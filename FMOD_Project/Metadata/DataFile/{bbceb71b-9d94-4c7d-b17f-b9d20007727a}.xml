@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{bbceb71b-9d94-4c7d-b17f-b9d20007727a}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/__MACOSX/Synth Fantasy Music Pack/Depths (RT 3.504)/._SynFantasy Depths Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

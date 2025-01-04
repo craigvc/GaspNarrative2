@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0a918e40-5ae4-4b60-988d-2bf7447c8002}">
+		<property name="assetPath">
+			<value>Music/Western Music Pack/Western Music Pack/No Gallop (RT 5.165)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

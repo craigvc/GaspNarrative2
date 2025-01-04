@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{cb8bfdd3-3029-4818-8c09-13d4eb586e1b}">
+		<property name="assetPath">
+			<value>Music/Synthpop Music Pack/Synthpop Music Pack/Martini (RT 3.0)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

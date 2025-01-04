@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{300ee688-13f9-4421-b749-3227119d048e}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/__MACOSX/Casual Music Pack/Bubblegum (RT 2)/._Casual Bubblegum Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

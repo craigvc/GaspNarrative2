@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0b46817a-3dd2-4bbb-a9a1-5f9945d3f38e}">
+		<property name="assetPath">
+			<value>Music/Dubstep Music/__MACOSX/Dubstep Music/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

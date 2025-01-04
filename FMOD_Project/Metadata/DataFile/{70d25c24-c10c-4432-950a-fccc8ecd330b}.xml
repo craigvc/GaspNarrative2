@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{70d25c24-c10c-4432-950a-fccc8ecd330b}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/__MACOSX/Casual Music Pack/Observatory (RT 7.244)/._Casual Observatory Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

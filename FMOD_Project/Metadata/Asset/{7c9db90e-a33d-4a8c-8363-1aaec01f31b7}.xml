@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{7c9db90e-a33d-4a8c-8363-1aaec01f31b7}">
+		<property name="assetPath">
+			<value>Music/Industrial Music Pack/Tech Savvy (RT 1.126)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

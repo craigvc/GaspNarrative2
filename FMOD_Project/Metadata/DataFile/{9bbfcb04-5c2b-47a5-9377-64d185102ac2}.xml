@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{9bbfcb04-5c2b-47a5-9377-64d185102ac2}">
+		<property name="assetPath">
+			<value>Music/Rhythmic Music Pack/__MACOSX/Rhythmic Music Pack/Africa (RT 2.258)/._Rhythmic Africa Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

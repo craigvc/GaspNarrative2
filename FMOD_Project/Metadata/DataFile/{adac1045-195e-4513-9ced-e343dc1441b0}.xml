@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{adac1045-195e-4513-9ced-e343dc1441b0}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/__MACOSX/Classical Vol 2 Music Pack/Windsor (RT 3)/._Windsor Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

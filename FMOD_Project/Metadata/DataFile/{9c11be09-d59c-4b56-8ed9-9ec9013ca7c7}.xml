@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{9c11be09-d59c-4b56-8ed9-9ec9013ca7c7}">
+		<property name="assetPath">
+			<value>Music/Rock Music/Rock Music/License Agreement (link).pdf</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

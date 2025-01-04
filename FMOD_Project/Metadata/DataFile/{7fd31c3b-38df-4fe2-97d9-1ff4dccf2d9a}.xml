@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{7fd31c3b-38df-4fe2-97d9-1ff4dccf2d9a}">
+		<property name="assetPath">
+			<value>Music/Rhythmic Music Pack/__MACOSX/Rhythmic Music Pack/Roots (RT 2.787)/._Rhythmic Roots Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

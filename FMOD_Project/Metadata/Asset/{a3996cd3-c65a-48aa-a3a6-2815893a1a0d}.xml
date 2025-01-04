@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{a3996cd3-c65a-48aa-a3a6-2815893a1a0d}">
+		<property name="assetPath">
+			<value>Character/FootstepsonSurfaces/FootstepsonSand/Wavs/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

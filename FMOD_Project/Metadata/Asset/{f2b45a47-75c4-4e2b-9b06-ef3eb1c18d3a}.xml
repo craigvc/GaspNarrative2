@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{f2b45a47-75c4-4e2b-9b06-ef3eb1c18d3a}">
+		<property name="assetPath">
+			<value>SFX/Foley SFX - Appliances/Living/Audio Stuff/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

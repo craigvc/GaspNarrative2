@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{42fd6118-1fd6-473c-a6aa-e6017101d9fd}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/__MACOSX/Electronic Ambient Music Pack/Limitless (RT 12.433)/._ElecAmbient Limitless Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

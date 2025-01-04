@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{a05807e7-35a1-4f0c-aa12-66951a7e7ffb}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/__MACOSX/Electronic Ambient Music Pack/Galaxy (RT 10.632)/._ElecAmbient Galaxy Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

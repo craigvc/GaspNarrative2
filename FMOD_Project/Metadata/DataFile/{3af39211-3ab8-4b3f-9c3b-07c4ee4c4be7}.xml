@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3af39211-3ab8-4b3f-9c3b-07c4ee4c4be7}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 2-1705730329499/Hip Hop Vol 2 Music Pack/__MACOSX/Hip Hop Vol 2 Music Pack/Snakes (RT 1.18)/._Hip Hop Vol2 Snakes Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

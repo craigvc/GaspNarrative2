@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0547ae05-8ee3-442e-ad2a-d471791ff07d}">
+		<property name="assetPath">
+			<value>Music/Jazz Music Pack Vol. 2/Strange Apple (RT 4.000)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

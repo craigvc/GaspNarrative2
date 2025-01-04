@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{109086a2-87b0-45e2-9126-b2c62c2aa419}">
+		<property name="assetPath">
+			<value>Music/Electronic Vol4 Music Pack/__MACOSX/Electronic Vol4 Music Pack/Coded (RT 2.103)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

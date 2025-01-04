@@ -1,0 +1,30 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenaleditor\\module.narrativearsenaleditor.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenaleditor\\definitions.narrativearsenaleditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\arsenalblueprintfactories.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenaleditor\\public\\arsenalblueprintfactories.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\factories\\blueprintfactory.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\blueprintfactory.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\arsenalblueprintfactories.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\arsenalblueprints.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenaleditor\\public\\arsenalblueprints.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\arsenalblueprints.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\equippableitemblueprint.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenaleditor\\private\\equippableitemblueprint.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\equippableitemblueprint.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\equippableitemblueprintfactory.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenaleditor\\private\\equippableitemblueprintfactory.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\equippableitemblueprintfactory.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenaleditor\\uht\\narrativearsenaleditor.init.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenaleditor\\permoduleinline.gen.cpp",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

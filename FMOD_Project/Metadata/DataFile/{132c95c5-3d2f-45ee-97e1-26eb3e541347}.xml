@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{132c95c5-3d2f-45ee-97e1-26eb3e541347}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Fire/._Flame Chain A.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

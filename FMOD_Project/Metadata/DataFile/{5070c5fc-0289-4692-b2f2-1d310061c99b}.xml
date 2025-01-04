@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{5070c5fc-0289-4692-b2f2-1d310061c99b}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Water/._Aqua Bolt Cast B.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

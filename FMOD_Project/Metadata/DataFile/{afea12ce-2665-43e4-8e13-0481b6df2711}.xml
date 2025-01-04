@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{afea12ce-2665-43e4-8e13-0481b6df2711}">
+		<property name="assetPath">
+			<value>Music/Jingles &amp; Stingers SFX 2/__MACOSX/Jingles &amp; Stingers SFX 2/Retro/._Retro Open Chest B.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

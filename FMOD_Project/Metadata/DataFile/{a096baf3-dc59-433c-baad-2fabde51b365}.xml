@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{a096baf3-dc59-433c-baad-2fabde51b365}">
+		<property name="assetPath">
+			<value>Music/Orchestral Rock Vol 2/__MACOSX/Orchestral Rock Vol 2/Outmatched (RT 2.22)/._OrchRock Vol2 Outmatched Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

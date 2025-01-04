@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{3e8bd897-2dd6-4c3b-8604-be646659de5a}">
+		<property name="assetPath">
+			<value>Game/External_Content/Fmod_Muscle_Car_Sounds/Assets/Wind_Sounds/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{28f97168-eb58-4dbc-bf99-19f117db59c7}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/__MACOSX/Synth Fantasy Music Pack Vol. 2/Bardie mk3000 (RT 6)/._SynFantasy Vol2 Bardie mk3000 Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

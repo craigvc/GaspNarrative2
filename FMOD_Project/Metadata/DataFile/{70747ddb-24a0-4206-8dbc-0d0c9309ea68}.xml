@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{70747ddb-24a0-4206-8dbc-0d0c9309ea68}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/__MACOSX/Magical Music Pack/New Spells! (RT 1.846)/._Magical New Spells! Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

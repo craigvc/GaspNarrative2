@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2d2ee672-5c54-4c9c-ac9c-7b2725c28518}">
+		<property name="assetPath">
+			<value>Music/Rhythmic Music Pack/__MACOSX/Rhythmic Music Pack/Zaka (RT 4.51)/._Rhythmic Zaka Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d3508bfc-ca24-45db-aa35-34489060435b}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Fire/._Phoenix Burst.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

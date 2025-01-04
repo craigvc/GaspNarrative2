@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{1ae22d61-c3c1-4e49-8a3e-ff2d3c57117c}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack/__MACOSX/Orchestral Ambient Music Pack/Fallen Friends (RT 3)/._OrchAmbient Fallen Friends Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

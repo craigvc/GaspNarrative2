@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{28789fc7-cd84-4a17-8227-f552f6fc6376}">
+		<property name="assetPath">
+			<value>Music/Rhythmic Music Pack/__MACOSX/Rhythmic Music Pack/El Baile (RT 0.852)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{014fe439-1b76-415d-86fe-25c0bf19dd2d}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 2-1705730329499/Hip Hop Vol 2 Music Pack/Hip Hop Vol 2 Music Pack/Convos (RT 4.118)/Hip Hop Vol2 Convos Cut 30.wav</value>
+		</property>
+		<property name="isStreaming">
+			<value>true</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>48</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>35.414416666666668</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

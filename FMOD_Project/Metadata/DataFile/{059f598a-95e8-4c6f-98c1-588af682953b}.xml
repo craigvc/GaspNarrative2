@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{059f598a-95e8-4c6f-98c1-588af682953b}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 2-1705730329499/Hip Hop Vol 2 Music Pack/__MACOSX/Hip Hop Vol 2 Music Pack/Mandy (RT 0.614)/._Hip Hop Vol2 Mandy Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

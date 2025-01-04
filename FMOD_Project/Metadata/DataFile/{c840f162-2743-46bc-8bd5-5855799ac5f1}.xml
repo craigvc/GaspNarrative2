@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{c840f162-2743-46bc-8bd5-5855799ac5f1}">
+		<property name="assetPath">
+			<value>Music/Western Music Pack/__MACOSX/Western Music Pack/Chase (RT 5.111)/._Western Chase Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,88 @@
+{
+	"FileVersion": 3,
+	"Version": 8,
+	"VersionName": "1.3.17",
+	"FriendlyName": "NinjaInventory",
+	"Description": "Inventory and Equipment management, integrated with G.A.S. and the Asset Manager.",
+	"Category": "Gameplay",
+	"CreatedBy": "Ninja Bear Studio Inc.",
+	"CreatedByURL": "https://ninjabear.studio",
+	"DocsURL": "https://tech.ninjabear.studio/inv-overview.html",
+	"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/da30946a-08c2-4133-9c92-46a5697d7214",
+	"SupportURL": "https://discord.gg/mkB5cQmDws",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "NinjaInventory",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "NinjaInventoryCore",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "NinjaInventoryEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "NinjaInventoryEquipment",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "NinjaInventoryGameplay",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		},
+		{
+			"Name": "NinjaInventoryUI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		},
+		{
+			"Name": "Niagara",
+			"Enabled": true
+		},
+		{
+			"Name": "ModelViewViewModel",
+			"Enabled": true
+		},
+		{
+			"Name": "StructUtils",
+			"Enabled": true
+		}
+	]
+}

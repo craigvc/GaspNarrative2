@@ -1,0 +1,23 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialogueeditorstyle.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativedialogueeditor\\definitions.narrativedialogueeditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativedialogueeditor\\private\\dialogueeditorstyle.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\slatecore\\public\\styling\\slatestyleregistry.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\interfaces\\ipluginmanager.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\plugindescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\custombuildsteps.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\localizationdescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\moduledescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\plugindisalloweddescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\pluginreferencedescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\projects\\public\\versescope.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f3e3b74a-22c9-456c-8351-1d96a8df0ce5}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack/__MACOSX/Orchestral Ambient Music Pack/Sorrow (RT 3.771)/._OrchAmbient Sorrow Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

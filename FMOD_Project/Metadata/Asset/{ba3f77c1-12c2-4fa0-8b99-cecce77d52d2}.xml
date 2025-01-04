@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{ba3f77c1-12c2-4fa0-8b99-cecce77d52d2}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/Magical Music Pack/Plot Thickens (RT 2.667)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

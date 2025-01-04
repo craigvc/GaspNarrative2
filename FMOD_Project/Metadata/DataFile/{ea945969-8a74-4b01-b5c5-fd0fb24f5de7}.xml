@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{ea945969-8a74-4b01-b5c5-fd0fb24f5de7}">
+		<property name="assetPath">
+			<value>Music/Electronic Vol4 Music Pack/__MACOSX/Electronic Vol4 Music Pack/Gone Clubbin (RT 3.054)/._Electronic Vol4 Gone Clubbin Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

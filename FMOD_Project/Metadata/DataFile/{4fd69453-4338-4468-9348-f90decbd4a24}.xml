@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{4fd69453-4338-4468-9348-f90decbd4a24}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Air/._Cyclone Blade Trail Loop.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0607e7bd-0857-4bd2-bd85-a40a171cb64c}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/__MACOSX/Electronic Ambient Music Pack/Jupiter (RT 5.39)/._ElecAmbient Jupiter Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

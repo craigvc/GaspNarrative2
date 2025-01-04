@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativePro\\Module.NarrativePro.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativePro\\AnimNode_NarrativeDialogue.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativePro\\NarrativeLogChannels.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativePro\\NarrativePro.cpp.obj"
+	]
+}

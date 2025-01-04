@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{b9e32f1b-f8ac-42ea-92e3-a6c6497d36cf}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/__MACOSX/Synth Fantasy Music Pack Vol. 2/Squeaky Shoes (RT 1.714)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

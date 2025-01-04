@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{eb82640b-b6b2-44e2-9b46-2e5bd7eac665}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack/__MACOSX/Orchestral Ambient Music Pack/June (RT 3.7)/._OrchAmbient June Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

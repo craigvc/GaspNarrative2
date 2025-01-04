@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{52fec97a-8d30-4701-b991-f140ab1c5295}">
+		<property name="assetPath">
+			<value>Music/Japanese Vol2 Music Pack/__MACOSX/Japanese Vol2 Music Pack/Mura (RT 2.667)/._Japanese Vol2 Mura Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{c9b8e51f-195c-42db-8f73-e3e0cedb282f}">
+		<property name="assetPath">
+			<value>Music/Western Music Pack/__MACOSX/Western Music Pack/Buck (RT 4.061)/._Western Buck Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

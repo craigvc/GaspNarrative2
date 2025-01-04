@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{337df97f-8f91-4c7f-b443-010f47e99d1b}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/__MACOSX/Magical Music Pack/Odd Walk (RT 3)/._Magical Odd Walk Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

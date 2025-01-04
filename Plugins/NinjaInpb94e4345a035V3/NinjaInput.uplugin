@@ -1,0 +1,62 @@
+{
+	"FileVersion": 3,
+	"Version": 20,
+	"VersionName": "4.8.18",
+	"FriendlyName": "Ninja Input",
+	"Description": "Dedicated and reusable Handlers for the Enhanced Input. Integrated with the Gameplay Ability System.",
+	"Category": "Input",
+	"CreatedBy": "Ninja Bear Studio Inc.",
+	"CreatedByURL": "https://www.ninjabear.studio",
+	"DocsURL": "https://tech.ninjabear.studio/ipt-overview.html",
+	"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/cde3c8fb-85be-44a3-95c4-dbccecac028b",
+	"SupportURL": "https://discord.gg/mkB5cQmDws",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "NinjaInput",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "NinjaInputEditor",
+			"Type": "Editor",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		},
+		{
+			"Name": "NinjaInputUI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Linux",
+				"Mac"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
+			"Enabled": true
+		}
+	]
+}

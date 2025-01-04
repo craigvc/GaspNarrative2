@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{838fc73d-6f9e-4e75-baf3-012f984cf02b}">
+		<property name="assetPath">
+			<value>Game/FoleySFXBundle/ObjectsonSurfaces/ObjectsonPlastic/Wavs/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

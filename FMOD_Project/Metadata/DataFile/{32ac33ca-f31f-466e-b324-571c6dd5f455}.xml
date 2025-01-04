@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{32ac33ca-f31f-466e-b324-571c6dd5f455}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/__MACOSX/Electronic Ambient Music Pack/Saturn (RT 7.765)/._ElecAmbient Saturn Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

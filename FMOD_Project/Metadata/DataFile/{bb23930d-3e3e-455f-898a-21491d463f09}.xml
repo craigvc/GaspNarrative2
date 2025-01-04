@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{bb23930d-3e3e-455f-898a-21491d463f09}">
+		<property name="assetPath">
+			<value>Music/Jingles &amp; Stingers SFX 2/__MACOSX/Jingles &amp; Stingers SFX 2/Synth/._Synth Swell A.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

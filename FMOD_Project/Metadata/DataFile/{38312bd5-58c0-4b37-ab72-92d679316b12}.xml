@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{38312bd5-58c0-4b37-ab72-92d679316b12}">
+		<property name="assetPath">
+			<value>Music/Dubstep Music/__MACOSX/Dubstep Music/Loop/._Dubstep - Radical Style Loop.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

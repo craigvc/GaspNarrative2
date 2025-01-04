@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{10bbdb23-3744-4e57-a0b9-9b388b932230}">
+		<property name="assetPath">
+			<value>Game/Complete_Bundle/Wild_West/Sounds/Wavs/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{a351434f-cc7b-45d9-850c-4a4e311d4018}">
+		<property name="assetPath">
+			<value>Music/Chiptune Vol 3 Music Pack/__MACOSX/Chiptune Vol 3 Music Pack/Candy (RT 1.678)/._Chiptune Vol3 Candy Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

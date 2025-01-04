@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{e579f69b-0e6b-4714-9a42-82664ff8c235}">
+		<property name="assetPath">
+			<value>Music/Rock Music/__MACOSX/Rock Music/No Loop/._Rock - Blazing Garage.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{6aa2992a-07f4-4d83-b4d3-49f8bfadf3dc}">
+		<property name="assetPath">
+			<value>Music/Western Music Pack/__MACOSX/Western Music Pack/Old Trail (RT 4.112)/._Western Old Trail Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

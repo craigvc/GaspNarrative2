@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{29a68ac4-f364-4107-9975-25a8fb4d6801}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Nature/._Bulb Burst Plant.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

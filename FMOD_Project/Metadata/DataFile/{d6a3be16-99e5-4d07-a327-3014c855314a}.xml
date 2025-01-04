@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d6a3be16-99e5-4d07-a327-3014c855314a}">
+		<property name="assetPath">
+			<value>Music/Horror Vol 4 Music Pack/__MACOSX/Horror Vol 4 Music Pack/Pulsate (RT 4.146)/._Horror Vol4 Pulsate Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

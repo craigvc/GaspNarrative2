@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{cf9769c1-db10-421c-b4d9-29517becd1c8}">
+		<property name="assetPath">
+			<value>Game/FootstepsSurvivalBundle/MegaSurvival/Foleys/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

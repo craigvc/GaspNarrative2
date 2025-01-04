@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{12328f55-d38d-437c-b2f1-8635166ae3a5}">
+		<property name="assetPath">
+			<value>Music/Chiptune Vol 3 Music Pack/__MACOSX/Chiptune Vol 3 Music Pack/._Ricochet (RT 4.015)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{a40a8c42-8629-4c05-97a5-c8d3381486fb}">
+		<property name="assetPath">
+			<value>Game/Scifi_Weapon_Vol01/Unreal_FPS_Arms/FirstPerson/Audio/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

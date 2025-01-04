@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{04bd0a3c-0aaa-48a0-ac1b-03afd986fd4c}">
+		<property name="assetPath">
+			<value>Music/Electronic Vol4 Music Pack/__MACOSX/Electronic Vol4 Music Pack/Skunkworks (RT 1.184)/._Electronic Vol4 Skunkworks Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

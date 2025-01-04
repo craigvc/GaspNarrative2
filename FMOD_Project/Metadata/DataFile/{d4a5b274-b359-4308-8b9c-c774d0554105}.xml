@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d4a5b274-b359-4308-8b9c-c774d0554105}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/__MACOSX/Magical Music Pack/Beasts (RT 3.75)/._Magical Beasts Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

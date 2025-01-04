@@ -1,0 +1,11 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeEquipment.cpp.obj": [
+			"EquipmentStatics.gen.cpp.obj",
+			"NarrativeEquipment.init.gen.cpp.obj",
+			"EquipmentStatics.cpp.obj",
+			"NarrativeEquipment.cpp.obj"
+		]
+	}
+}

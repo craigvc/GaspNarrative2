@@ -1,0 +1,39 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesavesystem\\module.narrativesavesystem.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesavesystem\\definitions.narrativesavesystem.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavableactor.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesavableactor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavableactor.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavablecomponent.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesavablecomponent.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavablecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesave.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesave.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\savegame.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\savegame.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesave.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavesubsystem.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\subsystems\\narrativesavesubsystem.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavesubsystem.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavesystem.init.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\savesystemstatics.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\savesystemstatics.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\savesystemstatics.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesavesystem\\permoduleinline.gen.cpp",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

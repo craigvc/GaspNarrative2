@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3b785ca1-5ddc-40ef-8a6f-de35cfe4bb00}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack/__MACOSX/Orchestral Ambient Music Pack/Spring (RT 3.429)/._OrchAmbient Spring Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

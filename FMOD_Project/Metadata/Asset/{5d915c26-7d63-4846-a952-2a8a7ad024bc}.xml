@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{5d915c26-7d63-4846-a952-2a8a7ad024bc}">
+		<property name="assetPath">
+			<value>Game/ChainsawAndDrill/Drill/Sounds/GearsChange/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

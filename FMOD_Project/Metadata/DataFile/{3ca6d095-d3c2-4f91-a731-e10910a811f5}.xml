@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3ca6d095-d3c2-4f91-a731-e10910a811f5}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/__MACOSX/Fantasy Vol 3 Music Pack/._Royalty (RT 1.636)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

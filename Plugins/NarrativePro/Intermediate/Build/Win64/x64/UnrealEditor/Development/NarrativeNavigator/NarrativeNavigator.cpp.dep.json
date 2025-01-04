@@ -1,0 +1,20 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\private\\narrativenavigator.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativenavigator\\definitions.narrativenavigator.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\narrativenavigator.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\coreredirects.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\internal\\uobject\\coreredirects\\pm-k.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\navigatorgameplaytags.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagcontainer.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\comparisonutility.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagcontainer.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeInteractionEditor.cpp.obj": [
+			"PerModuleInline.gen.cpp.obj",
+			"NarrativeInteractionEditorModule.cpp.obj",
+			"NarrativeInteractionStyle.cpp.obj"
+		]
+	}
+}

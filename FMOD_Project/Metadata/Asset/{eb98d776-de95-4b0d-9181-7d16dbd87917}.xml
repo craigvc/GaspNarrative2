@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{eb98d776-de95-4b0d-9181-7d16dbd87917}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack/__MACOSX/Orchestral Ambient Music Pack/Forever (RT 4.611)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

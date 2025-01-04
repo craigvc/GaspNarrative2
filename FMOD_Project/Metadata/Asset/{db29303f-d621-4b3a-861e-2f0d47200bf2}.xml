@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{db29303f-d621-4b3a-861e-2f0d47200bf2}">
+		<property name="assetPath">
+			<value>Game/Landscape_AM_18_Sandstone/Demo/FPC/FPWeapon/Audio/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{e2d673a4-9969-4c58-90f2-f4f768e144ff}">
+		<property name="assetPath">
+			<value>Music/Horror Vol 4 Music Pack/__MACOSX/Horror Vol 4 Music Pack/Arachnids (RT 2.182)/._Horror Vol4 Arachnids Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{dd856320-8ace-4a53-b6a9-e20cdd7be3a3}">
+		<property name="assetPath">
+			<value>Game/FootstepsSurvivalBundle/MegaSurvival/Environmnet_Intreaction/Waves/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

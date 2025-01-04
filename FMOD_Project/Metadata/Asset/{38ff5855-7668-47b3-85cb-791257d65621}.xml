@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{38ff5855-7668-47b3-85cb-791257d65621}">
+		<property name="assetPath">
+			<value>Music/Epic Music Pack Vol. 2/Deep Waters (RT 2.216)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{314390d8-4e30-461e-965e-ab6f8d0deffc}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack Vol. 3/My Horse (RT 3)/.DS_Store</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

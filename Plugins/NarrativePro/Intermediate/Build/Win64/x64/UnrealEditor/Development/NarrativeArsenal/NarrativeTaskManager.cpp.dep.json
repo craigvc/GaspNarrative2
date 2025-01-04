@@ -1,0 +1,21 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\tales\\narrativetaskmanager.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenal\\definitions.narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\tales\\narrativetaskmanager.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativetaskmanager.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\assetregistry\\public\\assetregistry\\assetregistrymodule.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\assetregistry\\public\\assetregistry\\iassetregistry.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\misc\\assetregistryinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\assetregistry\\uht\\iassetregistry.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\tales\\narrativedatatask.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativedatatask.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

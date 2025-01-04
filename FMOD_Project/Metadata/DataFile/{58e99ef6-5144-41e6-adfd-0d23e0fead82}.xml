@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{58e99ef6-5144-41e6-adfd-0d23e0fead82}">
+		<property name="assetPath">
+			<value>Music/Chiptune Vol 3 Music Pack/__MACOSX/Chiptune Vol 3 Music Pack/._Vision (RT 2.554)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

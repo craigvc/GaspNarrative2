@@ -1,0 +1,25 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\tales\\narrativedefaultcinecam.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenal\\definitions.narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\tales\\narrativedefaultcinecam.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\cinematiccamera\\public\\cinecameraactor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\camera\\cameraactor.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\cameraactor.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\cinematiccamera\\uht\\cinecameraactor.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativedefaultcinecam.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\cinematiccamera\\public\\cinecameracomponent.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\camera\\cameracomponent.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\cameracomponent.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\cinematiccamera\\public\\cinecamerasettings.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\cinematiccamera\\uht\\cinecamerasettings.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\cinematiccamera\\uht\\cinecameracomponent.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

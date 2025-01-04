@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{011472cb-ccb6-4e3e-b6c2-7b3845fca58c}">
+		<property name="assetPath">
+			<value>Music/Chiptune Vol 3 Music Pack/__MACOSX/Chiptune Vol 3 Music Pack/Castle (RT 2.587)/._Chiptune Vol3 Castle Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

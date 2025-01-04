@@ -1,0 +1,12 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativePro.cpp.obj": [
+			"NarrativePro.init.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"AnimNode_NarrativeDialogue.cpp.obj",
+			"NarrativeLogChannels.cpp.obj",
+			"NarrativePro.cpp.obj"
+		]
+	}
+}

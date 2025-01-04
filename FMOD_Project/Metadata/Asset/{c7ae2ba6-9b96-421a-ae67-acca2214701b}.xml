@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{c7ae2ba6-9b96-421a-ae67-acca2214701b}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/Fantasy Vol 3 Music Pack/Nock! (RT 2.571)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

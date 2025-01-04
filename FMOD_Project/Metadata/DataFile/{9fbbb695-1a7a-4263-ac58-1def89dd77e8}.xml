@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{9fbbb695-1a7a-4263-ac58-1def89dd77e8}">
+		<property name="assetPath">
+			<value>Music/Orchestral Rock Vol 2/__MACOSX/Orchestral Rock Vol 2/Just in Time (RT 5.146)/._OrchRock Vol2 Just in Time Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

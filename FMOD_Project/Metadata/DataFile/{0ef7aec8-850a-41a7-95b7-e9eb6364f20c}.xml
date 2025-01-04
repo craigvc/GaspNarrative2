@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0ef7aec8-850a-41a7-95b7-e9eb6364f20c}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Ice/._Arctic Gale.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

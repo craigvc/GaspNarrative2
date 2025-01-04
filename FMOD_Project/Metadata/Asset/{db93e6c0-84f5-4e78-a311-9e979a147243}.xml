@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{db93e6c0-84f5-4e78-a311-9e979a147243}">
+		<property name="assetPath">
+			<value>Game/BleakHorizons/Maps/BaseAssets/ConstructionSite/Effects/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

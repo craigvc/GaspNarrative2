@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{09f8a44a-04f2-4383-9a14-732f0727d67e}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Nature/._Animorphic Bond.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

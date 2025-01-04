@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{6e60506c-75a6-4b7b-a4bc-cd8289a8e398}">
+		<property name="assetPath">
+			<value>Music/Orchestral Rock Vol 2/__MACOSX/Orchestral Rock Vol 2/Escape (RT 5.09)/._OrchRock Vol2 Escape Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

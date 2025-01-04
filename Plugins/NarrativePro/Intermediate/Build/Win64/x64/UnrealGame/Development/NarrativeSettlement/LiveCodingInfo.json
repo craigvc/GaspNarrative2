@@ -1,0 +1,13 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeSettlement.cpp.obj": [
+			"NarrativeSettlement.init.gen.cpp.obj",
+			"NPCActivity.gen.cpp.obj",
+			"NPCBehaviourComponent.gen.cpp.obj",
+			"NPCActivity.cpp.obj",
+			"NarrativeSettlement.cpp.obj",
+			"NPCBehaviourComponent.cpp.obj"
+		]
+	}
+}

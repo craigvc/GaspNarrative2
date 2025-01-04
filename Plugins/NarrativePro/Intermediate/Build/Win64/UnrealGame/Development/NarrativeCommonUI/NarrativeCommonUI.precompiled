@@ -1,0 +1,13 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\Module.NarrativeCommonUI.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeActivatableWidget.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonHUD.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonUI.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonUIFunctionLibrary.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonUISubsystem.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonButtonBase.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonTextBlock.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeCommonUI\\NarrativeCommonVideoPlayer.cpp.obj"
+	]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f14710b1-6911-4cc3-86d6-be12c5fa457d}">
+		<property name="assetPath">
+			<value>Music/Orchestral Rock Vol 2/__MACOSX/Orchestral Rock Vol 2/Colosseum (RT 6.0)/._OrchRock Vol2 Colosseum Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

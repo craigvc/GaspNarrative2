@@ -1,0 +1,19 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeSaveSystem.cpp.obj": [
+			"NarrativeSavableActor.gen.cpp.obj",
+			"NarrativeSavableComponent.gen.cpp.obj",
+			"NarrativeSave.gen.cpp.obj",
+			"NarrativeSaveSubsystem.gen.cpp.obj",
+			"NarrativeSaveSystem.init.gen.cpp.obj",
+			"SaveSystemStatics.gen.cpp.obj",
+			"NarrativeSavableActor.cpp.obj",
+			"NarrativeSavableComponent.cpp.obj",
+			"NarrativeSave.cpp.obj",
+			"NarrativeSaveSystem.cpp.obj",
+			"SaveSystemStatics.cpp.obj",
+			"NarrativeSaveSubsystem.cpp.obj"
+		]
+	}
+}

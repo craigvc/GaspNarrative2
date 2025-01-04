@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0526ace8-e07d-4ce0-a7ae-67c71fe80d18}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/Electronic Ambient Music Pack/Creep (RT 6.445)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

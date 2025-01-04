@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{8a726c8a-15ad-421a-97b9-19d1e0ba0bbe}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/__MACOSX/Synth Fantasy Music Pack Vol. 2/Electro Pixie (RT 3.2)/._SynFantasy Vol2 Electro Pixie Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

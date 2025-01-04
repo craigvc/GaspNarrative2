@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f9f16da9-a215-4792-a81f-05e4ecfd8d29}">
+		<property name="assetPath">
+			<value>Music/Magical Music Pack/__MACOSX/Magical Music Pack/Clocktower (RT 2.667)/._Magical Clocktower Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

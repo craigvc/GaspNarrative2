@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-NarrativeSettlement.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"J:\Narrative55\HostProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\Module.NarrativeSettlement.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\NarrativeSettlement.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\NPCBehaviourComponent.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\NPCActivity.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\Default.rc2.res"
+/OUT:"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeSettlement\UnrealEditor-NarrativeSettlement.lib"

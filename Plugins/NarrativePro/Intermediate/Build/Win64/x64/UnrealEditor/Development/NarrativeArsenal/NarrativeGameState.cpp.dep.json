@@ -1,0 +1,36 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\unrealframework\\narrativegamestate.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenal\\definitions.narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\unrealframework\\narrativegamestate.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamestatebase.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gamemodebase.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\engine\\serverstatreplicator.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\serverstatreplicator.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamemodebase.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gamestatebase.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesavableactor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavableactor.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\teams\\factiondefinition.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\factiondefinition.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\teams\\narrativeteamagentinterface.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\genericteamagentinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\genericteamagentinterface.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativeteamagentinterface.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativegamestate.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

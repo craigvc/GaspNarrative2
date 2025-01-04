@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0377636e-a2ab-4eea-b030-22a7f6c38c9c}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/__MACOSX/Classical Vol 2 Music Pack/The Fair (RT 2.4)/._The Fair Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

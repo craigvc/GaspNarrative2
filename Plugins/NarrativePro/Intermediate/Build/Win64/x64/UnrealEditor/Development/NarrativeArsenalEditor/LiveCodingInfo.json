@@ -1,0 +1,22 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeArsenalEditor.cpp.obj": [
+			"ArsenalBlueprintFactories.gen.cpp.obj",
+			"ArsenalBlueprints.gen.cpp.obj",
+			"EquippableItemBlueprint.gen.cpp.obj",
+			"EquippableItemBlueprintFactory.gen.cpp.obj",
+			"NarrativeArsenalEditor.init.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"ArsenalBlueprintFactories.cpp.obj",
+			"ArsenalBlueprints.cpp.obj",
+			"AssetTypeActions_ArsenalItems.cpp.obj",
+			"AssetTypeActions_EquippableItem.cpp.obj",
+			"AssetTypeActions_NPCDefinition.cpp.obj",
+			"EquippableItemBlueprint.cpp.obj",
+			"EquippableItemBlueprintFactory.cpp.obj",
+			"NarrativeArsenalEditorModule.cpp.obj",
+			"NarrativeArsenalStyle.cpp.obj"
+		]
+	}
+}

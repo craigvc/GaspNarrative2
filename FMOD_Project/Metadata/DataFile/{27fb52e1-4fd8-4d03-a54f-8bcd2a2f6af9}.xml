@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{27fb52e1-4fd8-4d03-a54f-8bcd2a2f6af9}">
+		<property name="assetPath">
+			<value>Music/05 Dance away/AAC/Escape.m4a</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{20f0b0da-9be4-4ec7-a0ce-4173cd1aebfc}">
+		<property name="assetPath">
+			<value>Music/Horror Vol 4 Music Pack/Horror Vol 4 Music Pack/Voices (RT 12.228)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

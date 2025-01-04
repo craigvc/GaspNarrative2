@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{7d0b6cf4-8b0c-47a7-84ca-d10ba8e9f6e8}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/__MACOSX/Synth Fantasy Music Pack/._Doubt (RT 5.275)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

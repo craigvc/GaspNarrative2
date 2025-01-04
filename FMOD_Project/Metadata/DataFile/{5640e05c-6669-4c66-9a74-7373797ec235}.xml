@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{5640e05c-6669-4c66-9a74-7373797ec235}">
+		<property name="assetPath">
+			<value>Music/Nordic Music Pack/__MACOSX/Nordic Music Pack/._Thor's Wrath (RT 1.875)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{9ebd3e45-331c-4b2a-84a9-9f7aad83ffb9}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/._Earth</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

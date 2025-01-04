@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d18f442f-34b7-4dfb-8727-edca033668a3}">
+		<property name="assetPath">
+			<value>Music/Rhythmic Music Pack/__MACOSX/Rhythmic Music Pack/._Vertigo (RT 3.359)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

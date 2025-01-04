@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{88e2a028-cf6a-40ff-8c4f-e244883d6ba3}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Air/._Cyclone Blade Impact A.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

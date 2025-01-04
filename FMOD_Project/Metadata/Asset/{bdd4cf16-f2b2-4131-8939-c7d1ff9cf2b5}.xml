@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{bdd4cf16-f2b2-4131-8939-c7d1ff9cf2b5}">
+		<property name="assetPath">
+			<value>Music/Fantasy Music Pack Vol. 5/Shields and Spears (RT 2.625)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

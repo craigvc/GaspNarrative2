@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{473e2ea5-a47e-4a74-a03f-9373d1fe56cf}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Air/._Zephyrs Resonance.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

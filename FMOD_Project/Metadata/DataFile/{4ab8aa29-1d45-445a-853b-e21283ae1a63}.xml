@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{4ab8aa29-1d45-445a-853b-e21283ae1a63}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Nature/._Summon Bramble Trap.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

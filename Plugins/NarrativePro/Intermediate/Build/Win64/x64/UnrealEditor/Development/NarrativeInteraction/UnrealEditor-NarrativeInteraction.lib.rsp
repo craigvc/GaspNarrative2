@@ -1,0 +1,17 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-NarrativeInteraction.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"J:\Narrative55\HostProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\Module.NarrativeInteraction.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\InteractableComponent.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\Interaction.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\InteractionComponent.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\InteractionFunctionLibrary.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\NarrativeInteraction.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\Default.rc2.res"
+/OUT:"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativeInteraction\UnrealEditor-NarrativeInteraction.lib"

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{472a9d26-9489-4ef1-867d-dc4949d6ccc8}">
+		<property name="assetPath">
+			<value>Music/Jingles &amp; Stingers SFX 2/__MACOSX/Jingles &amp; Stingers SFX 2/Asian/._Asian Shakuhachi B.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Development/NinjaCombatActorPool/Module.NinjaCombatActorPool.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaCombatActorPool/Module.NinjaCombatActorPool.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaCombatActorPool/Module.NinjaCombatActorPool.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaCombatActorPool/Module.NinjaCombatActorPool.cpp.o"
+	]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{29a3a767-d4cf-4e86-ad5a-198b76f3b0b0}">
+		<property name="assetPath">
+			<value>Music/Ethereal Music Pack/Luminesce (RT 4.091)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

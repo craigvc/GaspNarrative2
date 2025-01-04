@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{55a145d9-ab2d-4804-9be1-c0b3157a1953}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/__MACOSX/Classical Vol 2 Music Pack/Mr Banks (RT 2.286)/._Mr Banks Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

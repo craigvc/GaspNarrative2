@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{7f36bb0b-651d-4a77-9831-97940fc39e10}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 2-1705730329499/Hip Hop Vol 2 Music Pack/__MACOSX/Hip Hop Vol 2 Music Pack/PF (RT 2.016)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

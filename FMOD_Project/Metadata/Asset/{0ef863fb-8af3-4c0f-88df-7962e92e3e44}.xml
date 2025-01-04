@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{0ef863fb-8af3-4c0f-88df-7962e92e3e44}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/Fantasy Vol 3 Music Pack/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

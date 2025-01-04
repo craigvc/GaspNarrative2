@@ -1,0 +1,25 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\private\\maptilecomponent.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativenavigator\\definitions.narrativenavigator.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\maptilecomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\navigationmarkercomponent.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagcontainer.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\misc\\comparisonutility.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagcontainer.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativenavigator\\uht\\navigationmarkercomponent.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\gameplaytags\\public\\nativegameplaytags.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\gameplaytags\\classes\\gameplaytagsmanager.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\gameplaytags\\uht\\gameplaytagsmanager.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativenavigator\\uht\\maptilecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\narrativenavigator.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativenavigator\\public\\navigatorgameplaytags.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

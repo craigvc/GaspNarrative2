@@ -1,0 +1,59 @@
+// Copyright Narrative Tools 2024. 
+
+using UnrealBuildTool;
+
+public class NarrativeInteractionEditor : ModuleRules
+{
+    public NarrativeInteractionEditor(ReadOnlyTargetRules Target) : base(Target)
+    {
+        PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+        bLegacyPublicIncludePaths = false;
+
+        //Required for registering dialogue assets
+        PrivateIncludePathModuleNames.AddRange(
+            new string[] {
+                "AssetRegistry",
+                "AssetTools",
+                "PropertyEditor",
+                "ContentBrowser"
+            }
+            );
+
+
+        PrivateIncludePaths.AddRange(
+            new string[] {
+				// ... add other private include paths required here ...
+			}
+            );
+
+
+        PublicDependencyModuleNames.AddRange(
+            new string[]
+            {
+                "Core",
+				// ... add other public dependencies that you statically link with here ...
+			}
+            );
+
+
+        PrivateDependencyModuleNames.AddRange(
+            new string[]
+            {
+                "Core",
+                "CoreUObject",
+                "ApplicationCore",
+                "Engine",
+                "RenderCore",
+                "InputCore",
+                "EditorStyle",
+                "Slate",
+                "SlateCore",
+                "UnrealEd",
+                "EditorStyle",
+                "Projects",
+                "AssetTools",
+                "NarrativeInteraction"
+            }
+            );
+    }
+}

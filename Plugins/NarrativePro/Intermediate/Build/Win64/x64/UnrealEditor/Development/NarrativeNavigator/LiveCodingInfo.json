@@ -1,0 +1,35 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeNavigator.cpp.obj": [
+			"CustomWaypoint.gen.cpp.obj",
+			"CustomWaypointMarker.gen.cpp.obj",
+			"MapTileBounds.gen.cpp.obj",
+			"MapTileBoundsDebugDraw.gen.cpp.obj",
+			"MapTileComponent.gen.cpp.obj",
+			"NarrativeNavigationComponent.gen.cpp.obj",
+			"NarrativeNavigator.init.gen.cpp.obj",
+			"NavigationMarkerActor.gen.cpp.obj",
+			"NavigationMarkerComponent.gen.cpp.obj",
+			"NavigationSubsystem.gen.cpp.obj",
+			"NavigatorStatics.gen.cpp.obj",
+			"POINavigationMarker.gen.cpp.obj",
+			"PointOfInterest.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"CustomWaypoint.cpp.obj",
+			"CustomWaypointMarker.cpp.obj",
+			"MapTileBounds.cpp.obj",
+			"MapTileBoundsDebugDraw.cpp.obj",
+			"MapTileComponent.cpp.obj",
+			"NarrativeNavigationComponent.cpp.obj",
+			"NarrativeNavigator.cpp.obj",
+			"NavigationMarkerActor.cpp.obj",
+			"NavigationMarkerComponent.cpp.obj",
+			"NavigationSubsystem.cpp.obj",
+			"NavigatorGameplayTags.cpp.obj",
+			"NavigatorStatics.cpp.obj",
+			"POINavigationMarker.cpp.obj",
+			"PointOfInterest.cpp.obj"
+		]
+	}
+}

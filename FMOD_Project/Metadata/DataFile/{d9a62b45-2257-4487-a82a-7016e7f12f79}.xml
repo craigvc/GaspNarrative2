@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d9a62b45-2257-4487-a82a-7016e7f12f79}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/__MACOSX/Classical Vol 2 Music Pack/Brunch (RT 2.667)/._Brunch Main.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0e2245d1-142c-4a3c-85e1-e2d48b2da3b9}">
+		<property name="assetPath">
+			<value>Music/05 Dance away/00 Terms and conditions.pdf</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

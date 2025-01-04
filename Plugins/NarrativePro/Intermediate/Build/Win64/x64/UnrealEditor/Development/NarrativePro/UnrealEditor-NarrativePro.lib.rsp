@@ -1,0 +1,15 @@
+/NOLOGO
+/errorReport:prompt
+/MACHINE:x64
+/SUBSYSTEM:WINDOWS
+/DEF
+/NAME:"UnrealEditor-NarrativePro.dll"
+/IGNORE:4221
+/NODEFAULTLIB
+"J:\Narrative55\HostProject\Intermediate\Build\Win64\x64\UnrealEditor\Development\UnrealEd\SharedPCH.UnrealEd.Cpp20.h.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\Module.NarrativePro.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\AnimNode_NarrativeDialogue.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\NarrativeLogChannels.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\NarrativePro.cpp.obj"
+"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\Default.rc2.res"
+/OUT:"J:\Narrative55\HostProject\Plugins\NarrativePro\Intermediate\Build\Win64\x64\UnrealEditor\Development\NarrativePro\UnrealEditor-NarrativePro.lib"

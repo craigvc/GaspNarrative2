@@ -1,0 +1,42 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\private\\ai\\envquerytest_team.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativearsenal\\definitions.narrativearsenal.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\ai\\envquerytest_team.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\envquerytest.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\items\\envqueryitemtype.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envqueryitemtype.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\envquerycontext.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envquerycontext.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\envquerytypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\behaviortree\\behaviortreetypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\behaviortree\\blackboard\\blackboardkey.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\behaviortreetypes.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envquerytypes.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\dataproviders\\aidataprovider.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aidataprovider.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\envquerynode.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envquerynode.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envquerytest.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\envquerytest_team.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\items\\envqueryitemtype_actorbase.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\environmentquery\\items\\envqueryitemtype_vectorbase.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envqueryitemtype_vectorbase.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\envqueryitemtype_actorbase.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\arsenalstatics.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\genericteamagentinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\genericteamagentinterface.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\unrealframework\\narrativegameusersettings.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\gameframework\\gameusersettings.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\gameusersettings.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativegameusersettings.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\arsenalstatics.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

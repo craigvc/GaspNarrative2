@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{d9ea19bb-dc83-47d7-ada6-ffeb05de7fb3}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/__MACOSX/Classical Vol 2 Music Pack/Lillies (RT 2.667)/._Lillies Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

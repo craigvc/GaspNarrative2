@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{412bf937-1e78-48e8-9635-3f4fb9b8c333}">
+		<property name="assetPath">
+			<value>Music/Jingles &amp; Stingers SFX 2/__MACOSX/Jingles &amp; Stingers SFX 2/Drums and Percussion/._Perc Horror F.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

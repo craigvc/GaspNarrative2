@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{2f9431b1-1ba0-4c05-ba2c-ce88b9f16a2b}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/__MACOSX/Fantasy Vol 3 Music Pack/To The Wall (RT 2.667)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

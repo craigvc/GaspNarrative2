@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{9aad78db-9a75-4da4-a357-dee267669868}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack Vol. 3/Nightly Routine (RT 10.174)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

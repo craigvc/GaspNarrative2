@@ -1,0 +1,29 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteractioneditor\\private\\narrativeinteractioneditormodule.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteractioneditor\\definitions.narrativeinteractioneditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteractioneditor\\public\\narrativeinteractioneditormodule.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettypeactions_base.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\assettools\\public\\iassettools.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettypecategories.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\assettools\\public\\iassettypeactions.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\merge\\public\\merge.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\thumbnailrendering\\thumbnailmanager.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\thumbnailrendering\\thumbnailrenderer.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\thumbnailrenderer.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\thumbnailmanager.generated.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\automatedassetimportdata.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\automatedassetimportdata.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\assettools\\uht\\iassettools.generated.h",
+            "i:\\ue_5.5\\engine\\source\\developer\\assettools\\public\\assettoolsmodule.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\toolkits\\simpleasseteditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteractioneditor\\private\\narrativeinteractionstyle.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

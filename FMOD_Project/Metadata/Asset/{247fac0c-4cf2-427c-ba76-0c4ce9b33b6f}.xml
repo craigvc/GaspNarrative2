@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{247fac0c-4cf2-427c-ba76-0c4ce9b33b6f}">
+		<property name="assetPath">
+			<value>Game/MilitaryWeapSilver/Sound/GrenadeLauncher/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

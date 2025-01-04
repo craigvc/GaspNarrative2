@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{2a0abe6a-1743-4743-9835-5ca01b376bcd}">
+		<property name="assetPath">
+			<value>Music/Electronic Ambient Music Pack/Electronic Ambient Music Pack/Milkyway (RT 7.008)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

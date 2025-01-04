@@ -1,0 +1,222 @@
+{
+	"FileVersion": 3,
+	"Version": 1,
+	"VersionName": "1.0",
+	"FriendlyName": "Narrative Pro",
+	"Description": "Every tool you need for a great game in one plugin - Maps, Quests, Dialogue, Weapons, Inventory, NPCs, Interaction and much more.",
+	"Category": "Narrative",
+	"CreatedBy": "Narrative Tools, Inc.",
+	"CreatedByURL": "https://www.narrativetools.io/",
+	"DocsURL": "https://docs.google.com/document/d/1TYZSCPr8yWjtOrBzGcXMLuOaFZTiIxDyaNmxsdmA1yU",
+	"MarketplaceURL": "com.epicgames.launcher//ue/marketplace/product/aa40d0e693b24d92bcfa1553463cf542",
+	"SupportURL": "",
+	"EngineVersion": "5.5.0",
+	"CanContainContent": true,
+	"Installed": true,
+	"Modules": [
+		{
+			"Name": "NarrativePro",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeSaveSystem",
+			"Type": "Runtime",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeCommonUI",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeCommonUIEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeQuestEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeDialogueEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeArsenal",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeArsenalEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeInteraction",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeInteractionEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeInventory",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeInventoryEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeEquipment",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeEquipmentEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeNavigator",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeNavigatorEditor",
+			"Type": "UncookedOnly",
+			"LoadingPhase": "PreDefault",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		},
+		{
+			"Name": "NarrativeSettlement",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"PlatformAllowList": [
+				"Win64",
+				"Android",
+				"Linux"
+			]
+		}
+	],
+	"Plugins": [
+		{
+			"Name": "MotionWarping",
+			"Enabled": true
+		},
+		{
+			"Name": "SmartObjects",
+			"Enabled": true
+		},
+		{
+			"Name": "CommonUI",
+			"Enabled": true
+		},
+		{
+			"Name": "EnhancedInput",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimationWarping",
+			"Enabled": true
+		},
+		{
+			"Name": "AnimationLocomotionLibrary",
+			"Enabled": true
+		},
+		{
+			"Name": "PoseSearch",
+			"Enabled": true
+		},
+		{
+			"Name": "HairStrands",
+			"Enabled": true
+		}
+	]
+}

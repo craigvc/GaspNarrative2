@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{c3b19dbb-2e6a-4503-b2d0-c8464f8d3b14}">
+		<property name="assetPath">
+			<value>Music/Rock Music/__MACOSX/Rock Music/No Loop/._Rock - Highway 99.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

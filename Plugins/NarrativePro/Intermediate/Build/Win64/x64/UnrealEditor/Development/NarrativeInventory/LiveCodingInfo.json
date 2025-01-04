@@ -1,0 +1,28 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeInventory.cpp.obj": [
+			"InventoryComponent.gen.cpp.obj",
+			"InventoryFunctionLibrary.gen.cpp.obj",
+			"InventoryItemWidget.gen.cpp.obj",
+			"InventoryWidget.gen.cpp.obj",
+			"ItemTooltip.gen.cpp.obj",
+			"ItemWidget.gen.cpp.obj",
+			"NarrativeInventory.init.gen.cpp.obj",
+			"NarrativeInventorySettings.gen.cpp.obj",
+			"NarrativeItem.gen.cpp.obj",
+			"VendorInventoryComponent.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"InventoryComponent.cpp.obj",
+			"InventoryFunctionLibrary.cpp.obj",
+			"InventoryItemWidget.cpp.obj",
+			"InventoryWidget.cpp.obj",
+			"ItemTooltip.cpp.obj",
+			"NarrativeInventory.cpp.obj",
+			"NarrativeInventorySettings.cpp.obj",
+			"NarrativeItem.cpp.obj",
+			"VendorInventoryComponent.cpp.obj",
+			"ItemWidget.cpp.obj"
+		]
+	}
+}

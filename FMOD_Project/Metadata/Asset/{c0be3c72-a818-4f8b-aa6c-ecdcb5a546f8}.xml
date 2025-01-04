@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{c0be3c72-a818-4f8b-aa6c-ecdcb5a546f8}">
+		<property name="assetPath">
+			<value>Game/DamPort_BANGAO/Sounds/Bonfire/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

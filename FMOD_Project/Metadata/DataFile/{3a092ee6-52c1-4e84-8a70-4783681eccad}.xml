@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{3a092ee6-52c1-4e84-8a70-4783681eccad}">
+		<property name="assetPath">
+			<value>Music/Audio Odyssey Vol1/AAC/Duke.m4a</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

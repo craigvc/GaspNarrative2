@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeInteraction.cpp.obj": [
+			"InteractableComponent.gen.cpp.obj",
+			"Interaction.gen.cpp.obj",
+			"InteractionComponent.gen.cpp.obj",
+			"InteractionFunctionLibrary.gen.cpp.obj",
+			"NarrativeInteraction.init.gen.cpp.obj",
+			"InteractableComponent.cpp.obj",
+			"Interaction.cpp.obj",
+			"InteractionComponent.cpp.obj",
+			"InteractionFunctionLibrary.cpp.obj",
+			"NarrativeInteraction.cpp.obj"
+		]
+	}
+}

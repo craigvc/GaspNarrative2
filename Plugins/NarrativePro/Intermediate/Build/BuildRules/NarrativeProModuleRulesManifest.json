@@ -1,0 +1,22 @@
+{
+	"SourceFiles": [
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeArsenalEditor\\NarrativeArsenalEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeArsenal\\NarrativeArsenal.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeCommonUIEditor\\NarrativeCommonUIEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeCommonUI\\NarrativeCommonUI.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeDialogueEditor\\NarrativeDialogueEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeEquipmentEditor\\NarrativeEquipmentEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeEquipment\\NarrativeEquipment.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeInteractionEditor\\NarrativeInteractionEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeInteraction\\NarrativeInteraction.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeInventoryEditor\\NarrativeInventoryEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeInventory\\NarrativeInventory.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeNavigatorEditor\\NarrativeNavigatorEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeNavigator\\NarrativeNavigator.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativePro\\NarrativePro.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeQuestEditor\\NarrativeQuestEditor.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeSaveSystem\\NarrativeSaveSystem.Build.cs",
+		"J:\\Narrative55\\HostProject\\Plugins\\NarrativePro\\Source\\NarrativeSettlement\\NarrativeSettlement.Build.cs"
+	],
+	"EngineVersion": "5.5.1"
+}

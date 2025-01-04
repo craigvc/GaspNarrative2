@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{265ddf45-7209-415f-955a-51086ec9dc6d}">
+		<property name="assetPath">
+			<value>Music/Nordic Music Pack/__MACOSX/Nordic Music Pack/._Wild Flower (RT 3)</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

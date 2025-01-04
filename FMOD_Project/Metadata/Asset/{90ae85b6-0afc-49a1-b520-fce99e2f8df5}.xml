@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{90ae85b6-0afc-49a1-b520-fce99e2f8df5}">
+		<property name="assetPath">
+			<value>Music/Chiptune Vol 3 Music Pack/Chiptune Vol 3 Music Pack/Ricochet (RT 4.015)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

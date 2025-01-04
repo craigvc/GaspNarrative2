@@ -1,0 +1,46 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeDialogueEditor.cpp.obj": [
+			"DialogueAssetFactory.gen.cpp.obj",
+			"DialogueBlueprint.gen.cpp.obj",
+			"DialogueEditorSettings.gen.cpp.obj",
+			"DialogueEditorTypes.gen.cpp.obj",
+			"DialogueGraph.gen.cpp.obj",
+			"DialogueGraphNode.gen.cpp.obj",
+			"DialogueGraphNode_NPC.gen.cpp.obj",
+			"DialogueGraphNode_Player.gen.cpp.obj",
+			"DialogueGraphNode_Root.gen.cpp.obj",
+			"DialogueGraphSchema.gen.cpp.obj",
+			"DialogueNodeUserWidget.gen.cpp.obj",
+			"NarrativeDialogueEditor.init.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"AssetTypeActions_DialogueAsset.cpp.obj",
+			"AssetTypeActions_DialogueBlueprint.cpp.obj",
+			"DialogueAssetFactory.cpp.obj",
+			"DialogueBlueprintCompiler.cpp.obj",
+			"DialogueConnectionDrawingPolicy.cpp.obj",
+			"DialogueEditorCommands.cpp.obj",
+			"DialogueEditorDetails.cpp.obj",
+			"DialogueEditorModes.cpp.obj",
+			"DialogueEditorSettings.cpp.obj",
+			"DialogueEditorStyle.cpp.obj",
+			"DialogueEditorTabFactories.cpp.obj",
+			"DialogueEditorTabs.cpp.obj",
+			"DialogueEditorToolbar.cpp.obj",
+			"DialogueEditorTypes.cpp.obj",
+			"DialogueGraph.cpp.obj",
+			"DialogueGraphEditor.cpp.obj",
+			"DialogueGraphNode.cpp.obj",
+			"DialogueGraphNode_NPC.cpp.obj",
+			"DialogueGraphNode_Player.cpp.obj",
+			"DialogueGraphNode_Root.cpp.obj",
+			"DialogueGraphSchema.cpp.obj",
+			"DialogueNodeUserWidget.cpp.obj",
+			"NarrativeDialogueEditorModule.cpp.obj",
+			"SDialogueGraphNode.cpp.obj",
+			"SDialogueGraphPin.cpp.obj",
+			"DialogueBlueprint.cpp.obj"
+		]
+	}
+}

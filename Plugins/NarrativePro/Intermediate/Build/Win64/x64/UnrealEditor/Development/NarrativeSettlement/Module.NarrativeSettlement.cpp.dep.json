@@ -1,0 +1,43 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesettlement\\module.narrativesettlement.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesettlement\\definitions.narrativesettlement.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesettlement\\uht\\narrativesettlement.init.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesettlement\\uht\\npcactivity.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesettlement\\public\\activities\\npcactivity.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\aicontroller.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\aitypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\navigationsystem\\public\\navigationsystemtypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\classes\\ai\\navigation\\navagentselector.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\navagentselector.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aitypes.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\perception\\aiperceptionlistenerinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aiperceptionlistenerinterface.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\aimodule\\classes\\genericteamagentinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\genericteamagentinterface.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\public\\visuallogger\\visualloggerdebugsnapshotinterface.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\visualloggerdebugsnapshotinterface.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\aimodule\\uht\\aicontroller.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesettlement\\uht\\npcactivity.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesettlement\\uht\\npcbehaviourcomponent.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesettlement\\public\\npcbehaviourcomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativesavesystem\\public\\narrativesavablecomponent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesavesystem\\uht\\narrativesavablecomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativesettlement\\uht\\npcbehaviourcomponent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativesettlement\\permoduleinline.gen.cpp",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{7b9ab304-52b5-407d-9b9e-cf8c305245d2}">
+		<property name="assetPath">
+			<value>Music/Heavy Electronic Music Pack Vol. 2/Mass (RT 2.911)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

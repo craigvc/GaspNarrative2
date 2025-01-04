@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{815f40b2-1d88-49c0-947d-9cbf140e60c7}">
+		<property name="assetPath">
+			<value>Game/Complete_Bundle/The_Vault/StarterContent/Audio/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,24 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinventoryeditor\\module.narrativeinventoryeditor.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinventoryeditor\\definitions.narrativeinventoryeditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinventoryeditor\\uht\\narrativeinventoryeditor.init.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinventoryeditor\\uht\\narrativeitemblueprint.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinventoryeditor\\private\\narrativeitemblueprint.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinventoryeditor\\uht\\narrativeitemblueprint.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinventoryeditor\\uht\\narrativeitemblueprintfactory.gen.cpp",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinventoryeditor\\private\\narrativeitemblueprintfactory.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\classes\\factories\\blueprintfactory.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\blueprintfactory.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativeinventoryeditor\\uht\\narrativeitemblueprintfactory.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinventoryeditor\\permoduleinline.gen.cpp",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\hal\\permoduleinline.inl"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

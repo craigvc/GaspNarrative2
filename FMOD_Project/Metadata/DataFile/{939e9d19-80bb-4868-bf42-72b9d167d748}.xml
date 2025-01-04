@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{939e9d19-80bb-4868-bf42-72b9d167d748}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/__MACOSX/Synth Fantasy Music Pack/Time (RT 4.575)/._SynFantasy Time Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

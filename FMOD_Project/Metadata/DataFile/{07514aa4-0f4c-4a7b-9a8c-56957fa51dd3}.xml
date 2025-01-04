@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{07514aa4-0f4c-4a7b-9a8c-56957fa51dd3}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/__MACOSX/Fantasy Vol 3 Music Pack/Rockslides (RT 3)/._Rockslides Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

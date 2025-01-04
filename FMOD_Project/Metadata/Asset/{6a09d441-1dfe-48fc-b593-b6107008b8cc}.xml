@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{6a09d441-1dfe-48fc-b593-b6107008b8cc}">
+		<property name="assetPath">
+			<value>Music/Ethereal Music Pack/Enigmatic Badger (RT 7.2)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

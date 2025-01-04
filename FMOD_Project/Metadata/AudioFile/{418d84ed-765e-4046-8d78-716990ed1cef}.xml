@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="AudioFile" id="{418d84ed-765e-4046-8d78-716990ed1cef}">
+		<property name="assetPath">
+			<value>Sonniss.com - Game Audio Monthly - #4/Red Libraries - The Windshield/TWS-Impact on Windshield with crackles and light debris-Stereo - No Contact  Mic-04.wav</value>
+		</property>
+		<property name="frequencyInKHz">
+			<value>96</value>
+		</property>
+		<property name="channelCount">
+			<value>2</value>
+		</property>
+		<property name="length">
+			<value>1.7398958333333334</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

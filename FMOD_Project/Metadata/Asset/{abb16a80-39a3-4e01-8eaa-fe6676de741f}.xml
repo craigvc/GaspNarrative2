@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{abb16a80-39a3-4e01-8eaa-fe6676de741f}">
+		<property name="assetPath">
+			<value>Sonniss.com - Game Audio Monthly - #4/SoundBits - Just Whoosh/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

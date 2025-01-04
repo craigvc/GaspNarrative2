@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{10b14bd9-99dc-4db1-96f7-d05b5d98a472}">
+		<property name="assetPath">
+			<value>Music/Dubstep Music/__MACOSX/Dubstep Music/No Loop/._Dubstep - Feel The Boom.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

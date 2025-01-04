@@ -1,0 +1,16 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.1.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.2.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.3.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.4.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.5.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.6.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.7.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.8.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.9.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.10.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.11.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Shipping\\NinjaCombat\\Module.NinjaCombat.12.cpp.obj"
+	]
+}

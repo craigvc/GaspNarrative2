@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{495a2ca9-a17a-4cdf-a015-a96c2b02c9d6}">
+		<property name="assetPath">
+			<value>Music/Jazz Music Pack Vol. 2/Club Dizzy (RT 3.206)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

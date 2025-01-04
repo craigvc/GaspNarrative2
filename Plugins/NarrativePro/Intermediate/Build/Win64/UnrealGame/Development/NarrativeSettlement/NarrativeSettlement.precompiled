@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSettlement\\Module.NarrativeSettlement.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSettlement\\NarrativeSettlement.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSettlement\\NPCBehaviourComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSettlement\\NPCActivity.cpp.obj"
+	]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{38ac9fa2-714b-4c0e-a46e-5bcdec622d1e}">
+		<property name="assetPath">
+			<value>Game/MuscleCarSounds/Wavs/V8_Muscle_4-7L_Classic/Interior/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

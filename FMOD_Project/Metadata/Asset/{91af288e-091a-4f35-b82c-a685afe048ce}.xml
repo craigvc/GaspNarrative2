@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{91af288e-091a-4f35-b82c-a685afe048ce}">
+		<property name="assetPath">
+			<value>Sonniss.com - Game Audio Monthly - #4/The AudioVille - Atmospheres of India/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

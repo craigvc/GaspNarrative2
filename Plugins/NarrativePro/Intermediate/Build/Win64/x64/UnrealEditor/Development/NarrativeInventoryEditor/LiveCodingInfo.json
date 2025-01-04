@@ -1,0 +1,17 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeInventoryEditor.cpp.obj": [
+			"NarrativeInventoryEditor.init.gen.cpp.obj",
+			"NarrativeItemBlueprint.gen.cpp.obj",
+			"NarrativeItemBlueprintFactory.gen.cpp.obj",
+			"PerModuleInline.gen.cpp.obj",
+			"AssetTypeActions_ItemCollection.cpp.obj",
+			"AssetTypeActions_NarrativeItem.cpp.obj",
+			"NarrativeInventoryEditorModule.cpp.obj",
+			"NarrativeInventoryStyle.cpp.obj",
+			"NarrativeItemBlueprint.cpp.obj",
+			"NarrativeItemBlueprintFactory.cpp.obj"
+		]
+	}
+}

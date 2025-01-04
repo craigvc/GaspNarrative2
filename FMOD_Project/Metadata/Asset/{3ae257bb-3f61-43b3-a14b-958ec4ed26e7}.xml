@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{3ae257bb-3f61-43b3-a14b-958ec4ed26e7}">
+		<property name="assetPath">
+			<value>Music/Funk Music Pack/Nobody Knows (RT 4.091)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

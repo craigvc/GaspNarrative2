@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f2ee57c6-9f12-4ce1-97b8-1f0c7394699f}">
+		<property name="assetPath">
+			<value>Music/Nordic Music Pack/__MACOSX/Nordic Music Pack/Break Bones! (RT 2.572)/._Nordic Break Bones! Cut 30.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

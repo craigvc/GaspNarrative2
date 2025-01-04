@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{2ba85b3e-1a81-4400-84f3-65da13c5ae3d}">
+		<property name="assetPath">
+			<value>Music/Fantasy Music Pack Vol. 5/Corsair (RT 3.75)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{fbbfe9ad-9ba5-4855-8bd7-02bf356bfe7c}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Air/._Mistform.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

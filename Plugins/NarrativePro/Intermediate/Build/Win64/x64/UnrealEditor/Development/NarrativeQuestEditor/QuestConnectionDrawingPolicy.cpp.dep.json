@@ -1,0 +1,42 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativequesteditor\\private\\questconnectiondrawingpolicy.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativequesteditor\\definitions.narrativequesteditor.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativequesteditor\\private\\questconnectiondrawingpolicy.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\connectiondrawingpolicy.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\grapheditorsettings.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\unrealed\\public\\edgraphnode_comment.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\unrealed\\uht\\edgraphnode_comment.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\grapheditor\\uht\\grapheditorsettings.generated.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\graphsplineoverlapresult.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\sgraphpin.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\sgraphnode.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\snodepanel.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\engine\\public\\diffresults.h",
+            "i:\\ue_5.5\\engine\\source\\editor\\grapheditor\\public\\marqueeoperation.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\slate\\public\\widgets\\layout\\swrapbox.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativequesteditor\\private\\questgraphnode_action.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativequesteditor\\private\\questgraphnode.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\tales\\questsm.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\tales\\narrativenodebase.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\noexporttypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\propertyaccessutil.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\serialization\\testundeclaredscriptstructobjectreferences.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\math\\unitconversion.inl",
+            "i:\\ue_5.5\\engine\\source\\runtime\\core\\public\\internationalization\\polyglottextdata.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativearsenal\\public\\tales\\narrativeevent.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativeevent.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\narrativenodebase.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativearsenal\\uht\\questsm.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativequesteditor\\uht\\questgraphnode.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativequesteditor\\uht\\questgraphnode_action.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

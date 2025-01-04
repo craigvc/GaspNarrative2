@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2aad3a53-f615-4895-a284-e54a89c1ed57}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Shock/._Lightning Bolt Cast C.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

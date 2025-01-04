@@ -1,0 +1,7 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeEquipment\\Module.NarrativeEquipment.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeEquipment\\EquipmentStatics.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeEquipment\\NarrativeEquipment.cpp.obj"
+	]
+}

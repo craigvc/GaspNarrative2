@@ -1,0 +1,10 @@
+{
+	"RemapUnityFiles": 
+	{
+		"Module.NarrativeEquipmentEditor.cpp.obj": [
+			"PerModuleInline.gen.cpp.obj",
+			"NarrativeEquipmentEditorModule.cpp.obj",
+			"NarrativeEquipmentStyle.cpp.obj"
+		]
+	}
+}

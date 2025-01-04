@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0d8d475a-9fc1-4489-8c41-8218024e5a13}">
+		<property name="assetPath">
+			<value>Music/MinecraftMusicManager 0.0.2/Newtonsoft.Json.dll</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{30178963-acaf-46b3-99b6-8d01ff50b64e}">
+		<property name="assetPath">
+			<value>Music/Classical Vol 2 Music Pack/Classical Vol 2 Music Pack/March! (RT 2.667)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

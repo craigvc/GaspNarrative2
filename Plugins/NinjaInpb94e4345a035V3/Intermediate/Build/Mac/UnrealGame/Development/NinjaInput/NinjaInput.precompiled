@@ -1,0 +1,16 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.1.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.2.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.3.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.1.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.2.cpp.o",
+		"../../../arm64/UnrealGame/Development/NinjaInput/Module.NinjaInput.3.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.1.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.2.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.3.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.1.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.2.cpp.o",
+		"../../../x64/UnrealGame/Development/NinjaInput/Module.NinjaInput.3.cpp.o"
+	]
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{e312cb1e-71a1-4ab1-9e13-cb790b75b8cc}">
+		<property name="assetPath">
+			<value>Music/Horror Vol 4 Music Pack/__MACOSX/Horror Vol 4 Music Pack/Plague (RT 10.116)/._Horror Vol4 Plague Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

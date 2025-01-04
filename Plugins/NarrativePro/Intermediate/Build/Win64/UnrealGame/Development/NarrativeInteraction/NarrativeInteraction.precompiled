@@ -1,0 +1,10 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\Module.NarrativeInteraction.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\InteractableComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\Interaction.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\InteractionComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\InteractionFunctionLibrary.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInteraction\\NarrativeInteraction.cpp.obj"
+	]
+}

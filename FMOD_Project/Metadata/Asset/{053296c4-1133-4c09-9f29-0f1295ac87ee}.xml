@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{053296c4-1133-4c09-9f29-0f1295ac87ee}">
+		<property name="assetPath">
+			<value>Music/Jazz Music Pack Vol. 2/Dreamstate (RT 4.057)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

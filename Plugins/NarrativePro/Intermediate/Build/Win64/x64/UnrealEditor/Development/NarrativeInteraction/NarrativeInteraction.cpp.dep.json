@@ -1,0 +1,16 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\private\\narrativeinteraction.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativeinteraction\\definitions.narrativeinteraction.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativeinteraction\\public\\narrativeinteraction.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\public\\uobject\\coreredirects.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\coreuobject\\internal\\uobject\\coreredirects\\pm-k.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

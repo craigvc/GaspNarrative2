@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{f1cfd1f8-d4bb-4609-bd40-9492775a4e30}">
+		<property name="assetPath">
+			<value>Music/Nordic Music Pack/__MACOSX/Nordic Music Pack/Longships (RT 2)/._Nordic Longships Intensity 1.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

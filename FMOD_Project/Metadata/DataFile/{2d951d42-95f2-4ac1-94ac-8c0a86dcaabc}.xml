@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2d951d42-95f2-4ac1-94ac-8c0a86dcaabc}">
+		<property name="assetPath">
+			<value>Music/Fantasy Vol 3 Music Pack/__MACOSX/Fantasy Vol 3 Music Pack/Triumph (RT 3)/._Triumph Cut 60.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

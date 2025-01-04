@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{3ffbc516-ef99-47b4-b0e3-ed43b78a4e3a}">
+		<property name="assetPath">
+			<value>Game/UVariousExplosion/Demo/FPWeapon/Audio/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

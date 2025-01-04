@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2a6ab9b1-c32a-4521-98cb-2c4177a51991}">
+		<property name="assetPath">
+			<value>Music/Japanese Vol2 Music Pack/__MACOSX/Japanese Vol2 Music Pack/Exhale (RT 7.052)/._Japanese Vol2 Exhale Intensity 2.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

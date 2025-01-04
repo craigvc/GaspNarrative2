@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{47f43c62-bd80-4940-9f21-045b8405b334}">
+		<property name="assetPath">
+			<value>Music/Casual Music Pack/Casual Music Pack/Workshop (RT 2.1)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

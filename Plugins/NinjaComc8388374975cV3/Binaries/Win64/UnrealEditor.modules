@@ -1,0 +1,15 @@
+{
+	"BuildId": "37670630",
+	"Modules": 
+	{
+		"NinjaCombat": "UnrealEditor-NinjaCombat.dll",
+		"NinjaCombatAI": "UnrealEditor-NinjaCombatAI.dll",
+		"NinjaCombatActorPool": "UnrealEditor-NinjaCombatActorPool.dll",
+		"NinjaCombatCamera": "UnrealEditor-NinjaCombatCamera.dll",
+		"NinjaCombatCore": "UnrealEditor-NinjaCombatCore.dll",
+		"NinjaCombatEditor": "UnrealEditor-NinjaCombatEditor.dll",
+		"NinjaCombatFactions": "UnrealEditor-NinjaCombatFactions.dll",
+		"NinjaCombatInventory": "UnrealEditor-NinjaCombatInventory.dll",
+		"NinjaCombatUI": "UnrealEditor-NinjaCombatUI.dll"
+	}
+}

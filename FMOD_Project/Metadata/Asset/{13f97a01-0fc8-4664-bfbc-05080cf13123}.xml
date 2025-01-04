@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{13f97a01-0fc8-4664-bfbc-05080cf13123}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack Vol. 2/Adventurers Kicks (RT 4.571)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

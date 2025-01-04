@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{bd852163-62e2-4b37-8b03-70c39a577a88}">
+		<property name="assetPath">
+			<value>Music/Hip Hop Music Pack Vol. 3/Galactic (RT 3.645)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

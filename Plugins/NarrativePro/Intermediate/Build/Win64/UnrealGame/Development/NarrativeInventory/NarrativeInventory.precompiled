@@ -1,0 +1,15 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\Module.NarrativeInventory.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\InventoryComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\InventoryFunctionLibrary.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\InventoryItemWidget.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\InventoryWidget.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\ItemTooltip.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\NarrativeInventory.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\NarrativeInventorySettings.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\NarrativeItem.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\VendorInventoryComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeInventory\\ItemWidget.cpp.obj"
+	]
+}

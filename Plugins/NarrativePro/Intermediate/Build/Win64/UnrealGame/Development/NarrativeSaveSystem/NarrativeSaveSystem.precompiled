@@ -1,0 +1,11 @@
+{
+	"OutputFiles": [
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\Module.NarrativeSaveSystem.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\NarrativeSavableActor.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\NarrativeSavableComponent.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\NarrativeSave.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\NarrativeSaveSystem.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\SaveSystemStatics.cpp.obj",
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeSaveSystem\\NarrativeSaveSubsystem.cpp.obj"
+	]
+}

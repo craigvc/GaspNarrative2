@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{c1ea421c-8deb-49ef-9368-b90a7437f442}">
+		<property name="assetPath">
+			<value>Music/Orchestral Ambient Music Pack Vol. 2/Sayonara (RT 5.923)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

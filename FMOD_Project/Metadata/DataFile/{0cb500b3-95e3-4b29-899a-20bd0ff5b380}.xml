@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{0cb500b3-95e3-4b29-899a-20bd0ff5b380}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Earth/._Earthen Grasp.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

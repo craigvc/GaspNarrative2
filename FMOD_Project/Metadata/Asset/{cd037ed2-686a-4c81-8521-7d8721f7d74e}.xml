@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{cd037ed2-686a-4c81-8521-7d8721f7d74e}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/Synth Fantasy Music Pack/Oi (RT 3.301)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

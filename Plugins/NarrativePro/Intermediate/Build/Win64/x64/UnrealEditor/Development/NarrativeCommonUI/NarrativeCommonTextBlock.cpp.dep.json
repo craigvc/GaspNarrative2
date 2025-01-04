@@ -1,0 +1,38 @@
+{
+    "Version": "1.2",
+    "Data": {
+        "Source": "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativecommonui\\private\\widgets\\narrativecommontextblock.cpp",
+        "ProvidedModule": "",
+        "PCH": "j:\\narrative55\\hostproject\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\unrealed\\sharedpch.unrealed.cpp20.h.pch",
+        "Includes": [
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\narrativecommonui\\definitions.narrativecommonui.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\source\\narrativecommonui\\public\\widgets\\narrativecommontextblock.h",
+            "i:\\ue_5.5\\engine\\plugins\\runtime\\commonui\\source\\commonui\\public\\commontextblock.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\textblock.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\textwidgettypes.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\widget.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\binding\\states\\widgetstatebitfield.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetstatebitfield.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\fieldnotification\\public\\fieldnotificationdeclaration.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\fieldnotification\\public\\ifieldnotificationclassdescriptor.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\fieldnotification\\public\\inotifyfieldvaluechanged.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\fieldnotification\\uht\\inotifyfieldvaluechanged.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\visual.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\visual.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\components\\slatewrappertypes.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\slatewrappertypes.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\slate\\widgettransform.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgettransform.generated.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\umg\\public\\blueprint\\widgetnavigation.h",
+            "i:\\ue_5.5\\engine\\source\\runtime\\slatecore\\public\\types\\navigationmetadata.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widgetnavigation.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\widget.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textwidgettypes.generated.h",
+            "i:\\ue_5.5\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\umg\\uht\\textblock.generated.h",
+            "i:\\ue_5.5\\engine\\plugins\\runtime\\commonui\\intermediate\\build\\win64\\unrealeditor\\inc\\commonui\\uht\\commontextblock.generated.h",
+            "j:\\narrative55\\hostproject\\plugins\\narrativepro\\intermediate\\build\\win64\\unrealeditor\\inc\\narrativecommonui\\uht\\narrativecommontextblock.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{9d79fb76-9186-488c-9ed5-667c594385b1}">
+		<property name="assetPath">
+			<value>Music/Comedic/__MACOSX/Comedic/Loop/._Comedic - Tuba Troubles Loop.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

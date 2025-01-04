@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{edc7ed23-12e6-4c67-a4ac-da333bba2663}">
+		<property name="assetPath">
+			<value>Music/Horror Vol 4 Music Pack/Horror Vol 4 Music Pack/Acid Trip (RT 2.172)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

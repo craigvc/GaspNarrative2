@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{6b27ce5b-e729-49c5-9cad-96ae89d93d4d}">
+		<property name="assetPath">
+			<value>Simple Magic SFX/__MACOSX/Magic/Ice/._Snow Ball Travel Loop.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

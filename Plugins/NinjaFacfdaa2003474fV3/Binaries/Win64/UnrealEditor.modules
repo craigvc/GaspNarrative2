@@ -1,0 +1,11 @@
+{
+	"BuildId": "37670630",
+	"Modules": 
+	{
+		"NinjaFactions": "UnrealEditor-NinjaFactions.dll",
+		"NinjaFactionsBehaviorTree": "UnrealEditor-NinjaFactionsBehaviorTree.dll",
+		"NinjaFactionsEditor": "UnrealEditor-NinjaFactionsEditor.dll",
+		"NinjaFactionsFeatures": "UnrealEditor-NinjaFactionsFeatures.dll",
+		"NinjaFactionsStateTree": "UnrealEditor-NinjaFactionsStateTree.dll"
+	}
+}

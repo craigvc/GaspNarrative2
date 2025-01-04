@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{c87536c9-2658-40ec-9a1c-591bd6538dcd}">
+		<property name="assetPath">
+			<value>Music/Dubstep Music/__MACOSX/Dubstep Music/No Loop/._Dubstep - Dark Of The Ocean.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

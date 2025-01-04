@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{483e88f3-0980-4729-a00d-9fae1c8c10d9}">
+		<property name="assetPath">
+			<value>Music/Epic Music Pack Vol. 2/Conqueror (RT 4.119)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

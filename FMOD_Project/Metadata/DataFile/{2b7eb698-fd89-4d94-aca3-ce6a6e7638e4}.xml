@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="DataFile" id="{2b7eb698-fd89-4d94-aca3-ce6a6e7638e4}">
+		<property name="assetPath">
+			<value>Sonniss.com - Game Audio Monthly - #4/The AudioVille - Atmospheres of India/ambience - street ambience- slums of madras-distant and close up  dog barkings-women voices- slum women swearing and using bad language-fetching water in hand pump- occasional  automobile pass bys.wav</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

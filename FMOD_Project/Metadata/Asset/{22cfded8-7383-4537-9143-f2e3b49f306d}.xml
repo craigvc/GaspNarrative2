@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{22cfded8-7383-4537-9143-f2e3b49f306d}">
+		<property name="assetPath">
+			<value>Music/Lo-Fi Music Pack Vol. 2/Milky Tea (RT 3.2)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

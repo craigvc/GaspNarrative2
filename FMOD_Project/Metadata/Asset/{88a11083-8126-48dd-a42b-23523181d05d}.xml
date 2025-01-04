@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{88a11083-8126-48dd-a42b-23523181d05d}">
+		<property name="assetPath">
+			<value>Music/Synth Fantasy Music Pack/Synth Fantasy Music Pack/Yemen (RT 4.149)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.03.00">
+	<object class="EncodableAsset" id="{a3a9748c-164d-4a12-843d-16cef0a9fb0a}">
+		<property name="assetPath">
+			<value>Music/Chiptune Music Pack Vol. 4/Jumbo (RT 3.582)/</value>
+		</property>
+		<relationship name="masterAssetFolder">
+			<destination>{431d6df1-3aca-401a-89a9-5c12ba7cb9da}</destination>
+		</relationship>
+	</object>
+</objects>
