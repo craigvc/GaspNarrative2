@@ -62,7 +62,7 @@
 		},
 		{
 			"Name": "NinjaCombat",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/fd2c3e96-f352-4dc2-80fa-ad63f12c1cee"
 		},
 		{
@@ -72,7 +72,7 @@
 		},
 		{
 			"Name": "NinjaInventory",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/da30946a-08c2-4133-9c92-46a5697d7214"
 		},
 		{
@@ -145,7 +145,7 @@
 		},
 		{
 			"Name": "NinjaFactions",
-			"Enabled": true,
+			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/bda9ddb0-0067-493f-9923-052a2fe1db5d"
 		},
 		{
