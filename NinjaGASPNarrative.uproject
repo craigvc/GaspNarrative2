@@ -198,6 +198,11 @@
 			"Name": "RestartEditor",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/a00eb1e478ae4a8fb655aa22f9125b07"
+		},
+		{
+			"Name": "AdvancedEditorUtilities",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f375645593fc4d909bf8c79b9f64a066"
 		}
 	],
 	"EpicSampleNameHash": "1673045636"
