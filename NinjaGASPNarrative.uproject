@@ -95,16 +95,6 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/9e895371fa3a471c87337860d6f341ff"
 		},
 		{
-			"Name": "ContentPackGenerator",
-			"Enabled": true,
-			"MarketplaceURL": "https://publish.unrealengine.com/v3/edit-product/bbc48f750f1a410e9419295c1485260d"
-		},
-		{
-			"Name": "AutoNotifyTool",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/5ea7846e0ee645d3811cef3af682c4c6"
-		},
-		{
 			"Name": "DarkerNodes",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/4b3441f0228a40ec9ca986489a5bd682"
@@ -120,18 +110,9 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/1f706006858d482b9c13cf1f093c4ec6"
 		},
 		{
-			"Name": "ErrantLandscape",
-			"Enabled": true
-		},
-		{
 			"Name": "FlatNodes",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b719437f3fb54c259b34227363df8cab"
-		},
-		{
-			"Name": "Freezer",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/670c085be7d2470abf756507eaba50da"
 		},
 		{
 			"Name": "GameplayTagSelect",
@@ -170,24 +151,6 @@
 		{
 			"Name": "ErrantPaths",
 			"Enabled": false
-		},
-		{
-			"Name": "AthenaAI",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/627f32cfea9a434d924ed433e7e0b98b"
-		},
-		{
-			"Name": "AnimationToolsBundle",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/ba24bb844a244b7e95a9e9f905a1ffd9"
-		},
-		{
-			"Name": "FMODStudio",
-			"Enabled": true
-		},
-		{
-			"Name": "FMODStudioNiagara",
-			"Enabled": true
 		},
 		{
 			"Name": "NarrativePro",
