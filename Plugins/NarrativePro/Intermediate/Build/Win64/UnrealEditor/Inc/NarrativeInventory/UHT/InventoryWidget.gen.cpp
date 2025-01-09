@@ -5,14 +5,14 @@
 ===========================================================================*/
 
 #include "UObject/GeneratedCppIncludes.h"
-#include "NarrativeInventory/Public/InventoryWidget.h"
+#include "NarrativeInventory/Public/Widgets/InventoryWidget.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeInventoryWidget() {}
 
 // Begin Cross Module References
+NARRATIVECOMMONUI_API UClass* Z_Construct_UClass_UNarrativeActivatableWidget();
 NARRATIVEINVENTORY_API UClass* Z_Construct_UClass_UInventoryWidget();
 NARRATIVEINVENTORY_API UClass* Z_Construct_UClass_UInventoryWidget_NoRegister();
-UMG_API UClass* Z_Construct_UClass_UUserWidget();
 UPackage* Z_Construct_UPackage__Script_NarrativeInventory();
 // End Cross Module References
 
@@ -29,9 +29,10 @@ struct Z_Construct_UClass_UInventoryWidget_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
-		{ "IncludePath", "InventoryWidget.h" },
-		{ "ModuleRelativePath", "Public/InventoryWidget.h" },
+		{ "Comment", "/**\n * Inventory widgets use this as a base class - the looting menu, player inventory, etc. \n */" },
+		{ "IncludePath", "Widgets/InventoryWidget.h" },
+		{ "ModuleRelativePath", "Public/Widgets/InventoryWidget.h" },
+		{ "ToolTip", "Inventory widgets use this as a base class - the looting menu, player inventory, etc." },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -41,7 +42,7 @@ struct Z_Construct_UClass_UInventoryWidget_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 UObject* (*const Z_Construct_UClass_UInventoryWidget_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_UUserWidget,
+	(UObject* (*)())Z_Construct_UClass_UNarrativeActivatableWidget,
 	(UObject* (*)())Z_Construct_UPackage__Script_NarrativeInventory,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UInventoryWidget_Statics::DependentSingletons) < 16);
@@ -72,20 +73,20 @@ template<> NARRATIVEINVENTORY_API UClass* StaticClass<UInventoryWidget>()
 {
 	return UInventoryWidget::StaticClass();
 }
-UInventoryWidget::UInventoryWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
+UInventoryWidget::UInventoryWidget() {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(UInventoryWidget);
 UInventoryWidget::~UInventoryWidget() {}
 // End Class UInventoryWidget
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryWidget_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_Widgets_InventoryWidget_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UInventoryWidget, UInventoryWidget::StaticClass, TEXT("UInventoryWidget"), &Z_Registration_Info_UClass_UInventoryWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryWidget), 1900177805U) },
+		{ Z_Construct_UClass_UInventoryWidget, UInventoryWidget::StaticClass, TEXT("UInventoryWidget"), &Z_Registration_Info_UClass_UInventoryWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UInventoryWidget), 3665936147U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryWidget_h_4289927450(TEXT("/Script/NarrativeInventory"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryWidget_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_Widgets_InventoryWidget_h_3810444176(TEXT("/Script/NarrativeInventory"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_Widgets_InventoryWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_Widgets_InventoryWidget_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

@@ -14,7 +14,7 @@
 #include "Editor/UnrealEd/Public/Editor.h"
 #include "Tales/NarrativeFunctionLibrary.h"
 #include "Tales/NarrativeDataTask.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "QuestEditorSettings.h"
 
 

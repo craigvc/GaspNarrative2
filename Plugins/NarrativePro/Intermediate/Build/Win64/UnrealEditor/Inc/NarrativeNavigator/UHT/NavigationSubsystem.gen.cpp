@@ -260,6 +260,69 @@ DEFINE_FUNCTION(UNavigationSubsystem::execAddPointOfInterest_Vector)
 }
 // End Class UNavigationSubsystem Function AddPointOfInterest_Vector
 
+// Begin Class UNavigationSubsystem Function GetNearestPOIToPoint
+struct Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics
+{
+	struct NavigationSubsystem_eventGetNearestPOIToPoint_Parms
+	{
+		FPointOfInterestLocation OutPointOfInterest;
+		FVector TestLocation;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Point of Interest" },
+		{ "Comment", "//Find POI that is nearest to the given location\n" },
+		{ "ModuleRelativePath", "Public/NavigationSubsystem.h" },
+		{ "ToolTip", "Find POI that is nearest to the given location" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TestLocation_MetaData[] = {
+		{ "Categories", "Navigator.PointOfInterest" },
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_OutPointOfInterest;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_TestLocation;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_OutPointOfInterest = { "OutPointOfInterest", nullptr, (EPropertyFlags)0x0010008000000180, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NavigationSubsystem_eventGetNearestPOIToPoint_Parms, OutPointOfInterest), Z_Construct_UScriptStruct_FPointOfInterestLocation, METADATA_PARAMS(0, nullptr) }; // 3732342648
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_TestLocation = { "TestLocation", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NavigationSubsystem_eventGetNearestPOIToPoint_Parms, TestLocation), Z_Construct_UScriptStruct_FVector, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TestLocation_MetaData), NewProp_TestLocation_MetaData) };
+void Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((NavigationSubsystem_eventGetNearestPOIToPoint_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(NavigationSubsystem_eventGetNearestPOIToPoint_Parms), &Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_OutPointOfInterest,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_TestLocation,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNavigationSubsystem, nullptr, "GetNearestPOIToPoint", nullptr, nullptr, Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NavigationSubsystem_eventGetNearestPOIToPoint_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14C20401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::NavigationSubsystem_eventGetNearestPOIToPoint_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNavigationSubsystem::execGetNearestPOIToPoint)
+{
+	P_GET_STRUCT_REF(FPointOfInterestLocation,Z_Param_Out_OutPointOfInterest);
+	P_GET_STRUCT_REF(FVector,Z_Param_Out_TestLocation);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->GetNearestPOIToPoint(Z_Param_Out_OutPointOfInterest,Z_Param_Out_TestLocation);
+	P_NATIVE_END;
+}
+// End Class UNavigationSubsystem Function GetNearestPOIToPoint
+
 // Begin Class UNavigationSubsystem Function GetPointOfInterest
 struct Z_Construct_UFunction_UNavigationSubsystem_GetPointOfInterest_Statics
 {
@@ -330,6 +393,7 @@ void UNavigationSubsystem::StaticRegisterNativesUNavigationSubsystem()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "AddPointOfInterest_Actor", &UNavigationSubsystem::execAddPointOfInterest_Actor },
 		{ "AddPointOfInterest_Vector", &UNavigationSubsystem::execAddPointOfInterest_Vector },
+		{ "GetNearestPOIToPoint", &UNavigationSubsystem::execGetNearestPOIToPoint },
 		{ "GetPointOfInterest", &UNavigationSubsystem::execGetPointOfInterest },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
@@ -362,6 +426,7 @@ struct Z_Construct_UClass_UNavigationSubsystem_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UNavigationSubsystem_AddPointOfInterest_Actor, "AddPointOfInterest_Actor" }, // 379669742
 		{ &Z_Construct_UFunction_UNavigationSubsystem_AddPointOfInterest_Vector, "AddPointOfInterest_Vector" }, // 3288619174
+		{ &Z_Construct_UFunction_UNavigationSubsystem_GetNearestPOIToPoint, "GetNearestPOIToPoint" }, // 2095158995
 		{ &Z_Construct_UFunction_UNavigationSubsystem_GetPointOfInterest, "GetPointOfInterest" }, // 1397496716
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -416,18 +481,18 @@ UNavigationSubsystem::~UNavigationSubsystem() {}
 // End Class UNavigationSubsystem
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FPointOfInterestLocation::StaticStruct, Z_Construct_UScriptStruct_FPointOfInterestLocation_Statics::NewStructOps, TEXT("PointOfInterestLocation"), &Z_Registration_Info_UScriptStruct_PointOfInterestLocation, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FPointOfInterestLocation), 3732342648U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNavigationSubsystem, UNavigationSubsystem::StaticClass, TEXT("UNavigationSubsystem"), &Z_Registration_Info_UClass_UNavigationSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNavigationSubsystem), 1664727818U) },
+		{ Z_Construct_UClass_UNavigationSubsystem, UNavigationSubsystem::StaticClass, TEXT("UNavigationSubsystem"), &Z_Registration_Info_UClass_UNavigationSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNavigationSubsystem), 2760389908U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_1896324690(TEXT("/Script/NarrativeNavigator"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_1003642416(TEXT("/Script/NarrativeNavigator"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeNavigator_Public_NavigationSubsystem_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

@@ -2,7 +2,7 @@
 
 #include "Tales/DialogueSM.h"
 #include "Tales/Dialogue.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeCondition.h"
 #include "Tales/NarrativeDialogueSettings.h"
 #include "Tales/NarrativePartyComponent.h"
@@ -15,6 +15,7 @@
 #include "LevelSequencePlayer.h"
 #include "LevelSequenceActor.h"
 #include "Sound/SoundBase.h"
+#include "AI/NarrativeNPCSubsystem.h"
 
 #define LOCTEXT_NAMESPACE "DialogueSM"
 
@@ -27,14 +28,63 @@ UDialogueNode::UDialogueNode()
 
 FDialogueLine UDialogueNode::GetRandomLine(const bool bStandalone) const
 {
-	FDialogueLine NewLine = Line;
+	FDialogueLine NewLine;
 
-	//Construct the line instead of adding it as a member as to not break dialogues made pre 2.2
-	if (AlternativeLines.Num())
+	TArray<FDialogueLine> AllLines = AlternativeLines;
+	AllLines.Add(Line);
+
+	TArray<FDialogueLine> AllPassingLines;
+
+	if (OwningComponent)
 	{
-		TArray<FDialogueLine> AllLines = AlternativeLines;
-		AllLines.Add(Line);
-		NewLine = AllLines[FMath::RandRange(0, AllLines.Num() - 1)];
+		for (auto& LineToCheck : AllLines)
+		{
+			bool bAllConditionsPass = true;
+
+			//TODO consolidate the Character checking stuff into UNarrativeConditions as we're violating dont repeat yourself here - dialogue node base has something similar to this 
+			for (auto& Cond : LineToCheck.Conditions)
+			{
+				if (Cond->CharacterTargets.Num())
+				{
+					if (UWorld* World = OwningComponent->GetWorld())
+					{
+						if (UNarrativeNPCSubsystem* NPCS = World->GetSubsystem<UNarrativeNPCSubsystem>())
+						{
+							for (auto& NPCTarget : Cond->CharacterTargets)
+							{
+								if (ANarrativeCharacter* Character = NPCS->FindCharacter(NPCTarget))
+								{
+									if (Cond->CheckCondition(Character, OwningComponent->GetOwningController(), OwningComponent) == Cond->bNot)
+									{
+										bAllConditionsPass = false;
+										break;
+									}
+								}
+							}			
+						}
+					}
+				}
+				else
+				{
+					if (Cond->CheckCondition(OwningComponent->GetOwningPawn(), OwningComponent->GetOwningController(), OwningComponent) == Cond->bNot)
+					{
+						bAllConditionsPass = false;
+						break;
+					}
+				}
+			}
+
+			if (bAllConditionsPass)
+			{
+				AllPassingLines.Add(LineToCheck);
+			}
+		}
+	}
+
+	//Randomly select a valid dialogue line 
+	if (AllPassingLines.Num())
+	{
+		NewLine = AllPassingLines[FMath::RandRange(0, AllPassingLines.Num() - 1)];
 	}
 
 	if (NewLine.Duration == ELineDuration::LD_Default)
@@ -72,7 +122,7 @@ FDialogueLine UDialogueNode::GetRandomLine(const bool bStandalone) const
 	return NewLine;
 }
 
-class UDialogueNode_NPC* UDialogueNode::GetFirstValidNPCReply(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent)
+class UDialogueNode_NPC* UDialogueNode::GetFirstValidNPCReply(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent)
 {
 	TArray<class UDialogueNode_NPC*> RepliesToCheck = NPCReplies;
 
@@ -95,7 +145,7 @@ class UDialogueNode_NPC* UDialogueNode::GetFirstValidNPCReply(APlayerController*
 	return nullptr;
 }
 
-TArray<class UDialogueNode_Player*> UDialogueNode::GetPlayerReplies(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent)
+TArray<class UDialogueNode_Player*> UDialogueNode::GetPlayerReplies(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent)
 {
 	TArray<class UDialogueNode_Player*> ValidReplies;
 
@@ -295,7 +345,7 @@ bool UDialogueNode::HasDefaultID() const
 #endif
 
 
-TArray<class UDialogueNode_NPC*> UDialogueNode_NPC::GetReplyChain(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent)
+TArray<class UDialogueNode_NPC*> UDialogueNode_NPC::GetReplyChain(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent)
 {
 	TArray<UDialogueNode_NPC*> NPCFollowUpReplies;
 	UDialogueNode_NPC* CurrentNode = this;

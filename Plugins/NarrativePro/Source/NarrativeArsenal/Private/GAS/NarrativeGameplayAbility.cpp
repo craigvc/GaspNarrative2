@@ -4,6 +4,7 @@
 #include "GAS/NarrativeGameplayAbility.h"
 #include "AbilitySystemComponent.h"
 #include "GameplayTagContainer.h"
+#include "UnrealFramework/NarrativeCharacter.h"
 #include "UnrealFramework/NarrativePlayerCharacter.h"
 #include <GameFramework/PlayerController.h>
 #include "Camera/NarrativeCameraComponent.h"
@@ -22,6 +23,8 @@ void UNarrativeGameplayAbility::OnAvatarSet(const FGameplayAbilityActorInfo* Act
 	{
 		ActorInfo->AbilitySystemComponent->TryActivateAbility(Spec.Handle, false);
 	}
+	
+	CharacterOwner = Cast<ANarrativeCharacter>(ActorInfo->AvatarActor.Get());
 }
 
 void UNarrativeGameplayAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
@@ -72,12 +75,12 @@ class AController* UNarrativeGameplayAbility::GetOwningController() const
 
 class ANarrativeCharacter* UNarrativeGameplayAbility::GetOwningNarrativeCharacter() const
 {
-	if (CurrentActorInfo)
+	if (!CharacterOwner)
 	{
-		return Cast<ANarrativeCharacter>(CurrentActorInfo->AvatarActor.Get());
+		return Cast<ANarrativeCharacter>(GetAvatarActorFromActorInfo());
 	}
-
-	return nullptr;
+	
+	return CharacterOwner; 
 }
 
 class UWeaponItem* UNarrativeGameplayAbility::GetOwnerEquippedWeapon() const

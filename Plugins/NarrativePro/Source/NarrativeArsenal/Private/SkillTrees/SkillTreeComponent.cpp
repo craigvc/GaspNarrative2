@@ -17,33 +17,64 @@ USkillTreeComponent::USkillTreeComponent()
 void USkillTreeComponent::BeginPlay()
 {
 	Super::BeginPlay();
+
+	PrerequisiteMap.Empty();
+
+	//Build the prereq map 
+	for(auto& SkillTreeSkill : SkillTreeSkills)
+	{
+		for (auto& PerkConfig : SkillTreeSkill->Perks)
+		{
+			if (PerkConfig.Perk)
+			{
+				for (auto& LinkedTo : PerkConfig.LinkedTo)
+				{
+					if (IsValid(LinkedTo))
+					{
+						FPerkArray& PArray = PrerequisiteMap.FindOrAdd(LinkedTo);
+						PArray.Array.AddUnique(PerkConfig.Perk);
+					}
+				}
+			}
+		}
+	}
 }
 
-bool USkillTreeComponent::BuyPerk(UTreePerk* Perk)
+bool USkillTreeComponent::BuyPerk(TSubclassOf<UTreePerk> Perk, UTreeSkill* OwnerSkill)
 {
-	UTreeSkill* OwnerSkill = Perk->GetOwningSkill();
 
 	check(OwnerSkill);
 
-	if (OwnerSkill)
+	if (OwnerSkill && Perk)
 	{
 		FText ErrText;
-		if (Perk && CanBuyPerk(Perk, ErrText))
+		if (CanBuyPerk(Perk, ErrText))
 		{
-			Perk->SetPerkLevel(Perk->PerkLevel + 1);
+			UTreePerk* PerkInstance = GetPerk(Perk);
 
-			//We now have 1 less point to spend, and buying a perk should level up the skill. 
-			--SkillTreePoints;
-			OwnerSkill->SkillLevel++;
+			if (!PerkInstance)
+			{
+				PerkInstance = NewObject<UTreePerk>(this, Perk);
+				PurchasedPerks.Add(PerkInstance);
+			}
 
-			return true;
+			if (PerkInstance)
+			{
+				PerkInstance->SetPerkLevel(PerkInstance->PerkLevel + 1);
+
+				//We now have 1 less point to spend, and buying a perk should level up the skill. 
+				--SkillTreePoints;
+				OwnerSkill->SkillLevel++;
+
+				return true;
+			}
 		}
 	}
 
 	return false; 
 }
 
-bool USkillTreeComponent::CanBuyPerk(UTreePerk* Perk, FText& OutCantBuyReason)
+bool USkillTreeComponent::CanBuyPerk(TSubclassOf<UTreePerk> Perk, FText& OutCantBuyReason)
 {
 
 	if (!Perk)
@@ -51,10 +82,13 @@ bool USkillTreeComponent::CanBuyPerk(UTreePerk* Perk, FText& OutCantBuyReason)
 		return false; 
 	}
 
-	if (Perk->PerkLevel >= Perk->MaxLevels - 1) //PerkLevel is zero based so subtract 1 so designers so 1-based number 
+	if (UTreePerk* PurchasedPerk = GetPerk(Perk))
 	{
-		OutCantBuyReason = LOCTEXT("CantBuyReason_MaxLevel", "Perk Maxed");
-		return false;
+		if (PurchasedPerk->PerkLevel >= PurchasedPerk->MaxLevels - 1) //PerkLevel is zero based so subtract 1 so designers so 1-based number 
+		{
+			OutCantBuyReason = LOCTEXT("CantBuyReason_MaxLevel", "Perk Maxed");
+			return false;
+		}
 	}
 	
 	if (!HasRequiredPerks(Perk))
@@ -72,38 +106,23 @@ bool USkillTreeComponent::CanBuyPerk(UTreePerk* Perk, FText& OutCantBuyReason)
 	return true;  
 }
 
-bool USkillTreeComponent::HasRequiredPerks(UTreePerk* Perk)
+bool USkillTreeComponent::HasRequiredPerks(TSubclassOf<UTreePerk> Perk)
 {
-	UTreeSkill* OwnerSkill = Perk->GetOwningSkill();
-
-	check(OwnerSkill);
-
-	if (OwnerSkill)
+	if (PrerequisiteMap.Contains(Perk))
 	{
-		//If we're not buying the root perk, we need to check we're purchased all previous perks. 
-		if (OwnerSkill->RootPerk != Perk)
+		FPerkArray PArray = *PrerequisiteMap.Find(Perk);
+		for (auto& PrereqPerk : PArray.Array)
 		{
-			TArray<UTreePerk*> AllPerks = OwnerSkill->GetAllPerks();
-			UTreePerk* PerkOwner = nullptr; 
-
-			for (auto& PerkToCheck : AllPerks)
+			if (HasPerk(PrereqPerk))
 			{
-				//If we're purchased the perk that owns us, we've purchased all previous perks. 
-				if (PerkToCheck->LinkedPerks.Contains(Perk))
-				{
-					//Found the perk, check its purchased! 
-					if (PerkToCheck->PerkLevel < 0)
-					{
-						return false; 
-					}
-				}
+				return true; 
 			}
 		}
 
-		return true; 
+		return false; 
 	}
 
-	return false; 
+	return true;
 }
 
 void USkillTreeComponent::GiveSkillPoints(const int32 Points)
@@ -113,19 +132,33 @@ void USkillTreeComponent::GiveSkillPoints(const int32 Points)
 
 int32 USkillTreeComponent::GetPerkLevel(TSubclassOf<UTreePerk> PerkClass)
 {
-	//Inefficient, but since there isn't much data to sift through i'm okay with it
-	for (auto& Skill : SkillTreeSkills)
+	for (auto& Perk : PurchasedPerks)
 	{
-		for (auto& SkillPerk : Skill->GetAllPerks())
+		if (Perk->GetClass() == PerkClass)
 		{
-			if (SkillPerk->GetClass() == PerkClass)
-			{
-				return SkillPerk->PerkLevel;
-			}
+			return Perk->PerkLevel;
 		}
 	}
 
 	return -1; 
+}
+
+UTreePerk* USkillTreeComponent::GetPerk(TSubclassOf<UTreePerk> PerkClass) const
+{
+	for (auto& Perk : PurchasedPerks)
+	{
+		if (Perk->GetClass() == PerkClass)
+		{
+			return Perk;
+		}
+	}
+
+	return nullptr; 
+}
+
+bool USkillTreeComponent::HasPerk(TSubclassOf<UTreePerk> PerkClass) const
+{
+	return IsValid(GetPerk(PerkClass));
 }
 
 FSavedSkill USkillTreeComponent::SkillToSaveData(const UTreeSkill* Skill) const
@@ -135,62 +168,62 @@ FSavedSkill USkillTreeComponent::SkillToSaveData(const UTreeSkill* Skill) const
 	SavedSkill.SkillClass = Skill->GetClass();
 	SavedSkill.SkillLevel = Skill->SkillLevel;
 
-	TArray<UTreePerk*> SkillPerks = Skill->GetAllPerks();
-
-	for (auto& Perk : SkillPerks)
-	{
-		FSavedPerk SavedPerk;
-
-		SavedPerk.PerkClass = Perk->GetClass();
-		SavedPerk.PerkLevel = Perk->PerkLevel;
-
-		SavedSkill.SavedPerks.Add(SavedPerk);
-	}
-
 	return SavedSkill;
+}
+
+FSavedPerk USkillTreeComponent::PerkToSaveData(const UTreePerk* Perk) const
+{
+	FSavedPerk SavedPerk;
+
+	SavedPerk.PerkClass = Perk->GetClass();
+	SavedPerk.PerkLevel = Perk->PerkLevel;
+
+	return SavedPerk;
 }
 
 void USkillTreeComponent::Load_Implementation()
 {
-	//We need to iterate the save data, find the skills with that data and set them
-	for(auto& SavedSkill : SkillTreeSaveData)
+	if (SkillTreeSaveData.HasSaveData())
 	{
-		//Find the skill the saved skill refers to
-		for (auto& Skill : SkillTreeSkills)
+		//Set the skills back to their saved state
+		for (auto& SavedSkill : SkillTreeSaveData.SavedSkills)
 		{
-			if (Skill->GetClass() == SavedSkill.SkillClass)
+			for (auto& Skill : SkillTreeSkills)
 			{
-				//We found the skill, set its data
-				Skill->SkillLevel = SavedSkill.SkillLevel;
-
-				//Set its perks
-				for (auto& SkillPerk : Skill->GetAllPerks())
+				if (Skill && Skill->GetClass() == SavedSkill.SkillClass)
 				{
-					for (auto& SavedPerk : SavedSkill.SavedPerks)
-					{
-						if (SkillPerk->GetClass() == SavedPerk.PerkClass)
-						{
-							//Set the perks level back its saved one. 
-							SkillPerk->SetPerkLevel(SavedPerk.PerkLevel);
-							continue;
-						}
-					}
+					Skill->SkillLevel = SavedSkill.SkillLevel;
 				}
-
-				continue; 
 			}
 		}
-	} 
+
+		for (auto& SavedPerk : SkillTreeSaveData.SavedPerks)
+		{
+			if (SavedPerk.PerkClass)
+			{
+				if (UTreePerk* PerkInstance = NewObject<UTreePerk>(this, SavedPerk.PerkClass))
+				{
+					PurchasedPerks.Add(PerkInstance);
+					PerkInstance->SetPerkLevel(SavedPerk.PerkLevel);
+				}
+			}
+		}
+	}
 }
 
 void USkillTreeComponent::PrepareForSave_Implementation()
 {
 	//Iterate the skills, and store them in our structs which get serialized
-	SkillTreeSaveData.Empty();
+	SkillTreeSaveData.ClearData();
 
 	for (auto& Skill : SkillTreeSkills)
 	{
-		SkillTreeSaveData.Add(SkillToSaveData(Skill));
+		SkillTreeSaveData.SavedSkills.Add(SkillToSaveData(Skill));
+	}
+
+	for (auto& Perk : PurchasedPerks)
+	{
+		SkillTreeSaveData.SavedPerks.Add(PerkToSaveData(Perk));
 	}
 }
 

@@ -14,11 +14,11 @@ COREUOBJECT_API UClass* Z_Construct_UClass_UObject();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FVector2D();
 ENGINE_API UClass* Z_Construct_UClass_APawn_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_APlayerController_NoRegister();
-NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeComponent_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeCondition_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeEvent_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeNodeBase();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeNodeBase_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UTalesComponent_NoRegister();
 NARRATIVEARSENAL_API UEnum* Z_Construct_UEnum_NarrativeArsenal_EEventRuntime();
 UPackage* Z_Construct_UPackage__Script_NarrativeArsenal();
 // End Cross Module References
@@ -30,7 +30,7 @@ struct Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics
 	{
 		APawn* Pawn;
 		APlayerController* Controller;
-		UNarrativeComponent* NarrativeComponent;
+		UTalesComponent* NarrativeComponent;
 		bool ReturnValue;
 	};
 #if WITH_METADATA
@@ -54,7 +54,7 @@ struct Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics::NewProp_Pawn = { "Pawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventAreConditionsMet_Parms, Pawn), Z_Construct_UClass_APawn_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics::NewProp_Controller = { "Controller", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventAreConditionsMet_Parms, Controller), Z_Construct_UClass_APlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics::NewProp_NarrativeComponent = { "NarrativeComponent", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventAreConditionsMet_Parms, NarrativeComponent), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NarrativeComponent_MetaData), NewProp_NarrativeComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics::NewProp_NarrativeComponent = { "NarrativeComponent", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventAreConditionsMet_Parms, NarrativeComponent), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NarrativeComponent_MetaData), NewProp_NarrativeComponent_MetaData) };
 void Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
 	((NarrativeNodeBase_eventAreConditionsMet_Parms*)Obj)->ReturnValue = 1;
@@ -82,7 +82,7 @@ DEFINE_FUNCTION(UNarrativeNodeBase::execAreConditionsMet)
 {
 	P_GET_OBJECT(APawn,Z_Param_Pawn);
 	P_GET_OBJECT(APlayerController,Z_Param_Controller);
-	P_GET_OBJECT(UNarrativeComponent,Z_Param_NarrativeComponent);
+	P_GET_OBJECT(UTalesComponent,Z_Param_NarrativeComponent);
 	P_FINISH;
 	P_NATIVE_BEGIN;
 	*(bool*)Z_Param__Result=P_THIS->AreConditionsMet(Z_Param_Pawn,Z_Param_Controller,Z_Param_NarrativeComponent);
@@ -97,7 +97,7 @@ struct Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics
 	{
 		APawn* Pawn;
 		APlayerController* Controller;
-		UNarrativeComponent* NarrativeComponent;
+		UTalesComponent* NarrativeComponent;
 		EEventRuntime Runtime;
 	};
 #if WITH_METADATA
@@ -124,7 +124,7 @@ struct Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_Pawn = { "Pawn", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventProcessEvents_Parms, Pawn), Z_Construct_UClass_APawn_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_Controller = { "Controller", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventProcessEvents_Parms, Controller), Z_Construct_UClass_APlayerController_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_NarrativeComponent = { "NarrativeComponent", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventProcessEvents_Parms, NarrativeComponent), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NarrativeComponent_MetaData), NewProp_NarrativeComponent_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_NarrativeComponent = { "NarrativeComponent", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventProcessEvents_Parms, NarrativeComponent), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NarrativeComponent_MetaData), NewProp_NarrativeComponent_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_Runtime_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::NewProp_Runtime = { "Runtime", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNodeBase_eventProcessEvents_Parms, Runtime), Z_Construct_UEnum_NarrativeArsenal_EEventRuntime, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Runtime_MetaData), NewProp_Runtime_MetaData) }; // 905326616
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents_Statics::PropPointers[] = {
@@ -150,7 +150,7 @@ DEFINE_FUNCTION(UNarrativeNodeBase::execProcessEvents)
 {
 	P_GET_OBJECT(APawn,Z_Param_Pawn);
 	P_GET_OBJECT(APlayerController,Z_Param_Controller);
-	P_GET_OBJECT(UNarrativeComponent,Z_Param_NarrativeComponent);
+	P_GET_OBJECT(UTalesComponent,Z_Param_NarrativeComponent);
 	P_GET_ENUM(EEventRuntime,Z_Param_Runtime);
 	P_FINISH;
 	P_NATIVE_BEGIN;
@@ -233,8 +233,8 @@ struct Z_Construct_UClass_UNarrativeNodeBase_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet, "AreConditionsMet" }, // 3509332410
-		{ &Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents, "ProcessEvents" }, // 4174232501
+		{ &Z_Construct_UFunction_UNarrativeNodeBase_AreConditionsMet, "AreConditionsMet" }, // 3856284959
+		{ &Z_Construct_UFunction_UNarrativeNodeBase_ProcessEvents, "ProcessEvents" }, // 1935489264
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -294,14 +294,14 @@ UNarrativeNodeBase::~UNarrativeNodeBase() {}
 // End Class UNarrativeNodeBase
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeNodeBase, UNarrativeNodeBase::StaticClass, TEXT("UNarrativeNodeBase"), &Z_Registration_Info_UClass_UNarrativeNodeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeNodeBase), 1716247044U) },
+		{ Z_Construct_UClass_UNarrativeNodeBase, UNarrativeNodeBase::StaticClass, TEXT("UNarrativeNodeBase"), &Z_Registration_Info_UClass_UNarrativeNodeBase, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeNodeBase), 553311796U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_2882822630(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_2111944203(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeNodeBase_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

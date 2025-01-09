@@ -111,7 +111,7 @@ APlayerController* UNarrativePartyComponent::GetOwningController() const
 	return nullptr;
 }
 
-bool UNarrativePartyComponent::AddPartyMember(class UNarrativeComponent* Member)
+bool UNarrativePartyComponent::AddPartyMember(class UTalesComponent* Member)
 {
 	if (HasAuthority() && Member)
 	{
@@ -152,7 +152,7 @@ bool UNarrativePartyComponent::AddPartyMember(class UNarrativeComponent* Member)
 	return false;
 }
 
-bool UNarrativePartyComponent::RemovePartyMember(class UNarrativeComponent* Member)
+bool UNarrativePartyComponent::RemovePartyMember(class UTalesComponent* Member)
 {
 	if (HasAuthority() && Member && PartyMembers.Contains(Member))
 	{

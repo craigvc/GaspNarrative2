@@ -6,7 +6,7 @@
 
 UNarrativeCameraComponent::UNarrativeCameraComponent(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
-
+	PrimaryComponentTick.bCanEverTick = true;
 }
 
 void UNarrativeCameraComponent::SetCameraMode(TSubclassOf<class UNarrativeCameraMode> NewMode)
@@ -31,9 +31,31 @@ void UNarrativeCameraComponent::SetCameraMode(TSubclassOf<class UNarrativeCamera
 	}
 }	
 
+void UNarrativeCameraComponent::SetCameraModeToDefault()
+{
+	SetCameraMode(DefaultCameraMode);
+}
+
 void UNarrativeCameraComponent::GetCameraView(float DeltaTime, FMinimalViewInfo& DesiredView)
 {
+	if (IsValid(CurrentCameraMode))
+	{
+		
+		//Camera modes control our FOV, and spring arm offset 
+		float DesiredFOV, DesiredBlendSpeed;
+		CurrentCameraMode->GetDesiredFOV(DesiredFOV, DesiredBlendSpeed);
+
+		FieldOfView = FMath::FInterpTo(FieldOfView, DesiredFOV, DeltaTime, DesiredBlendSpeed);
+
+		if (USpringArmComponent* SpringArm = GetSpringArm())
+		{
+			SpringArm->SocketOffset = FMath::VInterpTo(SpringArm->SocketOffset, CurrentCameraMode->Offset, DeltaTime, CurrentCameraMode->OffsetInterpSpeed);
+			SpringArm->TargetArmLength = FMath::FInterpTo(SpringArm->TargetArmLength, CurrentCameraMode->TargetArmLength, DeltaTime, CurrentCameraMode->OffsetInterpSpeed);
+		}
+	}
+
 	Super::GetCameraView(DeltaTime, DesiredView);
+
 }
 
 void UNarrativeCameraComponent::BeginPlay()
@@ -41,22 +63,6 @@ void UNarrativeCameraComponent::BeginPlay()
 	SetCameraMode(DefaultCameraMode);
 
 	Super::BeginPlay();
-}
-
-void UNarrativeCameraComponent::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
-{
-	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
-
-	if (IsValid(CurrentCameraMode))
-	{
-		//Camera modes control our FOV, and spring arm offset 
-		FieldOfView = FMath::FInterpTo(FieldOfView, CurrentCameraMode->TargetFOV, DeltaTime, CurrentCameraMode->FOVInterpSpeed);
-
-		if (USpringArmComponent* SpringArm = GetSpringArm())
-		{
-			SpringArm->SocketOffset = FMath::VInterpTo(SpringArm->SocketOffset, CurrentCameraMode->Offset, DeltaTime, CurrentCameraMode->OffsetInterpSpeed);
-		}
-	}
 }
 
 UNarrativeCameraMode* UNarrativeCameraComponent::FindOrCreateCameraMode(TSubclassOf<UNarrativeCameraMode> NewModeClass)

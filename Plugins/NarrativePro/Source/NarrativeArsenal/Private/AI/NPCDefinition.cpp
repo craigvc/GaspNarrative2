@@ -14,6 +14,10 @@ UNPCDefinition::UNPCDefinition()
 	NPCID = FName(GetName());
 	NPCName = FText::FromString(GetName());
 	UniqueNPCGUID = FGuid::NewGuid();
+	LevelRange.SetLowerBound(1);
+	LevelRange.SetLowerBoundValue(1);
+	LevelRange.SetUpperBound(5000);
+	LevelRange.SetUpperBoundValue(1);
 
 	FSoftObjectPath SoftPath(TEXT("/Script/Engine.Blueprint'/NarrativePro/Blueprints/Character/NPCs/BP_NarrativeNPC.BP_NarrativeNPC_C'"));
 

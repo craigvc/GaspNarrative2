@@ -10,78 +10,12 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNarrativeSavableActor() {}
 
 // Begin Cross Module References
-COREUOBJECT_API UClass* Z_Construct_UClass_UInterface();
 COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FGuid();
 NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_UNarrativeSavableActor();
 NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_UNarrativeSavableActor_NoRegister();
+NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_UNarrativeStableActor();
 UPackage* Z_Construct_UPackage__Script_NarrativeSaveSystem();
 // End Cross Module References
-
-// Begin Interface UNarrativeSavableActor Function GetActorGUID
-struct NarrativeSavableActor_eventGetActorGUID_Parms
-{
-	FGuid ReturnValue;
-};
-FGuid INarrativeSavableActor::GetActorGUID() const
-{
-	check(0 && "Do not directly call Event functions in Interfaces. Call Execute_GetActorGUID instead.");
-	NarrativeSavableActor_eventGetActorGUID_Parms Parms;
-	return Parms.ReturnValue;
-}
-static FName NAME_UNarrativeSavableActor_GetActorGUID = FName(TEXT("GetActorGUID"));
-FGuid INarrativeSavableActor::Execute_GetActorGUID(const UObject* O)
-{
-	check(O != NULL);
-	check(O->GetClass()->ImplementsInterface(UNarrativeSavableActor::StaticClass()));
-	NarrativeSavableActor_eventGetActorGUID_Parms Parms;
-	UFunction* const Func = O->FindFunction(NAME_UNarrativeSavableActor_GetActorGUID);
-	if (Func)
-	{
-		const_cast<UObject*>(O)->ProcessEvent(Func, &Parms);
-	}
-	else if (auto I = (const INarrativeSavableActor*)(O->GetNativeInterfaceAddress(UNarrativeSavableActor::StaticClass())))
-	{
-		Parms.ReturnValue = I->GetActorGUID_Implementation();
-	}
-	return Parms.ReturnValue;
-}
-struct Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Comment", "//Tell the actor it has been loaded in from a save. \n" },
-		{ "ModuleRelativePath", "Public/NarrativeSavableActor.h" },
-		{ "ToolTip", "Tell the actor it has been loaded in from a save." },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FStructPropertyParams NewProp_ReturnValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeSavableActor_eventGetActorGUID_Parms, ReturnValue), Z_Construct_UScriptStruct_FGuid, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::NewProp_ReturnValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeSavableActor, nullptr, "GetActorGUID", nullptr, nullptr, Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::PropPointers), sizeof(NarrativeSavableActor_eventGetActorGUID_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x48820C00, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::Function_MetaDataParams) };
-static_assert(sizeof(NarrativeSavableActor_eventGetActorGUID_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(INarrativeSavableActor::execGetActorGUID)
-{
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	*(FGuid*)Z_Param__Result=P_THIS->GetActorGUID_Implementation();
-	P_NATIVE_END;
-}
-// End Interface UNarrativeSavableActor Function GetActorGUID
 
 // Begin Interface UNarrativeSavableActor Function Load
 void INarrativeSavableActor::Load()
@@ -213,9 +147,9 @@ struct Z_Construct_UFunction_UNarrativeSavableActor_SetActorGUID_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Comment", "//Used for dynamic actors to set the actors GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again\n" },
+		{ "Comment", "//Used for dynamic actors to set the stable GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again in future \n" },
 		{ "ModuleRelativePath", "Public/NarrativeSavableActor.h" },
-		{ "ToolTip", "Used for dynamic actors to set the actors GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again" },
+		{ "ToolTip", "Used for dynamic actors to set the stable GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again in future" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SavedGUID_MetaData[] = {
 		{ "NativeConst", "" },
@@ -333,7 +267,6 @@ void UNarrativeSavableActor::StaticRegisterNativesUNarrativeSavableActor()
 {
 	UClass* Class = UNarrativeSavableActor::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
-		{ "GetActorGUID", &INarrativeSavableActor::execGetActorGUID },
 		{ "Load", &INarrativeSavableActor::execLoad },
 		{ "PrepareForSave", &INarrativeSavableActor::execPrepareForSave },
 		{ "SetActorGUID", &INarrativeSavableActor::execSetActorGUID },
@@ -356,10 +289,9 @@ struct Z_Construct_UClass_UNarrativeSavableActor_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UNarrativeSavableActor_GetActorGUID, "GetActorGUID" }, // 2722537575
 		{ &Z_Construct_UFunction_UNarrativeSavableActor_Load, "Load" }, // 3802203318
 		{ &Z_Construct_UFunction_UNarrativeSavableActor_PrepareForSave, "PrepareForSave" }, // 3915796830
-		{ &Z_Construct_UFunction_UNarrativeSavableActor_SetActorGUID, "SetActorGUID" }, // 2084272783
+		{ &Z_Construct_UFunction_UNarrativeSavableActor_SetActorGUID, "SetActorGUID" }, // 930070989
 		{ &Z_Construct_UFunction_UNarrativeSavableActor_ShouldRespawn, "ShouldRespawn" }, // 3692203415
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -369,7 +301,7 @@ struct Z_Construct_UClass_UNarrativeSavableActor_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 UObject* (*const Z_Construct_UClass_UNarrativeSavableActor_Statics::DependentSingletons[])() = {
-	(UObject* (*)())Z_Construct_UClass_UInterface,
+	(UObject* (*)())Z_Construct_UClass_UNarrativeStableActor,
 	(UObject* (*)())Z_Construct_UPackage__Script_NarrativeSaveSystem,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeSavableActor_Statics::DependentSingletons) < 16);
@@ -406,14 +338,14 @@ UNarrativeSavableActor::~UNarrativeSavableActor() {}
 // End Interface UNarrativeSavableActor
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeSavableActor, UNarrativeSavableActor::StaticClass, TEXT("UNarrativeSavableActor"), &Z_Registration_Info_UClass_UNarrativeSavableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeSavableActor), 4265298697U) },
+		{ Z_Construct_UClass_UNarrativeSavableActor, UNarrativeSavableActor::StaticClass, TEXT("UNarrativeSavableActor"), &Z_Registration_Info_UClass_UNarrativeSavableActor, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeSavableActor), 2545445142U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_3604489153(TEXT("/Script/NarrativeSaveSystem"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_1218118542(TEXT("/Script/NarrativeSaveSystem"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_NarrativeSavableActor_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

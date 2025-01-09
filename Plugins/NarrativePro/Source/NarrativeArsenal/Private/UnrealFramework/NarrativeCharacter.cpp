@@ -11,6 +11,7 @@
 #include <Components/CapsuleComponent.h>
 #include "Components/EquipmentComponent.h"
 #include "Components/TeamMarkerComponent.h"
+#include "Character/NarrativeCharacterMovement.h"
 #include <GameFramework/CharacterMovementComponent.h>
 #include <GameFramework/PlayerState.h>
 #include <MotionWarpingComponent.h>
@@ -23,11 +24,16 @@
 #include <Runtime/AIModule/Classes/Perception/AISense_Damage.h>
 #include <UObject/ConstructorHelpers.h>
 #include "Engine/World.h"
-#include "CharacterAppearance.h"
 #include <Engine/Texture2D.h>
+#include "Character/CharacterAppearance.h"
+#include <GroomComponent.h>
+#include "Character/CharacterDefinition.h"
+#include "NarrativeCollisionChannels.h"
+#include <Materials/MaterialInstanceDynamic.h>
 
 // Sets default values
-ANarrativeCharacter::ANarrativeCharacter(const class FObjectInitializer& ObjectInitializer)
+ANarrativeCharacter::ANarrativeCharacter(const class FObjectInitializer& ObjectInitializer) : 
+	Super(ObjectInitializer.SetDefaultSubobjectClass<UNarrativeCharacterMovement>(ACharacter::CharacterMovementComponentName))
 {
 	
 	SetReplicates(true);
@@ -38,34 +44,56 @@ ANarrativeCharacter::ANarrativeCharacter(const class FObjectInitializer& ObjectI
 	
 	if (UnarmedAnimBP && GetMesh())
 	{
-		GetMesh()->SetAnimClass(UnarmedAnimBP);
+		GetMesh()->SetAnimInstanceClass(UnarmedAnimBP);
 	}
 
 	BodyMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BodyMesh"));
 	BodyMesh->SetupAttachment(GetMesh());
+	BodyMesh->SetReceivesDecals(false);
 	BodyMesh->SetLeaderPoseComponent(GetMesh());
 
 	TorsoMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("TorsoMesh"));
 	TorsoMesh->SetupAttachment(GetMesh());
+	TorsoMesh->SetReceivesDecals(false);
 	TorsoMesh->SetLeaderPoseComponent(GetMesh());
 
 	LegsMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("LegsMesh"));
 	LegsMesh->SetupAttachment(GetMesh());
+	LegsMesh->SetReceivesDecals(false);
 	LegsMesh->SetLeaderPoseComponent(GetMesh());
 
 	FeetMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FeetMesh"));
 	FeetMesh->SetupAttachment(GetMesh());
+	FeetMesh->SetReceivesDecals(false);
 	FeetMesh->SetLeaderPoseComponent(GetMesh());
 
 	HelmetMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HelmetMesh"));
 	HelmetMesh->SetupAttachment(GetMesh());
+	HelmetMesh->SetReceivesDecals(false);
 	HelmetMesh->SetLeaderPoseComponent(GetMesh());
 
 	GlovesMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("GlovesMesh"));
 	GlovesMesh->SetupAttachment(GetMesh());
+	GlovesMesh->SetReceivesDecals(false);
 	GlovesMesh->SetLeaderPoseComponent(GetMesh());
 
+	BeardMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("BeardMesh"));
+	BeardMesh->SetupAttachment(GetMesh());
+	BeardMesh->SetReceivesDecals(false);
+	BeardMesh->SetLeaderPoseComponent(GetMesh());
+
+	MoustacheMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("MoustacheMesh"));
+	MoustacheMesh->SetupAttachment(GetMesh());
+	MoustacheMesh->SetReceivesDecals(false);
+	MoustacheMesh->SetLeaderPoseComponent(GetMesh());
+
+	HairMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("HairMesh"));
+	HairMesh->SetupAttachment(GetMesh());
+	HairMesh->SetReceivesDecals(false);
+	HairMesh->SetLeaderPoseComponent(GetMesh());
+
 	FaceMesh = CreateDefaultSubobject<USkeletalMeshComponent>(TEXT("FaceMesh"));
+	FaceMesh->SetReceivesDecals(false);
 	FaceMesh->SetupAttachment(GetMesh());
 
 	//Face mesh needs its own anim BP so it can blend facial anims 
@@ -100,6 +128,8 @@ ANarrativeCharacter::ANarrativeCharacter(const class FObjectInitializer& ObjectI
 	//Nice default values for level scaling. 
 	LevelExponentX = 0.07f;
 	LevelExponentY = 2.f;
+
+	UnarmedAttackDamage = 10.f;
 }
 
 class UAbilitySystemComponent* ANarrativeCharacter::GetAbilitySystemComponent() const
@@ -117,29 +147,47 @@ bool ANarrativeCharacter::IsAlive() const
 	return true; 
 }
 
+FVector ANarrativeCharacter::GetFloorLocation(const float ZOffset) const
+{
+	if (UCapsuleComponent* Capsule = GetCapsuleComponent())
+	{
+		return GetActorLocation() - FVector(0.f, 0.f, Capsule->GetScaledCapsuleHalfHeight()) + FVector(0.f, 0.f, ZOffset);
+	}
+	return GetActorLocation();
+}
+
+UCharacterDefinition* ANarrativeCharacter::GetCharacterDefinition() const
+{
+	return nullptr;
+}
+
+class UNarrativeInteractionComponent* ANarrativeCharacter::GetInteractionComponent() const
+{
+	return nullptr; 
+}
+
+void ANarrativeCharacter::OnDefinitionSet_Implementation(UCharacterDefinition* NewDefinition)
+{
+
+}
+
+void ANarrativeCharacter::LoadNewCharacter_Implementation()
+{
+
+}
+
 void ANarrativeCharacter::PostInitializeComponents()
 {
 	Super::PostInitializeComponents();
 
-	TMap<EEquippableSlot, USkeletalMeshComponent*> EquipmentMap;
-
-	EquipmentMap.Add(EEquippableSlot::ES_Torso, TorsoMesh);
-	EquipmentMap.Add(EEquippableSlot::ES_Legs, LegsMesh);
-	EquipmentMap.Add(EEquippableSlot::ES_Feet, FeetMesh);
-	EquipmentMap.Add(EEquippableSlot::ES_Helmet, HelmetMesh);
-
-	if (EquipmentComp)
-	{
-		EquipmentComp->Initialize(EquipmentMap, GetMesh());
-	}
-
+	InitializeEquipmentComponent();
 }
 
 void ANarrativeCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	DOREPLIFETIME_CONDITION(ANarrativeCharacter, bWeaponHolstered, COND_SkipOwner);
+	DOREPLIFETIME(ANarrativeCharacter, EquippedWeapon);
 }
 
 // Called when the game starts or when spawned
@@ -147,104 +195,182 @@ void ANarrativeCharacter::BeginPlay()
 {
 	Super::BeginPlay();
 
-	if (AttributeSetBase)
-	{
-		AttributeSetBase->OnOutOfHealth.AddUObject(this, &ThisClass::HandleOutOfHealth);
-	}
 }
 
 void ANarrativeCharacter::Destroyed()
 {
 	Super::Destroyed();
 
-	RemoveWeaponVisual();
+	TArray<FGameplayTag> VisualSlots;
+	SpawnedWeaponVisuals.GenerateKeyArray(VisualSlots);
+
+	for (auto& Slot : VisualSlots)
+	{
+		RemoveWeaponVisual(Slot);
+	}
 }
 
-void ANarrativeCharacter::SetAppearance_Implementation(class UCharacterAppearance* CharacterAppearance)
+void ANarrativeCharacter::SetAppearanceFromCreatorData_Implementation(const FCharacterCreatorAttributeSet& CreatorAttributes)
 {
-	if (CharacterAppearance)
+	AppearanceAttributeSet = CreatorAttributes;
+
+	//Store the form ID - this lets NPCs check whether we're female, male, orc, etc. 
+	if (IsValid(AbilitySystemComponent) && CreatorAttributes.FormTag.IsValid())
 	{
-		if (CharacterAppearance->BaseMeshOverride)
+		AbilitySystemComponent->AddLooseGameplayTag(CreatorAttributes.FormTag);
+	}
+
+	//Bugfix: Make this empty as we're about to set the animBP and it appearance setting needs to know 
+	GetMesh()->SetAnimInstanceClass(nullptr);
+
+	//Initialize our meshes
+	for (auto& MeshDataKVP : CreatorAttributes.Meshes)
+	{
+		SetMeshToBaseAppearance(MeshDataKVP.Key);
+	}
+
+	//Initialize our grooms 
+	for (auto& GroomDataKVP : CreatorAttributes.Grooms)
+	{
+		SetGroomAtSlotToBaseAppearance(GroomDataKVP.Key);
+	}
+}
+
+void ANarrativeCharacter::SetMeshToBaseAppearance(FGameplayTag Slot)
+{
+	if (AppearanceAttributeSet.Meshes.Contains(Slot))
+	{
+		if (USkeletalMeshComponent* MeshComp = EquipmentComp->GetMeshComponentAtSlot(Slot))
 		{
-			GetMesh()->SetSkeletalMesh(CharacterAppearance->BaseMeshOverride);
+			FCharacterCreatorAttribute_Mesh MeshData = AppearanceAttributeSet.Meshes[Slot];
+
+			SetMeshAppearance(Slot, MeshData);
 		}
-
-		if (FeetMesh)
+	}
+	else //No attribute data exists for this slot, just clear it to empty 
+	{
+		if (USkeletalMeshComponent* MeshComp = EquipmentComp->GetMeshComponentAtSlot(Slot))
 		{
-			FeetMesh->SetSkeletalMesh(CharacterAppearance->FeetMesh);
+			MeshComp->SetSkeletalMesh(nullptr);
+		}
+	}
+}
 
-			for (int32 i = 0; i <= CharacterAppearance->FeetMeshMaterials.Num() - 1; ++i)
+void ANarrativeCharacter::SetMeshAppearance(FGameplayTag Slot, const FCharacterCreatorAttribute_Mesh& MeshData)
+{
+	//if (AppearanceAttributeSet.Meshes.Contains(Slot))
+	{
+		if (USkeletalMeshComponent* MeshComp = EquipmentComp->GetMeshComponentAtSlot(Slot))
+		{
+			USkeletalMesh* MeshAsset = MeshData.Mesh;
+			TSubclassOf<UAnimInstance> OldAnimInstance = nullptr;
+			
+			if (MeshComp->GetAnimInstance())
 			{
-				if (CharacterAppearance->FeetMeshMaterials.IsValidIndex(i))
+				OldAnimInstance = MeshComp->GetAnimInstance()->GetClass();
+			}
+
+			MeshComp->SetSkeletalMesh(MeshAsset);
+			
+			if (MeshComp != GetMesh())
+			{
+				if (MeshData.bUseLeaderPose)
 				{
-					FeetMesh->SetMaterial(i, CharacterAppearance->FeetMeshMaterials[i]);
+					MeshComp->SetLeaderPoseComponent(GetMesh());
+				}
+				else
+				{
+					MeshComp->SetLeaderPoseComponent(nullptr);
+					MeshComp->SetAnimInstanceClass(MeshData.MeshAnimBP);
+				}
+			}
+			else
+			{	
+				//Changing leader mesh requires you to set the anim class again or we'll T pose 
+				if (IsValid(OldAnimInstance))
+				{
+					MeshComp->SetAnimInstanceClass(OldAnimInstance);
+				}
+				else
+				{
+					MeshComp->SetAnimInstanceClass(AppearanceAttributeSet.UnarmedAnimBP);
+				}
+			}
+
+			if (IsValid(MeshAsset))
+			{
+				//Check if we have any custom materials to apply the newly created mesh
+				for (int32 i = 0; i < MeshAsset->GetMaterials().Num(); ++i)
+				{
+					if (MeshData.MeshMaterials.IsValidIndex(i))
+					{
+						FCreatorMeshMaterial MeshMat = MeshData.MeshMaterials[i];
+
+						//Set the material and apply parameters if required 
+						if (MeshMat.VectorParams.Num() <= 0 && MeshMat.ScalarParams.Num() <= 0)
+						{
+							MeshComp->SetMaterial(i, MeshMat.Material);
+						}
+						else
+						{
+							UMaterialInstanceDynamic* MID = MeshComp->CreateDynamicMaterialInstance(i, MeshMat.Material);
+
+							for (auto& VParam : MeshMat.VectorParams)
+							{
+								if (VParam.VectorTagID.IsValid())
+								{
+									const FLinearColor ParameterValue = AppearanceAttributeSet.GetVectorValue(VParam.VectorTagID);
+
+									for (auto& VParamName : VParam.ParameterNames)
+									{
+										MID->SetVectorParameterValue(VParamName, ParameterValue);
+									}
+								}
+							}
+
+							for (auto& SParam : MeshMat.ScalarParams)
+							{
+								if (SParam.ScalarTagID.IsValid())
+								{
+									const float ParameterValue = AppearanceAttributeSet.GetScalarValue(SParam.ScalarTagID);
+
+									for (auto& SParamName : SParam.ParameterNames)
+									{
+										MID->SetScalarParameterValue(SParamName, ParameterValue);
+									}
+								}
+							}
+						}
+					}
+				}
+
+				//Set the morphs
+				for (auto& Morph : MeshData.Morphs)
+				{
+					if (Morph.ScalarTag.IsValid())
+					{
+						const float MorphVal = AppearanceAttributeSet.GetScalarValue(Morph.ScalarTag);
+
+						for (auto& MorphName : Morph.MorphNames)
+						{
+							MeshComp->SetMorphTarget(MorphName, MorphVal);
+						}
+					}
 				}
 			}
 		}
+	}
+}
 
-		if (BodyMesh)
+void ANarrativeCharacter::SetGroomAtSlotToBaseAppearance(FGameplayTag Slot)
+{
+	if (UGroomComponent* GroomComp = EquipmentComp->GetGroomComponentAtSlot(Slot))
+	{
+		if (AppearanceAttributeSet.Grooms.Contains(Slot))
 		{
-			BodyMesh->SetSkeletalMesh(CharacterAppearance->BodyMesh);
+			FCharacterCreatorAttribute_Groom GroomData = AppearanceAttributeSet.Grooms[Slot];
 
-			for (int32 i = 0; i <= CharacterAppearance->BodyMeshMaterials.Num() - 1; ++i)
-			{
-				if (CharacterAppearance->BodyMeshMaterials.IsValidIndex(i))
-				{
-					BodyMesh->SetMaterial(i, CharacterAppearance->BodyMeshMaterials[i]);
-				}
-			}
-		}
-
-		if (LegsMesh)
-		{
-			LegsMesh->SetSkeletalMesh(CharacterAppearance->LegsMesh);
-
-			for (int32 i = 0; i <= CharacterAppearance->LegsMeshMaterials.Num() - 1; ++i)
-			{
-				if (CharacterAppearance->LegsMeshMaterials.IsValidIndex(i))
-				{
-					LegsMesh->SetMaterial(i, CharacterAppearance->LegsMeshMaterials[i]);
-				}
-			}
-		}
-
-		if (FaceMesh)
-		{
-			FaceMesh->SetSkeletalMesh(CharacterAppearance->HeadMesh);
-
-			for (int32 i = 0; i <= CharacterAppearance->HeadMeshMaterials.Num() - 1; ++i)
-			{
-				if (CharacterAppearance->HeadMeshMaterials.IsValidIndex(i))
-				{
-					FaceMesh->SetMaterial(i, CharacterAppearance->HeadMeshMaterials[i]);
-				}
-			}
-		}
-		
-		if (TorsoMesh)
-		{
-			TorsoMesh->SetSkeletalMesh(CharacterAppearance->TorsoMesh);
-
-			for (int32 i = 0; i <= CharacterAppearance->TorsoMeshMaterials.Num() - 1; ++i)
-			{
-				if (CharacterAppearance->TorsoMeshMaterials.IsValidIndex(i))
-				{
-					TorsoMesh->SetMaterial(i, CharacterAppearance->TorsoMeshMaterials[i]);
-				}
-			}
-		}
-
-		if (HelmetMesh)
-		{
-			HelmetMesh->SetSkeletalMesh(CharacterAppearance->HelmetMesh);
-
-			for (int32 i = 0; i <= CharacterAppearance->HelmetMeshMaterials.Num() - 1; ++i)
-			{
-				if (CharacterAppearance->HelmetMeshMaterials.IsValidIndex(i))
-				{
-					HelmetMesh->SetMaterial(i, CharacterAppearance->HelmetMeshMaterials[i]);
-				}
-			}
+			GroomComp->SetGroomAsset(GroomData.GroomAsset, GroomData.GroomBindingAsset);
 		}
 	}
 }
@@ -262,7 +388,7 @@ void ANarrativeCharacter::SetAnimBPOverride(TSubclassOf<class UAnimInstance> New
 	}
 	else
 	{
-		GetMesh()->SetAnimInstanceClass(UnarmedAnimBP);
+		GetMesh()->SetAnimInstanceClass(AppearanceAttributeSet.UnarmedAnimBP);
 	}
 }
 
@@ -278,6 +404,15 @@ void ANarrativeCharacter::AddAbility(TSubclassOf<class UNarrativeGameplayAbility
 	{
 		const int32 Level = GetCharacterLevel();
 		const int32 InputID = static_cast<int32>(Ability.GetDefaultObject()->InputID);
+
+		for (const FGameplayAbilitySpec& Spec : AbilitySystemComponent->GetActivatableAbilities())
+		{
+			if ((Spec.SourceObject == this) && Spec.Ability->GetClass() == Ability)
+			{
+				UE_LOG(LogTemp, Warning, TEXT("tried granting ability %s that was already granted"), *GetNameSafe(Ability));
+				return;
+			}
+		}
 
 		if (InputID != static_cast<int32>(ENarrativeAbilityInputID::None))
 		{
@@ -329,120 +464,207 @@ void ANarrativeCharacter::RemoveAbilities(TArray<TSubclassOf<class UNarrativeGam
 	GrantAbilities(DefaultAbilities);
 }
 
-void ANarrativeCharacter::SetWeaponVisual(const TSubclassOf<class AActor>& WeaponVisualClass, const FName& WeaponVisualAttachBone, const FTransform& WeaponVisualAttachOffset)
+void ANarrativeCharacter::InitializeEquipmentComponent()
 {
-	RemoveWeaponVisual();
+	TMap<FGameplayTag, USkeletalMeshComponent*> EquipmentMap;
 
-	SpawnedWeaponVisual = GetWorld()->SpawnActorDeferred<AActor>(WeaponVisualClass, FTransform::Identity, this);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_BaseBody, GetMesh());
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Torso, TorsoMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Legs, LegsMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Feet, FeetMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Helmet, HelmetMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Body, BodyMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Hands, GlovesMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Face, FaceMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Mesh_Beard, BeardMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Mesh_Moustache, MoustacheMesh);
+	EquipmentMap.Add(FNarrativeGameplayTags::Get().Equipment_Slot_Mesh_Hair, HairMesh);
 
-	
-	if (SpawnedWeaponVisual)
+	if (EquipmentComp)
 	{
-		SpawnedWeaponVisual->FinishSpawning(FTransform::Identity, /*bIsDefaultTransform=*/ true);
-	}
-
-	AttachWeaponVisual(WeaponVisualAttachBone, WeaponVisualAttachOffset);
-}
-
-void ANarrativeCharacter::AttachWeaponVisual(const FName& WeaponVisualAttachBone, const FTransform& WeaponVisualAttachOffset)
-{
-	if (SpawnedWeaponVisual)
-	{
-		SpawnedWeaponVisual->SetActorRelativeTransform(WeaponVisualAttachOffset);
-		SpawnedWeaponVisual->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, WeaponVisualAttachBone);
+		EquipmentComp->Initialize(EquipmentMap, GetMesh());
 	}
 }
 
-void ANarrativeCharacter::RemoveWeaponVisual()
+class UNarrativeCharacterMovement* ANarrativeCharacter::GetNarrativeCharacterMovement() const
 {
-	if (SpawnedWeaponVisual)
+	return Cast<UNarrativeCharacterMovement>(GetCharacterMovement());
+}
+
+bool ANarrativeCharacter::AddWeaponVisual(class UWeaponItem* WeaponItem)
+{
+	if (IsValid(WeaponItem))
 	{
-		SpawnedWeaponVisual->Destroy();
+		const FGameplayTag WeaponSlot = WeaponItem->EquippableSlot;
+
+		RemoveWeaponVisual(WeaponSlot);
+
+		if (AActor* SpawnedWeaponVisual = GetWorld()->SpawnActorDeferred<AActor>(WeaponItem->WeaponVisualClass, FTransform::Identity, this))
+		{
+			SpawnedWeaponVisual->FinishSpawning(FTransform::Identity, /*bIsDefaultTransform=*/ true);
+
+			SpawnedWeaponVisuals.Add(WeaponSlot, SpawnedWeaponVisual);
+			AttachWeaponVisual(WeaponItem, true);
+		
+			return true;
+		}
 	}
 
-	ClearAnimBPOverride();
+	return false; 
+}
+
+void ANarrativeCharacter::AttachWeaponVisual(class UWeaponItem* WeaponItem, const bool bHolster)
+{
+	if (WeaponItem)
+	{
+		if (AActor* WeaponVisual = GetWeaponVisual(WeaponItem->EquippableSlot))
+		{
+			const FTransform AttachOffset = bHolster ? WeaponItem->WeaponVisualHolsteredAttachOffset : WeaponItem->WeaponVisualAttachOffset;
+			const FName AttachSocket = bHolster ? WeaponItem->WeaponVisualHolsteredAttachBone : WeaponItem->WeaponVisualAttachBone;
+
+			WeaponVisual->SetActorRelativeTransform(AttachOffset);
+			WeaponVisual->AttachToComponent(GetMesh(), FAttachmentTransformRules::KeepRelativeTransform, AttachSocket);
+		}
+	}
+}
+
+void ANarrativeCharacter::RemoveWeaponVisual(const FGameplayTag& WeaponSlot)
+{
+	if (SpawnedWeaponVisuals.Contains(WeaponSlot))
+	{
+		SpawnedWeaponVisuals[WeaponSlot]->Destroy();
+	}
+
+	SpawnedWeaponVisuals.Remove(WeaponSlot);
 }
 
 void ANarrativeCharacter::SetWeaponHolstered(const bool bHolster)
 {
-	bWeaponHolstered = bHolster;
-	OnRep_bWeaponHolstered();
+	if (bWeaponHolstered != bHolster)
+	{
+		bWeaponHolstered = bHolster;
+		//OnRep_bWeaponHolstered();
+
+		if (AbilitySystemComponent)
+		{
+
+		}
+	}
 }
 
-void ANarrativeCharacter::OnRep_bWeaponHolstered()
-{
-	const UWeaponItem* WeaponItem = GetWeapon();
+void ANarrativeCharacter::SetEquippedWeapon(class UWeaponItem* WeaponToEquip)
+{	
+	UWeaponItem* OldWeapon = EquippedWeapon;
+	EquippedWeapon = WeaponToEquip;
+	OnRep_EquippedWeapon(OldWeapon);
+}
 
-	//Holster can only be done with a weapon item 
-	if (bWeaponHolstered)
+void ANarrativeCharacter::OnRep_EquippedWeapon(class UWeaponItem* OldEquippedWeapon)
+{
+	//Once the player has an equipped weapon, we need to attach it to the player, update our anims, and grant tags. 
+	if (OldEquippedWeapon)
 	{
-		if (WeaponItem)
+		OldEquippedWeapon->HandleUnWield();
+	}
+
+	if (EquippedWeapon)
+	{
+		EquippedWeapon->HandleWield();
+	}
+}
+
+void ANarrativeCharacter::WieldWeapon(class UWeaponItem* Weapon)
+{
+	if (Weapon)
+	{
+		AttachWeaponVisual(Weapon, false);
+		SetAnimBPOverride(Weapon->WeaponAnimLayer);
+
+		//Bots should not have their controller rot yaw affected for now as they need to use AIFocus 
+		if (IsPlayerControlled())
 		{
-			AttachWeaponVisual(WeaponItem->WeaponVisualHolsteredAttachBone, WeaponItem->WeaponVisualHolsteredAttachOffset);
+			bUseControllerRotationYaw = Weapon->bPawnFollowsControlRotation;
 		}
 
+		if (UCharacterMovementComponent* MoveComp = GetCharacterMovement())
+		{
+			MoveComp->bOrientRotationToMovement = Weapon->bPawnOrientsRotationToMovement;
+		}
+
+		GrantAbilities(Weapon->Abilities);
+		AbilitySystemComponent->AddLooseGameplayTag(FNarrativeGameplayTags::Get().State_Weapon_Equipped);
+	}
+}
+
+void ANarrativeCharacter::UnWieldWeapon(class UWeaponItem* Weapon)
+{
+	if (Weapon)
+	{
+		AttachWeaponVisual(Weapon, true);
 		ClearAnimBPOverride();
-	}
-	else if(WeaponItem) //Unholstering only makes sense if you have a weapon
-	{
-		AttachWeaponVisual(WeaponItem->WeaponVisualAttachBone, WeaponItem->WeaponVisualAttachOffset);
-		SetAnimBPOverride(WeaponItem->WeaponAnimLayer);
-	}
-}
 
-class AActor* ANarrativeCharacter::GetWeaponVisual() const
-{
-	return SpawnedWeaponVisual;
-}
-
-class UWeaponItem* ANarrativeCharacter::GetWeapon() const
-{
-	if (EquipmentComp)
-	{
-		if (UWeaponItem* EquippedWeapon = Cast<UWeaponItem>(EquipmentComp->GetEquippedItemAtSlot(EEquippableSlot::ES_Weapon)))
+		if (ANarrativeCharacter* DefaultChar = GetClass()->GetDefaultObject<ANarrativeCharacter>())
 		{
-			return EquippedWeapon;
+			bUseControllerRotationYaw = DefaultChar->bUseControllerRotationYaw;
+
+			if (UCharacterMovementComponent* MoveComp = GetCharacterMovement())
+			{
+				if (UCharacterMovementComponent* DefaultMovement = DefaultChar->GetCharacterMovement())
+				{
+					MoveComp->bOrientRotationToMovement = DefaultMovement->bOrientRotationToMovement;
+				}
+			}
 		}
+
+		RemoveAbilities(Weapon->Abilities);
+		AbilitySystemComponent->SetLooseGameplayTagCount(FNarrativeGameplayTags::Get().State_Weapon_Equipped, 0);
+	}
+}
+
+class AActor* ANarrativeCharacter::GetEquippedWeaponVisual() const
+{
+	if (EquippedWeapon)
+	{
+		return GetWeaponVisual(EquippedWeapon->EquippableSlot);
 	}
 
 	return nullptr;
 }
 
-void ANarrativeCharacter::SetGenericTeamId(const FGenericTeamId& TeamID)
+class AActor* ANarrativeCharacter::GetWeaponVisual(const FGameplayTag& WeaponSlot) const
 {
-	if (APlayerState* PS = GetPlayerState())
+	if (SpawnedWeaponVisuals.Contains(WeaponSlot))
 	{
-		if (INarrativeTeamAgentInterface* TeamInterface = Cast<INarrativeTeamAgentInterface>(PS))
-		{
-			return TeamInterface->SetGenericTeamId(TeamID);
-		}
+		return SpawnedWeaponVisuals[WeaponSlot];
 	}
+
+	return nullptr; 
 }
 
-FGenericTeamId ANarrativeCharacter::GetGenericTeamId() const
+class UWeaponItem* ANarrativeCharacter::GetWeapon() const
 {
-	if (APlayerState* PS = GetPlayerState())
-	{
-		if (INarrativeTeamAgentInterface* TeamInterface = Cast<INarrativeTeamAgentInterface>(PS))
-		{
-			return TeamInterface->GetGenericTeamId();
-		}
-	}
-	return FGenericTeamId::NoTeam;
+	return EquippedWeapon;
 }
 
-
-ETeamAttitude::Type ANarrativeCharacter::GetTeamAttitudeTowards(const AActor& Other) const
+float ANarrativeCharacter::GetAttackRange() const
 {
-	if (APlayerState* PS = GetPlayerState())
+	
+	if (UWeaponItem* Weapon = GetWeapon())
 	{
-		if (INarrativeTeamAgentInterface* TeamInterface = Cast<INarrativeTeamAgentInterface>(PS))
-		{
-			return TeamInterface->GetTeamAttitudeTowards(Other);
-		}
+		return Weapon->GetAttackRange();
 	}
 
-	return ETeamAttitude::Neutral;
+	return UnarmedCombatData.TraceDistance;
+}
+
+FCombatTraceData ANarrativeCharacter::GetAttackTraceData() const
+{
+	if (UWeaponItem* Weapon = GetWeapon())
+	{
+		return Weapon->GetTraceData();
+	}
+
+	return UnarmedCombatData;
 }
 
 void ANarrativeCharacter::GetOwnedGameplayTags(FGameplayTagContainer& TagContainer) const
@@ -483,17 +705,6 @@ bool ANarrativeCharacter::HasAnyMatchingGameplayTags(const FGameplayTagContainer
 	return false;
 }
 
-//void ANarrativeCharacter::SetupAbilitySystemComponent(class UNarrativeAbilitySystemComponent* ASC)
-//{	
-//	check(ASC);
-//
-//	if (ASC)
-//	{
-//		AbilitySystemComponent = ASC;
-//	}
-//
-//}
-
 void ANarrativeCharacter::AddDefaultAbilities()
 {
 	GrantAbilities(DefaultAbilities);
@@ -531,6 +742,8 @@ void ANarrativeCharacter::InitializeAttributes()
 	{
 		FActiveGameplayEffectHandle ActiveGEHandle = AbilitySystemComponent->ApplyGameplayEffectSpecToTarget(*NewHandle.Data.Get(), AbilitySystemComponent.Get());
 	}
+
+	AbilitySystemComponent->OnDied.AddDynamic(this, &ANarrativeCharacter::HandleDeath);
 }
 
 void ANarrativeCharacter::AddStartupEffects()
@@ -553,12 +766,9 @@ void ANarrativeCharacter::AddStartupEffects()
 	}
 
 	AbilitySystemComponent->bStartupEffectsApplied = true;
+
 }
 
-void ANarrativeCharacter::InitASC()
-{
-	
-}
 
 void ANarrativeCharacter::SetHealth(float Health)
 {
@@ -657,30 +867,52 @@ float ANarrativeCharacter::GetMaxStamina() const
 	return 0.0f;
 }
 
-void ANarrativeCharacter::HandleOutOfHealth(AActor* DamageInstigator, AActor* DamageCauser, const FGameplayEffectSpec& DamageEffectSpec, float DamageMagnitude)
+void ANarrativeCharacter::HandleDeath_Implementation(AActor* KilledActor, UNarrativeAbilitySystemComponent* KilledActorASC)
 {
-	if (HasAuthority() && AbilitySystemComponent)
+	FString Rolestring = HasAuthority() ? "Server" : "Client";
+	UE_LOG(LogTemp, Warning, TEXT("%s playing death logic"), *Rolestring);
+
+	//We do a nice generic death implementation in here - if NPro users need more than this they can simply override this function in C++/BP
+	
+	/**Destroy child actors, stop movement, disable collision except for interaction for looting, disable our map marker.*/
+	TArray<AActor*> ChildrenActors;
+	GetAllChildActors(ChildrenActors);
+
+	for (auto& Child : ChildrenActors)
 	{
-		const FGameplayTag DeadTag = FNarrativeGameplayTags::Get().State_IsDead;
-
-		if (!AbilitySystemComponent->HasMatchingGameplayTag(DeadTag))
+		if (Child)
 		{
-		
-			FGameplayEventData Payload;
-			Payload.EventTag = FNarrativeGameplayTags::Get().GameplayEvent_Death;
-			Payload.Instigator = DamageInstigator;
-			Payload.Target = AbilitySystemComponent->GetAvatarActor();
-			Payload.OptionalObject = DamageEffectSpec.Def;
-			Payload.ContextHandle = DamageEffectSpec.GetEffectContext();
-			Payload.InstigatorTags = *DamageEffectSpec.CapturedSourceTags.GetAggregatedTags();
-			Payload.TargetTags = *DamageEffectSpec.CapturedTargetTags.GetAggregatedTags();
-			Payload.EventMagnitude = DamageMagnitude;
-
-			FScopedPredictionWindow NewScopedWindow(AbilitySystemComponent, true);
-			AbilitySystemComponent->HandleGameplayEvent(Payload.EventTag, &Payload);
-
-			//AbilitySystemComponent->AddLooseGameplayTag(DeadTag);
+			Child->Destroy();
 		}
 	}
-}
 
+	if (UNarrativeCharacterMovement* CharMov = GetNarrativeCharacterMovement())
+	{
+		CharMov->DisableMovement();
+		CharMov->StopMovementImmediately();
+		CharMov->GravityScale = 0.f;
+	}
+
+	if (USkeletalMeshComponent* LeaderMesh = GetMesh())
+	{
+		LeaderMesh->SetSimulatePhysics(true);
+		LeaderMesh->SetCollisionObjectType(ECC_PhysicsBody);
+		LeaderMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+		LeaderMesh->SetCollisionResponseToChannel(Narrative_TraceChannel_Interaction, ECR_Block);
+	}
+
+	if (UCapsuleComponent* Capsule = GetCapsuleComponent())
+	{
+		Capsule->SetCollisionEnabled(ECollisionEnabled::NoCollision);
+	}
+
+	if (MarkerComponent)
+	{
+		MarkerComponent->Deactivate();
+	}
+
+	if (AbilitySystemComponent)
+	{
+		AbilitySystemComponent->AddLooseGameplayTag(FNarrativeGameplayTags::Get().State_IsDead);
+	}
+}

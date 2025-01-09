@@ -49,6 +49,8 @@ void FNarrativeArsenalStyle::Initialize()
 	StyleSet->Set(FName(TEXT("ClassIcon.NPCDataAsset")), new IMAGE_BRUSH("NPC", FVector2D(16, 16)));
 	StyleSet->Set(FName(TEXT("ClassThumbnail.NPCDefinition")), new IMAGE_BRUSH("NPC", FVector2D(64, 64)));
 	StyleSet->Set(FName(TEXT("ClassIcon.NPCDefinition")), new IMAGE_BRUSH("NPC", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.PlayerDefinition")), new IMAGE_BRUSH("Player", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.PlayerDefinition")), new IMAGE_BRUSH("Player", FVector2D(16, 16)));
 
 	StyleSet->Set(FName(TEXT("ClassThumbnail.Settlement")), new IMAGE_BRUSH("Settlement", FVector2D(64, 64)));
 	StyleSet->Set(FName(TEXT("ClassIcon.Settlement")), new IMAGE_BRUSH("Settlement", FVector2D(16, 16)));
@@ -58,6 +60,64 @@ void FNarrativeArsenalStyle::Initialize()
 
 	StyleSet->Set(FName(TEXT("ClassThumbnail.ItemCollection")), new IMAGE_BRUSH("LootItems", FVector2D(64, 64)));
 	StyleSet->Set(FName(TEXT("ClassIcon.ItemCollection")), new IMAGE_BRUSH("LootItems", FVector2D(16, 16)));
+
+	
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterAppearance")), new IMAGE_BRUSH("EquippableItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterAppearance")), new IMAGE_BRUSH("EquippableItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorItem_Groom")), new IMAGE_BRUSH("Groom", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorItem_Groom")), new IMAGE_BRUSH("Groom", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorItem_Mesh")), new IMAGE_BRUSH("ClothingItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorItem_Mesh")), new IMAGE_BRUSH("ClothingItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorConfiguration")), new IMAGE_BRUSH("EquippableItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorConfiguration")), new IMAGE_BRUSH("EquippableItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorOption")), new IMAGE_BRUSH("Interaction", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorOption")), new IMAGE_BRUSH("Interaction", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorColorSwatch")), new IMAGE_BRUSH("ColorPalette", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorColorSwatch")), new IMAGE_BRUSH("ColorPalette", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorPage")), new IMAGE_BRUSH("Page", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorPage")), new IMAGE_BRUSH("Page", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorForm")), new IMAGE_BRUSH("Form", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorForm")), new IMAGE_BRUSH("Form", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.CharacterCreatorSection")), new IMAGE_BRUSH("Section", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.CharacterCreatorSection")), new IMAGE_BRUSH("Section", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeAnimSet")), new IMAGE_BRUSH("ComboAttack", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeAnimSet")), new IMAGE_BRUSH("ComboAttack", FVector2D(16, 16)));
+
+	
+	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeInteractionComponent")), new IMAGE_BRUSH("Interaction", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeInteractionComponent")), new IMAGE_BRUSH("Interaction", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeInteractableComponent")), new IMAGE_BRUSH("Interactable", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeInteractableComponent")), new IMAGE_BRUSH("Interactable", FVector2D(16, 16)));
+
+	
+	StyleSet->Set(FName(TEXT("ClassThumbnail.EquippableItemBlueprint")), new IMAGE_BRUSH("EquippableItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.EquippableItemBlueprint")), new IMAGE_BRUSH("EquippableItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.ClothingItemBlueprint")), new IMAGE_BRUSH("ClothingItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.ClothingItemBlueprint")), new IMAGE_BRUSH("ClothingItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.EquippableItem")), new IMAGE_BRUSH("EquippableItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.EquippableItem")), new IMAGE_BRUSH("EquippableItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.EquippableItem_Clothing")), new IMAGE_BRUSH("ClothingItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.EquippableItem_Clothing")), new IMAGE_BRUSH("ClothingItem", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.EquipmentComponent")), new IMAGE_BRUSH("EquippableItem", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.EquipmentComponent")), new IMAGE_BRUSH("EquippableItem", FVector2D(16, 16)));
+
+	
+	StyleSet->Set(FName(TEXT("ClassThumbnail.NavigationMarkerComponent")), new IMAGE_BRUSH("NavigationMarkerComponent", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.NavigationMarkerComponent")), new IMAGE_BRUSH("NavigationMarkerComponent", FVector2D(16, 16)));
+
+	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeNavigationComponent")), new IMAGE_BRUSH("NarrativeNavigatorComponent", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeNavigationComponent")), new IMAGE_BRUSH("NarrativeNavigatorComponent", FVector2D(16, 16)));
 
 	FSlateStyleRegistry::RegisterSlateStyle(*StyleSet.Get());
 };

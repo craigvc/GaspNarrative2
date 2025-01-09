@@ -30,18 +30,14 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "NPC")
 	FText NPCName;
 
-	/**The NPCs faction, if one applies. */
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Factions")
-	TObjectPtr<class UFactionDefinition> Faction;
+	/** The NPCs level will be randomized between these values. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "NPC", meta = (ClampMin=1, ClampMax=5000))
+	FInt32Range LevelRange;
 
 	/** Is this NPC unique, or can we spawn multiple of them? Main characters for example generally only
 	want a max of one spawned in a time, whilst a generic bandit might have as many instances as we want. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "NPC")
 	bool bAllowMultipleInstances;
-
-	/** If true, we'll apply the Narrative.State.Invulnerable tag to this NPC by default - it can be removed if needed */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC")
-	bool bInvulnerable;
 
 	/** If this NPC is unique, we'll use this as the NPCs save system GUID. Since there is only one unique GUID
 	defined here, this will nicely guarantee unique NPCs only ever have 1 save record created per NPC. */
@@ -65,15 +61,22 @@ public:
 	bool bIsVendor;
 
 	/** Default currency this character should have in their inventory */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory", meta = (EditCondition = "bIsVendor", EditConditionHides))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	int32 TradingCurrency;
 
 	/** The items we should grant the character by default. */
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory", meta = (EditCondition = "bIsVendor", EditConditionHides))
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	TArray<FLootTableRoll> TradingItemLoadout;
 
 	/** The name of the vendors shop, if this NPC is a vendor.  */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory", meta = (EditCondition = "bIsVendor", EditConditionHides))
 	FText ShopFriendlyName;
 
+	/** The NPCs Activity schedule. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "AI", meta = (AssetBundles = "SpawnedData"))
+	TSoftObjectPtr<class UNPCActivitySchedule> ActivitySchedule;
+	
+	/** The NPCs activity config. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "AI", meta = (AssetBundles = "SpawnedData"))
+	TSoftObjectPtr<class UNPCActivityConfiguration> ActivityConfiguration;
 };

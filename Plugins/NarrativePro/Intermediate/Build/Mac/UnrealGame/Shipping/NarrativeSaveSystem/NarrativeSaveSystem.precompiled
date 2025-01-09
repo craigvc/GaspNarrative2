@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Shipping/NarrativeSaveSystem/Module.NarrativeSaveSystem.cpp.o",
+		"../../../arm64/UnrealGame/Shipping/NarrativeSaveSystem/Module.NarrativeSaveSystem.cpp.o",
+		"../../../x64/UnrealGame/Shipping/NarrativeSaveSystem/Module.NarrativeSaveSystem.cpp.o",
+		"../../../x64/UnrealGame/Shipping/NarrativeSaveSystem/Module.NarrativeSaveSystem.cpp.o"
+	]
+}

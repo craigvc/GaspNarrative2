@@ -6,27 +6,8 @@
 #include "NarrativeItem.h"
 #include "GameplayTagContainer.h"
 #include <GameplayEffect.h>
+#include "CharacterCreator/CharacterCreatorAttributes.h"
 #include "EquippableItem.generated.h"
-
-UENUM(BlueprintType)
-enum class EEquippableSlot : uint8 
-{
-	ES_Torso UMETA(DisplayName="Torso"),
-	ES_Legs UMETA(DisplayName = "Legs"),
-	ES_Feet UMETA(DisplayName = "Feet"),
-	ES_Helmet UMETA(DisplayName = "Helmet"),
-	ES_Hands UMETA(DisplayName = "Hands"),
-	ES_Backpack UMETA(DisplayName = "Backpack"),
-	ES_Necklace UMETA(DisplayName = "Necklace"),
-	ES_Holster UMETA(DisplayName = "Holster"),
-	ES_Weapon UMETA(DisplayName = "Weapon"),
-	ES_ThrowableWeapon UMETA(DisplayName = "Throwable Weapon"),
-	ES_Custom1 UMETA(DisplayName = "Custom1"),
-	ES_Custom2 UMETA(DisplayName = "Custom2"),
-	ES_Custom3 UMETA(DisplayName = "Custom3"),
-	ES_Custom4 UMETA(DisplayName = "Custom4"),
-	ES_Custom5 UMETA(DisplayName = "Custom5"),
-};
 
 /**
  * The base class for an equippable item the player can put on. Networking is built right in.
@@ -69,8 +50,8 @@ protected:
 	virtual FString GetStringVariable_Implementation(const FString& VariableName) override;
 
 	/**The slot this item equips to*/
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equippable")
-	EEquippableSlot EquippableSlot;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equippable", meta = (Categories = "Narrative.Equipment.Slot"))
+	FGameplayTag EquippableSlot;
 
 	// Default attributes for a character for initializing on spawn/respawn.
 	// This is an instant GE that overrides the values for attributes that get reset on spawn/respawn.
@@ -89,7 +70,8 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equippable")
 	float ArmorRating;
 
-	//Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped
+	/*Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped
+	Note that WeaponItems grant the abilities when wielded, not when equipped. */
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Weapon|Abilities")
 	TArray<TSubclassOf<class UNarrativeGameplayAbility>> Abilities;
 
@@ -114,12 +96,8 @@ protected:
 	virtual void HandleEquip_Implementation() override;
 	virtual void HandleUnequip_Implementation() override;
 
-	/**The mesh to put on the player when they equip the item*/
+	/**The mesh to apply to the player */
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equippable")
-	class USkeletalMesh* ClothingMesh;
-
-	/**The materials to apply to the clothing mesh*/
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Equippable")
-	TArray<class UMaterialInterface*> ClothingMaterials;
+	FCharacterCreatorAttribute_Mesh ClothingMeshData;
 
 };

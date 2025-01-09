@@ -4,7 +4,6 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
-#include "SkillTrees/TreeSkill.h"
 #include <MediaSource.h>
 #include "TreePerk.generated.h"
 
@@ -63,17 +62,21 @@ public:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
 	int32 MaxLevels;
 
-	//The level this perk is at. 0 = not purchased
-	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
-	FVector2D PerkDisplayCoords;
-
 	//The perks that come after this one. 
 	UPROPERTY(Instanced, EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
 	TArray<UTreePerk*> LinkedPerks;
 
-		//The display name of this Perk. 
+	//The classes this perk should link to. IE you'll need to buy this perk before any of the linked ones. 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
+	TArray<TSubclassOf<UTreePerk>> LinkedPerkClasses;
+
+	//The display name of this Perk. 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
 	FText PerkDisplayName;
+
+	//The display icon of the perk
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
+	TSoftObjectPtr<class UTexture2D> PerkDisplayIcon;
 
 	//The description of this Perk. 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
@@ -82,9 +85,6 @@ public:
 	//The preview video for this perk, explaining what it does in the skills menu. 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Perk")
 	class UMediaSource* PerkVideo; 
-
-	UFUNCTION(BlueprintPure, Category = "Tree Perk")
-	class UTreeSkill* GetOwningSkill() const;
 
 	UFUNCTION(BlueprintPure, Category = "Tree Perk")
 	class USkillTreeComponent* GetOwningComponent() const;

@@ -3,6 +3,7 @@
 
 #include "Teams/FactionDefinition.h"
 
+
 UFactionDefinition::UFactionDefinition(const FObjectInitializer& ObjectInitializer)
 {
 

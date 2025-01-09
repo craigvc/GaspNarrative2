@@ -10,6 +10,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNarrativeSaveSubsystem() {}
 
 // Begin Cross Module References
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FGuid();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_ULevel_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UWorld_NoRegister();
@@ -144,6 +145,50 @@ DEFINE_FUNCTION(UNarrativeSaveSubsystem::execDeleteSave)
 	P_NATIVE_END;
 }
 // End Class UNarrativeSaveSubsystem Function DeleteSave
+
+// Begin Class UNarrativeSaveSubsystem Function GetSaveObject
+struct Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics
+{
+	struct NarrativeSaveSubsystem_eventGetSaveObject_Parms
+	{
+		UNarrativeSave* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Saving" },
+		{ "Comment", "/** Return our current save object if one exists  */" },
+		{ "ModuleRelativePath", "Public/Subsystems/NarrativeSaveSubsystem.h" },
+		{ "ToolTip", "Return our current save object if one exists" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeSaveSubsystem_eventGetSaveObject_Parms, ReturnValue), Z_Construct_UClass_UNarrativeSave_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeSaveSubsystem, nullptr, "GetSaveObject", nullptr, nullptr, Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::NarrativeSaveSubsystem_eventGetSaveObject_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::NarrativeSaveSubsystem_eventGetSaveObject_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeSaveSubsystem::execGetSaveObject)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(UNarrativeSave**)Z_Param__Result=P_THIS->GetSaveObject();
+	P_NATIVE_END;
+}
+// End Class UNarrativeSaveSubsystem Function GetSaveObject
 
 // Begin Class UNarrativeSaveSubsystem Function IsLoading
 struct Z_Construct_UFunction_UNarrativeSaveSubsystem_IsLoading_Statics
@@ -410,6 +455,58 @@ DEFINE_FUNCTION(UNarrativeSaveSubsystem::execLoadSingleActor)
 	P_NATIVE_END;
 }
 // End Class UNarrativeSaveSubsystem Function LoadSingleActor
+
+// Begin Class UNarrativeSaveSubsystem Function LookupActorByGUID
+struct Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics
+{
+	struct NarrativeSaveSubsystem_eventLookupActorByGUID_Parms
+	{
+		FGuid SearchGUID;
+		AActor* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Lookups" },
+		{ "Comment", "/** Allows you to quickly lookup an actor reference using its save GUID. Useful for actor references - save the GUID to disk and look it up later.  */" },
+		{ "ModuleRelativePath", "Public/Subsystems/NarrativeSaveSubsystem.h" },
+		{ "ToolTip", "Allows you to quickly lookup an actor reference using its save GUID. Useful for actor references - save the GUID to disk and look it up later." },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SearchGUID_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FStructPropertyParams NewProp_SearchGUID;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NewProp_SearchGUID = { "SearchGUID", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeSaveSubsystem_eventLookupActorByGUID_Parms, SearchGUID), Z_Construct_UScriptStruct_FGuid, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SearchGUID_MetaData), NewProp_SearchGUID_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeSaveSubsystem_eventLookupActorByGUID_Parms, ReturnValue), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NewProp_SearchGUID,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeSaveSubsystem, nullptr, "LookupActorByGUID", nullptr, nullptr, Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NarrativeSaveSubsystem_eventLookupActorByGUID_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14C20401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::NarrativeSaveSubsystem_eventLookupActorByGUID_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeSaveSubsystem::execLookupActorByGUID)
+{
+	P_GET_STRUCT_REF(FGuid,Z_Param_Out_SearchGUID);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(AActor**)Z_Param__Result=P_THIS->LookupActorByGUID(Z_Param_Out_SearchGUID);
+	P_NATIVE_END;
+}
+// End Class UNarrativeSaveSubsystem Function LookupActorByGUID
 
 // Begin Class UNarrativeSaveSubsystem Function OnActorDestroyed
 struct Z_Construct_UFunction_UNarrativeSaveSubsystem_OnActorDestroyed_Statics
@@ -819,11 +916,13 @@ void UNarrativeSaveSubsystem::StaticRegisterNativesUNarrativeSaveSubsystem()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "DeferredLoadPlayerData", &UNarrativeSaveSubsystem::execDeferredLoadPlayerData },
 		{ "DeleteSave", &UNarrativeSaveSubsystem::execDeleteSave },
+		{ "GetSaveObject", &UNarrativeSaveSubsystem::execGetSaveObject },
 		{ "IsLoading", &UNarrativeSaveSubsystem::execIsLoading },
 		{ "IsSavingDisabled", &UNarrativeSaveSubsystem::execIsSavingDisabled },
 		{ "LevelAddedToWorld", &UNarrativeSaveSubsystem::execLevelAddedToWorld },
 		{ "Load", &UNarrativeSaveSubsystem::execLoad },
 		{ "LoadSingleActor", &UNarrativeSaveSubsystem::execLoadSingleActor },
+		{ "LookupActorByGUID", &UNarrativeSaveSubsystem::execLookupActorByGUID },
 		{ "OnActorDestroyed", &UNarrativeSaveSubsystem::execOnActorDestroyed },
 		{ "OnActorPrespawned", &UNarrativeSaveSubsystem::execOnActorPrespawned },
 		{ "OnActorSpawned", &UNarrativeSaveSubsystem::execOnActorSpawned },
@@ -893,11 +992,13 @@ struct Z_Construct_UClass_UNarrativeSaveSubsystem_Statics
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_DeferredLoadPlayerData, "DeferredLoadPlayerData" }, // 403623272
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_DeleteSave, "DeleteSave" }, // 1924378914
+		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_GetSaveObject, "GetSaveObject" }, // 3496242146
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_IsLoading, "IsLoading" }, // 1944396576
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_IsSavingDisabled, "IsSavingDisabled" }, // 3306799048
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_LevelAddedToWorld, "LevelAddedToWorld" }, // 123914903
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_Load, "Load" }, // 3482486588
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_LoadSingleActor, "LoadSingleActor" }, // 3412283760
+		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_LookupActorByGUID, "LookupActorByGUID" }, // 242321892
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_OnActorDestroyed, "OnActorDestroyed" }, // 1670398253
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_OnActorPrespawned, "OnActorPrespawned" }, // 88412354
 		{ &Z_Construct_UFunction_UNarrativeSaveSubsystem_OnActorSpawned, "OnActorSpawned" }, // 3035653688
@@ -967,14 +1068,14 @@ UNarrativeSaveSubsystem::~UNarrativeSaveSubsystem() {}
 // End Class UNarrativeSaveSubsystem
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeSaveSubsystem, UNarrativeSaveSubsystem::StaticClass, TEXT("UNarrativeSaveSubsystem"), &Z_Registration_Info_UClass_UNarrativeSaveSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeSaveSubsystem), 456957528U) },
+		{ Z_Construct_UClass_UNarrativeSaveSubsystem, UNarrativeSaveSubsystem::StaticClass, TEXT("UNarrativeSaveSubsystem"), &Z_Registration_Info_UClass_UNarrativeSaveSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeSaveSubsystem), 3573207062U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_2555240273(TEXT("/Script/NarrativeSaveSystem"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_2005198425(TEXT("/Script/NarrativeSaveSystem"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_Subsystems_NarrativeSaveSubsystem_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

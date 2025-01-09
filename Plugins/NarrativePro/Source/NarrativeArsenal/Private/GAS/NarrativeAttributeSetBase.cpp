@@ -65,6 +65,7 @@ void UNarrativeAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffect
 	AActor* TargetActor = nullptr;
 	AController* TargetController = nullptr;
 	ANarrativeCharacter* TargetCharacter = nullptr;
+
 	if (Data.Target.AbilityActorInfo.IsValid() && Data.Target.AbilityActorInfo->AvatarActor.IsValid())
 	{
 		TargetActor = Data.Target.AbilityActorInfo->AvatarActor.Get();
@@ -85,6 +86,7 @@ void UNarrativeAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffect
 	AActor* SourceActor = nullptr;
 	AController* SourceController = nullptr;
 	ANarrativeCharacter* SourceCharacter = nullptr;
+
 	if (Source && Source->AbilityActorInfo.IsValid() && Source->AbilityActorInfo->AvatarActor.IsValid())
 	{
 		SourceActor = Source->AbilityActorInfo->AvatarActor.Get();
@@ -106,7 +108,6 @@ void UNarrativeAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffect
 		}
 	}
 
-
 	if (Data.EvaluatedData.Attribute == GetDamageAttribute())
 	{
 		// Try to extract a hit result
@@ -117,20 +118,34 @@ void UNarrativeAttributeSetBase::PostGameplayEffectExecute(const FGameplayEffect
 		}
 
 		// Store a local copy of the amount of damage done and clear the damage attribute
-		const float LocalDamageDone = GetDamage();
+		const float DamageDealt = GetDamage();
 		SetDamage(0.f);
 
-
-		if (LocalDamageDone > 0.0f)
+		if (DamageDealt > 0.0f)
 		{
 			// Apply the health change and then clamp it
-			const float NewHealth = GetHealth() - LocalDamageDone;
+			const float NewHealth = GetHealth() - DamageDealt;
 			SetHealth(FMath::Clamp(NewHealth, 0.0f, GetMaxHealth()));
+
+			if (ANarrativePlayerController* PC = Cast<ANarrativePlayerController>(SourceController))
+			{
+				if(TargetActor != SourceActor)
+				{
+					if (!TargetCharacter || TargetCharacter->IsAlive())
+					{
+						if (TargetActor)
+						{
+							PC->NotifyDealtDamage(TargetActor, DamageDealt);
+						}
+					}
+
+				}
+			}
 
 			//Binding to attribute changed doesn't give us valid instigator data as GEModData is null, so we do this as a workaround 
 			if (TargetCharacter)
 			{
-				TargetCharacter->DamagedBy(SourceController, LocalDamageDone);
+				TargetCharacter->DamagedBy(SourceController, DamageDealt);
 			}
 		}
 	}

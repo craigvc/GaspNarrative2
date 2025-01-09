@@ -11,7 +11,7 @@
  * 
  * Camera modes are extremely simple - a mode just specifies the cameras desired FOV and location, and the camera component blends towards it based on its blendspeed. 
  */
-UCLASS(Abstract, Blueprintable)
+UCLASS(Blueprintable)
 class NARRATIVEARSENAL_API UNarrativeCameraMode : public UObject
 {
 	GENERATED_BODY()
@@ -22,18 +22,22 @@ public:
 
 	UNarrativeCameraMode(const FObjectInitializer& ObjectInitializer);
 
-	//The FOV this camera mode wants. 
+	//Default FOV this camera mode wants - you can override GetDesiredFOV if you need to return a dynamic value 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
-	float TargetFOV;
-
-	//The offset from the character this mode wants. If you don't want an offset, or need something more complex, you can override GetCameraDesiredTransform()
-	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
-	FVector Offset;
+	float DefaultFOV;
 
 	//TODO move these to time based instead of units/s
 	//units/s Speed to interp FOV at 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
-	float FOVInterpSpeed;
+	float DefaultFOVBlendSpeed;
+
+	//The length the target arm should aim for 
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
+	float TargetArmLength;
+
+	//The offset from the character this mode wants. If you don't want an offset, or need something more complex, you can override GetCameraDesiredTransform()
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
+	FVector Offset;
 
 	//units/s Speed to interp offset at 
 	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly, Category = "Narrative Camera")
@@ -54,6 +58,11 @@ protected:
 	void ExitMode();
 	virtual void ExitMode_Implementation();
 
+	//What the cameras target FOV should be, and how fast we should be blending to it 
+	UFUNCTION(BlueprintNativeEvent, Category = "Camera Mode")
+	void GetDesiredFOV(float& FOV, float& FOVBlendSpeed);
+	virtual void GetDesiredFOV_Implementation(float& FOV, float& FOVBlendSpeed);
+
 	//What the cameras target arm offset should be. 
 	UFUNCTION(BlueprintNativeEvent, Category = "Camera Mode")
 	FVector GetCameraDesiredOffset();
@@ -61,8 +70,8 @@ protected:
 
 	//Where the cameras target arm should attach to the character.
 	UFUNCTION(BlueprintNativeEvent, Category = "Camera Mode")
-	FVector GetCameraPivotLocation();
-	virtual FVector GetCameraPivotLocation_Implementation();
+	FVector GetCameraRootLocation();
+	virtual FVector GetCameraRootLocation_Implementation();
 
 	UFUNCTION(BlueprintPure, Category = "Camera Mode")
 	class UNarrativeCameraComponent* GetOwningCamera() const;

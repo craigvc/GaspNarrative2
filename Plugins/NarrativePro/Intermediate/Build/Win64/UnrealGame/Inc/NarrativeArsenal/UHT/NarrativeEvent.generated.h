@@ -11,20 +11,22 @@
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class APawn;
 class APlayerController;
-class UNarrativeComponent;
+class UCharacterDefinition;
+class UTalesComponent;
 #ifdef NARRATIVEARSENAL_NarrativeEvent_generated_h
 #error "NarrativeEvent.generated.h already included, missing '#pragma once' in NarrativeEvent.h"
 #endif
 #define NARRATIVEARSENAL_NarrativeEvent_generated_h
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_RPC_WRAPPERS_NO_PURE_DECLS \
+	DECLARE_FUNCTION(execGetCharacterTargets); \
 	DECLARE_FUNCTION(execGetHintText); \
 	DECLARE_FUNCTION(execGetGraphDisplayText); \
 	DECLARE_FUNCTION(execExecuteEvent);
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_CALLBACK_WRAPPERS
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_INCLASS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_CALLBACK_WRAPPERS
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUNarrativeEvent(); \
 	friend struct Z_Construct_UClass_UNarrativeEvent_Statics; \
@@ -33,7 +35,7 @@ public: \
 	DECLARE_SERIALIZER(UNarrativeEvent)
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_ENHANCED_CONSTRUCTORS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UNarrativeEvent(UNarrativeEvent&&); \
@@ -45,14 +47,14 @@ public: \
 	NO_API virtual ~UNarrativeEvent();
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_58_PROLOG
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_GENERATED_BODY \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_69_PROLOG
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_CALLBACK_WRAPPERS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_61_ENHANCED_CONSTRUCTORS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_CALLBACK_WRAPPERS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_INCLASS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h_72_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -60,7 +62,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> NARRATIVEARSENAL_API UClass* StaticClass<class UNarrativeEvent>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h
+#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeEvent_h
 
 
 #define FOREACH_ENUM_EPARTYEVENTPOLICY(op) \
@@ -80,5 +82,14 @@ template<> NARRATIVEARSENAL_API UEnum* StaticEnum<EPartyEventPolicy>();
 enum class EEventRuntime : uint8;
 template<> struct TIsUEnumClass<EEventRuntime> { enum { Value = true }; };
 template<> NARRATIVEARSENAL_API UEnum* StaticEnum<EEventRuntime>();
+
+#define FOREACH_ENUM_EEVENTFILTER(op) \
+	op(EEventFilter::EF_Anyone) \
+	op(EEventFilter::EF_OnlyNPCs) \
+	op(EEventFilter::EF_OnlyPlayers) 
+
+enum class EEventFilter : uint8;
+template<> struct TIsUEnumClass<EEventFilter> { enum { Value = true }; };
+template<> NARRATIVEARSENAL_API UEnum* StaticEnum<EEventFilter>();
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

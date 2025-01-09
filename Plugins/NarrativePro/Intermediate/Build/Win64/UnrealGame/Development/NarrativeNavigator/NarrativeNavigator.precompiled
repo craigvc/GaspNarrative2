@@ -1,19 +1,5 @@
 {
 	"OutputFiles": [
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\Module.NarrativeNavigator.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\CustomWaypoint.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\CustomWaypointMarker.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\MapTileBounds.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\MapTileBoundsDebugDraw.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\MapTileComponent.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NarrativeNavigationComponent.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NarrativeNavigator.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NavigationMarkerActor.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NavigationMarkerComponent.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NavigationSubsystem.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NavigatorGameplayTags.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\NavigatorStatics.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\POINavigationMarker.cpp.obj",
-		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\PointOfInterest.cpp.obj"
+		"..\\..\\..\\x64\\UnrealGame\\Development\\NarrativeNavigator\\Module.NarrativeNavigator.cpp.obj"
 	]
 }

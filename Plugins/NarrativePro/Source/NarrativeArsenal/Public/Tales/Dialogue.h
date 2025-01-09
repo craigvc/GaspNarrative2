@@ -125,7 +125,7 @@ public:
 	UDialogue();
 
 	virtual UWorld* GetWorld() const override;
-	virtual bool Initialize(class UNarrativeComponent* InitializingComp, const FDialoguePlayParams PlayParams);
+	virtual bool Initialize(class UTalesComponent* InitializingComp, const FDialoguePlayParams PlayParams);
 	virtual void Deinitialize();
 
 	virtual void DuplicateAndInitializeFromDialogue(UDialogue* DialogueTemplate);
@@ -212,7 +212,7 @@ public:
 	class UNarrativeDialogueSequence* DefaultDialogueShot;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Dialogue")
-	class UNarrativeComponent* OwningComp;
+	class UTalesComponent* OwningComp;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Dialogue")
 	class APawn* OwningPawn;

@@ -7,9 +7,9 @@
 #include "NarrativeCommonVideoPlayer.generated.h"
 
 /**
- * 
+ * Base class for common video player, with a few functions exposed to make it more BP friendly. 
  */
-UCLASS()
+UCLASS(Category = "Narrative Common Widgets")
 class NARRATIVECOMMONUI_API UNarrativeCommonVideoPlayer : public UCommonVideoPlayer
 {
 	GENERATED_BODY()

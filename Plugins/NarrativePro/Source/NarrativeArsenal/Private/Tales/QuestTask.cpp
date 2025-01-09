@@ -3,7 +3,7 @@
 
 #include "Tales/QuestTask.h"
 #include "Tales/Quest.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "NavigationMarkerActor.h"
 #include <TimerManager.h>
 #include "NavigationMarkerComponent.h"

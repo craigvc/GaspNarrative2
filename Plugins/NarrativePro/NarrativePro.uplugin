@@ -1,13 +1,13 @@
 {
 	"FileVersion": 3,
 	"Version": 1,
-	"VersionName": "1.0",
+	"VersionName": "1.1.1",
 	"FriendlyName": "Narrative Pro",
 	"Description": "Every tool you need for a great game in one plugin - Maps, Quests, Dialogue, Weapons, Inventory, NPCs, Interaction and much more.",
 	"Category": "Narrative",
 	"CreatedBy": "Narrative Tools, Inc.",
 	"CreatedByURL": "https://www.narrativetools.io/",
-	"DocsURL": "https://docs.google.com/document/d/1TYZSCPr8yWjtOrBzGcXMLuOaFZTiIxDyaNmxsdmA1yU",
+	"DocsURL": "http://docs.narrativetools.io/",
 	"MarketplaceURL": "com.epicgames.launcher//ue/marketplace/product/aa40d0e693b24d92bcfa1553463cf542",
 	"SupportURL": "",
 	"EngineVersion": "5.5.0",
@@ -21,17 +21,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeSaveSystem",
-			"Type": "Runtime",
-			"LoadingPhase": "PreDefault",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -41,17 +33,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeCommonUIEditor",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "PreDefault",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -61,7 +45,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -71,7 +57,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -81,37 +69,21 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
 			"Name": "NarrativeArsenalEditor",
 			"Type": "UncookedOnly",
-			"LoadingPhase": "PreDefault",
+			"LoadingPhase": "PostEngineInit",
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeInteraction",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeInteractionEditor",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "PreDefault",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -121,7 +93,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -131,27 +105,9 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeEquipment",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeEquipmentEditor",
-			"Type": "UncookedOnly",
-			"LoadingPhase": "PreDefault",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
@@ -161,37 +117,27 @@
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		},
 		{
-			"Name": "NarrativeNavigatorEditor",
-			"Type": "UncookedOnly",
+			"Name": "NarrativeSaveSystem",
+			"Type": "Runtime",
 			"LoadingPhase": "PreDefault",
 			"PlatformAllowList": [
 				"Win64",
 				"Android",
-				"Linux"
-			]
-		},
-		{
-			"Name": "NarrativeSettlement",
-			"Type": "Runtime",
-			"LoadingPhase": "Default",
-			"PlatformAllowList": [
-				"Win64",
-				"Android",
-				"Linux"
+				"Linux",
+				"Mac",
+				"IOS"
 			]
 		}
 	],
 	"Plugins": [
 		{
 			"Name": "MotionWarping",
-			"Enabled": true
-		},
-		{
-			"Name": "SmartObjects",
 			"Enabled": true
 		},
 		{
@@ -216,6 +162,10 @@
 		},
 		{
 			"Name": "HairStrands",
+			"Enabled": true
+		},
+		{
+			"Name": "GameplayAbilities",
 			"Enabled": true
 		}
 	]

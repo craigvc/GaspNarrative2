@@ -10,13 +10,13 @@
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 class APlayerState;
-class UNarrativeComponent;
+class UTalesComponent;
 #ifdef NARRATIVEARSENAL_NarrativePartyComponent_generated_h
 #error "NarrativePartyComponent.generated.h already included, missing '#pragma once' in NarrativePartyComponent.h"
 #endif
 #define NARRATIVEARSENAL_NarrativePartyComponent_generated_h
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execIsPartyLeader); \
 	DECLARE_FUNCTION(execGetPartyLeader); \
 	DECLARE_FUNCTION(execGetPartyMemberStates); \
@@ -25,12 +25,12 @@ class UNarrativeComponent;
 	DECLARE_FUNCTION(execAddPartyMember);
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_INCLASS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUNarrativePartyComponent(); \
 	friend struct Z_Construct_UClass_UNarrativePartyComponent_Statics; \
 public: \
-	DECLARE_CLASS(UNarrativePartyComponent, UNarrativeComponent, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/NarrativeArsenal"), NO_API) \
+	DECLARE_CLASS(UNarrativePartyComponent, UTalesComponent, COMPILED_IN_FLAGS(0 | CLASS_Config), CASTCLASS_None, TEXT("/Script/NarrativeArsenal"), NO_API) \
 	DECLARE_SERIALIZER(UNarrativePartyComponent) \
 	enum class ENetFields_Private : uint16 \
 	{ \
@@ -40,7 +40,7 @@ public: \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_ENHANCED_CONSTRUCTORS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UNarrativePartyComponent(UNarrativePartyComponent&&); \
@@ -52,13 +52,13 @@ public: \
 	NO_API virtual ~UNarrativePartyComponent();
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_33_PROLOG
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_GENERATED_BODY \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_33_PROLOG
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_ENHANCED_CONSTRUCTORS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_INCLASS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h_36_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -66,7 +66,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> NARRATIVEARSENAL_API UClass* StaticClass<class UNarrativePartyComponent>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h
+#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativePartyComponent_h
 
 
 #define FOREACH_ENUM_EPARTYDIALOGUECONTROLPOLICY(op) \

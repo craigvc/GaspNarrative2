@@ -70,8 +70,8 @@ public:
 	@param NarrativeComponent The narrative component we're running the condition on 
 	*/
 	UFUNCTION(BlueprintNativeEvent, Category = "Conditions")
-	bool CheckCondition(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent);
-	virtual bool CheckCondition_Implementation(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent);
+	bool CheckCondition(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent);
+	virtual bool CheckCondition_Implementation(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent);
 
 	/**Define the text that will show up on a node if this condition is added to it */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Conditions")
@@ -81,6 +81,11 @@ public:
 	//Set this to true to flip the result of this condition
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Conditions")
 	bool bNot = false;
+
+	/**Special narrative pro feature - if this is empty, we'll run the condition on the owning player, but if this is contains any targets
+	we'll run the condition for each character in character targets, using the character as OwningPawn, and all need to pass for the condition to pass.*/
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Conditions")
+	TArray<TObjectPtr<class UCharacterDefinition>> CharacterTargets;
 
 	/**
 	Defines how the condition should be ran against a party that is doing this dialogue. Ignored by non-party dialogues. 

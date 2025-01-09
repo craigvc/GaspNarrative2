@@ -6,15 +6,16 @@
 
 #include "UObject/GeneratedCppIncludes.h"
 #include "NarrativeArsenal/Public/UnrealFramework/NarrativePlayerState.h"
+#include "Runtime/GameplayTags/Classes/GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeNarrativePlayerState() {}
 
 // Begin Cross Module References
 ENGINE_API UClass* Z_Construct_UClass_APlayerState();
 GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UAbilitySystemInterface_NoRegister();
+GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTagContainer();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativePlayerState();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativePlayerState_NoRegister();
-NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UFactionDefinition_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeAbilitySystemComponent_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeAttributeSetBase_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeTeamAgentInterface_NoRegister();
@@ -231,48 +232,52 @@ DEFINE_FUNCTION(ANarrativePlayerState::execOnRep_Faction)
 }
 // End Class ANarrativePlayerState Function OnRep_Faction
 
-// Begin Class ANarrativePlayerState Function SetFaction
-struct Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics
+// Begin Class ANarrativePlayerState Function SetFactions
+struct Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics
 {
-	struct NarrativePlayerState_eventSetFaction_Parms
+	struct NarrativePlayerState_eventSetFactions_Parms
 	{
-		UFactionDefinition* NewFaction;
+		FGameplayTagContainer NewFactions;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Factions" },
 		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativePlayerState.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NewFactions_MetaData[] = {
+		{ "Categories", "Narrative.Factions" },
+		{ "NativeConst", "" },
+	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_NewFaction;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_NewFactions;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::NewProp_NewFaction = { "NewFaction", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativePlayerState_eventSetFaction_Parms, NewFaction), Z_Construct_UClass_UFactionDefinition_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::NewProp_NewFaction,
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::NewProp_NewFactions = { "NewFactions", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativePlayerState_eventSetFactions_Parms, NewFactions), Z_Construct_UScriptStruct_FGameplayTagContainer, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NewFactions_MetaData), NewProp_NewFactions_MetaData) }; // 3352185621
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::NewProp_NewFactions,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANarrativePlayerState, nullptr, "SetFaction", nullptr, nullptr, Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::PropPointers), sizeof(Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::NarrativePlayerState_eventSetFaction_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::NarrativePlayerState_eventSetFaction_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_ANarrativePlayerState_SetFaction()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANarrativePlayerState, nullptr, "SetFactions", nullptr, nullptr, Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::PropPointers), sizeof(Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::NarrativePlayerState_eventSetFactions_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04420400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::NarrativePlayerState_eventSetFactions_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ANarrativePlayerState_SetFactions()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANarrativePlayerState_SetFaction_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANarrativePlayerState_SetFactions_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(ANarrativePlayerState::execSetFaction)
+DEFINE_FUNCTION(ANarrativePlayerState::execSetFactions)
 {
-	P_GET_OBJECT(UFactionDefinition,Z_Param_NewFaction);
+	P_GET_STRUCT_REF(FGameplayTagContainer,Z_Param_Out_NewFactions);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	P_THIS->SetFaction(Z_Param_NewFaction);
+	P_THIS->SetFactions(Z_Param_Out_NewFactions);
 	P_NATIVE_END;
 }
-// End Class ANarrativePlayerState Function SetFaction
+// End Class ANarrativePlayerState Function SetFactions
 
 // Begin Class ANarrativePlayerState
 void ANarrativePlayerState::StaticRegisterNativesANarrativePlayerState()
@@ -284,7 +289,7 @@ void ANarrativePlayerState::StaticRegisterNativesANarrativePlayerState()
 		{ "GetSkillTreeComponent", &ANarrativePlayerState::execGetSkillTreeComponent },
 		{ "IsAlive", &ANarrativePlayerState::execIsAlive },
 		{ "OnRep_Faction", &ANarrativePlayerState::execOnRep_Faction },
-		{ "SetFaction", &ANarrativePlayerState::execSetFaction },
+		{ "SetFactions", &ANarrativePlayerState::execSetFactions },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -304,7 +309,7 @@ struct Z_Construct_UClass_ANarrativePlayerState_Statics
 		{ "ShowCategories", "Input|MouseInput Input|TouchInput" },
 		{ "ToolTip", "Base player state for Narrative Pro core." },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Faction_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Factions_MetaData[] = {
 		{ "Category", "Factions" },
 		{ "Comment", "//Our affiliation \n" },
 		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativePlayerState.h" },
@@ -332,7 +337,7 @@ struct Z_Construct_UClass_ANarrativePlayerState_Statics
 		{ "ToolTip", "The skill tree component - this holds our perks, skills, and skill tree points." },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_Faction;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_Factions;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilitySystemComponent;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AttributeSetBase;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_InventoryComponent;
@@ -345,7 +350,7 @@ struct Z_Construct_UClass_ANarrativePlayerState_Statics
 		{ &Z_Construct_UFunction_ANarrativePlayerState_GetSkillTreeComponent, "GetSkillTreeComponent" }, // 1946422633
 		{ &Z_Construct_UFunction_ANarrativePlayerState_IsAlive, "IsAlive" }, // 3781749273
 		{ &Z_Construct_UFunction_ANarrativePlayerState_OnRep_Faction, "OnRep_Faction" }, // 243872356
-		{ &Z_Construct_UFunction_ANarrativePlayerState_SetFaction, "SetFaction" }, // 3717122518
+		{ &Z_Construct_UFunction_ANarrativePlayerState_SetFactions, "SetFactions" }, // 1691300312
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -354,13 +359,13 @@ struct Z_Construct_UClass_ANarrativePlayerState_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_Faction = { "Faction", "OnRep_Faction", (EPropertyFlags)0x0124080100010021, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, Faction), Z_Construct_UClass_UFactionDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Faction_MetaData), NewProp_Faction_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_Factions = { "Factions", "OnRep_Faction", (EPropertyFlags)0x0020080101010021, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, Factions), Z_Construct_UScriptStruct_FGameplayTagContainer, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Factions_MetaData), NewProp_Factions_MetaData) }; // 3352185621
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_AbilitySystemComponent = { "AbilitySystemComponent", nullptr, (EPropertyFlags)0x01240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, AbilitySystemComponent), Z_Construct_UClass_UNarrativeAbilitySystemComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilitySystemComponent_MetaData), NewProp_AbilitySystemComponent_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_AttributeSetBase = { "AttributeSetBase", nullptr, (EPropertyFlags)0x0124080000080008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, AttributeSetBase), Z_Construct_UClass_UNarrativeAttributeSetBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttributeSetBase_MetaData), NewProp_AttributeSetBase_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_AttributeSetBase = { "AttributeSetBase", nullptr, (EPropertyFlags)0x0124080000082008, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, AttributeSetBase), Z_Construct_UClass_UNarrativeAttributeSetBase_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttributeSetBase_MetaData), NewProp_AttributeSetBase_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_InventoryComponent = { "InventoryComponent", nullptr, (EPropertyFlags)0x01240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, InventoryComponent), Z_Construct_UClass_UNarrativeInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InventoryComponent_MetaData), NewProp_InventoryComponent_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_SkillTreeComponent = { "SkillTreeComponent", nullptr, (EPropertyFlags)0x01240800000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerState, SkillTreeComponent), Z_Construct_UClass_USkillTreeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SkillTreeComponent_MetaData), NewProp_SkillTreeComponent_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANarrativePlayerState_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_Faction,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_Factions,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_AbilitySystemComponent,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_AttributeSetBase,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerState_Statics::NewProp_InventoryComponent,
@@ -405,9 +410,9 @@ template<> NARRATIVEARSENAL_API UClass* StaticClass<ANarrativePlayerState>()
 }
 void ANarrativePlayerState::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
 {
-	static const FName Name_Faction(TEXT("Faction"));
+	static const FName Name_Factions(TEXT("Factions"));
 	const bool bIsValid = true
-		&& Name_Faction == ClassReps[(int32)ENetFields_Private::Faction].Property->GetFName();
+		&& Name_Factions == ClassReps[(int32)ENetFields_Private::Factions].Property->GetFName();
 	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ANarrativePlayerState"));
 }
 DEFINE_VTABLE_PTR_HELPER_CTOR(ANarrativePlayerState);
@@ -415,14 +420,14 @@ ANarrativePlayerState::~ANarrativePlayerState() {}
 // End Class ANarrativePlayerState
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANarrativePlayerState, ANarrativePlayerState::StaticClass, TEXT("ANarrativePlayerState"), &Z_Registration_Info_UClass_ANarrativePlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANarrativePlayerState), 765357502U) },
+		{ Z_Construct_UClass_ANarrativePlayerState, ANarrativePlayerState::StaticClass, TEXT("ANarrativePlayerState"), &Z_Registration_Info_UClass_ANarrativePlayerState, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANarrativePlayerState), 2886958083U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_1271958391(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_1040198531(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

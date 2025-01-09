@@ -540,6 +540,7 @@ struct Z_Construct_UClass_UItemCollection_Statics
 		{ "Comment", "/**\n * Data asset with a collection of items. Useful for grouping things together like armor sets, weapon sets, etc. \n */" },
 		{ "IncludePath", "InventoryComponent.h" },
 		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
+		{ "ObjectInitializerConstructorDeclared", "" },
 		{ "ToolTip", "Data asset with a collection of items. Useful for grouping things together like armor sets, weapon sets, etc." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Items_MetaData[] = {
@@ -820,22 +821,24 @@ struct Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ItemClass_MetaData[] = {
 		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ByteData_MetaData[] = {
+		{ "Comment", "//Any savegame variables on the item get serialized and stored in here \n" },
+		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
+		{ "ToolTip", "Any savegame variables on the item get serialized and stored in here" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Quantity_MetaData[] = {
 		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bActive_MetaData[] = {
 		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bFavourited_MetaData[] = {
-		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
-	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FClassPropertyParams NewProp_ItemClass;
+	static const UECodeGen_Private::FBytePropertyParams NewProp_ByteData_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_ByteData;
 	static const UECodeGen_Private::FIntPropertyParams NewProp_Quantity;
 	static void NewProp_bActive_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bActive;
-	static void NewProp_bFavourited_SetBit(void* Obj);
-	static const UECodeGen_Private::FBoolPropertyParams NewProp_bFavourited;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -844,22 +847,20 @@ struct Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics
 	static const UECodeGen_Private::FStructParams StructParams;
 };
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ItemClass = { "ItemClass", nullptr, (EPropertyFlags)0x0014000001000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeSavedItem, ItemClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UNarrativeItem_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ItemClass_MetaData), NewProp_ItemClass_MetaData) };
+const UECodeGen_Private::FBytePropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ByteData_Inner = { "ByteData", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ByteData = { "ByteData", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeSavedItem, ByteData), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ByteData_MetaData), NewProp_ByteData_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_Quantity = { "Quantity", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeSavedItem, Quantity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Quantity_MetaData), NewProp_Quantity_MetaData) };
 void Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bActive_SetBit(void* Obj)
 {
 	((FNarrativeSavedItem*)Obj)->bActive = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bActive = { "bActive", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FNarrativeSavedItem), &Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bActive_MetaData), NewProp_bActive_MetaData) };
-void Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bFavourited_SetBit(void* Obj)
-{
-	((FNarrativeSavedItem*)Obj)->bFavourited = 1;
-}
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bFavourited = { "bFavourited", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FNarrativeSavedItem), &Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bFavourited_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bFavourited_MetaData), NewProp_bFavourited_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ItemClass,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ByteData_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_ByteData,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_Quantity,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bActive,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewProp_bFavourited,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::StructParams = {
@@ -3055,9 +3056,9 @@ struct Z_Construct_UFunction_UNarrativeInventoryComponent_UseItem_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "Inventory" },
-		{ "Comment", "/**Use the given item. Return true if the item was successfully used - please note this will always return false on a client in a networked game as the server uses the item, not the client*/" },
+		{ "Comment", "/**Use the given item. Return true if the item was successfully used. Please note Using is currently predicted by clients. */" },
 		{ "ModuleRelativePath", "Public/InventoryComponent.h" },
-		{ "ToolTip", "Use the given item. Return true if the item was successfully used - please note this will always return false on a client in a networked game as the server uses the item, not the client" },
+		{ "ToolTip", "Use the given item. Return true if the item was successfully used. Please note Using is currently predicted by clients." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Item_MetaData[] = {
 		{ "EditInline", "true" },
@@ -3368,7 +3369,7 @@ struct Z_Construct_UClass_UNarrativeInventoryComponent_Statics
 		{ &Z_Construct_UFunction_UNarrativeInventoryComponent_StopLooting, "StopLooting" }, // 1181817595
 		{ &Z_Construct_UFunction_UNarrativeInventoryComponent_TryAddFromLootTable, "TryAddFromLootTable" }, // 2461403421
 		{ &Z_Construct_UFunction_UNarrativeInventoryComponent_TryAddItemFromClass, "TryAddItemFromClass" }, // 3529498062
-		{ &Z_Construct_UFunction_UNarrativeInventoryComponent_UseItem, "UseItem" }, // 1213150239
+		{ &Z_Construct_UFunction_UNarrativeInventoryComponent_UseItem, "UseItem" }, // 3877807601
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -3377,8 +3378,8 @@ struct Z_Construct_UClass_UNarrativeInventoryComponent_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_SavedItems_Inner = { "SavedItems", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FNarrativeSavedItem, METADATA_PARAMS(0, nullptr) }; // 4031017517
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_SavedItems = { "SavedItems", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeInventoryComponent, SavedItems), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SavedItems_MetaData), NewProp_SavedItems_MetaData) }; // 4031017517
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_SavedItems_Inner = { "SavedItems", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FNarrativeSavedItem, METADATA_PARAMS(0, nullptr) }; // 260295843
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_SavedItems = { "SavedItems", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeInventoryComponent, SavedItems), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SavedItems_MetaData), NewProp_SavedItems_MetaData) }; // 260295843
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_SavedCurrency = { "SavedCurrency", nullptr, (EPropertyFlags)0x0010000001000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeInventoryComponent, SavedCurrency), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SavedCurrency_MetaData), NewProp_SavedCurrency_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_OnInventoryUpdated = { "OnInventoryUpdated", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeInventoryComponent, OnInventoryUpdated), Z_Construct_UDelegateFunction_NarrativeInventory_OnInventoryUpdated__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnInventoryUpdated_MetaData), NewProp_OnInventoryUpdated_MetaData) }; // 1917469912
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UNarrativeInventoryComponent_Statics::NewProp_OnItemAdded = { "OnItemAdded", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeInventoryComponent, OnItemAdded), Z_Construct_UDelegateFunction_NarrativeInventory_OnItemAdded__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnItemAdded_MetaData), NewProp_OnItemAdded_MetaData) }; // 1624445653
@@ -3493,23 +3494,23 @@ UNarrativeInventoryComponent::~UNarrativeInventoryComponent() {}
 // End Class UNarrativeInventoryComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FItemAddResult::StaticStruct, Z_Construct_UScriptStruct_FItemAddResult_Statics::NewStructOps, TEXT("ItemAddResult"), &Z_Registration_Info_UScriptStruct_ItemAddResult, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemAddResult), 1390342961U) },
 		{ FItemWithQuantity::StaticStruct, Z_Construct_UScriptStruct_FItemWithQuantity_Statics::NewStructOps, TEXT("ItemWithQuantity"), &Z_Registration_Info_UScriptStruct_ItemWithQuantity, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FItemWithQuantity), 68793355U) },
 		{ FLootTableRoll::StaticStruct, Z_Construct_UScriptStruct_FLootTableRoll_Statics::NewStructOps, TEXT("LootTableRoll"), &Z_Registration_Info_UScriptStruct_LootTableRoll, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLootTableRoll), 2828341262U) },
 		{ FLootTableRow::StaticStruct, Z_Construct_UScriptStruct_FLootTableRow_Statics::NewStructOps, TEXT("LootTableRow"), &Z_Registration_Info_UScriptStruct_LootTableRow, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FLootTableRow), 2716489465U) },
-		{ FNarrativeSavedItem::StaticStruct, Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewStructOps, TEXT("NarrativeSavedItem"), &Z_Registration_Info_UScriptStruct_NarrativeSavedItem, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNarrativeSavedItem), 4031017517U) },
+		{ FNarrativeSavedItem::StaticStruct, Z_Construct_UScriptStruct_FNarrativeSavedItem_Statics::NewStructOps, TEXT("NarrativeSavedItem"), &Z_Registration_Info_UScriptStruct_NarrativeSavedItem, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNarrativeSavedItem), 260295843U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UItemCollection, UItemCollection::StaticClass, TEXT("UItemCollection"), &Z_Registration_Info_UClass_UItemCollection, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemCollection), 1914924650U) },
-		{ Z_Construct_UClass_UNarrativeInventoryComponent, UNarrativeInventoryComponent::StaticClass, TEXT("UNarrativeInventoryComponent"), &Z_Registration_Info_UClass_UNarrativeInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeInventoryComponent), 3194657598U) },
+		{ Z_Construct_UClass_UItemCollection, UItemCollection::StaticClass, TEXT("UItemCollection"), &Z_Registration_Info_UClass_UItemCollection, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UItemCollection), 2831253816U) },
+		{ Z_Construct_UClass_UNarrativeInventoryComponent, UNarrativeInventoryComponent::StaticClass, TEXT("UNarrativeInventoryComponent"), &Z_Registration_Info_UClass_UNarrativeInventoryComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeInventoryComponent), 3257672715U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_4138496945(TEXT("/Script/NarrativeInventory"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_2535254160(TEXT("/Script/NarrativeInventory"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_InventoryComponent_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

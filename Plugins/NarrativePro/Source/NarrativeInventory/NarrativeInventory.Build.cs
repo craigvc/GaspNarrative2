@@ -42,7 +42,8 @@ public class NarrativeInventory : ModuleRules
                 "Slate",
                 "SlateCore",
                 "GameplayTags",
-				"CommonUI"
+				"CommonUI",
+				"NarrativeCommonUI"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

@@ -23,4 +23,12 @@ class NARRATIVEARSENAL_API UNarrativeCheatManager : public UCheatManager
 	//Gives the specified amount of currency to the player
 	UFUNCTION(Exec)
 	void GiveCurrency(int32 Currency=1);
+
+	//Make our character in/vulnerable
+	UFUNCTION(Exec)
+	void SetInvulnerable(const bool bIsInvulnerable);
+
+	//Advance the ingame time by a certain amount, where 100 = 1 hour
+	UFUNCTION(Exec)
+	void AdvanceTime(const float Amount);
 };

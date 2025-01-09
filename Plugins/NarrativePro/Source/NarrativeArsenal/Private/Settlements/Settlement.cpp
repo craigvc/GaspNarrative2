@@ -11,6 +11,7 @@
 #include "NarrativeCommonUIFunctionLibrary.h"
 #include "NavigatorGameplayTags.h"
 #include "Engine/World.h"
+#include "Settlements/Activities/SettlementActivityComponent.h"
 
 #define LOCTEXT_NAMESPACE "Settlement"
 
@@ -19,6 +20,8 @@ ASettlement::ASettlement()
 {
 	SettlementRoot = CreateDefaultSubobject<USceneComponent>("SettlementRoot");
 	SetRootComponent(SettlementRoot);
+
+	SettlementActivityManager = CreateDefaultSubobject<USettlementActivityComponent>("SettlementActivityComponent");
 
 	PrimaryActorTick.bCanEverTick = true; 
 
@@ -135,8 +138,12 @@ void ASettlement::Activate_Implementation()
 
 	if (bActive)
 	{
-		UE_LOG(LogSettlements, Warning, TEXT("Settlement %s was activated!"), *SettlementDisplayName.ToString());
+		UE_LOG(LogSettlements, Verbose, TEXT("Settlement %s was activated!"), *SettlementDisplayName.ToString());
 
+		if (SettlementActivityManager)
+		{
+			SettlementActivityManager->SetActivitySchedule(SettlementSchedule);
+		}
 
 		for (auto& Spawn : Spawns)
 		{
@@ -144,7 +151,7 @@ void ASettlement::Activate_Implementation()
 			{
 				if (ANarrativeNPCCharacter* NPC = SpawnNPC(Spawn))
 				{
-					UE_LOG(LogSettlements, Warning, TEXT("Settlement %s spawned NPC %s!"), *SettlementDisplayName.ToString(), *Spawn.NPCToSpawn->NPCName.ToString());
+					UE_LOG(LogSettlements, Verbose, TEXT("Settlement %s spawned NPC %s!"), *SettlementDisplayName.ToString(), *Spawn.NPCToSpawn->NPCName.ToString());
 					check(ClaimNPC(NPC));
 
 					//Spawn NPC will cause the save system to load the NPC and will set its transform, however transform may not be correct, so we'll set it
@@ -161,14 +168,14 @@ void ASettlement::Deactivate_Implementation()
 
 	if (!bActive)
 	{
-		UE_LOG(LogSettlements, Warning, TEXT("Settlement %s was deactivated!"), *SettlementDisplayName.ToString());
+		UE_LOG(LogSettlements, Verbose, TEXT("Settlement %s was deactivated!"), *SettlementDisplayName.ToString());
 
 		for (auto& Spawn : Spawns)
 		{
 			if (ShouldDespawnNPC(Spawn))
 			{
 
-				UE_LOG(LogSettlements, Warning, TEXT("Settlement %s destroyed NPC %s!"), *SettlementDisplayName.ToString(), *Spawn.NPCToSpawn->NPCName.ToString());
+				UE_LOG(LogSettlements, Verbose, TEXT("Settlement %s destroyed NPC %s!"), *SettlementDisplayName.ToString(), *Spawn.NPCToSpawn->NPCName.ToString());
 				DespawnNPC(Spawn);
 			}
 		}
@@ -266,7 +273,7 @@ bool ASettlement::ShouldSpawnNPC(const FSettlementSpawn& SpawnInfo) const
 		has spawned them, possibly another settlement, and so we shouldn't create them. */
 		if (UNarrativeNPCSubsystem* NPCSubsystem = GetWorld()->GetSubsystem<UNarrativeNPCSubsystem>())
 		{
-			return !NPCSubsystem->IsNPCSpawned(SpawnInfo.NPCToSpawn);
+			return !NPCSubsystem->IsCharacterSpawned(SpawnInfo.NPCToSpawn);
 		}
 	}
 
@@ -310,6 +317,19 @@ FSettlementSpawn ASettlement::GetSpawnData(const FGuid& SpawnID)
 	}
 
 	return FSettlementSpawn();
+}
+
+void ASettlement::SetDisabled(const bool bNewDisabled)
+{
+	if (bNewDisabled != bDisabled)
+	{
+		if (bNewDisabled && IsActive())
+		{
+			SetActive(false);
+		}
+
+		bDisabled = bNewDisabled;
+	}
 }
 
 void ASettlement::SetActorGUID_Implementation(const FGuid& SavedGUID)

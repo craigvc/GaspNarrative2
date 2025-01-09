@@ -51,9 +51,46 @@ public:
 	UPROPERTY(SaveGame)
 	int32 SkillLevel; 
 
-	//The perks in the skill, and their info! 
+};
+
+USTRUCT()
+struct FSkillTreeSaveData
+{
+	GENERATED_BODY()
+
+	FSkillTreeSaveData(){};
+
+	//The skills and their levels
+	UPROPERTY(SaveGame)
+	TArray<FSavedSkill> SavedSkills;
+
+	//The perks we've purchased and their levels  
 	UPROPERTY(SaveGame)
 	TArray<FSavedPerk> SavedPerks;
+
+	bool HasSaveData() const
+	{
+		return SavedSkills.Num() || SavedPerks.Num();
+	}
+
+	void ClearData()
+	{
+		SavedSkills.Empty();
+		SavedPerks.Empty();
+	}
+
+};
+
+USTRUCT(BlueprintType)
+struct FPerkArray
+{
+
+GENERATED_BODY();
+
+public: 
+
+	UPROPERTY()
+	TArray<TSubclassOf<UTreePerk>> Array;
 
 };
 
@@ -92,9 +129,17 @@ protected:
 	UPROPERTY(Instanced, EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Skill")
 	TArray<UTreeSkill*> SkillTreeSkills;
 
+	//All perks we've purchased go in here. 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Skill")
+	TArray<TObjectPtr<UTreePerk>> PurchasedPerks;
+
+	//Given a perk class, the map will give you all the perks you need to have purchased before you can buy that perk. We cache them in here for tidyness and efficiency 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Tree Skill")
+	TMap<TSubclassOf<UTreePerk>, FPerkArray> PrerequisiteMap;
+
 	//The save data for our skill tree skills and perks. 
 	UPROPERTY(SaveGame, VisibleAnywhere, Category = "Tree Skill")
-	TArray<FSavedSkill> SkillTreeSaveData;
+	FSkillTreeSaveData SkillTreeSaveData;
 	
 	//The amount of skill tree points we have available. 
 	UPROPERTY(SaveGame, VisibleAnywhere, BlueprintReadOnly, Category = "Tree Skill")
@@ -102,22 +147,30 @@ protected:
 
 	//Attempt to buy a perk. Will check that the prerequisite perks are purchased first. 
 	UFUNCTION(BlueprintCallable, Category = "Tree Skill")
-	virtual bool BuyPerk(UTreePerk* Perk);
+	virtual bool BuyPerk(TSubclassOf<UTreePerk> Perk, UTreeSkill* OwnerSkill);
 
 	//Return whether or not we can purchase a perk. 
 	UFUNCTION(BlueprintPure, Category = "Tree Skill")
-	virtual bool CanBuyPerk(UTreePerk* Perk, FText& OutCantBuyReason);
+	virtual bool CanBuyPerk(TSubclassOf<UTreePerk> Perk, FText& OutCantBuyReason);
 
 	//Return whether or not we've unlocked previous perks - doesn't take into account skill points or anything like that - use CanBuyPerk if you want that. 
 	UFUNCTION(BlueprintPure, Category = "Tree Skill")
-	virtual bool HasRequiredPerks(UTreePerk* Perk);
+	virtual bool HasRequiredPerks(TSubclassOf<UTreePerk> Perk);
 
 	//Check what level a given perk is 
 	UFUNCTION(BlueprintPure, Category = "Tree Skill")
 	int32 GetPerkLevel(TSubclassOf<UTreePerk> PerkClass);
 
+	//Provided we own a perk, return the instance of it. 
+	UFUNCTION(BlueprintPure, Category = "Tree Skill")
+	UTreePerk* GetPerk(TSubclassOf<UTreePerk> PerkClass) const;
+
+	//Check if we have a given perk 
+	UFUNCTION(BlueprintPure, Category = "Tree Skill")
+	bool HasPerk(TSubclassOf<UTreePerk> PerkClass) const;
+
 private:
 
 	FSavedSkill SkillToSaveData(const UTreeSkill* Skill) const;
-
+	FSavedPerk PerkToSaveData(const UTreePerk* Perk) const;
 };

@@ -4,22 +4,23 @@
 
 #include "CoreMinimal.h"
 #include "UObject/Interface.h"
+#include "NarrativeStableActor.h"
 #include "NarrativeSavableActor.generated.h"
 
 /**
- * Any actors implementing this interface will be captured by the Narrative Save subsystem
+ * Savable actors are stable actors that also get a save record created so they can save whatever data they like. 
  */
 UINTERFACE(BlueprintType)
-class NARRATIVESAVESYSTEM_API UNarrativeSavableActor : public UInterface
+class NARRATIVESAVESYSTEM_API UNarrativeSavableActor : public UNarrativeStableActor
 {
 	GENERATED_BODY()
 	
 };
 
 /**
- * Any actors implementing this interface will be capture by the Narrative Save subsystem
+ * Savable actors are stable actors that also get a save record created so they can save whatever data they like. 
  */
-class NARRATIVESAVESYSTEM_API INarrativeSavableActor
+class NARRATIVESAVESYSTEM_API INarrativeSavableActor : public INarrativeStableActor
 {
 	GENERATED_BODY()
 
@@ -41,12 +42,7 @@ public:
 	bool ShouldRespawn() const;
 	virtual bool ShouldRespawn_Implementation() const;
 
-	//Tell the actor it has been loaded in from a save. 
-	UFUNCTION(BlueprintNativeEvent)
-	FGuid GetActorGUID() const;
-	virtual FGuid GetActorGUID_Implementation() const;
-
-	//Used for dynamic actors to set the actors GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again
+	//Used for dynamic actors to set the stable GUID to the one the save system got from the actors record - that way the save system will correctly save this actor again in future 
 	UFUNCTION(BlueprintNativeEvent)
 	void SetActorGUID(const FGuid& SavedGUID);
 	virtual void SetActorGUID_Implementation(const FGuid& SavedGUID);

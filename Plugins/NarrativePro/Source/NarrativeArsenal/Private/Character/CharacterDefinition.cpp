@@ -6,4 +6,6 @@
 UCharacterDefinition::UCharacterDefinition()
 {
 	AssetType = TEXT("CharacterDefinition");
+
+	AttackPriority = 1.f;
 }

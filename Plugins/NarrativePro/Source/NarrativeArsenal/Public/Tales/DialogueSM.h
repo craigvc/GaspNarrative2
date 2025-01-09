@@ -89,25 +89,31 @@ public:
 	* If narrative can't find a speaker actor (for example if you were getting a phone call where there isn't an physical speaker) it will be played in 2D. 
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Line")
-	class USoundBase* DialogueSound;
+	TObjectPtr<class USoundBase> DialogueSound;
 
 	/**
 	Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Body" added to it.
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Line", meta = (DisplayName = "Body Animation"))
-	class UAnimMontage* DialogueMontage;
+	TObjectPtr<class UAnimMontage> DialogueMontage;
 
 	/**
 	Narrative will play this montage on the first skeletalmeshcomponent found on your speaker with the tag "Face" added to it. 
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Dialogue Line")
-	class UAnimMontage* FacialAnimation;
+	TObjectPtr<class UAnimMontage> FacialAnimation;
 
 	/**
 	* Shot to play for this line. Overrides speaker shot if one is set 
 	*/
 	UPROPERTY(EditAnywhere, Instanced, BlueprintReadWrite, Category = "Dialogue Line")
-	class UNarrativeDialogueSequence* Shot;
+	TObjectPtr<class UNarrativeDialogueSequence> Shot;
+
+	/**
+	* Optional conditions the line must pass for it to be selected 
+	*/
+	UPROPERTY(EditAnywhere, Instanced, BlueprintReadWrite, Category = "Dialogue Line")
+	TArray<TObjectPtr<class UNarrativeCondition>> Conditions;
 };
 
 /**Base class for states and branches in the Dialogues state machine*/
@@ -132,6 +138,7 @@ public:
 	 UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Dialogue Line", meta=(AdvancedDisplay))
 	 TArray<FDialogueLine> AlternativeLines;
 
+	 //Returns a line with all conditions passing 
 	 virtual FDialogueLine GetRandomLine(const bool bStandalone) const;
 
 	UPROPERTY(BlueprintAssignable, Category = "Dialogue")
@@ -151,7 +158,7 @@ public:
 	class UDialogue* OwningDialogue;
 
 	UPROPERTY()
-	class UNarrativeComponent* OwningComponent;
+	class UTalesComponent* OwningComponent;
 
 	//Name of custom event to call when this is reached 
 	UPROPERTY(BlueprintReadWrite, Category = "Details - Dialogue Node", meta = (AdvancedDisplay))
@@ -173,8 +180,8 @@ public:
 
 #endif
 
-	class UDialogueNode_NPC* GetFirstValidNPCReply(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent);
-	TArray<class UDialogueNode_Player*> GetPlayerReplies(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent);
+	class UDialogueNode_NPC* GetFirstValidNPCReply(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent);
+	TArray<class UDialogueNode_Player*> GetPlayerReplies(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent);
 
 	virtual UWorld* GetWorld() const;
 
@@ -218,7 +225,7 @@ public:
 
 	/**Grab this NPC node, appending all follow up responses to that node. Since multiple NPC replies can be linked together, 
 	we need to grab the chain of replies the NPC has to say. */
-	TArray<class UDialogueNode_NPC*> GetReplyChain(APlayerController* OwningController, APawn* OwningPawn, class UNarrativeComponent* NarrativeComponent);
+	TArray<class UDialogueNode_NPC*> GetReplyChain(APlayerController* OwningController, APawn* OwningPawn, class UTalesComponent* NarrativeComponent);
 
 protected:
 

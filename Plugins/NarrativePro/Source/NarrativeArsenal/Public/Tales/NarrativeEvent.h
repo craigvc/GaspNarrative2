@@ -49,6 +49,17 @@ enum class EEventRuntime : uint8
 };
 
 /**
+* Used for picking who an event should be allowed to run on 
+*/
+UENUM(BlueprintType)
+enum class EEventFilter : uint8
+{
+	EF_Anyone UMETA(DisplayName="Anyone"),
+	EF_OnlyNPCs UMETA(DisplayName="Only NPCs"),
+	EF_OnlyPlayers UMETA(DisplayName="Only Players")
+};
+
+/**
  * Narrative Events allow you to write a little bit of code that fires when a given quest or dialogue node is reached. 
  *
  * For example, you could make a Narrative Event "Give item" that adds an item to the players inventory. Then, you could 
@@ -90,13 +101,10 @@ public:
 	}
 
 	/**
-	When the game loads back in, should we fire this event off again?
+	When the game loads back in, should we fire this event off again when your quest loads back in?
 	
 	For example, if we used a GiveXP event to give the player 500XP when we get to a certain quest state, this should be false.
 	Since XP is saved already, quitting and reloading would grant 500XP on top of the previous amount, which is not what we want. 
-
-	On the other hand, since NPC behavior isn't saved to disk, we want this to be true for all NPC behavior events - this way when your
-	quest reloads it properly refires the event so your NPCs are ready to go when you come back to your game. 
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Event")
 	bool bRefireOnLoad;
@@ -108,14 +116,23 @@ public:
 	EEventRuntime EventRuntime;
 
 	/**
+	Defines what types of characters the event should be allowed to run on 
+	*/
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Parties")
+	EEventFilter EventFilter;
+
+	/**
 	Defines how events should be executed when the dialogue is playing as a party. Ignored if not in a party. 
 	*/
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Parties")
 	EPartyEventPolicy PartyEventPolicy;
 
+	/**Execute the event.
+	@param Pawn this is the Players Pawn, or the NPC Target if you've added some NPC targets to NPCTargets array. 
+	*/
 	UFUNCTION(BlueprintNativeEvent, Category = "Event")
-	void ExecuteEvent(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent);
-	virtual void ExecuteEvent_Implementation(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent);
+	void ExecuteEvent(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent);
+	virtual void ExecuteEvent_Implementation(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent);
 
 	/**Define the text that will show up on a node if this event is added to it */
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Event")
@@ -126,4 +143,22 @@ public:
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Event")
 	FText GetHintText();
 	virtual FText GetHintText_Implementation();
+
+	//return the characters to run the event on 
+	UFUNCTION(BlueprintCallable, Category = "Event")
+	TArray<class UCharacterDefinition*> GetCharacterTargets() const;
+
+protected:
+
+	/**Characters we should run the event on. If empty, we'll run on the character that owns the quest/dialogue.*/
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Event", meta = (EditCondition = "EventFilter == EEventFilter::EF_Anyone", EditConditionHides))
+	TArray<TObjectPtr<class UCharacterDefinition>> CharacterTargets;
+
+	/** NPCs we should run the event on. If empty, we'll run the event on all NPCs in the dialogue */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Event", meta = (EditCondition = "EventFilter == EEventFilter::EF_OnlyNPCs", EditConditionHides))
+	TArray<TObjectPtr<class UNPCDefinition>> NPCTargets;
+
+	/** Players we should run the event on. If empty, we'll run on the character that owns the quest/dialogue. */
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Event", meta = (EditCondition = "EventFilter == EEventFilter::EF_OnlyPlayers", EditConditionHides))
+	TArray<TObjectPtr<class UPlayerDefinition>> PlayerTargets;
 };

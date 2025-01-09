@@ -23,6 +23,10 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Narrative Camera")
 	virtual void SetCameraMode(TSubclassOf<UNarrativeCameraMode> NewMode);
 
+	//Set the camera mode back to the default mode. 
+	UFUNCTION(BlueprintCallable, Category = "Narrative Camera")
+	virtual void SetCameraModeToDefault();
+
 protected:
 
 	//The default camera mode to use. 
@@ -34,12 +38,11 @@ protected:
 	TObjectPtr<UNarrativeCameraMode> CurrentCameraMode;
 
 	//Store all the camera modes in here and reuse them as we go. 
-	UPROPERTY()
+	UPROPERTY(Transient)
 	TArray<UNarrativeCameraMode*> CameraModeInstances;
 
 	virtual void GetCameraView(float DeltaTime, FMinimalViewInfo& DesiredView) override;
 	virtual void BeginPlay() override;
-	virtual void TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction) override;
 
 	virtual UNarrativeCameraMode* FindOrCreateCameraMode(TSubclassOf<UNarrativeCameraMode> NewModeClass);
 

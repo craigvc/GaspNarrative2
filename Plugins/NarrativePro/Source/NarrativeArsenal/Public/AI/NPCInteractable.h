@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "InteractableComponent.h"
+#include "Interaction/InteractableComponent.h"
 #include "NPCInteractable.generated.h"
 
 /**

@@ -6,6 +6,7 @@
 #include "Subsystems/WorldSubsystem.h"
 #include <GameplayTagContainer.h>
 #include "UnrealFramework/NarrativeNPCCharacter.h"
+#include "Character/CharacterDefinition.h"
 #include <Kismet/BlueprintAsyncActionBase.h>
 #include "NarrativeNPCSubsystem.generated.h"
 
@@ -50,6 +51,34 @@ public:
 
 //Wraps a TArray of NPCs. We need to wrap as TMap cant have TArray as value, but can have struct. 
 USTRUCT()
+struct FCharacterArray
+{
+	GENERATED_BODY()
+
+public:
+
+	FCharacterArray(){};
+	
+	TArray<class ANarrativeCharacter*> Characters;
+
+		bool HasValidCharacters() const
+	{
+		for (auto& Char : Characters)
+		{
+			if (IsValid(Char))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	};
+
+
+};
+
+//Wraps a TArray of NPCs. We need to wrap as TMap cant have TArray as value, but can have struct. 
+USTRUCT()
 struct FNPCArray
 {
 	GENERATED_BODY()
@@ -76,7 +105,7 @@ public:
 };
 
 /**
- * NPC manager subsystem for Narrative. Allows us to easily load an NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc. 
+ * Character subsystem for Narrative. Allows us to easily load an Character/NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc. 
  */
 UCLASS()
 class NARRATIVEARSENAL_API UNarrativeNPCSubsystem : public UWorldSubsystem
@@ -107,19 +136,30 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "NPC Subsystem")
 	class ANarrativeNPCCharacter* FindNPC(const UNPCDefinition* NPCData) const;
 
+	/** Return the first character in the world with this definition. Much, much more efficient than a GetActorOfClass.
+	Extremely efficient as characters are cached via a TMap lookup. */
+	UFUNCTION(BlueprintCallable, Category = "NPC Subsystem")
+	class ANarrativeCharacter* FindCharacter(const UCharacterDefinition* CharacterDefinition) const;
+
 	/** Request all NPCs of the given type. Much, much more efficient than a GetAllActorsOfClass. 
 	Extremely efficient as NPCs are cached via a TMap lookup. */
 	UFUNCTION(BlueprintCallable, Category = "NPC Subsystem")
 	void FindNPCs(const UNPCDefinition* NPCData, TArray<ANarrativeNPCCharacter*>& OutActors) const;
 
-	/**Find a given NPC, don't return anything if the NPC doesn't exist in the world 
-	
-	@param Transform is optional, and is only used if the actor doesnt exist in the world and needs spawning */
+	/** Request all Characters of the given type. Much, much more efficient than a GetAllActorsOfClass. 
+	Extremely efficient as NPCs are cached via a TMap lookup. */
 	UFUNCTION(BlueprintCallable, Category = "NPC Subsystem")
-	bool IsNPCSpawned(const UNPCDefinition* NPCData) const;
+	void FindCharacters(const UCharacterDefinition* CharacterDefinition, TArray<ANarrativeCharacter*>& OutActors) const;
+
+	/**Return whether a given character exists in the world*/
+	UFUNCTION(BlueprintCallable, Category = "NPC Subsystem")
+	bool IsCharacterSpawned(const UCharacterDefinition* CharacterDefinition) const;
 
 	//Spawn the actual NPC in once we know its class has been loaded. 
 	virtual class ANarrativeNPCCharacter* SpawnNPC_Internal(UNPCDefinition* NPCData, const FTransform& SpawnTransform);
+
+	//Call this to add a character to the character map - destroying is done automatically
+	void RegisterCharacter(class ANarrativeCharacter* Character);
 
 protected:
 
@@ -130,11 +170,19 @@ protected:
 	UPROPERTY(BlueprintAssignable, Category = "NPC Subsystem")
 	FOnRequestedNPCSpawned OnNPCSpawned;
 
+	FDelegateHandle ActorSpawnedHandle;
 	FDelegateHandle ActorDestroyedHandle;
 
-	//Maps NPCDataAsset to any spawned NPCs of that type, so we can efficiently access NPCs without expensive GetAllActorsOfClass. 
+	//Maps CharacterDefinitions to spawned characters of that type, so we can efficiently access them without expensive GetAllActorsOfClass
+	UPROPERTY(EditAnywhere, Category = "Settings")
+	TMap<TObjectPtr<UCharacterDefinition>, FCharacterArray> CharacterMap;
+
+	//Specialized NPC version of CharacterMap to avoid casting 
 	UPROPERTY(EditAnywhere, Category = "Settings")
 	TMap<TObjectPtr<UNPCDefinition>, FNPCArray> NPCMap;
+
+	UFUNCTION()
+	void OnActorSpawned(class AActor* SpawnedActor);
 
 	UFUNCTION()
 	void OnActorDestroyed(class AActor* DestroyedActor);

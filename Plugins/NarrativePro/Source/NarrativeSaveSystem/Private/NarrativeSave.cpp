@@ -3,6 +3,11 @@
 
 #include "NarrativeSave.h"
 
+void UNarrativeSave::OverrideLevelName(const FString& InLevelName)
+{
+	LevelName = InLevelName;
+}
+
 void UNarrativeSave::Serialize(FArchive& Ar)
 {
 	Super::Serialize(Ar);

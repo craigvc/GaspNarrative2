@@ -1,0 +1,8 @@
+{
+	"OutputFiles": [
+		"../../../arm64/UnrealGame/Development/NarrativeCommonUI/Module.NarrativeCommonUI.cpp.o",
+		"../../../arm64/UnrealGame/Development/NarrativeCommonUI/Module.NarrativeCommonUI.cpp.o",
+		"../../../x64/UnrealGame/Development/NarrativeCommonUI/Module.NarrativeCommonUI.cpp.o",
+		"../../../x64/UnrealGame/Development/NarrativeCommonUI/Module.NarrativeCommonUI.cpp.o"
+	]
+}

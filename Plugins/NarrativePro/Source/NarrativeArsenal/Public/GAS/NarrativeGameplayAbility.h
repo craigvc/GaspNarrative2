@@ -32,6 +32,9 @@ public:
 	virtual void OnAvatarSet(const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilitySpec& Spec) override;
 	virtual void EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled) override;
 
+	UPROPERTY(BlueprintReadOnly, Category = "Narrative Ability")
+	TObjectPtr<class ANarrativeCharacter> CharacterOwner;
+
 	//Nice function for setting camera mode instead of having to grab camera and doing it manually
 	UFUNCTION(BlueprintCallable, Category = "Narrative Ability")
 	virtual void SetCameraMode(TSubclassOf<class UNarrativeCameraMode> CameraMode);

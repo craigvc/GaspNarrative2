@@ -27,8 +27,8 @@ UEquippableItem::UEquippableItem()
 	bToggleActiveOnUse = true;
 	Weight = 1.f;
 
-	Stats.Add(FNarrativeItemStat(LOCTEXT("ArmorStatDisplayText", "Armor"), ItemStat_Armor));
-	Stats.Add(FNarrativeItemStat(LOCTEXT("AttackRatingStatDisplayText", "Attack Rating"), ItemStat_AttackRating));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("ArmorStatDisplayText", "Armor"), ItemStat_Armor, LOCTEXT("ArmorStatTooltip", "The Armor rating - reduces damage taken.")));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("AttackRatingStatDisplayText", "Attack Rating"), ItemStat_AttackRating, LOCTEXT("AttackRatingStatTooltip", "The Attack Rating - increases damage dealt.")));
 
 	auto EquipmentModGEClass = ConstructorHelpers::FClassFinder<UGameplayEffect>(TEXT("/Script/Engine.Blueprint'/NarrativePro/Abilities/GameplayEffects/GE_EquipmentMod.GE_EquipmentMod_C'"));
 
@@ -189,54 +189,46 @@ void UEquippableItem_Clothing::PostEditChangeProperty(struct FPropertyChangedEve
 {
 	Super::PostEditChangeProperty(PropertyChangedEvent);
 
-	if (PropertyChangedEvent.GetPropertyName() == GET_MEMBER_NAME_CHECKED(UEquippableItem_Clothing, ClothingMesh))
+	//Make sure all our meshes have materials set on them automatically 
+	if (!ClothingMeshData.MeshMaterials.Num())
 	{
-		if (ClothingMesh)
+		for (auto& MeshMat : ClothingMeshData.Mesh->GetMaterials())
 		{
-			ClothingMaterials.Empty();
+			FCreatorMeshMaterial NewMeshMat;
+			NewMeshMat.Material = MeshMat.MaterialInterface;
 
-			for (auto& ClothingMeshMat : ClothingMesh->GetMaterials())
-			{
-				ClothingMaterials.Add(ClothingMeshMat.MaterialInterface);
-			}
+			ClothingMeshData.MeshMaterials.Add(NewMeshMat);
 		}
 	}
 }
 #endif
 
+void UEquippableItem_Clothing::HandleEquip_Implementation()
+{
+	if (UEquipmentComponent* EquipmentComponent = Cast<UEquipmentComponent>(GetOwningPawn()->GetComponentByClass(UEquipmentComponent::StaticClass())))
+	{
+		
+		if (ANarrativeCharacter* CharacterOwner = Cast<ANarrativeCharacter>(GetOwningPawn()))
+		{
+			CharacterOwner->SetMeshAppearance(EquippableSlot, ClothingMeshData);
+		}
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("Narrative Equipment tried putting an item on, but your pawn doesn't have an Equipment Component added. Please add one."));
+	}
+}
+
 void UEquippableItem_Clothing::HandleUnequip_Implementation()
 {
 	if (UEquipmentComponent* EquipmentComponent = Cast<UEquipmentComponent>(GetOwningPawn()->GetComponentByClass(UEquipmentComponent::StaticClass())))
 	{
-		if (EquipmentComponent->EquippableComponents.Contains(EquippableSlot) && EquipmentComponent->DefaultClothing.Contains(EquippableSlot) && EquipmentComponent->DefaultClothingMaterials.Contains(EquippableSlot))
+		if (EquipmentComponent->EquippableComponents.Contains(EquippableSlot))
 		{
 			//Set the clothing back to its default mesh and materials
-			if (USkeletalMeshComponent* SlotComponent = *EquipmentComponent->EquippableComponents.Find(EquippableSlot))
-			{
-				if (USkeletalMesh* DefaultClothingMesh = *EquipmentComponent->DefaultClothing.Find(EquippableSlot))
-				{
-					SlotComponent->SetSkeletalMesh(DefaultClothingMesh);
-
-					if (FDefaultClothingMeshMaterials* DefaultMaterials = EquipmentComponent->DefaultClothingMaterials.Find(EquippableSlot))
-					{
-						int32 Idx = 0;
-
-						for (auto& DefaultMat : DefaultMaterials->Materials)
-						{
-							SlotComponent->SetMaterial(Idx, DefaultMat);
-							++Idx;
-						}
-					}
-				}
-				else 
-				{
-					SlotComponent->SetSkeletalMesh(nullptr);
-				}
-
-				if(EquipmentComponent->LeaderPoseComponent)
-				{
-					SlotComponent->SetLeaderPoseComponent(EquipmentComponent->LeaderPoseComponent);
-				}
+			if (ANarrativeCharacter* CharacterOwner = Cast<ANarrativeCharacter>(GetOwningPawn()))
+			{	
+				CharacterOwner->SetMeshToBaseAppearance(EquippableSlot);
 			}
 		}
 		else
@@ -248,44 +240,6 @@ void UEquippableItem_Clothing::HandleUnequip_Implementation()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("Narrative Equipment tried unequipping your item, but your pawn doesn't have an Equipment Component added. Please add one."));
-	}
-}
-
-void UEquippableItem_Clothing::HandleEquip_Implementation()
-{
-	if (UEquipmentComponent* EquipmentComponent = Cast<UEquipmentComponent>(GetOwningPawn()->GetComponentByClass(UEquipmentComponent::StaticClass())))
-	{
-		if (ClothingMesh)
-		{
-			if (EquipmentComponent->EquippableComponents.Contains(EquippableSlot))
-			{
-				//Set the clothing mesh to the new mesh
-				if (USkeletalMeshComponent* SlotComponent = *EquipmentComponent->EquippableComponents.Find(EquippableSlot))
-				{
-					SlotComponent->SetSkeletalMesh(ClothingMesh);
-
-					int32 Idx = 0;
-					for (auto& Mat : ClothingMaterials)
-					{
-						SlotComponent->SetMaterial(Idx, Mat);
-						++Idx;
-					}
-
-					if (EquipmentComponent->LeaderPoseComponent)
-					{
-						SlotComponent->SetLeaderPoseComponent(EquipmentComponent->LeaderPoseComponent);
-					}
-				}
-			}
-			else
-			{
-				UE_LOG(LogTemp, Warning, TEXT("Narrative Equipment tried equipping %s but the Equipment Component doesn't have a skeletal mesh component added. Have you called Initialize?"), *GetNameSafe(this));
-			}
-		}
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("Narrative Equipment tried putting an item on, but your pawn doesn't have an Equipment Component added. Please add one."));
 	}
 }
 

@@ -55,10 +55,10 @@ void FQuestEditorStyle::Initialize()
 	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeTaskBlueprint")), new IMAGE_BRUSH("Task", FVector2D(64, 64)));
 	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeTaskBlueprint")), new IMAGE_BRUSH("Task", FVector2D(16, 16)));
 
-	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativeComponent")), new IMAGE_BRUSH("NarrativeLogo", FVector2D(64, 64)));
-	StyleSet->Set(FName(TEXT("ClassIcon.NarrativeComponent")), new IMAGE_BRUSH("NarrativeLogo", FVector2D(16, 16)));
-	StyleSet->Set(FName(TEXT("ClassThumbnail.NarrativePartyComponent")), new IMAGE_BRUSH("NarrativePartyLogo", FVector2D(64, 64)));
-	StyleSet->Set(FName(TEXT("ClassIcon.NarrativePartyComponent")), new IMAGE_BRUSH("NarrativePartyLogo", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.TalesComponent")), new IMAGE_BRUSH("NarrativeLogo", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.TalesComponent")), new IMAGE_BRUSH("NarrativeLogo", FVector2D(16, 16)));
+	StyleSet->Set(FName(TEXT("ClassThumbnail.TalesPartyComponent")), new IMAGE_BRUSH("NarrativePartyLogo", FVector2D(64, 64)));
+	StyleSet->Set(FName(TEXT("ClassIcon.TalesPartyComponent")), new IMAGE_BRUSH("NarrativePartyLogo", FVector2D(16, 16)));
 
 	//Toolbar buttons
 	StyleSet->Set(FName(TEXT("QuestEditor.Common.ShowQuestDetails")), new IMAGE_BRUSH("QuestEditor/Icons/ShowQuestDetails_40x", FVector2D(40.f, 40.f)));

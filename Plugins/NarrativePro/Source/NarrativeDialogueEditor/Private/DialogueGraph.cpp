@@ -3,7 +3,7 @@
 #include "DialogueGraph.h"
 #include "Tales/Dialogue.h"
 #include "Tales/NarrativeFunctionLibrary.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/DialogueSM.h"
 #include "Tales/QuestSM.h"
 #include "DialogueBlueprint.h"

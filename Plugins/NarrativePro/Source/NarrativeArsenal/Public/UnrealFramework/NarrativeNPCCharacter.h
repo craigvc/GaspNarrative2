@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "NarrativeCharacter.h"
+#include "NarrativeSave.h"
+#include "AI/Activities/NPCGoalItem.h"
 #include "NarrativeNPCCharacter.generated.h"
 
 //Represents a tagged dialogue - this is essentially a dialogue that can be kicked off via a tag "TaggedDialogue.Taunt, TaggedDialogue.Greet, etc. "
@@ -56,7 +58,7 @@ struct FTaggedDialogue
  * Base class for a NarrativeCharacter that is AI Controlled. 
  */
 UCLASS()
-class NARRATIVEARSENAL_API ANarrativeNPCCharacter : public ANarrativeCharacter
+class NARRATIVEARSENAL_API ANarrativeNPCCharacter : public ANarrativeCharacter, public INarrativeSavableActor
 {
 	GENERATED_BODY()
 	
@@ -80,10 +82,27 @@ protected:
 	TObjectPtr<class UNPCInteractable> NPCInteractableComponent;
 
 	virtual void BeginPlay() override;
+	virtual void SpawnDefaultController() override;
 	virtual void GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const override;
 	ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
-	FGenericTeamId GetGenericTeamId() const override;
+	//FGenericTeamId GetGenericTeamId() const override;
+	virtual FGameplayTagContainer GetFactions() const override;
+	virtual void AddFaction(const FGameplayTag& Faction) override;
+	virtual void RemoveFaction(const FGameplayTag& Faction) override;
 	virtual void DamagedBy(AController* DamagerController, const float Damage) override;
+	virtual int32 GetCharacterLevel() const override;
+	virtual class UCharacterDefinition* GetCharacterDefinition() const override;
+	virtual void LoadNewCharacter_Implementation() override;
+	virtual FString GetHumanReadableName() const override;
+	virtual class UNarrativeInteractionComponent* GetInteractionComponent() const;
+	virtual void HandleDeath_Implementation(AActor* KilledActor, UNarrativeAbilitySystemComponent* KilledActorASC);
+
+	virtual void PrepareForSave_Implementation() override;
+	virtual void Load_Implementation() override;
+
+	//In order to link NPCs and their AIController save records, we have NPCs store their AIC record. That works nicely. 
+	UPROPERTY(SaveGame)
+	FNarrativeActorRecord AICRecord;
 
 	/** The NPCs data asset - this is set automatically by the NPC subsystem when it detects the NPC has spawned in */
 	UPROPERTY(BlueprintReadOnly, ReplicatedUsing=OnRep_NPCData, Category = "NPC")
@@ -96,6 +115,14 @@ protected:
 	/** Settlement spawn ID */
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Category = "NPC")
 	FGuid OwningSpawn;
+
+	/** This NPCs level - NPCs levels are defined by their NPC asset */
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, Replicated, Category = "NPC")
+	int32 NPCLevel;
+
+	/** This NPCs faction - can be changed at anytime and will be saved to disk */
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, SaveGame, ReplicatedUsing=OnRep_NPCFactions, Category = "NPC")
+	FGameplayTagContainer NPCFactions;
 
 	/** If true, this NPC will start attacking anyone that causes damage to them, provided they aren't in the same faction. */
 	UPROPERTY(BlueprintReadOnly, Category = "NPC")
@@ -116,9 +143,19 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent)
 	void NPCDataReady();
 
+	/**Allows a chance to let us be hostile towards any perceived target if you return true, even if they aren't in a hostile faction. 
+	This would let you do things like have friendly NPCs turn on the player if you've damaged them enough, etc. */
+	UFUNCTION(BlueprintNativeEvent, Category = "Hostiles")
+	bool ShouldBeAggressiveTowardsTarget(const class AActor* Target) const;
+	virtual bool ShouldBeAggressiveTowardsTarget_Implementation(const class AActor* Target) const;
+
 public:
 
 	FORCEINLINE class UNPCDefinition* GetNPCData() const {return NPCData;};
+
+	//Grab the NPCs name
+	UFUNCTION(BlueprintPure, Category = "NPC")
+	FText GetNPCName() const;
 
 	virtual void SetNPCDefinition(class UNPCDefinition* NPCData);
 	  
@@ -131,8 +168,21 @@ public:
 	void ExecutePlayTaggedDialogue(FTaggedDialogue Dialogue, AActor* DialogueInstigator);
 
 	UFUNCTION(BlueprintPure, Category = "Narrative|Getters/Setters")
+	class UNPCActivityComponent* GetActivityComponent() const;
+
+	UFUNCTION(BlueprintPure, Category = "Narrative|Getters/Setters")
+	ANarrativeNPCController* GetNPCController() const;
+
+	FORCEINLINE FGameplayTag GetOwningSettlement() const { return OwningSettlement;};
+
+	UFUNCTION(BlueprintPure, Category = "Narrative|Getters/Setters")
 	FORCEINLINE class UNarrativeInventoryComponent* GetInventoryComponent() const {return InventoryComponent;};
 
 	UFUNCTION(BlueprintPure, Category = "Narrative|Getters/Setters")
 	FORCEINLINE class UNarrativeInventoryComponent* GetTradingInventoryComponent() const {return TradingInventoryComponent;};
+
+protected:
+
+	UFUNCTION()
+	virtual void OnRep_NPCFactions();
 };

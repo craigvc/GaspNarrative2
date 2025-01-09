@@ -33,26 +33,26 @@ struct Z_Construct_UEnum_NarrativeArsenal_ENarrativeAbilityInputID_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-		{ "Ability1.Comment", "// 5 Q \n" },
+		{ "Ability1.Comment", "// 5 Q - Generic ability bound to ability1 slot\n" },
 		{ "Ability1.DisplayName", "Ability1" },
 		{ "Ability1.Name", "ENarrativeAbilityInputID::Ability1" },
-		{ "Ability1.ToolTip", "5 Q" },
-		{ "Ability2.Comment", "// 6 E \n" },
+		{ "Ability1.ToolTip", "5 Q - Generic ability bound to ability1 slot" },
+		{ "Ability2.Comment", "// 6 E - Generic ability bound to ability2 slot\n" },
 		{ "Ability2.DisplayName", "Ability2" },
 		{ "Ability2.Name", "ENarrativeAbilityInputID::Ability2" },
-		{ "Ability2.ToolTip", "6 E" },
-		{ "Ability3.Comment", "// 7 F \n" },
+		{ "Ability2.ToolTip", "6 E - Generic ability bound to ability2 slot" },
+		{ "Ability3.Comment", "// 7 F - Generic ability bound to Ability3 slot\n" },
 		{ "Ability3.DisplayName", "Ability3" },
 		{ "Ability3.Name", "ENarrativeAbilityInputID::Ability3" },
-		{ "Ability3.ToolTip", "7 F" },
-		{ "AltAttack.Comment", "// 4 RMB \n" },
+		{ "Ability3.ToolTip", "7 F - Generic ability bound to Ability3 slot" },
+		{ "AltAttack.Comment", "// 4 RMB - Generic ability bound to alt attack slot (aim for firearms, block for melee, etc)\n" },
 		{ "AltAttack.DisplayName", "AltAttack" },
 		{ "AltAttack.Name", "ENarrativeAbilityInputID::AltAttack" },
-		{ "AltAttack.ToolTip", "4 RMB" },
-		{ "Attack.Comment", "// 3 LMB \n" },
+		{ "AltAttack.ToolTip", "4 RMB - Generic ability bound to alt attack slot (aim for firearms, block for melee, etc)" },
+		{ "Attack.Comment", "// 3 LMB - Generic attack ability bound to attack slot \n" },
 		{ "Attack.DisplayName", "Attack" },
 		{ "Attack.Name", "ENarrativeAbilityInputID::Attack" },
-		{ "Attack.ToolTip", "3 LMB" },
+		{ "Attack.ToolTip", "3 LMB - Generic attack ability bound to attack slot" },
 		{ "BlueprintType", "true" },
 		{ "Cancel.Comment", "// Cancel action for abilities \n" },
 		{ "Cancel.DisplayName", "Cancel" },
@@ -66,19 +66,23 @@ struct Z_Construct_UEnum_NarrativeArsenal_ENarrativeAbilityInputID_Statics
 		{ "Crouch.DisplayName", "Crouch" },
 		{ "Crouch.Name", "ENarrativeAbilityInputID::Crouch" },
 		{ "Crouch.ToolTip", "L-Ctrl - Crouch" },
-		{ "Jump.Comment", "// Space bar - Jump\n" },
+		{ "Jump.Comment", "// Space bar - Jumps\n" },
 		{ "Jump.DisplayName", "Jump" },
 		{ "Jump.Name", "ENarrativeAbilityInputID::Jump" },
-		{ "Jump.ToolTip", "Space bar - Jump" },
+		{ "Jump.ToolTip", "Space bar - Jumps" },
 		{ "ModuleRelativePath", "Public/NarrativeArsenal.h" },
 		{ "None.Comment", "// None - no input defined \n" },
 		{ "None.DisplayName", "None" },
 		{ "None.Name", "ENarrativeAbilityInputID::None" },
 		{ "None.ToolTip", "None - no input defined" },
-		{ "Reload.Comment", "// 8 R - reloads with firearms\n" },
+		{ "Reload.Comment", "// 8 R - reloads if our weapon supports \n" },
 		{ "Reload.DisplayName", "Reload" },
 		{ "Reload.Name", "ENarrativeAbilityInputID::Reload" },
-		{ "Reload.ToolTip", "8 R - reloads with firearms" },
+		{ "Reload.ToolTip", "8 R - reloads if our weapon supports" },
+		{ "Sprint.Comment", "// Left shift - sprint\n" },
+		{ "Sprint.DisplayName", "Sprint" },
+		{ "Sprint.Name", "ENarrativeAbilityInputID::Sprint" },
+		{ "Sprint.ToolTip", "Left shift - sprint" },
 	};
 #endif // WITH_METADATA
 	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
@@ -93,6 +97,7 @@ struct Z_Construct_UEnum_NarrativeArsenal_ENarrativeAbilityInputID_Statics
 		{ "ENarrativeAbilityInputID::Reload", (int64)ENarrativeAbilityInputID::Reload },
 		{ "ENarrativeAbilityInputID::Jump", (int64)ENarrativeAbilityInputID::Jump },
 		{ "ENarrativeAbilityInputID::Crouch", (int64)ENarrativeAbilityInputID::Crouch },
+		{ "ENarrativeAbilityInputID::Sprint", (int64)ENarrativeAbilityInputID::Sprint },
 	};
 	static const UECodeGen_Private::FEnumParams EnumParams;
 };
@@ -189,16 +194,16 @@ UEnum* Z_Construct_UEnum_NarrativeArsenal_ENarrativeFactionID()
 // End Enum ENarrativeFactionID
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ ENarrativeAbilityInputID_StaticEnum, TEXT("ENarrativeAbilityInputID"), &Z_Registration_Info_UEnum_ENarrativeAbilityInputID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 2226385575U) },
+		{ ENarrativeAbilityInputID_StaticEnum, TEXT("ENarrativeAbilityInputID"), &Z_Registration_Info_UEnum_ENarrativeAbilityInputID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 818456468U) },
 		{ ENarrativeFactionID_StaticEnum, TEXT("ENarrativeFactionID"), &Z_Registration_Info_UEnum_ENarrativeFactionID, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 696033230U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_3819365310(TEXT("/Script/NarrativeArsenal"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_71269387(TEXT("/Script/NarrativeArsenal"),
 	nullptr, 0,
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

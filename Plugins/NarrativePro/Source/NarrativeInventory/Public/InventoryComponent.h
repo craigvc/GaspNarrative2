@@ -116,14 +116,11 @@ public:
 UCLASS()
 class NARRATIVEINVENTORY_API UItemCollection : public UDataAsset
 {
-	GENERATED_BODY()
-	
 public:
 
-	UItemCollection()
-	{
+	GENERATED_BODY()
 
-	};
+	UItemCollection(const FObjectInitializer& ObjectInitializer);
 
 	//The items to grant if this row is given to the inventory
 	UPROPERTY(EditAnywhere, Category = "Loot Table Row")
@@ -205,7 +202,6 @@ public:
 	{
 		Quantity = 0;
 		bActive = false;
-		bFavourited = false;
 	};
 
 	FNarrativeSavedItem(class UNarrativeItem* Item) ;
@@ -213,14 +209,15 @@ public:
 	UPROPERTY(SaveGame)
 	TSubclassOf<class UNarrativeItem> ItemClass;
 
+	//Any savegame variables on the item get serialized and stored in here 
+	UPROPERTY(SaveGame)
+	TArray<uint8> ByteData;
+
 	UPROPERTY(SaveGame)
 	int32 Quantity;
 
 	UPROPERTY(SaveGame)
 	bool bActive;
-
-	UPROPERTY(SaveGame)
-	bool bFavourited;
 
 };
 
@@ -249,7 +246,7 @@ public:
 
 	//End save system
 
-	/**Use the given item. Return true if the item was successfully used - please note this will always return false on a client in a networked game as the server uses the item, not the client*/
+	/**Use the given item. Return true if the item was successfully used. Please note Using is currently predicted by clients. */
 	UFUNCTION(BlueprintCallable, Category = "Inventory")
 	virtual bool UseItem(class UNarrativeItem* Item);
 

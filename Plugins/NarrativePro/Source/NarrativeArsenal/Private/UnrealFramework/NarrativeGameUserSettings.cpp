@@ -13,8 +13,11 @@ UNarrativeGameUserSettings::UNarrativeGameUserSettings()
 	SFXAudioVolume = 1.f;
 	UIAudioVolume = 1.f;
 	DialogueAudioVolume = 1.f;
+	MusicAudioVolume = 0.3f;
 	bCrouchToggles = true;
+	bInventoryWantsTile = true; 
 	GameplayDifficulty = ENarrativeGameplayDifficulty::Medium;
+	FieldOfView = 90.f; 
 }
 
 void UNarrativeGameUserSettings::ApplySettings(bool bCheckForCommandLineOverrides)
@@ -133,6 +136,16 @@ bool UNarrativeGameUserSettings::ShouldCrouchToggle()
 	return bCrouchToggles;
 }
 
+void UNarrativeGameUserSettings::SetInventoryWantsTile(const bool bNewInventoryWantsTile)
+{
+	bInventoryWantsTile = bNewInventoryWantsTile;
+}
+
+bool UNarrativeGameUserSettings::InventoryWantsTile()
+{
+	return bInventoryWantsTile;
+}
+
 void UNarrativeGameUserSettings::SetGameplayDifficulty(const ENarrativeGameplayDifficulty NewDifficulty)
 {
 	GameplayDifficulty = NewDifficulty;
@@ -141,4 +154,14 @@ void UNarrativeGameUserSettings::SetGameplayDifficulty(const ENarrativeGameplayD
 ENarrativeGameplayDifficulty UNarrativeGameUserSettings::GetGameplayDifficulty()
 {
 	return GameplayDifficulty;
+}
+
+float UNarrativeGameUserSettings::GetFieldOfView()
+{
+	return FieldOfView;
+}
+
+void UNarrativeGameUserSettings::SetFieldOfView(const float NewFieldOfView)
+{
+	FieldOfView = NewFieldOfView;
 }

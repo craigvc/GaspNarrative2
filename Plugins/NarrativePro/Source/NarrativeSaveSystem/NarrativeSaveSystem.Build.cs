@@ -44,7 +44,8 @@ public class NarrativeSaveSystem : ModuleRules
 				"GameplayTasks",
 				"MotionWarping",
                 "EnhancedInput",
-				"NarrativePro"
+				"NarrativePro",
+				"DeveloperSettings"
 				// ... add private dependencies that you statically link with here ...	
 			}
 			);

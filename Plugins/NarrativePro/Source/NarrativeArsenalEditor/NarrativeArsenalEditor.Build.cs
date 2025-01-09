@@ -30,6 +30,8 @@ public class NarrativeArsenalEditor : ModuleRules
             new string[]
             {
                 "Core",
+                "UnrealEd",
+                "ComponentVisualizers"
 				// ... add other public dependencies that you statically link with here ...
 			}
             );
@@ -51,7 +53,8 @@ public class NarrativeArsenalEditor : ModuleRules
                 "EditorStyle",
                 "Projects",
                 "AssetTools",
-                "NarrativeArsenal"
+                "NarrativeArsenal",
+                "NarrativeSaveSystem"
             }
             );
     }

@@ -26,8 +26,8 @@ UGameplayEffectItem::UGameplayEffectItem()
 		GameplayEffectClass = GameplayEffectClassFinder.Class;
 	}
 
-	Stats.Add(FNarrativeItemStat(LOCTEXT("HealsStatDisplayText", "Heals"), ItemStat_Heals));
-	Stats.Add(FNarrativeItemStat(LOCTEXT("StaminaStatDisplayText", "Stamina"), ItemStat_Stamina));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("HealsStatDisplayText", "Heals"), ItemStat_Heals, LOCTEXT("HealsStatTooltip", "The amount this item heals.")));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("StaminaStatDisplayText", "Stamina"), ItemStat_Stamina, LOCTEXT("StaminaStatTooltip", "The stamina this item restores.")));
 
 	SetByCallerValues.Add(FNarrativeGameplayTags::Get().SetByCaller_Health, 0.f);
 	SetByCallerValues.Add(FNarrativeGameplayTags::Get().SetByCaller_Stamina, 0.f);

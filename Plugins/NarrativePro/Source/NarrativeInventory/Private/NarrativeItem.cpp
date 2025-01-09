@@ -5,6 +5,7 @@
 #include "Net/UnrealNetwork.h"
 #include "UObject/UnrealType.h"
 #include "Engine/BlueprintGeneratedClass.h"
+#include <GameFramework/PlayerState.h>
 
 #define LOCTEXT_NAMESPACE "Item"
 
@@ -43,8 +44,8 @@ UNarrativeItem::UNarrativeItem()
 		DisplayName = FText::FromString(NameString);
 	}
 
-	Stats.Add(FNarrativeItemStat(LOCTEXT("WeightStatDisplayText", "Weight"), ItemStat_Weight));
-	Stats.Add(FNarrativeItemStat(LOCTEXT("QuantityStatDisplayText", "Quantity"), ItemStat_Quantity));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("WeightStatDisplayText", "Weight"), ItemStat_Weight, LOCTEXT("WeightStatTooltip", "The weight of the item.")));
+	Stats.Add(FNarrativeItemStat(LOCTEXT("QuantityStatDisplayText", "Quantity"), ItemStat_Quantity, LOCTEXT("WeightStatTooltip", "The amount of the item you have.")));
 }
 
 void UNarrativeItem::GetLifetimeReplicatedProps(TArray<class FLifetimeProperty>& OutLifetimeProps) const
@@ -165,6 +166,22 @@ APlayerController* UNarrativeItem::GetOwningController() const
 
 APawn* UNarrativeItem::GetOwningPawn() const
 {
+	//We might need to grab owning pawn before OwningInventory has been set by UInventoryComponent::OnRep_Items() - grab via the playerstate outer instead 
+	if (APlayerState* PS = Cast<APlayerState>(GetOuter()))
+	{
+		if (APawn* P = PS->GetPawn())
+		{
+			return P;
+		}
+	}
+	else
+	{
+		if (APawn* P = Cast<APawn>(GetOuter()))
+		{
+			return P;
+		}
+	}
+
 	if (OwningInventory)
 	{
 		return OwningInventory->GetOwningPawn();
@@ -223,7 +240,7 @@ FText UNarrativeItem::GetParsedDescription()
 		const FString VariableName = LineString.Mid(OpenBraceIdx + 1, CloseBraceIdx - OpenBraceIdx - 1);
 		const FString VariableVal = GetStringVariable(VariableName);
 
-		if (!VariableVal.IsEmpty())
+		//if (!VariableVal.IsEmpty()) //Not sure why this was even here, unimplemented variables should still be replaced, we'd never want to show {VariableName} to an end user 
 		{
 			LineString.RemoveAt(OpenBraceIdx, CloseBraceIdx - OpenBraceIdx + 1);
 			LineString.InsertAt(OpenBraceIdx, VariableVal);

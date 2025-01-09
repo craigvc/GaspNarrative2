@@ -9,24 +9,24 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UFactionDefinition;
 class UNarrativeInventoryComponent;
 class USkillTreeComponent;
+struct FGameplayTagContainer;
 #ifdef NARRATIVEARSENAL_NarrativePlayerState_generated_h
 #error "NarrativePlayerState.generated.h already included, missing '#pragma once' in NarrativePlayerState.h"
 #endif
 #define NARRATIVEARSENAL_NarrativePlayerState_generated_h
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
 	DECLARE_FUNCTION(execOnRep_Faction); \
-	DECLARE_FUNCTION(execSetFaction); \
+	DECLARE_FUNCTION(execSetFactions); \
 	DECLARE_FUNCTION(execGetSkillTreeComponent); \
 	DECLARE_FUNCTION(execGetInventoryComponent); \
 	DECLARE_FUNCTION(execGetHealth); \
 	DECLARE_FUNCTION(execIsAlive);
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_INCLASS_NO_PURE_DECLS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesANarrativePlayerState(); \
 	friend struct Z_Construct_UClass_ANarrativePlayerState_Statics; \
@@ -37,12 +37,12 @@ public: \
 	enum class ENetFields_Private : uint16 \
 	{ \
 		NETFIELD_REP_START=(uint16)((int32)Super::ENetFields_Private::NETFIELD_REP_END + (int32)1), \
-		Faction=NETFIELD_REP_START, \
-		NETFIELD_REP_END=Faction	}; \
+		Factions=NETFIELD_REP_START, \
+		NETFIELD_REP_END=Factions	}; \
 	NO_API virtual void ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const override;
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_ENHANCED_CONSTRUCTORS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	ANarrativePlayerState(ANarrativePlayerState&&); \
@@ -54,13 +54,13 @@ public: \
 	NO_API virtual ~ANarrativePlayerState();
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_16_PROLOG
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_GENERATED_BODY \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_16_PROLOG
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_ENHANCED_CONSTRUCTORS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_RPC_WRAPPERS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_INCLASS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h_19_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -68,7 +68,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> NARRATIVEARSENAL_API UClass* StaticClass<class ANarrativePlayerState>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h
+#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerState_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

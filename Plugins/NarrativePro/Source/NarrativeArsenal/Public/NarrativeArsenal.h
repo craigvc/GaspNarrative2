@@ -6,6 +6,9 @@
 #include "UObject/ObjectMacros.h"
 #include "Modules/ModuleManager.h"
 
+#define TraceChannel_NarrativeInteraction ECC_GameTraceChannel1;
+#define TraceChannel_NarrativeWeapon ECC_GameTraceChannel2;
+
 class FNarrativeArsenalModule : public IModuleInterface
 {
 public:
@@ -24,22 +27,24 @@ enum class ENarrativeAbilityInputID : uint8
 	Confirm			UMETA(DisplayName = "Confirm"),
 	// Cancel action for abilities 
 	Cancel			UMETA(DisplayName = "Cancel"),
-	// 3 LMB 
+	// 3 LMB - Generic attack ability bound to attack slot 
 	Attack		UMETA(DisplayName = "Attack"),
-	// 4 RMB 
+	// 4 RMB - Generic ability bound to alt attack slot (aim for firearms, block for melee, etc)
 	AltAttack		UMETA(DisplayName = "AltAttack"),
-	// 5 Q 
+	// 5 Q - Generic ability bound to ability1 slot
 	Ability1		UMETA(DisplayName = "Ability1"),
-	// 6 E 
+	// 6 E - Generic ability bound to ability2 slot
 	Ability2		UMETA(DisplayName = "Ability2"),
-	// 7 F 
+	// 7 F - Generic ability bound to Ability3 slot
 	Ability3		UMETA(DisplayName = "Ability3"),
-	// 8 R - reloads with firearms
+	// 8 R - reloads if our weapon supports 
 	Reload		UMETA(DisplayName = "Reload"),
-	// Space bar - Jump
+	// Space bar - Jumps
 	Jump			UMETA(DisplayName = "Jump"),
 	// L-Ctrl - Crouch
 	Crouch			UMETA(DisplayName = "Crouch"),
+	// Left shift - sprint
+	Sprint			UMETA(DisplayName="Sprint")
 };
 
 /**A list of all affiliations in the game. Feel free to add more to this array as you require them. */

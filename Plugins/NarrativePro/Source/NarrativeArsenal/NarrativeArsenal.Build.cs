@@ -26,7 +26,6 @@ public class NarrativeArsenal : ModuleRules
 			new string[]
 			{
 				"Core",
-                "NarrativeEquipment",
                 "NarrativeNavigator",
                 "NarrativeSaveSystem",
 				"LevelSequence",
@@ -34,7 +33,11 @@ public class NarrativeArsenal : ModuleRules
                 "CinematicCamera",
                 "AIModule",
 				"HairStrandsCore",
-				"MediaAssets"
+				"MediaAssets",
+				"UMG",
+				"PhysicsCore",
+                "GameplayAbilities",
+                "NarrativeInventory"
 				// ... add other public dependencies that you statically link with here ...
 			}
 			);
@@ -55,13 +58,15 @@ public class NarrativeArsenal : ModuleRules
                 "EnhancedInput",
 				"NarrativePro",
 
-				"NarrativeInteraction",
 				"NarrativeInventory",
 				"NarrativeCommonUI",
 				"MovieSceneTracks",
 				// ... add private dependencies that you statically link with here ...	
 				
-				"HairStrandsCore"
+				"HairStrandsCore",
+				"Niagara",
+                "CommonInput",
+				"DeveloperSettings"
             }
 			);
 		
@@ -72,5 +77,7 @@ public class NarrativeArsenal : ModuleRules
 				// ... add any modules that your module loads dynamically here ...
 			}
 			);
+
+		SetupGameplayDebuggerSupport(Target, true);
 	}
 }

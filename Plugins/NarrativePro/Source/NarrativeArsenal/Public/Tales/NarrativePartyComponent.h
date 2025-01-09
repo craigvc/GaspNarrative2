@@ -3,7 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "NarrativePartyComponent.generated.h"
 
 /**Defines how a party goes about selecting replies*/
@@ -31,7 +31,7 @@ enum class EPartyDialogueControlPolicy : uint8
  * and manage them, and put a party component there instead of the game state. 
  */
 UCLASS( ClassGroup=(Narrative), DisplayName = "Narrative Party Component", meta=(BlueprintSpawnableComponent) )
-class NARRATIVEARSENAL_API UNarrativePartyComponent : public UNarrativeComponent
+class NARRATIVEARSENAL_API UNarrativePartyComponent : public UTalesComponent
 {
 	GENERATED_BODY()
 	
@@ -55,15 +55,15 @@ public:
 
 	//[server] Add a member to the party.  Return true if successful.
 	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Parties")
-	virtual bool AddPartyMember(class UNarrativeComponent* Member);
+	virtual bool AddPartyMember(class UTalesComponent* Member);
 
 	//[server] Remove a member from the party. Return true if successful, false if player wasn't in party etc
 	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Parties")
-	virtual bool RemovePartyMember(class UNarrativeComponent* Member);
+	virtual bool RemovePartyMember(class UTalesComponent* Member);
 
 	//Return the members in the party 
 	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Parties")
-	TArray<class UNarrativeComponent*> GetPartyMembers() const {return PartyMembers;};
+	TArray<class UTalesComponent*> GetPartyMembers() const {return PartyMembers;};
 
 	//Return the members PlayerStates in the party 
 	UFUNCTION(BlueprintCallable, BlueprintAuthorityOnly, Category = "Parties")
@@ -71,7 +71,7 @@ public:
 
 	//Return the party leader (only works on server) 
 	UFUNCTION(BlueprintPure, Category = "Parties")
-	class UNarrativeComponent* GetPartyLeader() const { return PartyMembers.IsValidIndex(0) ? PartyMembers[0] : nullptr; };
+	class UTalesComponent* GetPartyLeader() const { return PartyMembers.IsValidIndex(0) ? PartyMembers[0] : nullptr; };
 
 	/**Return whether or not we're the leader of our party. Return true if we're not in a party as we're essentially the leader in that case*/
 	UFUNCTION(BlueprintPure, Category = "Parties")
@@ -85,7 +85,7 @@ protected:
 
 	/** All of the players in the party */
 	UPROPERTY(BlueprintReadOnly, Category = "Parties")
-	TArray<class UNarrativeComponent*> PartyMembers;
+	TArray<class UTalesComponent*> PartyMembers;
 
 	/** Narrative Components exist on peoples player controllers, and so there isn't a nice way for people in the party to access
 	each others pawns/playerstates via PartyMembers array, and so this array exists to solve that. We store PStates because pawns can change

@@ -17,7 +17,7 @@ void EmptyLinkFunctionForGeneratedCodeNarrativeDialogueEditor_init() {}
 				nullptr,
 				0,
 				PKG_CompiledIn | 0x00000100,
-				0x936D8CE1,
+				0xAF224D9A,
 				0x2F5496EE,
 				METADATA_PARAMS(0, nullptr)
 			};
@@ -25,5 +25,5 @@ void EmptyLinkFunctionForGeneratedCodeNarrativeDialogueEditor_init() {}
 		}
 		return Z_Registration_Info_UPackage__Script_NarrativeDialogueEditor.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NarrativeDialogueEditor(Z_Construct_UPackage__Script_NarrativeDialogueEditor, TEXT("/Script/NarrativeDialogueEditor"), Z_Registration_Info_UPackage__Script_NarrativeDialogueEditor, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x936D8CE1, 0x2F5496EE));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NarrativeDialogueEditor(Z_Construct_UPackage__Script_NarrativeDialogueEditor, TEXT("/Script/NarrativeDialogueEditor"), Z_Registration_Info_UPackage__Script_NarrativeDialogueEditor, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xAF224D9A, 0x2F5496EE));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

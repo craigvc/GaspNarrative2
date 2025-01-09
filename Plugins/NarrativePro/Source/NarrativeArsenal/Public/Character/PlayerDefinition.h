@@ -17,4 +17,5 @@ class NARRATIVEARSENAL_API UPlayerDefinition : public UCharacterDefinition
 public:
 
 	UPlayerDefinition();
+
 };

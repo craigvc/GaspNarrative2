@@ -68,7 +68,8 @@ This means you can change which NPCs spawn at a settlement, check if a settlemen
 isn't activated.  however none of their NPCs will be spawned in this deactivated state. 
 
 Once activated, settlements will spawn their NPCs in, and remove them when deactivated. They are typically activated by an ASettlementLoader. When World Partition
-loads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be loaded in! 
+loads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be activated, and have their loaded in! 
+This means you get good performance. If your game has hundreds of towns or villages, only nearby ones will have their NPCs kept in the world. 
 
 Finally, settlements are saved to disk. That means that if your ever change what NPC is spawned at a settlement, or whether you've discovered or cleared a 
 settlement, when you come back in and load your save the settlement will be as you left it. 
@@ -86,18 +87,22 @@ public:
 
 	//Root component - we want the settlement to have a transform 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
-	class USceneComponent* SettlementRoot;
+	TObjectPtr<class USceneComponent> SettlementRoot;
+	 
+	//The settlement activity component. 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
+	TObjectPtr<class USettlementActivityComponent> SettlementActivityManager;
 
 	//All settlements get a POI marker by default 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Components")
-	class UPOINavigationMarker* POIMarker;
+	TObjectPtr<class UPOINavigationMarker> POIMarker;
 
 	//The settlements spawns
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, SaveGame, Category = "Settlement Configuration|Spawns")
 	TArray<FSettlementSpawn> Spawns;
 
 	//Enable this if you want to prevent the settlement activating, usually for debugging 
-	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settlement Configuration")
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, SaveGame, Category = "Settlement Configuration")
 	bool bDisabled;
 
 	//The GUID that the save system uses to identify and save the settlement
@@ -116,9 +121,17 @@ public:
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settlement Configuration")
 	FText SettlementDisplayName;
 
+	//The settlements schedule, if one is desired.
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Settlement Configuration")
+	TObjectPtr<class USettlementActivitySchedule> SettlementSchedule;
+
 	//Return true if the settlement is cleared, meaning all spawns are deactivated and no NPCs remain 
 	UFUNCTION(BlueprintPure, Category = "Settlement")
 	bool IsCleared() const; 
+
+	//Check whether settlement is active or whether WP has deactivated it 
+	UFUNCTION(BlueprintPure, Category = "Settlement")
+	FORCEINLINE bool IsActive() const {return bActive;};
 
 	#if WITH_EDITORONLY_DATA
 
@@ -137,6 +150,7 @@ protected:
 	FGuid GetActorGUID_Implementation() const override;
 	void SetActorGUID_Implementation(const FGuid& SavedGUID) override;
 
+	UFUNCTION(BlueprintCallable, Category = "Settlement")
 	virtual bool SetActive(const bool bActive);
 
 	UFUNCTION(BlueprintNativeEvent, BlueprintCallable, Category = "Settlement")
@@ -166,6 +180,10 @@ protected:
 	//Grab spawn data using spawn ID
 	UFUNCTION(BlueprintCallable, Category = "Settlement")
 	FSettlementSpawn GetSpawnData(const FGuid& SpawnID);
+
+	//Disable the settlement
+	UFUNCTION(BlueprintCallable, Category = "Settlement")
+	void SetDisabled(const bool bNewDisabled);
 
 	//Whether the settlement is active or not 
 	UPROPERTY(BlueprintReadOnly, Category = "Settlement Configuration")

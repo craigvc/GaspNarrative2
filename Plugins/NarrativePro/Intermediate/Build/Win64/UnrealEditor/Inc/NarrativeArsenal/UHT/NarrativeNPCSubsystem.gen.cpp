@@ -16,14 +16,17 @@ COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FTransform();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintAsyncActionBase();
 ENGINE_API UClass* Z_Construct_UClass_UWorldSubsystem();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativeCharacter_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativeNPCCharacter_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UAsyncAction_FindOrSpawnNPC();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UAsyncAction_FindOrSpawnNPC_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UCharacterDefinition_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeNPCSubsystem();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeNPCSubsystem_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNPCDefinition_NoRegister();
 NARRATIVEARSENAL_API UFunction* Z_Construct_UDelegateFunction_NarrativeArsenal_OnRequestedNPCReady__DelegateSignature();
 NARRATIVEARSENAL_API UFunction* Z_Construct_UDelegateFunction_NarrativeArsenal_OnRequestedNPCSpawned__DelegateSignature();
+NARRATIVEARSENAL_API UScriptStruct* Z_Construct_UScriptStruct_FCharacterArray();
 NARRATIVEARSENAL_API UScriptStruct* Z_Construct_UScriptStruct_FNPCArray();
 UPackage* Z_Construct_UPackage__Script_NarrativeArsenal();
 // End Cross Module References
@@ -324,6 +327,58 @@ DEFINE_VTABLE_PTR_HELPER_CTOR(UAsyncAction_FindOrSpawnNPC);
 UAsyncAction_FindOrSpawnNPC::~UAsyncAction_FindOrSpawnNPC() {}
 // End Class UAsyncAction_FindOrSpawnNPC
 
+// Begin ScriptStruct FCharacterArray
+static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_CharacterArray;
+class UScriptStruct* FCharacterArray::StaticStruct()
+{
+	if (!Z_Registration_Info_UScriptStruct_CharacterArray.OuterSingleton)
+	{
+		Z_Registration_Info_UScriptStruct_CharacterArray.OuterSingleton = GetStaticStruct(Z_Construct_UScriptStruct_FCharacterArray, (UObject*)Z_Construct_UPackage__Script_NarrativeArsenal(), TEXT("CharacterArray"));
+	}
+	return Z_Registration_Info_UScriptStruct_CharacterArray.OuterSingleton;
+}
+template<> NARRATIVEARSENAL_API UScriptStruct* StaticStruct<FCharacterArray>()
+{
+	return FCharacterArray::StaticStruct();
+}
+struct Z_Construct_UScriptStruct_FCharacterArray_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
+		{ "Comment", "//Wraps a TArray of NPCs. We need to wrap as TMap cant have TArray as value, but can have struct. \n" },
+		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
+		{ "ToolTip", "Wraps a TArray of NPCs. We need to wrap as TMap cant have TArray as value, but can have struct." },
+	};
+#endif // WITH_METADATA
+	static void* NewStructOps()
+	{
+		return (UScriptStruct::ICppStructOps*)new UScriptStruct::TCppStructOps<FCharacterArray>();
+	}
+	static const UECodeGen_Private::FStructParams StructParams;
+};
+const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCharacterArray_Statics::StructParams = {
+	(UObject* (*)())Z_Construct_UPackage__Script_NarrativeArsenal,
+	nullptr,
+	&NewStructOps,
+	"CharacterArray",
+	nullptr,
+	0,
+	sizeof(FCharacterArray),
+	alignof(FCharacterArray),
+	RF_Public|RF_Transient|RF_MarkAsNative,
+	EStructFlags(0x00000001),
+	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCharacterArray_Statics::Struct_MetaDataParams), Z_Construct_UScriptStruct_FCharacterArray_Statics::Struct_MetaDataParams)
+};
+UScriptStruct* Z_Construct_UScriptStruct_FCharacterArray()
+{
+	if (!Z_Registration_Info_UScriptStruct_CharacterArray.InnerSingleton)
+	{
+		UECodeGen_Private::ConstructUScriptStruct(Z_Registration_Info_UScriptStruct_CharacterArray.InnerSingleton, Z_Construct_UScriptStruct_FCharacterArray_Statics::StructParams);
+	}
+	return Z_Registration_Info_UScriptStruct_CharacterArray.InnerSingleton;
+}
+// End ScriptStruct FCharacterArray
+
 // Begin ScriptStruct FNPCArray
 static FStructRegistrationInfo Z_Registration_Info_UScriptStruct_NPCArray;
 class UScriptStruct* FNPCArray::StaticStruct()
@@ -375,6 +430,114 @@ UScriptStruct* Z_Construct_UScriptStruct_FNPCArray()
 	return Z_Registration_Info_UScriptStruct_NPCArray.InnerSingleton;
 }
 // End ScriptStruct FNPCArray
+
+// Begin Class UNarrativeNPCSubsystem Function FindCharacter
+struct Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics
+{
+	struct NarrativeNPCSubsystem_eventFindCharacter_Parms
+	{
+		const UCharacterDefinition* CharacterDefinition;
+		ANarrativeCharacter* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "NPC Subsystem" },
+		{ "Comment", "/** Return the first character in the world with this definition. Much, much more efficient than a GetActorOfClass.\n\x09""Extremely efficient as characters are cached via a TMap lookup. */" },
+		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
+		{ "ToolTip", "Return the first character in the world with this definition. Much, much more efficient than a GetActorOfClass.\n      Extremely efficient as characters are cached via a TMap lookup." },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterDefinition_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterDefinition;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NewProp_CharacterDefinition = { "CharacterDefinition", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventFindCharacter_Parms, CharacterDefinition), Z_Construct_UClass_UCharacterDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterDefinition_MetaData), NewProp_CharacterDefinition_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventFindCharacter_Parms, ReturnValue), Z_Construct_UClass_ANarrativeCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NewProp_CharacterDefinition,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeNPCSubsystem, nullptr, "FindCharacter", nullptr, nullptr, Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NarrativeNPCSubsystem_eventFindCharacter_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::NarrativeNPCSubsystem_eventFindCharacter_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeNPCSubsystem::execFindCharacter)
+{
+	P_GET_OBJECT(UCharacterDefinition,Z_Param_CharacterDefinition);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(ANarrativeCharacter**)Z_Param__Result=P_THIS->FindCharacter(Z_Param_CharacterDefinition);
+	P_NATIVE_END;
+}
+// End Class UNarrativeNPCSubsystem Function FindCharacter
+
+// Begin Class UNarrativeNPCSubsystem Function FindCharacters
+struct Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics
+{
+	struct NarrativeNPCSubsystem_eventFindCharacters_Parms
+	{
+		const UCharacterDefinition* CharacterDefinition;
+		TArray<ANarrativeCharacter*> OutActors;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "NPC Subsystem" },
+		{ "Comment", "/** Request all Characters of the given type. Much, much more efficient than a GetAllActorsOfClass. \n\x09""Extremely efficient as NPCs are cached via a TMap lookup. */" },
+		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
+		{ "ToolTip", "Request all Characters of the given type. Much, much more efficient than a GetAllActorsOfClass.\n      Extremely efficient as NPCs are cached via a TMap lookup." },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterDefinition_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterDefinition;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_OutActors_Inner;
+	static const UECodeGen_Private::FArrayPropertyParams NewProp_OutActors;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_CharacterDefinition = { "CharacterDefinition", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventFindCharacters_Parms, CharacterDefinition), Z_Construct_UClass_UCharacterDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterDefinition_MetaData), NewProp_CharacterDefinition_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_OutActors_Inner = { "OutActors", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_ANarrativeCharacter_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_OutActors = { "OutActors", nullptr, (EPropertyFlags)0x0010000000000180, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventFindCharacters_Parms, OutActors), EArrayPropertyFlags::None, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_CharacterDefinition,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_OutActors_Inner,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NewProp_OutActors,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeNPCSubsystem, nullptr, "FindCharacters", nullptr, nullptr, Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NarrativeNPCSubsystem_eventFindCharacters_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54420401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::NarrativeNPCSubsystem_eventFindCharacters_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeNPCSubsystem::execFindCharacters)
+{
+	P_GET_OBJECT(UCharacterDefinition,Z_Param_CharacterDefinition);
+	P_GET_TARRAY_REF(ANarrativeCharacter*,Z_Param_Out_OutActors);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->FindCharacters(Z_Param_CharacterDefinition,Z_Param_Out_OutActors);
+	P_NATIVE_END;
+}
+// End Class UNarrativeNPCSubsystem Function FindCharacters
 
 // Begin Class UNarrativeNPCSubsystem Function FindNPC
 struct Z_Construct_UFunction_UNarrativeNPCSubsystem_FindNPC_Statics
@@ -539,62 +702,62 @@ DEFINE_FUNCTION(UNarrativeNPCSubsystem::execFindOrSpawnNPC)
 }
 // End Class UNarrativeNPCSubsystem Function FindOrSpawnNPC
 
-// Begin Class UNarrativeNPCSubsystem Function IsNPCSpawned
-struct Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics
+// Begin Class UNarrativeNPCSubsystem Function IsCharacterSpawned
+struct Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics
 {
-	struct NarrativeNPCSubsystem_eventIsNPCSpawned_Parms
+	struct NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms
 	{
-		const UNPCDefinition* NPCData;
+		const UCharacterDefinition* CharacterDefinition;
 		bool ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
 		{ "Category", "NPC Subsystem" },
-		{ "Comment", "/**Find a given NPC, don't return anything if the NPC doesn't exist in the world \n\x09\n\x09@param Transform is optional, and is only used if the actor doesnt exist in the world and needs spawning */" },
+		{ "Comment", "/**Return whether a given character exists in the world*/" },
 		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
-		{ "ToolTip", "Find a given NPC, don't return anything if the NPC doesn't exist in the world\n\n       @param Transform is optional, and is only used if the actor doesnt exist in the world and needs spawning" },
+		{ "ToolTip", "Return whether a given character exists in the world" },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NPCData_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterDefinition_MetaData[] = {
 		{ "NativeConst", "" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_NPCData;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterDefinition;
 	static void NewProp_ReturnValue_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_NPCData = { "NPCData", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventIsNPCSpawned_Parms, NPCData), Z_Construct_UClass_UNPCDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NPCData_MetaData), NewProp_NPCData_MetaData) };
-void Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_CharacterDefinition = { "CharacterDefinition", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms, CharacterDefinition), Z_Construct_UClass_UCharacterDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterDefinition_MetaData), NewProp_CharacterDefinition_MetaData) };
+void Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_ReturnValue_SetBit(void* Obj)
 {
-	((NarrativeNPCSubsystem_eventIsNPCSpawned_Parms*)Obj)->ReturnValue = 1;
+	((NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms*)Obj)->ReturnValue = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(NarrativeNPCSubsystem_eventIsNPCSpawned_Parms), &Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_NPCData,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NewProp_ReturnValue,
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms), &Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_CharacterDefinition,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NewProp_ReturnValue,
 };
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeNPCSubsystem, nullptr, "IsNPCSpawned", nullptr, nullptr, Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NarrativeNPCSubsystem_eventIsNPCSpawned_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::NarrativeNPCSubsystem_eventIsNPCSpawned_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned()
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeNPCSubsystem, nullptr, "IsCharacterSpawned", nullptr, nullptr, Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::NarrativeNPCSubsystem_eventIsCharacterSpawned_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned()
 {
 	static UFunction* ReturnFunction = nullptr;
 	if (!ReturnFunction)
 	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned_Statics::FuncParams);
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned_Statics::FuncParams);
 	}
 	return ReturnFunction;
 }
-DEFINE_FUNCTION(UNarrativeNPCSubsystem::execIsNPCSpawned)
+DEFINE_FUNCTION(UNarrativeNPCSubsystem::execIsCharacterSpawned)
 {
-	P_GET_OBJECT(UNPCDefinition,Z_Param_NPCData);
+	P_GET_OBJECT(UCharacterDefinition,Z_Param_CharacterDefinition);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(bool*)Z_Param__Result=P_THIS->IsNPCSpawned(Z_Param_NPCData);
+	*(bool*)Z_Param__Result=P_THIS->IsCharacterSpawned(Z_Param_CharacterDefinition);
 	P_NATIVE_END;
 }
-// End Class UNarrativeNPCSubsystem Function IsNPCSpawned
+// End Class UNarrativeNPCSubsystem Function IsCharacterSpawned
 
 // Begin Class UNarrativeNPCSubsystem Function OnActorDestroyed
 struct Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorDestroyed_Statics
@@ -637,6 +800,48 @@ DEFINE_FUNCTION(UNarrativeNPCSubsystem::execOnActorDestroyed)
 	P_NATIVE_END;
 }
 // End Class UNarrativeNPCSubsystem Function OnActorDestroyed
+
+// Begin Class UNarrativeNPCSubsystem Function OnActorSpawned
+struct Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics
+{
+	struct NarrativeNPCSubsystem_eventOnActorSpawned_Parms
+	{
+		AActor* SpawnedActor;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpawnedActor;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::NewProp_SpawnedActor = { "SpawnedActor", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeNPCSubsystem_eventOnActorSpawned_Parms, SpawnedActor), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::NewProp_SpawnedActor,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeNPCSubsystem, nullptr, "OnActorSpawned", nullptr, nullptr, Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::NarrativeNPCSubsystem_eventOnActorSpawned_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::NarrativeNPCSubsystem_eventOnActorSpawned_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeNPCSubsystem::execOnActorSpawned)
+{
+	P_GET_OBJECT(AActor,Z_Param_SpawnedActor);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnActorSpawned(Z_Param_SpawnedActor);
+	P_NATIVE_END;
+}
+// End Class UNarrativeNPCSubsystem Function OnActorSpawned
 
 // Begin Class UNarrativeNPCSubsystem Function OnNPCClassLoaded
 struct Z_Construct_UFunction_UNarrativeNPCSubsystem_OnNPCClassLoaded_Statics
@@ -750,11 +955,14 @@ void UNarrativeNPCSubsystem::StaticRegisterNativesUNarrativeNPCSubsystem()
 {
 	UClass* Class = UNarrativeNPCSubsystem::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
+		{ "FindCharacter", &UNarrativeNPCSubsystem::execFindCharacter },
+		{ "FindCharacters", &UNarrativeNPCSubsystem::execFindCharacters },
 		{ "FindNPC", &UNarrativeNPCSubsystem::execFindNPC },
 		{ "FindNPCs", &UNarrativeNPCSubsystem::execFindNPCs },
 		{ "FindOrSpawnNPC", &UNarrativeNPCSubsystem::execFindOrSpawnNPC },
-		{ "IsNPCSpawned", &UNarrativeNPCSubsystem::execIsNPCSpawned },
+		{ "IsCharacterSpawned", &UNarrativeNPCSubsystem::execIsCharacterSpawned },
 		{ "OnActorDestroyed", &UNarrativeNPCSubsystem::execOnActorDestroyed },
+		{ "OnActorSpawned", &UNarrativeNPCSubsystem::execOnActorSpawned },
 		{ "OnNPCClassLoaded", &UNarrativeNPCSubsystem::execOnNPCClassLoaded },
 		{ "SpawnNPC", &UNarrativeNPCSubsystem::execSpawnNPC },
 	};
@@ -769,34 +977,46 @@ struct Z_Construct_UClass_UNarrativeNPCSubsystem_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * NPC manager subsystem for Narrative. Allows us to easily load an NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc. \n */" },
+		{ "Comment", "/**\n * Character subsystem for Narrative. Allows us to easily load an Character/NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc. \n */" },
 		{ "IncludePath", "AI/NarrativeNPCSubsystem.h" },
 		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
-		{ "ToolTip", "NPC manager subsystem for Narrative. Allows us to easily load an NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc." },
+		{ "ToolTip", "Character subsystem for Narrative. Allows us to easily load an Character/NPC, find an NPC in the world, ensures we don't spawn multiple NPC instances, etc." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_OnNPCSpawned_MetaData[] = {
 		{ "Category", "NPC Subsystem" },
 		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterMap_MetaData[] = {
+		{ "Category", "Settings" },
+		{ "Comment", "//Maps CharacterDefinitions to spawned characters of that type, so we can efficiently access them without expensive GetAllActorsOfClass\n" },
+		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
+		{ "ToolTip", "Maps CharacterDefinitions to spawned characters of that type, so we can efficiently access them without expensive GetAllActorsOfClass" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NPCMap_MetaData[] = {
 		{ "Category", "Settings" },
-		{ "Comment", "//Maps NPCDataAsset to any spawned NPCs of that type, so we can efficiently access NPCs without expensive GetAllActorsOfClass. \n" },
+		{ "Comment", "//Specialized NPC version of CharacterMap to avoid casting \n" },
 		{ "ModuleRelativePath", "Public/AI/NarrativeNPCSubsystem.h" },
-		{ "ToolTip", "Maps NPCDataAsset to any spawned NPCs of that type, so we can efficiently access NPCs without expensive GetAllActorsOfClass." },
+		{ "ToolTip", "Specialized NPC version of CharacterMap to avoid casting" },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FMulticastDelegatePropertyParams NewProp_OnNPCSpawned;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_CharacterMap_ValueProp;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterMap_Key_KeyProp;
+	static const UECodeGen_Private::FMapPropertyParams NewProp_CharacterMap;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_NPCMap_ValueProp;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_NPCMap_Key_KeyProp;
 	static const UECodeGen_Private::FMapPropertyParams NewProp_NPCMap;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacter, "FindCharacter" }, // 2951055175
+		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_FindCharacters, "FindCharacters" }, // 1284231392
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_FindNPC, "FindNPC" }, // 1334817876
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_FindNPCs, "FindNPCs" }, // 790438509
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_FindOrSpawnNPC, "FindOrSpawnNPC" }, // 1098013814
-		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_IsNPCSpawned, "IsNPCSpawned" }, // 3650908053
+		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_IsCharacterSpawned, "IsCharacterSpawned" }, // 324225217
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorDestroyed, "OnActorDestroyed" }, // 2161639427
+		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_OnActorSpawned, "OnActorSpawned" }, // 2405102648
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_OnNPCClassLoaded, "OnNPCClassLoaded" }, // 2517739685
 		{ &Z_Construct_UFunction_UNarrativeNPCSubsystem_SpawnNPC, "SpawnNPC" }, // 1491896683
 	};
@@ -807,11 +1027,17 @@ struct Z_Construct_UClass_UNarrativeNPCSubsystem_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_OnNPCSpawned = { "OnNPCSpawned", nullptr, (EPropertyFlags)0x0020080010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeNPCSubsystem, OnNPCSpawned), Z_Construct_UDelegateFunction_NarrativeArsenal_OnRequestedNPCSpawned__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnNPCSpawned_MetaData), NewProp_OnNPCSpawned_MetaData) }; // 1179552535
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap_ValueProp = { "CharacterMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FCharacterArray, METADATA_PARAMS(0, nullptr) }; // 2449983248
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap_Key_KeyProp = { "CharacterMap_Key", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UCharacterDefinition_NoRegister, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap = { "CharacterMap", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeNPCSubsystem, CharacterMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterMap_MetaData), NewProp_CharacterMap_MetaData) }; // 2449983248
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap_ValueProp = { "NPCMap", nullptr, (EPropertyFlags)0x0000000000000001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 1, Z_Construct_UScriptStruct_FNPCArray, METADATA_PARAMS(0, nullptr) }; // 3283519305
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap_Key_KeyProp = { "NPCMap_Key", nullptr, (EPropertyFlags)0x0004000000000001, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UNPCDefinition_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FMapPropertyParams Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap = { "NPCMap", nullptr, (EPropertyFlags)0x0020080000000001, UECodeGen_Private::EPropertyGenFlags::Map, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeNPCSubsystem, NPCMap), EMapPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NPCMap_MetaData), NewProp_NPCMap_MetaData) }; // 3283519305
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_OnNPCSpawned,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap_ValueProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap_Key_KeyProp,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_CharacterMap,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap_ValueProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap_Key_KeyProp,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeNPCSubsystem_Statics::NewProp_NPCMap,
@@ -854,19 +1080,20 @@ UNarrativeNPCSubsystem::~UNarrativeNPCSubsystem() {}
 // End Class UNarrativeNPCSubsystem
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
+		{ FCharacterArray::StaticStruct, Z_Construct_UScriptStruct_FCharacterArray_Statics::NewStructOps, TEXT("CharacterArray"), &Z_Registration_Info_UScriptStruct_CharacterArray, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCharacterArray), 2449983248U) },
 		{ FNPCArray::StaticStruct, Z_Construct_UScriptStruct_FNPCArray_Statics::NewStructOps, TEXT("NPCArray"), &Z_Registration_Info_UScriptStruct_NPCArray, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNPCArray), 3283519305U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
 		{ Z_Construct_UClass_UAsyncAction_FindOrSpawnNPC, UAsyncAction_FindOrSpawnNPC::StaticClass, TEXT("UAsyncAction_FindOrSpawnNPC"), &Z_Registration_Info_UClass_UAsyncAction_FindOrSpawnNPC, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UAsyncAction_FindOrSpawnNPC), 1392916539U) },
-		{ Z_Construct_UClass_UNarrativeNPCSubsystem, UNarrativeNPCSubsystem::StaticClass, TEXT("UNarrativeNPCSubsystem"), &Z_Registration_Info_UClass_UNarrativeNPCSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeNPCSubsystem), 1811935825U) },
+		{ Z_Construct_UClass_UNarrativeNPCSubsystem, UNarrativeNPCSubsystem::StaticClass, TEXT("UNarrativeNPCSubsystem"), &Z_Registration_Info_UClass_UNarrativeNPCSubsystem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeNPCSubsystem), 3712063661U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_351490755(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_4092232702(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_AI_NarrativeNPCSubsystem_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

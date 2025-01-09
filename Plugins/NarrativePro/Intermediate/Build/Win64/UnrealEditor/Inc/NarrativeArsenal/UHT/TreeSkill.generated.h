@@ -9,17 +9,19 @@
 #include "UObject/ScriptMacros.h"
 
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
-class UTreePerk;
 #ifdef NARRATIVEARSENAL_TreeSkill_generated_h
 #error "TreeSkill.generated.h already included, missing '#pragma once' in TreeSkill.h"
 #endif
 #define NARRATIVEARSENAL_TreeSkill_generated_h
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	DECLARE_FUNCTION(execGetAllPerks);
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_GENERATED_BODY \
+	friend struct Z_Construct_UScriptStruct_FPerkConfig_Statics; \
+	NARRATIVEARSENAL_API static class UScriptStruct* StaticStruct();
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_INCLASS_NO_PURE_DECLS \
+template<> NARRATIVEARSENAL_API UScriptStruct* StaticStruct<struct FPerkConfig>();
+
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_42_INCLASS_NO_PURE_DECLS \
 private: \
 	static void StaticRegisterNativesUTreeSkill(); \
 	friend struct Z_Construct_UClass_UTreeSkill_Statics; \
@@ -28,7 +30,7 @@ public: \
 	DECLARE_SERIALIZER(UTreeSkill)
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_ENHANCED_CONSTRUCTORS \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 	/** Private move- and copy-constructors, should never be used */ \
 	UTreeSkill(UTreeSkill&&); \
@@ -40,13 +42,12 @@ public: \
 	NO_API virtual ~UTreeSkill();
 
 
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_15_PROLOG
-#define FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_GENERATED_BODY \
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_39_PROLOG
+#define FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_42_GENERATED_BODY \
 PRAGMA_DISABLE_DEPRECATION_WARNINGS \
 public: \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_RPC_WRAPPERS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_INCLASS_NO_PURE_DECLS \
-	FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_18_ENHANCED_CONSTRUCTORS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_42_INCLASS_NO_PURE_DECLS \
+	FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h_42_ENHANCED_CONSTRUCTORS \
 private: \
 PRAGMA_ENABLE_DEPRECATION_WARNINGS
 
@@ -54,7 +55,7 @@ PRAGMA_ENABLE_DEPRECATION_WARNINGS
 template<> NARRATIVEARSENAL_API UClass* StaticClass<class UTreeSkill>();
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h
+#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_SkillTrees_TreeSkill_h
 
 
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

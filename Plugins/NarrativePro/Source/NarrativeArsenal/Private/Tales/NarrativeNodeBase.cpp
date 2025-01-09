@@ -4,8 +4,9 @@
 #include "Tales/NarrativeNodeBase.h"
 #include "Tales/NarrativeCondition.h"
 #include "Tales/NarrativeEvent.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativePartyComponent.h"
+#include "AI/NarrativeNPCSubsystem.h"
 
 UNarrativeNodeBase::UNarrativeNodeBase()
 {
@@ -31,7 +32,7 @@ void UNarrativeNodeBase::PostEditChangeProperty(FPropertyChangedEvent& PropertyC
 
 #endif 
 
-void UNarrativeNodeBase::ProcessEvents(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent, const EEventRuntime Runtime)
+void UNarrativeNodeBase::ProcessEvents(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent, const EEventRuntime Runtime)
 {
 	if (!NarrativeComponent)
 	{
@@ -49,31 +50,29 @@ void UNarrativeNodeBase::ProcessEvents(APawn* Pawn, APlayerController* Controlle
 
 			if (bShouldFire)
 			{
-				TArray<UNarrativeComponent*> CompsToExecute;
+				TArray<UCharacterDefinition*> CharTargets = Event->GetCharacterTargets();
 
-				if (UNarrativePartyComponent* PartyComp = Cast<UNarrativePartyComponent>(NarrativeComponent))
+				//If we have any NPC targets, run the event on them instead of the owning player! 
+				if (CharTargets.Num())
 				{
-					if (Event->PartyEventPolicy == EPartyEventPolicy::AllPartyMembers)
+					//NPCOnly events have special functionality to grab all avatars
+					if (UWorld* World = NarrativeComponent->GetWorld())
 					{
-						CompsToExecute.Append(PartyComp->GetPartyMembers());
-					}
-					else if (Event->PartyEventPolicy == EPartyEventPolicy::PartyLeader)
-					{
-						CompsToExecute.Add(PartyComp->GetPartyLeader());
-					}
-					else if (Event->PartyEventPolicy == EPartyEventPolicy::Party)
-					{
-						CompsToExecute.Add(PartyComp);
+						if (UNarrativeNPCSubsystem* NPCS = World->GetSubsystem<UNarrativeNPCSubsystem>())
+						{
+							for (auto& NPCTarget : CharTargets)
+							{
+								if (ANarrativeCharacter* Character = NPCS->FindCharacter(NPCTarget))
+								{
+									Event->ExecuteEvent(Character, Controller, NarrativeComponent);
+								}
+							}
+						}
 					}
 				}
 				else
 				{
-					CompsToExecute.Add(NarrativeComponent);
-				}
-
-				for (auto& Comp : CompsToExecute)
-				{
-					Event->ExecuteEvent(Comp->GetOwningPawn(), Comp->GetOwningController(), Comp);
+					Event->ExecuteEvent(NarrativeComponent->GetOwningPawn(), NarrativeComponent->GetOwningController(), NarrativeComponent);
 				}
 
 			}
@@ -81,7 +80,7 @@ void UNarrativeNodeBase::ProcessEvents(APawn* Pawn, APlayerController* Controlle
 	}
 }
 
-bool UNarrativeNodeBase::AreConditionsMet(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent)
+bool UNarrativeNodeBase::AreConditionsMet(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent)
 {
 
 	if (!NarrativeComponent)
@@ -95,69 +94,35 @@ bool UNarrativeNodeBase::AreConditionsMet(APawn* Pawn, APlayerController* Contro
 	{	
 		if (Cond)
 		{
-			//We're running a condition on a party! Figure out who we need to run the condition on
-			if (UNarrativePartyComponent* PartyComp = Cast<UNarrativePartyComponent>(NarrativeComponent))
+			if (Cond->CharacterTargets.Num())
 			{
-				TArray<UNarrativeComponent*> ComponentsToCheck;
-
-				UE_LOG(LogNarrative, Warning, TEXT("Running on party..."));
-				//We need to check everyone in the party
-				if (Cond->PartyConditionPolicy == EPartyConditionPolicy::AllPlayersPass || Cond->PartyConditionPolicy == EPartyConditionPolicy::AnyPlayerPasses)
+				if (UWorld* World = NarrativeComponent->GetWorld())
 				{
-					ComponentsToCheck.Append(PartyComp->GetPartyMembers());
-				}//We need to check the party leader
-				else if (Cond->PartyConditionPolicy == EPartyConditionPolicy::PartyLeaderPasses)
-				{
-					ComponentsToCheck.Add(PartyComp->GetPartyLeader());
-				}
-				else if (Cond->PartyConditionPolicy == EPartyConditionPolicy::PartyPasses)
-				{
-					ComponentsToCheck.Add(PartyComp);
-				}
-
-				bool bAnyonePassed = false;
-
-				//If any of our comps to check fail, return false 
-				for (auto& ComponentToCheck : ComponentsToCheck)
-				{	
-					const bool bConditionPassed = Cond && Cond->CheckCondition(ComponentToCheck->GetOwningPawn(), ComponentToCheck->GetOwningController(), ComponentToCheck) != Cond->bNot;
-					FString CondString = bConditionPassed ? "passed" : "failed";
-
-					if (bConditionPassed)
+					if (UNarrativeNPCSubsystem* NPCS = World->GetSubsystem<UNarrativeNPCSubsystem>())
 					{
-						//We'll check the next condition since someone passed
-						if (Cond->PartyConditionPolicy == EPartyConditionPolicy::AnyPlayerPasses)
+						for (auto& NPCTarget : Cond->CharacterTargets)
 						{
-							bAnyonePassed = true;
-							break;
+							if (ANarrativeCharacter* Character = NPCS->FindCharacter(NPCTarget))
+							{
+								if (Cond->CheckCondition(Character, Controller, NarrativeComponent) == Cond->bNot)
+								{
+									return false; 
+								}
+							}
 						}
+
+						//All targets passed 
+						return true; 
 					}
-					else
-					{
-						if (Cond->PartyConditionPolicy != EPartyConditionPolicy::AnyPlayerPasses)
-						{
-							return false;
-						}
-					}
-
-					UE_LOG(LogNarrative, Warning, TEXT("Checking %s condition, and they: %s"), *GetNameSafe(ComponentToCheck), *CondString);
 				}
-
-				//If we didn't break, no players passed 
-				if (!bAnyonePassed && Cond->PartyConditionPolicy == EPartyConditionPolicy::AnyPlayerPasses)
-				{
-					return false;
-				}
-
 			}
 			else
 			{
-				if (Cond && Cond->CheckCondition(Pawn, Controller, NarrativeComponent) == Cond->bNot)
+				if (Cond->CheckCondition(Pawn, Controller, NarrativeComponent) == Cond->bNot)
 				{
 					return false;
 				}
 			}
-
 		}
 	}
 

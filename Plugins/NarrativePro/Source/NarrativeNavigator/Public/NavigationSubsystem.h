@@ -38,6 +38,10 @@ struct FPointOfInterestLocation
 	//The display name the POI should show, for example if we discover a POI. 
 	UPROPERTY(BlueprintReadWrite, Category = "Point of Interest")
 	FText POIDisplayName;
+
+	//Return the location of the POI
+	FVector GetPOILocation() const;
+
 };
 
 /**
@@ -68,6 +72,10 @@ public:
 	//Return a POI that has previously been cached. 
 	UFUNCTION(BlueprintCallable, Category = "Point of Interest")
 	bool GetPointOfInterest(FPointOfInterestLocation& OutPointOfInterest, UPARAM(meta = (Categories = "Navigator.PointOfInterest"))const FGameplayTag& POITag);
+
+	//Find POI that is nearest to the given location
+	UFUNCTION(BlueprintPure, Category = "Point of Interest")
+	bool GetNearestPOIToPoint(FPointOfInterestLocation& OutPointOfInterest, UPARAM(meta = (Categories = "Navigator.PointOfInterest"))const FVector& TestLocation);
 
 	//We cache POIs using tags for efficient lookups 
 	UPROPERTY()

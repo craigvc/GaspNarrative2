@@ -2,11 +2,13 @@
 
 #include "UnrealFramework/NarrativeNPCCharacter.h"
 #include "UnrealFramework/NarrativePlayerState.h"
+#include "Interaction/NPCInteractionComponent.h"
 #include "Components/TeamMarkerComponent.h"
 #include "InventoryComponent.h"
 #include "AI/NPCDefinition.h"
 #include "AI/NPCInteractable.h"
 #include "AI/NarrativeNPCController.h"
+#include "AI/Activities/NPCActivityComponent.h"
 #include "Teams/FactionDefinition.h"
 #include "Teams/NarrativeTeamAgentInterface.h"
 #include "GAS/NarrativeAbilitySystemComponent.h"
@@ -18,6 +20,7 @@
 #include <Runtime/AIModule/Classes/Perception/AISense_Damage.h>
 #include "UnrealFramework/NarrativeGameState.h"
 #include "Engine/World.h"
+#include "Subsystems/NarrativeSaveSubsystem.h"
 
 ANarrativeNPCCharacter::ANarrativeNPCCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -55,24 +58,15 @@ void ANarrativeNPCCharacter::BeginPlay()
 	//Can be asked to destroy before beginplay by subsystem, so want to check 
 	if (IsValid(this))
 	{
-		if (AbilitySystemComponent)
-		{
-			AbilitySystemComponent->InitAbilityActorInfo(this, this);
-			InitializeAttributes();
-			AddStartupEffects();
-			AddDefaultAbilities();
-		}
-
-		if (InventoryComponent)
-		{
-			//InventoryComponent->GiveDefaultItems();
-		}
-
-		//NPC subsystem should have set this prior to beginplay 
-		//check(IsValid(NPCData));
-
 		if (IsValid(NPCData))
 		{
+			if (HasAuthority())
+			{
+				NPCLevel = FMath::RandRange(NPCData->LevelRange.GetLowerBoundValue(), NPCData->LevelRange.GetUpperBoundValue());
+			}
+
+			NPCFactions = NPCData->DefaultFactions;
+
 			if (MarkerComponent)
 			{
 				MarkerComponent->DefaultMarkerSettings.LocationDisplayName = NPCData->NPCName;
@@ -98,9 +92,30 @@ void ANarrativeNPCCharacter::BeginPlay()
 			}
 		}
 
+		//Call this after NPCData sets our level since abilities use GetCharacterLevel() 
+		if (AbilitySystemComponent)
+		{
+			AbilitySystemComponent->InitAbilityActorInfo(this, this);
+			InitializeAttributes();
+			AddStartupEffects();
+			AddDefaultAbilities();
+		}
 	}
 
 	Super::BeginPlay();
+}
+
+void ANarrativeNPCCharacter::SpawnDefaultController()
+{
+	Super::SpawnDefaultController();
+
+	//If we have a valid controller give it a readable name so designers know which AIPC is which in editor - disabled for now as didnt fix BTtree debugger which was intention 
+	//Turns out the debugger annoyingly calls GetName which we have no way of overriding 
+	if (Controller && NPCData)
+	{
+		//FString Str = "NPCController_" + NPCData->NPCID.ToString();
+		//Controller->SetActorLabel("NPCController_" + NPCData->NPCID.ToString());
+	}
 }
 
 void ANarrativeNPCCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
@@ -108,25 +123,26 @@ void ANarrativeNPCCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
 	DOREPLIFETIME_CONDITION(ANarrativeNPCCharacter, NPCData, COND_InitialOnly);
+	DOREPLIFETIME(ANarrativeNPCCharacter, NPCLevel);
+	DOREPLIFETIME(ANarrativeNPCCharacter, NPCFactions);
 }
 
 ETeamAttitude::Type ANarrativeNPCCharacter::GetTeamAttitudeTowards(const AActor& Other) const
 {
 	if(const INarrativeTeamAgentInterface* OtherTeamAgent = Cast<const INarrativeTeamAgentInterface>(&Other))
 	{
-		if (NPCData && NPCData->Faction)
+		if (NPCFactions.IsValid())
 		{
-			if (Hostiles.Contains(&Other))
+			if (ShouldBeAggressiveTowardsTarget(&Other))
 			{
 				return ETeamAttitude::Hostile;
 			}
 
-			ENarrativeFactionID OurFaction = NPCData->Faction->FactionID;
-			ENarrativeFactionID TheirFaction = static_cast<ENarrativeFactionID>(OtherTeamAgent->GetGenericTeamId().GetId());
-
 			if (ANarrativeGameState* GS = Cast<ANarrativeGameState>(GetWorld()->GetGameState()))
 			{
-				return GS->GetAttitudeTowards(OurFaction, TheirFaction);
+				FGameplayTagContainer TheirFactions = OtherTeamAgent->GetFactions();
+
+				return GS->GetFactionsAttitudeTowardsFactions(NPCFactions, TheirFactions);
 			}
 
 		}
@@ -135,15 +151,33 @@ ETeamAttitude::Type ANarrativeNPCCharacter::GetTeamAttitudeTowards(const AActor&
 	return ETeamAttitude::Neutral;
 }
 
-FGenericTeamId ANarrativeNPCCharacter::GetGenericTeamId() const
+FGameplayTagContainer ANarrativeNPCCharacter::GetFactions() const
 {
-	if (NPCData && NPCData->Faction)
-	{
-		return FGenericTeamId(static_cast<uint8>(NPCData->Faction->FactionID));
-	}
-
-	return FGenericTeamId::NoTeam;
+	return NPCFactions;
 }
+
+void ANarrativeNPCCharacter::AddFaction(const FGameplayTag& Faction)
+{
+	NPCFactions.AddTag(Faction);
+}
+
+void ANarrativeNPCCharacter::RemoveFaction(const FGameplayTag& Faction)
+{
+	NPCFactions.RemoveTag(Faction);
+}
+
+//FGenericTeamId ANarrativeNPCCharacter::GetGenericTeamId() const
+//{
+//	if (NPCFaction.IsValid())
+//	{
+//		if (ANarrativeGameState* GS = Cast<ANarrativeGameState>(GetWorld()->GetGameState()))
+//		{
+//			return FGenericTeamId(static_cast<uint8>(GS->FactionToIntID(NPCFaction)));
+//		}
+//	}
+//
+//	return FGenericTeamId::NoTeam;
+//}
 
 void ANarrativeNPCCharacter::DamagedBy(AController* DamagerController, const float Damage)
 {
@@ -157,13 +191,101 @@ void ANarrativeNPCCharacter::DamagedBy(AController* DamagerController, const flo
 	}
 }
 
+int32 ANarrativeNPCCharacter::GetCharacterLevel() const
+{
+	return NPCLevel;
+}
+
+class UCharacterDefinition* ANarrativeNPCCharacter::GetCharacterDefinition() const
+{
+	return NPCData;
+}
+
+FString ANarrativeNPCCharacter::GetHumanReadableName() const
+{
+	if (NPCData)
+	{
+		return NPCData->NPCName.ToString();
+	}
+
+	return Super::GetHumanReadableName();
+}
+
+class UNarrativeInteractionComponent* ANarrativeNPCCharacter::GetInteractionComponent() const
+{
+	if (ANarrativeNPCController* OurController = Cast<ANarrativeNPCController>(GetController()))
+	{
+		return OurController->GetInteractionComponent();
+	}
+
+	return nullptr;
+}
+
+void ANarrativeNPCCharacter::HandleDeath_Implementation(AActor* KilledActor, UNarrativeAbilitySystemComponent* KilledActorASC)
+{
+	Super::HandleDeath_Implementation(KilledActor, KilledActorASC);
+
+	if (NPCInteractableComponent)
+	{
+		NPCInteractableComponent->SetInteractableActionText(NSLOCTEXT("NPCCharacter", "LootInteractText", "Loot"));
+	}
+
+	//Dead NPCs should never save, remove this NPCs record from the save system. TODO think about whether record could be added back later accidentally? 
+	if (UNarrativeSaveSubsystem* SaveSub = GetWorld()->GetSubsystem<UNarrativeSaveSubsystem>())
+	{
+		SaveSub->RemoveSingleActor(this);
+	}
+}
+
+void ANarrativeNPCCharacter::Load_Implementation()
+{
+	if (!Controller)
+	{
+		SpawnDefaultController();
+	}
+
+	//Load the controller as a subactor of the NPC
+	if (UNarrativeSaveSubsystem* SaveSub = GetWorld()->GetSubsystem<UNarrativeSaveSubsystem>())
+	{
+		SaveSub->LoadActorFromRecord(Controller, AICRecord);
+	}
+}
+
+void ANarrativeNPCCharacter::PrepareForSave_Implementation()
+{
+	//Store our AIC in a record 
+	if (UNarrativeSaveSubsystem* SaveSub = GetWorld()->GetSubsystem<UNarrativeSaveSubsystem>())
+	{
+		SaveSub->CreateActorRecord(Controller, AICRecord);
+	}
+}
+
+void ANarrativeNPCCharacter::LoadNewCharacter_Implementation()
+{
+	//For now we just do it all in BP - its lightweight and more readable and BP handles async loads more nicely  
+}
+
 void ANarrativeNPCCharacter::OnRep_NPCData()
 {
 	if (NPCData)
 	{
-
-
+		OnDefinitionSet(NPCData);
 	}
+}
+
+bool ANarrativeNPCCharacter::ShouldBeAggressiveTowardsTarget_Implementation(const class AActor* Target) const
+{
+	return Hostiles.Contains(Target);
+}
+
+FText ANarrativeNPCCharacter::GetNPCName() const
+{
+	if (NPCData)
+	{
+		return NPCData->NPCName;
+	}
+
+	return FText::GetEmpty();
 }
 
 void ANarrativeNPCCharacter::SetNPCDefinition(class UNPCDefinition* NewNPCData)
@@ -171,6 +293,7 @@ void ANarrativeNPCCharacter::SetNPCDefinition(class UNPCDefinition* NewNPCData)
 	if (IsValid(NewNPCData))
 	{
 		NPCData = NewNPCData;
+		OnRep_NPCData();
 	}
 }
 
@@ -200,4 +323,28 @@ void ANarrativeNPCCharacter::PlayTaggedDialogue(FGameplayTag Tag, AActor* Dialog
 		}
 	}
 
+}
+
+class UNPCActivityComponent* ANarrativeNPCCharacter::GetActivityComponent() const
+{
+	if (ANarrativeNPCController* OurController = Cast<ANarrativeNPCController>(GetController()))
+	{
+		return OurController->GetActivityComponent();
+	}
+
+	return nullptr; 
+}
+
+ANarrativeNPCController* ANarrativeNPCCharacter::GetNPCController() const
+{
+	return Cast<ANarrativeNPCController>(GetController());
+}
+
+void ANarrativeNPCCharacter::OnRep_NPCFactions()
+{
+	//If our factions change our marker needs to update. 
+	if (MarkerComponent)
+	{
+		MarkerComponent->RefreshMarker();
+	}
 }

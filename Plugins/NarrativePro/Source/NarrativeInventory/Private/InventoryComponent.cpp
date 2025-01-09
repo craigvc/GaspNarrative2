@@ -10,6 +10,7 @@
 #include <Engine/World.h>
 #include <Kismet/GameplayStatics.h>
 #include "NarrativeInventorySettings.h"
+#include <Serialization/ObjectAndNameAsStringProxyArchive.h>
 
 
 #define LOCTEXT_NAMESPACE "Inventory"
@@ -21,7 +22,14 @@ FNarrativeSavedItem::FNarrativeSavedItem(class UNarrativeItem* Item)
 		ItemClass = Item->GetClass();
 		Quantity = Item->GetQuantity();
 		bActive = Item->bActive;
-		bFavourited = Item->bFavourite;
+		//bFavourited = Item->bFavourite;
+
+		//Serialize the items savegame vars into byte data 
+		FMemoryWriter MemWriter(ByteData);
+		FObjectAndNameAsStringProxyArchive Ar(MemWriter, true);
+		Ar.ArIsSaveGame = true;
+
+		Item->Serialize(Ar);
 	}
 }
 
@@ -80,16 +88,18 @@ void UNarrativeInventoryComponent::Load_Implementation()
 			//1 saved item is saved per item, we should never have multiples 
 			check(AddResult.Stacks.Num() && AddResult.Stacks.IsValidIndex(0));
 
+			FMemoryReader MemReader(InventoryItem.ByteData);
+			FObjectAndNameAsStringProxyArchive Ar(MemReader, true);
+			Ar.ArIsSaveGame = true;
+
 			//Reactivate any items that were active 
 			if (UNarrativeItem* AddedItem = AddResult.Stacks[0])
 			{
 				//Activate/deactivate the item 
 				AddedItem->SetActive(InventoryItem.bActive, false);
 
-				if (InventoryItem.bFavourited)
-				{
-					AddedItem->bFavourite = InventoryItem.bFavourited;
-				}
+				//Load the saved variables back into the remade item
+				AddedItem->Serialize(Ar);
 			}
 		}
 	}
@@ -102,6 +112,7 @@ bool UNarrativeInventoryComponent::UseItem(class UNarrativeItem* Item)
 		return false;
 	}
 
+	//Ask server to use item - TODO server should probably auth this and then replicate the use back to us - we don't want to predict this 
 	if (GetOwnerRole() < ROLE_Authority)
 	{
 		ServerUseItem(Item);
@@ -140,14 +151,14 @@ bool UNarrativeInventoryComponent::UseItem(class UNarrativeItem* Item)
 
 			Item->SetLastUseTime(UseTime);
 
-			if (Item->bConsumeOnUse)
-			{
-				ConsumeItem(Item, 1);
-			}
-
 			if (Item->bToggleActiveOnUse)
 			{
 				Item->SetActive(!Item->bActive);
+			}
+
+			if (Item->bConsumeOnUse)
+			{
+				ConsumeItem(Item, 1);
 			}
 
 			return true;
@@ -222,7 +233,7 @@ FItemAddResult UNarrativeInventoryComponent::TryAddItemFromClass(TSubclassOf<cla
 			OnItemAdded.Broadcast(AddResult);
 		}
 
-		if (bCheckAutoUse)
+		if (bCheckAutoUse && GetNetMode() == NM_Standalone)
 		{
 			for (auto& Stack : AddResult.Stacks)
 			{
@@ -745,6 +756,12 @@ void UNarrativeInventoryComponent::OnRep_Items(const TArray<class UNarrativeItem
 			{
 				Item->World = GetWorld();
 				Item->OwningInventory = this;
+
+				//New active items won't have had their OnRep called, we need to call it
+				if (Item->bActive)
+				{
+					Item->OnRep_bActive(false);
+				}
 			}
 		}
 	}
@@ -995,5 +1012,11 @@ void UNarrativeInventoryComponent::SetLootSource(class UNarrativeInventoryCompon
 		}
 	}
 }
+
+UItemCollection::UItemCollection(const FObjectInitializer& ObjectInitializer)
+{
+
+}
+
 
 #undef LOCTEXT_NAMESPACE

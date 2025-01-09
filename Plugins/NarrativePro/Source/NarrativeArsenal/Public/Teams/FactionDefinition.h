@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "NarrativeArsenal.h"
+#include <GameplayTagContainer.h>
 #include "FactionDefinition.generated.h"
 
 /**
@@ -19,9 +20,13 @@ public:
 
 	UFactionDefinition(const FObjectInitializer& ObjectInitializer);
 
-	//The faction this definition applies to 
+	//The faction this definition applies to - ideally this should use gameplaytags instead as C++ enum is annoying for BP users 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Faction")
 	ENarrativeFactionID FactionID;
+
+	//The tag identifying the faction - this needs to be converted to a uint8
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Faction")
+	FGameplayTag FactionTag;
 
 	//Factions we're friendly with 
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Faction")

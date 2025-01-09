@@ -16,7 +16,7 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 #define NARRATIVEARSENAL_NarrativeArsenal_generated_h
 
 #undef CURRENT_FILE_ID
-#define CURRENT_FILE_ID FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h
+#define CURRENT_FILE_ID FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_NarrativeArsenal_h
 
 
 #define FOREACH_ENUM_ENARRATIVEABILITYINPUTID(op) \
@@ -30,7 +30,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 	op(ENarrativeAbilityInputID::Ability3) \
 	op(ENarrativeAbilityInputID::Reload) \
 	op(ENarrativeAbilityInputID::Jump) \
-	op(ENarrativeAbilityInputID::Crouch) 
+	op(ENarrativeAbilityInputID::Crouch) \
+	op(ENarrativeAbilityInputID::Sprint) 
 
 enum class ENarrativeAbilityInputID : uint8;
 template<> struct TIsUEnumClass<ENarrativeAbilityInputID> { enum { Value = true }; };

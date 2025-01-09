@@ -43,6 +43,21 @@ class UNarrativeAttributeSetBase* ANarrativePlayerState::GetAttributeSetBase() c
 	return AttributeSetBase;
 }
 
+FGameplayTagContainer ANarrativePlayerState::GetFactions() const
+{
+	return Factions;
+}
+
+void ANarrativePlayerState::AddFaction(const FGameplayTag& Faction)
+{
+	Factions.AddTag(Faction);
+}
+
+void ANarrativePlayerState::RemoveFaction(const FGameplayTag& Faction)
+{
+	Factions.RemoveTag(Faction);
+}
+
 bool ANarrativePlayerState::IsAlive() const
 {
 	return GetHealth() > 0.f;
@@ -72,7 +87,7 @@ void ANarrativePlayerState::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>
 {
 	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
 
-	DOREPLIFETIME(ANarrativePlayerState, Faction);
+	DOREPLIFETIME(ANarrativePlayerState, Factions);
 }
 
 void ANarrativePlayerState::OnRep_PlayerName()
@@ -89,11 +104,11 @@ void ANarrativePlayerState::OnRep_PlayerName()
 	}
 }
 
-void ANarrativePlayerState::SetFaction(UFactionDefinition* NewFaction)
+void ANarrativePlayerState::SetFactions(const FGameplayTagContainer& NewFactions)
 {
-	if (NewFaction)
+	if (NewFactions.IsValid())
 	{
-		Faction = NewFaction;
+		Factions = NewFactions;
 		OnRep_Faction();
 	}
 }
@@ -101,42 +116,32 @@ void ANarrativePlayerState::SetFaction(UFactionDefinition* NewFaction)
 void ANarrativePlayerState::OnRep_Faction()
 {
 
-}
-
-void ANarrativePlayerState::SetGenericTeamId(const FGenericTeamId& NewTeamID)
-{
-	checkf(false, TEXT("Set generic team ID shouldn't be used, call SetFaction instead."));
-	//Faction = static_cast<ENarrativeFactionID>(NewTeamID.GetId());
-	//OnRep_Faction();
-}
-
-FGenericTeamId ANarrativePlayerState::GetGenericTeamId() const
-{
-	if (Faction)
+	if (ANarrativePlayerCharacter* PlayerCharacter = Cast<ANarrativePlayerCharacter>(GetPawn()))
 	{
-		return FGenericTeamId(static_cast<uint8>(Faction->FactionID));
-	}
-
-	return FGenericTeamId::NoTeam;
-}
-
-ETeamAttitude::Type ANarrativePlayerState::GetTeamAttitudeTowards(const AActor& Other) const
-{
-	//TODO use GS 
-	if(const INarrativeTeamAgentInterface* OtherTeamAgent = Cast<const INarrativeTeamAgentInterface>(&Other))
-	{
-		if (Faction)
+		if (UNavigationMarkerComponent* Marker = PlayerCharacter->GetMarkerComponent())
 		{
-			ENarrativeFactionID OurFaction = Faction->FactionID;
-			ENarrativeFactionID TheirFaction = static_cast<ENarrativeFactionID>(OtherTeamAgent->GetGenericTeamId().GetId());
-
-			if (ANarrativeGameState* GS = Cast<ANarrativeGameState>(GetWorld()->GetGameState()))
-			{
-				return GS->GetAttitudeTowards(OurFaction, TheirFaction);
-			}
-
+			Marker->RefreshMarker();
 		}
 	}
-
-	return ETeamAttitude::Neutral;
 }
+//
+//ETeamAttitude::Type ANarrativePlayerState::GetTeamAttitudeTowards(const AActor& Other) const
+//{
+//	//TODO use GS 
+//	if(const INarrativeTeamAgentInterface* OtherTeamAgent = Cast<const INarrativeTeamAgentInterface>(&Other))
+//	{
+//		if (Faction)
+//		{
+//			ENarrativeFactionID OurFaction = Faction->FactionID;
+//			ENarrativeFactionID TheirFaction = static_cast<ENarrativeFactionID>(OtherTeamAgent->GetGenericTeamId().GetId());
+//
+//			if (ANarrativeGameState* GS = Cast<ANarrativeGameState>(GetWorld()->GetGameState()))
+//			{
+//				return GS->GetAttitudeTowards(OurFaction, TheirFaction);
+//			}
+//
+//		}
+//	}
+//
+//	return ETeamAttitude::Neutral;
+//}

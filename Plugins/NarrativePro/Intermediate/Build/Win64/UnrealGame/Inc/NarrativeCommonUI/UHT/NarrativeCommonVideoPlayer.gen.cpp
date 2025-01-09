@@ -173,9 +173,11 @@ struct Z_Construct_UClass_UNarrativeCommonVideoPlayer_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "Comment", "/**\n * \n */" },
+		{ "Category", "Narrative Common Widgets" },
+		{ "Comment", "/**\n * Base class for common video player, with a few functions exposed to make it more BP friendly. \n */" },
 		{ "IncludePath", "Widgets/NarrativeCommonVideoPlayer.h" },
 		{ "ModuleRelativePath", "Public/Widgets/NarrativeCommonVideoPlayer.h" },
+		{ "ToolTip", "Base class for common video player, with a few functions exposed to make it more BP friendly." },
 	};
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
@@ -229,14 +231,14 @@ UNarrativeCommonVideoPlayer::~UNarrativeCommonVideoPlayer() {}
 // End Class UNarrativeCommonVideoPlayer
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeCommonVideoPlayer, UNarrativeCommonVideoPlayer::StaticClass, TEXT("UNarrativeCommonVideoPlayer"), &Z_Registration_Info_UClass_UNarrativeCommonVideoPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCommonVideoPlayer), 3625684726U) },
+		{ Z_Construct_UClass_UNarrativeCommonVideoPlayer, UNarrativeCommonVideoPlayer::StaticClass, TEXT("UNarrativeCommonVideoPlayer"), &Z_Registration_Info_UClass_UNarrativeCommonVideoPlayer, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCommonVideoPlayer), 3423486454U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_2600137517(TEXT("/Script/NarrativeCommonUI"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_3114068629(TEXT("/Script/NarrativeCommonUI"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonVideoPlayer_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

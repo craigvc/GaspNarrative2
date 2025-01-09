@@ -39,9 +39,9 @@ struct Z_Construct_UScriptStruct_FCombatTraceData_Statics
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Struct_MetaDataParams[] = {
 		{ "BlueprintType", "true" },
-		{ "Comment", "//Weapons store this themselves, and players store this also for unarmed combat. \n" },
+		{ "Comment", "//Stored on both weapons and our player for unarmed combat. Replaces the need for expensive targeting actors, GAs just generate target data themselves\n" },
 		{ "ModuleRelativePath", "Public/GAS/NarrativeCombatAbility.h" },
-		{ "ToolTip", "Weapons store this themselves, and players store this also for unarmed combat." },
+		{ "ToolTip", "Stored on both weapons and our player for unarmed combat. Replaces the need for expensive targeting actors, GAs just generate target data themselves" },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_TraceDistance_MetaData[] = {
 		{ "Category", "Combat Trace Data" },
@@ -51,9 +51,17 @@ struct Z_Construct_UScriptStruct_FCombatTraceData_Statics
 		{ "Category", "Combat Trace Data" },
 		{ "ModuleRelativePath", "Public/GAS/NarrativeCombatAbility.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bTraceMulti_MetaData[] = {
+		{ "Category", "Combat Trace Data" },
+		{ "Comment", "//True if we want to trace multi instead of single \n" },
+		{ "ModuleRelativePath", "Public/GAS/NarrativeCombatAbility.h" },
+		{ "ToolTip", "True if we want to trace multi instead of single" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TraceDistance;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_TraceRadius;
+	static void NewProp_bTraceMulti_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bTraceMulti;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -63,9 +71,15 @@ struct Z_Construct_UScriptStruct_FCombatTraceData_Statics
 };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_TraceDistance = { "TraceDistance", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCombatTraceData, TraceDistance), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TraceDistance_MetaData), NewProp_TraceDistance_MetaData) };
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_TraceRadius = { "TraceRadius", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FCombatTraceData, TraceRadius), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TraceRadius_MetaData), NewProp_TraceRadius_MetaData) };
+void Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_bTraceMulti_SetBit(void* Obj)
+{
+	((FCombatTraceData*)Obj)->bTraceMulti = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_bTraceMulti = { "bTraceMulti", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(FCombatTraceData), &Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_bTraceMulti_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bTraceMulti_MetaData), NewProp_bTraceMulti_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FCombatTraceData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_TraceDistance,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_TraceRadius,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewProp_bTraceMulti,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FCombatTraceData_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FCombatTraceData_Statics::StructParams = {
@@ -145,7 +159,7 @@ struct Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrac
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace_Statics::NewProp_TraceData = { "TraceData", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeCombatAbility_eventGenerateTargetDataUsingTrace_Parms, TraceData), Z_Construct_UScriptStruct_FCombatTraceData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TraceData_MetaData), NewProp_TraceData_MetaData) }; // 378338725
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace_Statics::NewProp_TraceData = { "TraceData", nullptr, (EPropertyFlags)0x0010000008000182, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeCombatAbility_eventGenerateTargetDataUsingTrace_Parms, TraceData), Z_Construct_UScriptStruct_FCombatTraceData, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_TraceData_MetaData), NewProp_TraceData_MetaData) }; // 179883577
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace_Statics::NewProp_TraceData,
 };
@@ -264,7 +278,7 @@ struct Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData_Statics
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeCombatAbility_eventGetTraceData_Parms, ReturnValue), Z_Construct_UScriptStruct_FCombatTraceData, METADATA_PARAMS(0, nullptr) }; // 378338725
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeCombatAbility_eventGetTraceData_Parms, ReturnValue), Z_Construct_UScriptStruct_FCombatTraceData, METADATA_PARAMS(0, nullptr) }; // 179883577
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData_Statics::NewProp_ReturnValue,
 };
@@ -368,16 +382,24 @@ struct Z_Construct_UClass_UNarrativeCombatAbility_Statics
 		{ "ModuleRelativePath", "Public/GAS/NarrativeCombatAbility.h" },
 		{ "ToolTip", "if true, we check our item has its ammo class, and if not the cost check will fail" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bDrawDebugTraces_MetaData[] = {
+		{ "Category", "Narrative Ability" },
+		{ "Comment", "//if true, we'll draw debugging traces \n" },
+		{ "ModuleRelativePath", "Public/GAS/NarrativeCombatAbility.h" },
+		{ "ToolTip", "if true, we'll draw debugging traces" },
+	};
 #endif // WITH_METADATA
 	static void NewProp_bRequiresAmmo_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bRequiresAmmo;
+	static void NewProp_bDrawDebugTraces_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bDrawDebugTraces;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetData, "GenerateTargetData" }, // 4198714070
-		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace, "GenerateTargetDataUsingTrace" }, // 4292522367
+		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GenerateTargetDataUsingTrace, "GenerateTargetDataUsingTrace" }, // 764559839
 		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GetTargetingViewPoint, "GetTargetingViewPoint" }, // 594877307
-		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData, "GetTraceData" }, // 3305020160
+		{ &Z_Construct_UFunction_UNarrativeCombatAbility_GetTraceData, "GetTraceData" }, // 189798765
 		{ &Z_Construct_UFunction_UNarrativeCombatAbility_K2_TargetDataReady, "K2_TargetDataReady" }, // 3516827237
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
@@ -391,8 +413,14 @@ void Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bRequiresAmmo_S
 	((UNarrativeCombatAbility*)Obj)->bRequiresAmmo = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bRequiresAmmo = { "bRequiresAmmo", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeCombatAbility), &Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bRequiresAmmo_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bRequiresAmmo_MetaData), NewProp_bRequiresAmmo_MetaData) };
+void Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bDrawDebugTraces_SetBit(void* Obj)
+{
+	((UNarrativeCombatAbility*)Obj)->bDrawDebugTraces = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bDrawDebugTraces = { "bDrawDebugTraces", nullptr, (EPropertyFlags)0x0020080000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeCombatAbility), &Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bDrawDebugTraces_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bDrawDebugTraces_MetaData), NewProp_bDrawDebugTraces_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeCombatAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bRequiresAmmo,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeCombatAbility_Statics::NewProp_bDrawDebugTraces,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeCombatAbility_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UNarrativeCombatAbility_Statics::DependentSingletons[])() = {
@@ -432,18 +460,18 @@ UNarrativeCombatAbility::~UNarrativeCombatAbility() {}
 // End Class UNarrativeCombatAbility
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FCombatTraceData::StaticStruct, Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewStructOps, TEXT("CombatTraceData"), &Z_Registration_Info_UScriptStruct_CombatTraceData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatTraceData), 378338725U) },
+		{ FCombatTraceData::StaticStruct, Z_Construct_UScriptStruct_FCombatTraceData_Statics::NewStructOps, TEXT("CombatTraceData"), &Z_Registration_Info_UScriptStruct_CombatTraceData, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FCombatTraceData), 179883577U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeCombatAbility, UNarrativeCombatAbility::StaticClass, TEXT("UNarrativeCombatAbility"), &Z_Registration_Info_UClass_UNarrativeCombatAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCombatAbility), 1531480385U) },
+		{ Z_Construct_UClass_UNarrativeCombatAbility, UNarrativeCombatAbility::StaticClass, TEXT("UNarrativeCombatAbility"), &Z_Registration_Info_UClass_UNarrativeCombatAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCombatAbility), 2174763141U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_2375751571(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_303398902(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeCombatAbility_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

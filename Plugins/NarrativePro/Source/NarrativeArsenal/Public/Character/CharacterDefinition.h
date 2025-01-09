@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "Engine/DataAsset.h"
 #include "InventoryComponent.h"
+#include <GameplayTagContainer.h>
 #include "CharacterDefinition.generated.h"
 
 /**
@@ -21,7 +22,7 @@ public:
 
 	/**The characters default appearance*/
 	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Appearance", meta = (AssetBundles = "SpawnedData"))
-	TSoftObjectPtr<class UCharacterAppearance> DefaultAppearance; 
+	TSoftObjectPtr<class UCharacterAppearanceBase> DefaultAppearance; 
 
 	/** Default currency this character should have in their inventory */
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
@@ -31,7 +32,18 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Inventory")
 	TArray<FLootTableRoll> DefaultItemLoadout;
 
-	 /** The type of asset, in this example this value HAS to be specified in the constructor for each type(unless its abstract). */
+	/** Add any custom tags the character needs in here, for example State.Invulnerable if you want the character to never take damage. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Factions", meta = (Categories = "Narrative.State"))
+	FGameplayTagContainer DefaultOwnedTags;
+
+	/**The factions this character will be in by default - you can set the characters faction to something else later if desired. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Factions", meta = (Categories = "Narrative.Factions"))
+	FGameplayTagContainer DefaultFactions;
+
+	/** Bots use this in their EQS query when looking for targets. Higher values make bots more drawn to us. */
+	UPROPERTY(BlueprintReadOnly, EditAnywhere, Category = "Attack Priority")
+	float AttackPriority;
+
     UPROPERTY()
     FPrimaryAssetType AssetType;
 

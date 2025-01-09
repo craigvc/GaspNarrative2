@@ -36,11 +36,11 @@ public:
 	//Execute all the events on this quest/dialogue node - this is blueprint callable so dialogue UI can call this
 	//when a piece of dialogue is spoken
 	UFUNCTION(BlueprintCallable, Category = "Events & Conditions")
-	void ProcessEvents(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent, const EEventRuntime Runtime);
+	void ProcessEvents(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent, const EEventRuntime Runtime);
 
 	//Check if all the conditions are met on this quest/dialogue node
 	UFUNCTION(BlueprintCallable, Category = "Events & Conditions")
-	bool AreConditionsMet(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent);
+	bool AreConditionsMet(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent);
 
 	/**
 	This node only appears if the following conditions are met. Note that currently only dialogues support conditions, they won't do anything in quests!

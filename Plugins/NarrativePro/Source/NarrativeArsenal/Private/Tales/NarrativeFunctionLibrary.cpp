@@ -2,25 +2,27 @@
 
 
 #include "Tales/NarrativeFunctionLibrary.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeTaskManager.h"
 #include "Kismet/GameplayStatics.h"
 #include "GameFramework/Pawn.h"
 #include "Engine/GameInstance.h"
+#include "UnrealFramework/NarrativePlayerCharacter.h"
+#include "UnrealFramework/NarrativePlayerController.h"
 
-class UNarrativeComponent* UNarrativeFunctionLibrary::GetNarrativeComponent(const UObject* WorldContextObject)
+class UTalesComponent* UNarrativeFunctionLibrary::GetTalesComponent(const UObject* WorldContextObject)
 {
 	return GetNarrativeComponentFromTarget(UGameplayStatics::GetPlayerController(WorldContextObject, 0));
 }
 
-class UNarrativeComponent* UNarrativeFunctionLibrary::GetNarrativeComponentFromTarget(AActor* Target)
+class UTalesComponent* UNarrativeFunctionLibrary::GetNarrativeComponentFromTarget(AActor* Target)
 {
 	if (!Target)
 	{
 		return nullptr;
 	}
 
-	if (UNarrativeComponent* NarrativeComp = Target->FindComponentByClass<UNarrativeComponent>())
+	if (UTalesComponent* NarrativeComp = Target->FindComponentByClass<UTalesComponent>())
 	{
 		return NarrativeComp;
 	}
@@ -30,7 +32,7 @@ class UNarrativeComponent* UNarrativeFunctionLibrary::GetNarrativeComponentFromT
 	{
 		if (OwningController->GetPawn())
 		{
-			return OwningController->GetPawn()->FindComponentByClass<UNarrativeComponent>();
+			return OwningController->GetPawn()->FindComponentByClass<UTalesComponent>();
 		}
 	}
 
@@ -38,14 +40,14 @@ class UNarrativeComponent* UNarrativeFunctionLibrary::GetNarrativeComponentFromT
 	{
 		if (OwningPawn->GetController())
 		{
-			return OwningPawn->GetController()->FindComponentByClass<UNarrativeComponent>();
+			return OwningPawn->GetController()->FindComponentByClass<UTalesComponent>();
 		}
 	}
 
 	return nullptr;
 }
 
-bool UNarrativeFunctionLibrary::CompleteNarrativeDataTask(class UNarrativeComponent* Target, const UNarrativeDataTask* Task, const FString& Argument, const int32 Quantity)
+bool UNarrativeFunctionLibrary::CompleteNarrativeDataTask(class UTalesComponent* Target, const UNarrativeDataTask* Task, const FString& Argument, const int32 Quantity)
 {
 	if (Target)
 	{
@@ -56,7 +58,7 @@ bool UNarrativeFunctionLibrary::CompleteNarrativeDataTask(class UNarrativeCompon
 
 static FString DefaultString("LooseTask");
 
-bool UNarrativeFunctionLibrary::CompleteLooseNarrativeDataTask(class UNarrativeComponent* Target, const FString& Argument, const int32 Quantity /*= 1*/)
+bool UNarrativeFunctionLibrary::CompleteLooseNarrativeDataTask(class UTalesComponent* Target, const FString& Argument, const int32 Quantity /*= 1*/)
 {
 	if (Target)
 	{

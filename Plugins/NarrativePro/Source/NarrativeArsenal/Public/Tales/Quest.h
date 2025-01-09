@@ -22,6 +22,7 @@ DECLARE_DYNAMIC_MULTICAST_DELEGATE_ThreeParams(FOnQuestTaskCompleted, const UQue
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnQuestSucceeded, const UQuest*, Quest, const FText&, QuestSucceededMessage);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnQuestFailed, const UQuest*, Quest, const FText&, QuestFailedMessage);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestStarted, const UQuest*, Quest);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestPostLoad, const UQuest*, Quest);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestForgotten, const UQuest*, Quest);
 DECLARE_DYNAMIC_MULTICAST_DELEGATE_OneParam(FOnQuestRestarted, const UQuest*, Quest);
 
@@ -48,7 +49,7 @@ protected:
 	friend class UQuestBlueprintGeneratedClass;
 	friend class UQuestState;
 	friend class UQuestBranch;
-	friend class UNarrativeComponent;
+	friend class UTalesComponent;
 
 	UQuest();
 
@@ -87,22 +88,29 @@ public:
 
 protected:
 
+	//Called when the quest is loaded back in from disk
+	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName="On Quest Post Load"))
+	void BPQuestPostLoad();
+
+	//Called when the quest is loaded back in from disk - allows you to set any quest state back up 
+	virtual void QuestPostLoad();
+
 	//Called before tasks are ready - a good place to set up data tasks depend on 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName="Pre Quest Started"))
-		void BPPreQuestStarted(const UQuest* Quest);
+	void BPPreQuestStarted(const UQuest* Quest);
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName="On Quest Started"))
-		void BPOnQuestStarted(const UQuest* Quest);
+	void BPOnQuestStarted(const UQuest* Quest);
 
 	UFUNCTION()
-		void FailQuest(FText QuestFailedMessage);
+	virtual void FailQuest(FText QuestFailedMessage);
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "On Quest Failed"))
-		void BPOnQuestFailed(const UQuest* Quest, const FText& QuestFailedMessage);
+	void BPOnQuestFailed(const UQuest* Quest, const FText& QuestFailedMessage);
 
 	/**Manually set the quest as succeeded. You'll need to provide some text for the UI as theres no node  the quest, you're manually succeeding it.*/
 	UFUNCTION()
-		void SucceedQuest(FText QuestSucceededMessage);
+	virtual void SucceedQuest(FText QuestSucceededMessage);
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "On Quest Succeeded"))
 		void BPOnQuestSucceeded(const UQuest* Quest, const FText& QuestSucceededMessage);
@@ -111,7 +119,7 @@ protected:
 		void BPOnQuestNewState(UQuest* Quest, const UQuestState* NewState);
 
 	UFUNCTION()
-		void OnQuestTaskProgressChanged(const UNarrativeTask* Task, const class UQuestBranch* Step, int32 CurrentProgress, int32 RequiredProgress);
+	virtual void OnQuestTaskProgressChanged(const UNarrativeTask* Task, const class UQuestBranch* Step, int32 CurrentProgress, int32 RequiredProgress);
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "On Quest Objective Progress Made"))
 	void BPOnQuestTaskProgressChanged(const UQuest* Quest, const UNarrativeTask* Task, const class UQuestBranch* Step, int32 CurrentProgress, int32 RequiredProgress);
@@ -123,7 +131,7 @@ protected:
 		void BPOnQuestTaskCompleted(const UQuest* Quest, const UNarrativeTask* Task, const class UQuestBranch* Step);
 
 	UFUNCTION()
-		void OnQuestBranchCompleted(const class UQuestBranch* Branch);
+	virtual void OnQuestBranchCompleted(const class UQuestBranch* Branch);
 
 	UFUNCTION(BlueprintImplementableEvent, meta = (DisplayName = "On Branch Taken"))
 		void BPOnQuestBranchCompleted(const UQuest* Quest, const class UQuestBranch* Branch);
@@ -140,7 +148,7 @@ protected:
 	virtual void TakeBranch(UQuestBranch* Branch);
 
 	//Initialize this quest from its blueprint generated class. Return true if successful. 
-	virtual bool Initialize(class UNarrativeComponent* InitializingComp, const FName& QuestStartID = NAME_None);
+	virtual bool Initialize(class UTalesComponent* InitializingComp, const FName& QuestStartID = NAME_None);
 	virtual void Deinitialize();
 	virtual void DuplicateAndInitializeFromQuest(UQuest* QuestTemplate);
 
@@ -188,7 +196,7 @@ protected:
 	TArray<UQuestState*> ReachedStates;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Quests")
-	class UNarrativeComponent* OwningComp;
+	class UTalesComponent* OwningComp;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Quests")
 	class APawn* OwningPawn;
@@ -222,11 +230,15 @@ protected:
 
 	/**Called when a quest is started.*/
 	UPROPERTY(BlueprintAssignable, Category = "Quests")
-		FOnQuestStarted QuestStarted;
+	FOnQuestStarted QuestStarted;
+
+		/**Called when the quest has been loaded back in.*/
+	UPROPERTY(BlueprintAssignable, Category = "Quests")
+	FOnQuestPostLoad OnQuestPostLoad;
 
 	/**Called when a quest is forgotten.*/
 	UPROPERTY(BlueprintAssignable, Category = "Quests")
-		FOnQuestForgotten QuestForgotten;
+	FOnQuestForgotten QuestForgotten;
 
 	/**Called when a quest is restarted.*/
 	UPROPERTY(BlueprintAssignable, Category = "Quests")
@@ -273,7 +285,7 @@ public:
 	FORCEINLINE class APawn* GetOwningPawn() const {return OwningPawn;}
 
 	UFUNCTION(BlueprintPure, Category = "Quests")
-	FORCEINLINE class UNarrativeComponent* GetOwningComp() const {return OwningComp;};
+	FORCEINLINE class UTalesComponent* GetOwningComp() const {return OwningComp;};
 
 	UFUNCTION(BlueprintPure, Category = "Quests")
 	FORCEINLINE bool IsTracked() const { return bTracked;};

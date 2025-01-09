@@ -29,7 +29,7 @@ public:
 	UNarrativeSaveSubsystem();
 
 	//Create/update the save game object, and store the worlds state in it. This won't actually save it to disk. 
-	virtual bool UpdateSaveObject();
+	virtual bool UpdateSaveObject(const bool bSkipRecordCreation=false);
 	
 	/**
 	* Will write to the records to a save file, and actually commit the save file to disk also. 
@@ -83,6 +83,10 @@ public:
 	UFUNCTION(BlueprintPure, Category = "Saving")
 	bool IsLoading() const;
 
+	/** Return our current save object if one exists  */
+	UFUNCTION(BlueprintPure, Category = "Saving")
+	FORCEINLINE class UNarrativeSave* GetSaveObject() const {return NarrativeSaveGame; };
+
 	UPROPERTY(BlueprintAssignable, BlueprintReadOnly, Category = "Delegates")
 	FOnSavePhaseChanged OnBeginLoad;
 
@@ -94,6 +98,14 @@ public:
 
 	UPROPERTY(BlueprintAssignable, BlueprintReadOnly, Category = "Delegates")
 	FOnSavePhaseChanged OnFinishedSave;
+
+	/** Allows you to quickly lookup an actor reference using its save GUID. Useful for actor references - save the GUID to disk and look it up later.  */
+	UFUNCTION(BlueprintPure, Category = "Lookups")
+	AActor* LookupActorByGUID(const FGuid& SearchGUID);
+
+	//Helper functions for creating a record from an actor, or initializing an actor from an actor record. 
+	bool CreateActorRecord(class AActor* Actor, FNarrativeActorRecord& ActorRecord) const;
+	void LoadActorFromRecord(class AActor* Actor, const FNarrativeActorRecord& ActorRecord) const;
 
 protected:
 
@@ -111,10 +123,6 @@ protected:
 	virtual void PostInitialize() override;
 
 	virtual void OnWorldBeginPlay(UWorld& InWorld) override;
-
-	//Helper functions for creating a record from an actor, or initializing an actor from an actor record. 
-	bool CreateActorRecord(class AActor* Actor, FNarrativeActorRecord& ActorRecord) const;
-	void LoadActorFromRecord(class AActor* Actor, const FNarrativeActorRecord& ActorRecord) const;
 
 	FDelegateHandle ActorPrespawnedHandle;
 	FDelegateHandle ActorSpawnedHandle;
@@ -138,4 +146,11 @@ protected:
 	bool bSavingDisabled; 
 
 	FTimerHandle TimerHandle_DeferredLoadPlayerData;
+
+private:
+
+	TSubclassOf<class UNarrativeSave> GetSaveGameClass() const;
+
+	TMap<FGuid, TWeakObjectPtr<class AActor>> QuickLookupMap;
+
 };

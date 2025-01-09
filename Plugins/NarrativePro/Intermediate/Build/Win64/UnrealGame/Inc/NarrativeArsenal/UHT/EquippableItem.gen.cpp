@@ -7,117 +7,25 @@
 #include "UObject/GeneratedCppIncludes.h"
 #include "NarrativeArsenal/Public/Items/EquippableItem.h"
 #include "GameplayAbilities/Public/ActiveGameplayEffectHandle.h"
+#include "NarrativeArsenal/Public/CharacterCreator/CharacterCreatorAttributes.h"
+#include "Runtime/GameplayTags/Classes/GameplayTagContainer.h"
 PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeEquippableItem() {}
 
 // Begin Cross Module References
 COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
-ENGINE_API UClass* Z_Construct_UClass_UMaterialInterface_NoRegister();
-ENGINE_API UClass* Z_Construct_UClass_USkeletalMesh_NoRegister();
 GAMEPLAYABILITIES_API UClass* Z_Construct_UClass_UGameplayEffect_NoRegister();
 GAMEPLAYABILITIES_API UScriptStruct* Z_Construct_UScriptStruct_FActiveGameplayEffectHandle();
+GAMEPLAYTAGS_API UScriptStruct* Z_Construct_UScriptStruct_FGameplayTag();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UEquippableItem();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UEquippableItem_Clothing();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UEquippableItem_Clothing_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UEquippableItem_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeGameplayAbility_NoRegister();
-NARRATIVEARSENAL_API UEnum* Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot();
+NARRATIVEARSENAL_API UScriptStruct* Z_Construct_UScriptStruct_FCharacterCreatorAttribute_Mesh();
 NARRATIVEINVENTORY_API UClass* Z_Construct_UClass_UNarrativeItem();
 UPackage* Z_Construct_UPackage__Script_NarrativeArsenal();
 // End Cross Module References
-
-// Begin Enum EEquippableSlot
-static FEnumRegistrationInfo Z_Registration_Info_UEnum_EEquippableSlot;
-static UEnum* EEquippableSlot_StaticEnum()
-{
-	if (!Z_Registration_Info_UEnum_EEquippableSlot.OuterSingleton)
-	{
-		Z_Registration_Info_UEnum_EEquippableSlot.OuterSingleton = GetStaticEnum(Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot, (UObject*)Z_Construct_UPackage__Script_NarrativeArsenal(), TEXT("EEquippableSlot"));
-	}
-	return Z_Registration_Info_UEnum_EEquippableSlot.OuterSingleton;
-}
-template<> NARRATIVEARSENAL_API UEnum* StaticEnum<EEquippableSlot>()
-{
-	return EEquippableSlot_StaticEnum();
-}
-struct Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics
-{
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Enum_MetaDataParams[] = {
-		{ "BlueprintType", "true" },
-		{ "ES_Backpack.DisplayName", "Backpack" },
-		{ "ES_Backpack.Name", "EEquippableSlot::ES_Backpack" },
-		{ "ES_Custom1.DisplayName", "Custom1" },
-		{ "ES_Custom1.Name", "EEquippableSlot::ES_Custom1" },
-		{ "ES_Custom2.DisplayName", "Custom2" },
-		{ "ES_Custom2.Name", "EEquippableSlot::ES_Custom2" },
-		{ "ES_Custom3.DisplayName", "Custom3" },
-		{ "ES_Custom3.Name", "EEquippableSlot::ES_Custom3" },
-		{ "ES_Custom4.DisplayName", "Custom4" },
-		{ "ES_Custom4.Name", "EEquippableSlot::ES_Custom4" },
-		{ "ES_Custom5.DisplayName", "Custom5" },
-		{ "ES_Custom5.Name", "EEquippableSlot::ES_Custom5" },
-		{ "ES_Feet.DisplayName", "Feet" },
-		{ "ES_Feet.Name", "EEquippableSlot::ES_Feet" },
-		{ "ES_Hands.DisplayName", "Hands" },
-		{ "ES_Hands.Name", "EEquippableSlot::ES_Hands" },
-		{ "ES_Helmet.DisplayName", "Helmet" },
-		{ "ES_Helmet.Name", "EEquippableSlot::ES_Helmet" },
-		{ "ES_Holster.DisplayName", "Holster" },
-		{ "ES_Holster.Name", "EEquippableSlot::ES_Holster" },
-		{ "ES_Legs.DisplayName", "Legs" },
-		{ "ES_Legs.Name", "EEquippableSlot::ES_Legs" },
-		{ "ES_Necklace.DisplayName", "Necklace" },
-		{ "ES_Necklace.Name", "EEquippableSlot::ES_Necklace" },
-		{ "ES_ThrowableWeapon.DisplayName", "Throwable Weapon" },
-		{ "ES_ThrowableWeapon.Name", "EEquippableSlot::ES_ThrowableWeapon" },
-		{ "ES_Torso.DisplayName", "Torso" },
-		{ "ES_Torso.Name", "EEquippableSlot::ES_Torso" },
-		{ "ES_Weapon.DisplayName", "Weapon" },
-		{ "ES_Weapon.Name", "EEquippableSlot::ES_Weapon" },
-		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
-	};
-#endif // WITH_METADATA
-	static constexpr UECodeGen_Private::FEnumeratorParam Enumerators[] = {
-		{ "EEquippableSlot::ES_Torso", (int64)EEquippableSlot::ES_Torso },
-		{ "EEquippableSlot::ES_Legs", (int64)EEquippableSlot::ES_Legs },
-		{ "EEquippableSlot::ES_Feet", (int64)EEquippableSlot::ES_Feet },
-		{ "EEquippableSlot::ES_Helmet", (int64)EEquippableSlot::ES_Helmet },
-		{ "EEquippableSlot::ES_Hands", (int64)EEquippableSlot::ES_Hands },
-		{ "EEquippableSlot::ES_Backpack", (int64)EEquippableSlot::ES_Backpack },
-		{ "EEquippableSlot::ES_Necklace", (int64)EEquippableSlot::ES_Necklace },
-		{ "EEquippableSlot::ES_Holster", (int64)EEquippableSlot::ES_Holster },
-		{ "EEquippableSlot::ES_Weapon", (int64)EEquippableSlot::ES_Weapon },
-		{ "EEquippableSlot::ES_ThrowableWeapon", (int64)EEquippableSlot::ES_ThrowableWeapon },
-		{ "EEquippableSlot::ES_Custom1", (int64)EEquippableSlot::ES_Custom1 },
-		{ "EEquippableSlot::ES_Custom2", (int64)EEquippableSlot::ES_Custom2 },
-		{ "EEquippableSlot::ES_Custom3", (int64)EEquippableSlot::ES_Custom3 },
-		{ "EEquippableSlot::ES_Custom4", (int64)EEquippableSlot::ES_Custom4 },
-		{ "EEquippableSlot::ES_Custom5", (int64)EEquippableSlot::ES_Custom5 },
-	};
-	static const UECodeGen_Private::FEnumParams EnumParams;
-};
-const UECodeGen_Private::FEnumParams Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::EnumParams = {
-	(UObject*(*)())Z_Construct_UPackage__Script_NarrativeArsenal,
-	nullptr,
-	"EEquippableSlot",
-	"EEquippableSlot",
-	Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::Enumerators,
-	RF_Public|RF_Transient|RF_MarkAsNative,
-	UE_ARRAY_COUNT(Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::Enumerators),
-	EEnumFlags::None,
-	(uint8)UEnum::ECppForm::EnumClass,
-	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::Enum_MetaDataParams), Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::Enum_MetaDataParams)
-};
-UEnum* Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot()
-{
-	if (!Z_Registration_Info_UEnum_EEquippableSlot.InnerSingleton)
-	{
-		UECodeGen_Private::ConstructUEnum(Z_Registration_Info_UEnum_EEquippableSlot.InnerSingleton, Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot_Statics::EnumParams);
-	}
-	return Z_Registration_Info_UEnum_EEquippableSlot.InnerSingleton;
-}
-// End Enum EEquippableSlot
 
 // Begin Class UEquippableItem Function HandleEquip
 static const FName NAME_UEquippableItem_HandleEquip = FName(TEXT("HandleEquip"));
@@ -234,6 +142,7 @@ struct Z_Construct_UClass_UEquippableItem_Statics
 		{ "ToolTip", "The base class for an equippable item the player can put on. Networking is built right in." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_EquippableSlot_MetaData[] = {
+		{ "Categories", "Narrative.Equipment.Slot" },
 		{ "Category", "Equippable" },
 		{ "Comment", "/**The slot this item equips to*/" },
 		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
@@ -265,13 +174,12 @@ struct Z_Construct_UClass_UEquippableItem_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_Abilities_MetaData[] = {
 		{ "Category", "Weapon|Abilities" },
-		{ "Comment", "//Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped\n" },
+		{ "Comment", "/*Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped\n\x09Note that WeaponItems grant the abilities when wielded, not when equipped. */" },
 		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
-		{ "ToolTip", "Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped" },
+		{ "ToolTip", "Equipping this item will grant these abilities to the user; we'll remove them when the item is unequipped\n       Note that WeaponItems grant the abilities when wielded, not when equipped." },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FBytePropertyParams NewProp_EquippableSlot_Underlying;
-	static const UECodeGen_Private::FEnumPropertyParams NewProp_EquippableSlot;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_EquippableSlot;
 	static const UECodeGen_Private::FClassPropertyParams NewProp_EquipmentModGE;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_EquipmentGEHandle;
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_AttackRating;
@@ -290,8 +198,7 @@ struct Z_Construct_UClass_UEquippableItem_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquippableSlot_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquippableSlot = { "EquippableSlot", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, EquippableSlot), Z_Construct_UEnum_NarrativeArsenal_EEquippableSlot, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquippableSlot_MetaData), NewProp_EquippableSlot_MetaData) }; // 620540914
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquippableSlot = { "EquippableSlot", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, EquippableSlot), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquippableSlot_MetaData), NewProp_EquippableSlot_MetaData) }; // 1298103297
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquipmentModGE = { "EquipmentModGE", nullptr, (EPropertyFlags)0x0024080000010015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, EquipmentModGE), Z_Construct_UClass_UClass, Z_Construct_UClass_UGameplayEffect_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquipmentModGE_MetaData), NewProp_EquipmentModGE_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquipmentGEHandle = { "EquipmentGEHandle", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, EquipmentGEHandle), Z_Construct_UScriptStruct_FActiveGameplayEffectHandle, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_EquipmentGEHandle_MetaData), NewProp_EquipmentGEHandle_MetaData) }; // 290910411
 const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_AttackRating = { "AttackRating", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, AttackRating), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AttackRating_MetaData), NewProp_AttackRating_MetaData) };
@@ -299,7 +206,6 @@ const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UEquippableItem
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_Abilities_Inner = { "Abilities", nullptr, (EPropertyFlags)0x0004000000000000, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UClass, Z_Construct_UClass_UNarrativeGameplayAbility_NoRegister, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEquippableItem_Statics::NewProp_Abilities = { "Abilities", nullptr, (EPropertyFlags)0x0024080000000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem, Abilities), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Abilities_MetaData), NewProp_Abilities_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEquippableItem_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquippableSlot_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquippableSlot,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquipmentModGE,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Statics::NewProp_EquipmentGEHandle,
@@ -363,22 +269,14 @@ struct Z_Construct_UClass_UEquippableItem_Clothing_Statics
 		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
 		{ "ToolTip", "Defines a clothing item. Will use the skeletal mesh set in your EquipmentComponent and set it to the clothing mesh you select." },
 	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ClothingMesh_MetaData[] = {
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ClothingMeshData_MetaData[] = {
 		{ "Category", "Equippable" },
-		{ "Comment", "/**The mesh to put on the player when they equip the item*/" },
+		{ "Comment", "/**The mesh to apply to the player */" },
 		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
-		{ "ToolTip", "The mesh to put on the player when they equip the item" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ClothingMaterials_MetaData[] = {
-		{ "Category", "Equippable" },
-		{ "Comment", "/**The materials to apply to the clothing mesh*/" },
-		{ "ModuleRelativePath", "Public/Items/EquippableItem.h" },
-		{ "ToolTip", "The materials to apply to the clothing mesh" },
+		{ "ToolTip", "The mesh to apply to the player" },
 	};
 #endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothingMesh;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ClothingMaterials_Inner;
-	static const UECodeGen_Private::FArrayPropertyParams NewProp_ClothingMaterials;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_ClothingMeshData;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -386,13 +284,9 @@ struct Z_Construct_UClass_UEquippableItem_Clothing_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMesh = { "ClothingMesh", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem_Clothing, ClothingMesh), Z_Construct_UClass_USkeletalMesh_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothingMesh_MetaData), NewProp_ClothingMesh_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMaterials_Inner = { "ClothingMaterials", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UMaterialInterface_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMaterials = { "ClothingMaterials", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem_Clothing, ClothingMaterials), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothingMaterials_MetaData), NewProp_ClothingMaterials_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMeshData = { "ClothingMeshData", nullptr, (EPropertyFlags)0x0020080000010015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UEquippableItem_Clothing, ClothingMeshData), Z_Construct_UScriptStruct_FCharacterCreatorAttribute_Mesh, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ClothingMeshData_MetaData), NewProp_ClothingMeshData_MetaData) }; // 2114742728
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UEquippableItem_Clothing_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMesh,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMaterials_Inner,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMaterials,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UEquippableItem_Clothing_Statics::NewProp_ClothingMeshData,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UEquippableItem_Clothing_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UEquippableItem_Clothing_Statics::DependentSingletons[])() = {
@@ -432,19 +326,16 @@ UEquippableItem_Clothing::~UEquippableItem_Clothing() {}
 // End Class UEquippableItem_Clothing
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics
 {
-	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
-		{ EEquippableSlot_StaticEnum, TEXT("EEquippableSlot"), &Z_Registration_Info_UEnum_EEquippableSlot, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 620540914U) },
-	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UEquippableItem, UEquippableItem::StaticClass, TEXT("UEquippableItem"), &Z_Registration_Info_UClass_UEquippableItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEquippableItem), 1946897224U) },
-		{ Z_Construct_UClass_UEquippableItem_Clothing, UEquippableItem_Clothing::StaticClass, TEXT("UEquippableItem_Clothing"), &Z_Registration_Info_UClass_UEquippableItem_Clothing, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEquippableItem_Clothing), 2113937373U) },
+		{ Z_Construct_UClass_UEquippableItem, UEquippableItem::StaticClass, TEXT("UEquippableItem"), &Z_Registration_Info_UClass_UEquippableItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEquippableItem), 1279414451U) },
+		{ Z_Construct_UClass_UEquippableItem_Clothing, UEquippableItem_Clothing::StaticClass, TEXT("UEquippableItem_Clothing"), &Z_Registration_Info_UClass_UEquippableItem_Clothing, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UEquippableItem_Clothing), 3609676337U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_111982723(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_3707338709(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Items_EquippableItem_h_Statics::EnumInfo));
+	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

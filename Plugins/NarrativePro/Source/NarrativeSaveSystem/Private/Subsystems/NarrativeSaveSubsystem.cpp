@@ -6,6 +6,7 @@
 #include "Kismet/GameplayStatics.h"
 #include <EngineUtils.h>
 #include "NarrativeSavableActor.h"
+#include "SaveSystemDeveloperSettings.h"
 #include <Serialization/ObjectAndNameAsStringProxyArchive.h>
 #include "NarrativeSavableComponent.h"
 #include <GameFramework/PlayerState.h>
@@ -19,22 +20,23 @@
 #include <Serialization/ObjectAndNameAsStringProxyArchive.h>
 
 
+
 UNarrativeSaveSubsystem::UNarrativeSaveSubsystem()
 {
 	CurrentSaveName = "";
 	CurrentSaveSlot = -1;
 }
 
-bool UNarrativeSaveSubsystem::UpdateSaveObject()
+bool UNarrativeSaveSubsystem::UpdateSaveObject(const bool bSkipRecordCreation)
 {
 	if (!NarrativeSaveGame)
 	{
-		NarrativeSaveGame = Cast<UNarrativeSave>(UGameplayStatics::CreateSaveGameObject(UNarrativeSave::StaticClass()));
+		NarrativeSaveGame = Cast<UNarrativeSave>(UGameplayStatics::CreateSaveGameObject(GetSaveGameClass()));
 	}
 
 	if (NarrativeSaveGame)
 	{
-		//Main menu logic will use this to load our map back 
+		//Main menu logic uses this to remember which map we had loaded - we should probably save this in the metadata instead! 
 		NarrativeSaveGame->LevelName = UGameplayStatics::GetCurrentLevelName(GetWorld(), true);
 
 		TSet<AActor*> SkipActors;
@@ -74,29 +76,32 @@ bool UNarrativeSaveSubsystem::UpdateSaveObject()
 			}
 		}
 
-		// Iterate the entire world of actors, and create a record for each 
-		for (FActorIterator It(GetWorld()); It; ++It)
+		if (!bSkipRecordCreation)
 		{
-			AActor* Actor = *It;
-
-			//Skip player pawns 
-			if (!SkipActors.Contains(Actor))
+			// Iterate the entire world of actors, and create a record for each 
+			for (FActorIterator It(GetWorld()); It; ++It)
 			{
-				if (Actor)
+				AActor* Actor = *It;
+
+				//Skip player pawns 
+				if (!SkipActors.Contains(Actor))
 				{
-					//Cast method doesn't work with BP interfaces 
-					if (Actor->Implements<UNarrativeSavableActor>())
+					if (Actor)
 					{
-						const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
-
-						//Returning none guid means we don't want saved. 
-						if (ActorGUID.IsValid())
+						//Cast method doesn't work with BP interfaces 
+						if (Actor->Implements<UNarrativeStableActor>())
 						{
-							//Create a record of the actor and any components its needs saved 
-							FNarrativeActorRecord SaveActor;
-							CreateActorRecord(Actor, SaveActor);
+							const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
 
-							NarrativeSaveGame->RecordMap.Add(ActorGUID, SaveActor);
+							//Returning none guid means we don't want saved. 
+							if (ActorGUID.IsValid())
+							{
+								//Create a record of the actor and any components its needs saved 
+								FNarrativeActorRecord SaveActor;
+								CreateActorRecord(Actor, SaveActor);
+
+								NarrativeSaveGame->RecordMap.Add(ActorGUID, SaveActor);
+							}
 						}
 					}
 				}
@@ -177,7 +182,7 @@ bool UNarrativeSaveSubsystem::Load(const FString& SaveName /*= "NarrativeSave"*/
 
 		/*For now we just wait 1s to load players data. We do this because player data includes quests which have waypoints - these waypoints
 		need the actors transforms to be properly loaded, and they won't be immediately ready. The alternative is to write some system for checking
-		whether the world is "ready", but due to time constraints this is okay for now and works well in testing. */
+		whether the world is "ready", I think lyra has something like this. But due to time constraints this is okay for now. */
 		if (GetWorld())
 		{
 			//FTimerHandle DummyHandle;
@@ -192,9 +197,9 @@ bool UNarrativeSaveSubsystem::Load(const FString& SaveName /*= "NarrativeSave"*/
 			if (Actor)
 			{
 				//Cast method doesn't work with BP interfaces 
-				if (Actor->Implements<UNarrativeSavableActor>())
+				if (Actor->Implements<UNarrativeStableActor>())
 				{
-					const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
+					const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
 					
 					if (ActorGUID.IsValid())
 					{
@@ -263,7 +268,19 @@ bool UNarrativeSaveSubsystem::Load(const FString& SaveName /*= "NarrativeSave"*/
 
 bool UNarrativeSaveSubsystem::DeleteSave(const FString& SaveName /*= "NarrativeSaveData"*/, const int32 Slot /*= 0*/)
 {
-	return UGameplayStatics::DeleteGameInSlot(SaveName, Slot);
+	if (UGameplayStatics::DeleteGameInSlot(SaveName, Slot))
+	{
+		//If we deleted the current save clear the invalid cached stuff 
+		if (SaveName.Equals(CurrentSaveName))
+		{
+			CurrentSaveName = "";
+			CurrentSaveSlot = -1;
+			NarrativeSaveGame = nullptr;
+		}
+
+		return true;
+	}
+	return false;
 }
 
 void UNarrativeSaveSubsystem::LoadPlayerData()
@@ -309,7 +326,7 @@ bool UNarrativeSaveSubsystem::LoadSingleActor(class AActor* Actor)
 	{
 		if (Actor->Implements<UNarrativeSavableActor>())
 		{
-			const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
+			const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
 
 			if (ActorGUID.IsValid() && NarrativeSaveGame->RecordMap.Contains(ActorGUID))
 			{
@@ -329,7 +346,7 @@ bool UNarrativeSaveSubsystem::SaveSingleActor(class AActor* Actor)
 	{
 		if (Actor->Implements<UNarrativeSavableActor>())
 		{
-			const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
+			const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
 
 			if (ActorGUID.IsValid())
 			{
@@ -354,7 +371,13 @@ bool UNarrativeSaveSubsystem::RemoveSingleActor(class AActor* Actor)
 	{
 		if (Actor->Implements<UNarrativeSavableActor>())
 		{
-			const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
+			const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
+
+			//Netstartup actors need a record with destroyed flag, we can't just remove the record 
+			if (Actor->IsNetStartupActor() && !NarrativeSaveGame->RecordMap.Contains(ActorGUID))
+			{
+				SaveSingleActor(Actor);
+			}
 
 			if (ActorGUID.IsValid() && NarrativeSaveGame->RecordMap.Contains(ActorGUID))
 			{
@@ -369,7 +392,7 @@ bool UNarrativeSaveSubsystem::RemoveSingleActor(class AActor* Actor)
 					if (!Record.bDestroyed)
 					{
 						Record.bDestroyed = true;
-						UE_LOG(LogSaveSystem, Warning, TEXT("Marked net startup actor %s destroyed! Marking as destroyed. "), *GetNameSafe(Actor));
+						UE_LOG(LogSaveSystem, Verbose, TEXT("Marked net startup actor %s destroyed! Marking as destroyed. "), *GetNameSafe(Actor));
 					}
 				}
 				else
@@ -430,6 +453,16 @@ bool UNarrativeSaveSubsystem::IsLoading() const
 	return GetWorld() && GetWorld()->GetTimerManager().IsTimerActive(TimerHandle_DeferredLoadPlayerData);
 }
 
+AActor* UNarrativeSaveSubsystem::LookupActorByGUID(const FGuid& SearchGUID)
+{
+	if (SearchGUID.IsValid() && QuickLookupMap.Contains(SearchGUID))
+	{
+		return QuickLookupMap[SearchGUID].Get();
+	}
+
+	return nullptr; 
+}
+
 void UNarrativeSaveSubsystem::PostInitialize()
 {
 	Super::PostInitialize();
@@ -458,6 +491,27 @@ void UNarrativeSaveSubsystem::OnWorldBeginPlay(UWorld& InWorld)
 		//OnWorldBeginPlay is called before all actors begin play. This is nice - we can set their data so its all ready for BeginPlay(). 
 		if (AGameModeBase* GM = World->GetAuthGameMode())
 		{
+			
+			QuickLookupMap.Empty();
+			// Iterate the entire world of actors, and create a lookup map key
+			for (FActorIterator It(GetWorld()); It; ++It)
+			{
+				AActor* Actor = *It;
+
+				//Skip player pawns 
+				if (Actor)
+				{
+					//Cast method doesn't work with BP interfaces 
+					if (Actor->Implements<UNarrativeStableActor>())
+					{
+						FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
+
+						QuickLookupMap.FindOrAdd(ActorGUID, Actor);
+					}
+				}
+			}
+
+
 			FString SlotString = "";
 			int32 Slot = 0;
 
@@ -467,7 +521,13 @@ void UNarrativeSaveSubsystem::OnWorldBeginPlay(UWorld& InWorld)
 			}
 			else if (World->WorldType == EWorldType::PIE)
 			{
-				SlotString = "NarrativeSave0"; 
+				if (const USaveSystemDeveloperSettings* SaveDevSettings = GetDefault<USaveSystemDeveloperSettings>())
+				{
+					if (SaveDevSettings->bAutoLoadFirstSaveInEditor)
+					{
+						SlotString = "NarrativeSave0"; 
+					}
+				}
 			}
 
 			if (UGameplayStatics::DoesSaveGameExist(SlotString, Slot))
@@ -475,8 +535,10 @@ void UNarrativeSaveSubsystem::OnWorldBeginPlay(UWorld& InWorld)
 				Load(SlotString, Slot);
 			}
 			else //If we don't have a save to load we're a new game and should keep an object around 
-			{
-				UpdateSaveObject();
+			{	
+				//The problem with this is this will create records for everything in the world, and so LoadSingleActor will return true even 
+				// though there won't actually be any data for the record yet. How do we fix this? 
+				UpdateSaveObject(true);
 			}
 		}
 	}
@@ -490,7 +552,7 @@ bool UNarrativeSaveSubsystem::CreateActorRecord(class AActor* Actor, FNarrativeA
 		//Because player data doesn't implement this interface, we don't actually exit out for non-interface actors, playerstate, controller etc need this.
 		if (Actor->Implements<UNarrativeSavableActor>())
 		{
-			ActorRecord.ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
+			ActorRecord.ActorGUID = INarrativeStableActor::Execute_GetActorGUID(Actor);
 			if (!ActorRecord.ActorGUID.IsValid())
 			{
 				//checkf(ActorRecord.ActorGUID.IsValid(), TEXT("Actor GUID returned wasn't valid. Have you implemented GetActorGUID()? "));
@@ -500,7 +562,7 @@ bool UNarrativeSaveSubsystem::CreateActorRecord(class AActor* Actor, FNarrativeA
 			ActorRecord.bNeedsDynamicSpawn = INarrativeSavableActor::Execute_ShouldRespawn(Actor);
 		}
 
-		UE_LOG(LogSaveSystem, Warning, TEXT("Creating new record for actor %s under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
+		UE_LOG(LogSaveSystem, Verbose, TEXT("Creating new record for actor %s under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
 
 		ActorRecord.ActorName = Actor->GetFName();
 
@@ -559,7 +621,7 @@ void UNarrativeSaveSubsystem::LoadActorFromRecord(class AActor* Actor, const FNa
 		if (ActorRecord.bNetStartup && ActorRecord.bDestroyed)
 		{
 			Actor->Destroy();
-			UE_LOG(LogSaveSystem, Warning, TEXT("Destroying removed netstartup actor %s from record under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
+			UE_LOG(LogSaveSystem, Verbose, TEXT("Destroying removed netstartup actor %s from record under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
 			return;
 		}
 
@@ -572,7 +634,7 @@ void UNarrativeSaveSubsystem::LoadActorFromRecord(class AActor* Actor, const FNa
 			}
 		}
 
-		UE_LOG(LogSaveSystem, Warning, TEXT("Loading actor %s from record under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
+		UE_LOG(LogSaveSystem, Verbose, TEXT("Loading actor %s from record under guid %s... "), *GetNameSafe(Actor), *ActorRecord.ActorGUID.ToString());
 
 		FMemoryReader MemReader(ActorRecord.ByteData);
 
@@ -635,27 +697,28 @@ void UNarrativeSaveSubsystem::OnActorPrespawned(class AActor* SpawnedActor)
 
 void UNarrativeSaveSubsystem::OnActorSpawned(class AActor* SpawnedActor)
 {
-	//if (SpawnedActor && NarrativeSaveGame)
-	//{
-	//	if (SpawnedActor->Implements<UNarrativeSavableActor>())
-	//	{
-	//		const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(SpawnedActor);
+	if (SpawnedActor)
+	{
+		if (SpawnedActor->Implements<UNarrativeStableActor>())
+		{
+			const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(SpawnedActor);
 
-	//		if (NarrativeSaveGame->RecordMap.Contains(ActorGUID))
-	//		{
-	//			LoadActorFromRecord(SpawnedActor, NarrativeSaveGame->RecordMap[ActorGUID]);
-	//		}
-	//		else
-	//		{
-	//			//we wont bother creating a record for it yet, Save() will pick this up and add its record then. 
-	//			UE_LOG(LogSaveSystem, Warning, TEXT("Actor %s was spawned and doesn't have a record! Not doing anything.  "), *GetNameSafe(SpawnedActor));
-	//		}
-	//	}
-	//}
+			QuickLookupMap.FindOrAdd(ActorGUID, SpawnedActor);
+		}
+	}
 }
 
 void UNarrativeSaveSubsystem::OnActorDestroyed(class AActor* DestroyedActor)
 {
+	if (DestroyedActor)
+	{
+		if (DestroyedActor->Implements<UNarrativeStableActor>())
+		{
+			const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(DestroyedActor);
+
+			QuickLookupMap.Remove(ActorGUID);
+		}
+	}
 	//if (DestroyedActor && NarrativeSaveGame)
 	//{
 	//	if (DestroyedActor->Implements<UNarrativeSavableActor>())
@@ -715,51 +778,59 @@ void UNarrativeSaveSubsystem::OnActorDestroyed(class AActor* DestroyedActor)
 
 void UNarrativeSaveSubsystem::PreLevelRemovedFromWorld(ULevel* InLevel, UWorld* InWorld)
 {
-	//if (InLevel && NarrativeSaveGame)
-	//{
-	//	for (auto& Actor : InLevel->Actors)
-	//	{
-	//		if (IsValid(Actor) && Actor->Implements<UNarrativeSavableActor>())
-	//		{
-	//			UE_LOG(LogSaveSystem, Warning, TEXT("Level actor was unstreamed! Saving %s to its record... "), *GetNameSafe(Actor));
+	if (InLevel && NarrativeSaveGame)
+	{
+		for (auto& DestroyedActor : InLevel->Actors)
+		{
+			if (IsValid(DestroyedActor))
+			{
+				if (DestroyedActor->Implements<UNarrativeStableActor>())
+				{
+					const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(DestroyedActor);
 
-	//			FNarrativeActorRecord NewRecord;
-	//			if (CreateActorRecord(Actor, NewRecord))
-	//			{
-	//				NarrativeSaveGame->RecordMap.Add(NewRecord.ActorGUID, NewRecord);
-	//			}
-	//		}
-	//	}
-	//}
+					QuickLookupMap.Remove(ActorGUID);
+				}
+			}
+		}
+	}
 }
 
 void UNarrativeSaveSubsystem::LevelAddedToWorld(ULevel* InLevel, UWorld* InWorld)
 {
+	//OnWorldBeginPlay doesn't work as world partition actors dont seem to be loaded yet, so we also cache in here. 
 	if (InLevel && NarrativeSaveGame)
 	{
-		//UE_LOG(LogSaveSystem, Warning, TEXT("Level %s was streamed in, had %d actors!"), *InLevel->GetFName().ToString(), InLevel->Actors.Num());
+		for(int32 i = InLevel->Actors.Num() - 1; i >= 0; --i)
+		{
+			if (InLevel->Actors.IsValidIndex(i))
+			{
+				AActor* SpawnedActor = InLevel->Actors[i];
 
-		//for(int32 i = InLevel->Actors.Num() - 1; i >= 0; --i)
-		//{
-		//	if (InLevel->Actors.IsValidIndex(i))
-		//	{
-		//		AActor* Actor = InLevel->Actors[i];
+				if (SpawnedActor)
+				{
+					if (SpawnedActor->Implements<UNarrativeStableActor>())
+					{
+						const FGuid ActorGUID = INarrativeStableActor::Execute_GetActorGUID(SpawnedActor);
 
-		//		if (IsValid(Actor) && Actor->Implements<UNarrativeSavableActor>())
-		//		{
-		//			const FGuid ActorGUID = INarrativeSavableActor::Execute_GetActorGUID(Actor);
-
-		//			if (NarrativeSaveGame->RecordMap.Contains(ActorGUID))
-		//			{
-		//				UE_LOG(LogSaveSystem, Warning, TEXT("Level actor was streamed in! Loading %s from its record... "), *GetNameSafe(Actor));
-		//				LoadActorFromRecord(Actor, NarrativeSaveGame->RecordMap[ActorGUID]);
-		//			}
-		//			else
-		//			{
-		//				UE_LOG(LogSaveSystem, Warning, TEXT("Level actor was streamed in! Couldn't find %s 's record, not doing anything!"), *GetNameSafe(Actor));
-		//			}
-		//		}
-		//	}
-		//}
+						QuickLookupMap.FindOrAdd(ActorGUID, SpawnedActor);
+					}
+				}
+			}
+		}
 	}
+}
+
+TSubclassOf<class UNarrativeSave> UNarrativeSaveSubsystem::GetSaveGameClass() const
+{
+	TSubclassOf<class UNarrativeSave> SaveClass = UNarrativeSave::StaticClass();
+
+	if (const USaveSystemDeveloperSettings* SaveDevSettings = GetDefault<USaveSystemDeveloperSettings>())
+	{
+		if (IsValid(SaveDevSettings->SaveGameClass))
+		{
+			SaveClass = SaveDevSettings->SaveGameClass;
+		}
+	}
+
+	return SaveClass;
 }

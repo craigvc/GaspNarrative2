@@ -139,7 +139,8 @@ void UNarrativeDialogueSequence::BeginPlaySequence(class ALevelSequenceActor* In
 		{
 			if (ULevelSequencePlayer* SP = InSequenceActor->GetSequencePlayer())
 			{
-				SP->Stop();
+				//Commented this out as in packaged builds starting the new sequence would cause another stop to be called which caused a crash in UE's sequence player 
+				//SP->Stop();
 			}
 		}
 

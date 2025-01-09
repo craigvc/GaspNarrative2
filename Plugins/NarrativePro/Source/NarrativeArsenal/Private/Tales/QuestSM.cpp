@@ -4,7 +4,7 @@
 #include "Tales/Quest.h"
 #include "Tales/NarrativeEvent.h"
 #include "Tales/NarrativeDataTask.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeQuestSettings.h"
 #include "Tales/QuestTask.h"
 
@@ -203,7 +203,7 @@ void UQuestNode::Activate()
 
 void UQuestNode::Deactivate()
 {
-	if (OwningQuest)
+	if (OwningQuest && OwningQuest->GetQuestCompletion() == EQuestCompletion::QC_Started)
 	{
 		struct SOnEnteredStruct
 		{
@@ -265,7 +265,7 @@ UQuest* UQuestNode::GetOwningQuest() const
 	return OwningQuest ? OwningQuest : Cast<UQuest>(GetOuter());
 }
 
-class UNarrativeComponent* UQuestNode::GetOwningNarrativeComp() const
+class UTalesComponent* UQuestNode::GetOwningNarrativeComp() const
 {
 	if (UQuest* Quest = GetOwningQuest())
 	{

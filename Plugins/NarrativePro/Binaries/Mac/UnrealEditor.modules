@@ -1,0 +1,16 @@
+{
+	"BuildId": "37670630",
+	"Modules": 
+	{
+		"NarrativeArsenal": "UnrealEditor-NarrativeArsenal.dylib",
+		"NarrativeArsenalEditor": "UnrealEditor-NarrativeArsenalEditor.dylib",
+		"NarrativeCommonUI": "UnrealEditor-NarrativeCommonUI.dylib",
+		"NarrativeDialogueEditor": "UnrealEditor-NarrativeDialogueEditor.dylib",
+		"NarrativeInventory": "UnrealEditor-NarrativeInventory.dylib",
+		"NarrativeInventoryEditor": "UnrealEditor-NarrativeInventoryEditor.dylib",
+		"NarrativeNavigator": "UnrealEditor-NarrativeNavigator.dylib",
+		"NarrativePro": "UnrealEditor-NarrativePro.dylib",
+		"NarrativeQuestEditor": "UnrealEditor-NarrativeQuestEditor.dylib",
+		"NarrativeSaveSystem": "UnrealEditor-NarrativeSaveSystem.dylib"
+	}
+}

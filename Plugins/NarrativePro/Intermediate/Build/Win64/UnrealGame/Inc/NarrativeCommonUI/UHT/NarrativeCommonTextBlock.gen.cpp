@@ -29,6 +29,7 @@ struct Z_Construct_UClass_UNarrativeCommonTextBlock_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
+		{ "Category", "Narrative Common Widgets" },
 		{ "Comment", "/**\n * Base class for text blocks in Narrative plugin - currently just here incase we need behavior in future \n */" },
 		{ "IncludePath", "Widgets/NarrativeCommonTextBlock.h" },
 		{ "ModuleRelativePath", "Public/Widgets/NarrativeCommonTextBlock.h" },
@@ -80,14 +81,14 @@ UNarrativeCommonTextBlock::~UNarrativeCommonTextBlock() {}
 // End Class UNarrativeCommonTextBlock
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeCommonTextBlock, UNarrativeCommonTextBlock::StaticClass, TEXT("UNarrativeCommonTextBlock"), &Z_Registration_Info_UClass_UNarrativeCommonTextBlock, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCommonTextBlock), 612641565U) },
+		{ Z_Construct_UClass_UNarrativeCommonTextBlock, UNarrativeCommonTextBlock::StaticClass, TEXT("UNarrativeCommonTextBlock"), &Z_Registration_Info_UClass_UNarrativeCommonTextBlock, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCommonTextBlock), 2162245772U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_3573869587(TEXT("/Script/NarrativeCommonUI"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_1373032875(TEXT("/Script/NarrativeCommonUI"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_Widgets_NarrativeCommonTextBlock_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

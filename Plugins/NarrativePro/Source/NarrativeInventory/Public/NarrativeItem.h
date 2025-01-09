@@ -16,7 +16,7 @@ struct FNarrativeItemStat
 {
 	GENERATED_BODY()
 
-	FNarrativeItemStat(const FText& InStatDisplayName, const FString& InStringVariable) : StatDisplayName(InStatDisplayName), StringVariable(InStringVariable)
+	FNarrativeItemStat(const FText& InStatDisplayName, const FString& InStringVariable, const FText& InStatTooltip) : StatDisplayName(InStatDisplayName), StringVariable(InStringVariable), StatTooltip(InStatTooltip)
 	{
 
 	}
@@ -34,6 +34,10 @@ struct FNarrativeItemStat
 	//The backing string variable for the stat - implemented using GetStringVariable function that can be overriden in Blueprints! 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Stat")
 	FString StringVariable;
+
+	//Tooltip the stat will show when hovered 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Item Stat")
+	FText StatTooltip;
 };
 
 /**
@@ -126,7 +130,7 @@ public:
 	bool bActive;
 
 	/**Whether or not this item has been favourited*/
-	UPROPERTY(BlueprintReadWrite, Category = "Item")
+	UPROPERTY(BlueprintReadWrite, SaveGame, Category = "Item")
 	bool bFavourite;
 
 	/**Whether or not this item can be stacked*/

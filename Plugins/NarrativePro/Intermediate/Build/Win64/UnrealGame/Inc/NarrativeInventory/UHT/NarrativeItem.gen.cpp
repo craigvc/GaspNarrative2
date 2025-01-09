@@ -88,9 +88,16 @@ struct Z_Construct_UScriptStruct_FNarrativeItemStat_Statics
 		{ "ModuleRelativePath", "Public/NarrativeItem.h" },
 		{ "ToolTip", "The backing string variable for the stat - implemented using GetStringVariable function that can be overriden in Blueprints!" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_StatTooltip_MetaData[] = {
+		{ "Category", "Item Stat" },
+		{ "Comment", "//Tooltip the stat will show when hovered \n" },
+		{ "ModuleRelativePath", "Public/NarrativeItem.h" },
+		{ "ToolTip", "Tooltip the stat will show when hovered" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FTextPropertyParams NewProp_StatDisplayName;
 	static const UECodeGen_Private::FStrPropertyParams NewProp_StringVariable;
+	static const UECodeGen_Private::FTextPropertyParams NewProp_StatTooltip;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static void* NewStructOps()
 	{
@@ -100,9 +107,11 @@ struct Z_Construct_UScriptStruct_FNarrativeItemStat_Statics
 };
 const UECodeGen_Private::FTextPropertyParams Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StatDisplayName = { "StatDisplayName", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeItemStat, StatDisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatDisplayName_MetaData), NewProp_StatDisplayName_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StringVariable = { "StringVariable", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeItemStat, StringVariable), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StringVariable_MetaData), NewProp_StringVariable_MetaData) };
+const UECodeGen_Private::FTextPropertyParams Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StatTooltip = { "StatTooltip", nullptr, (EPropertyFlags)0x0010000000010015, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(FNarrativeItemStat, StatTooltip), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_StatTooltip_MetaData), NewProp_StatTooltip_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StatDisplayName,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StringVariable,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewProp_StatTooltip,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::PropPointers) < 2048);
 const UECodeGen_Private::FStructParams Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::StructParams = {
@@ -1573,15 +1582,15 @@ void Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bFavourite_SetBit(void* 
 {
 	((UNarrativeItem*)Obj)->bFavourite = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bFavourite = { "bFavourite", nullptr, (EPropertyFlags)0x0010000000000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeItem), &Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bFavourite_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bFavourite_MetaData), NewProp_bFavourite_MetaData) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bFavourite = { "bFavourite", nullptr, (EPropertyFlags)0x0010000001000004, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeItem), &Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bFavourite_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bFavourite_MetaData), NewProp_bFavourite_MetaData) };
 void Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bStackable_SetBit(void* Obj)
 {
 	((UNarrativeItem*)Obj)->bStackable = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bStackable = { "bStackable", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeItem), &Z_Construct_UClass_UNarrativeItem_Statics::NewProp_bStackable_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bStackable_MetaData), NewProp_bStackable_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_MaxStackSize = { "MaxStackSize", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, MaxStackSize), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_MaxStackSize_MetaData), NewProp_MaxStackSize_MetaData) };
-const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_Stats_Inner = { "Stats", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FNarrativeItemStat, METADATA_PARAMS(0, nullptr) }; // 3104358497
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_Stats = { "Stats", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, Stats), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stats_MetaData), NewProp_Stats_MetaData) }; // 3104358497
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_Stats_Inner = { "Stats", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FNarrativeItemStat, METADATA_PARAMS(0, nullptr) }; // 3878473346
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_Stats = { "Stats", nullptr, (EPropertyFlags)0x0010000000010005, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, Stats), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Stats_MetaData), NewProp_Stats_MetaData) }; // 3878473346
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_OwningInventory = { "OwningInventory", nullptr, (EPropertyFlags)0x001000000008001c, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, OwningInventory), Z_Construct_UClass_UNarrativeInventoryComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OwningInventory_MetaData), NewProp_OwningInventory_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_RepKey = { "RepKey", nullptr, (EPropertyFlags)0x0010000000000000, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, RepKey), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_RepKey_MetaData), NewProp_RepKey_MetaData) };
 const UECodeGen_Private::FMulticastDelegatePropertyParams Z_Construct_UClass_UNarrativeItem_Statics::NewProp_OnItemModified = { "OnItemModified", nullptr, (EPropertyFlags)0x0010000010080000, UECodeGen_Private::EPropertyGenFlags::InlineMulticastDelegate, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeItem, OnItemModified), Z_Construct_UDelegateFunction_NarrativeInventory_OnItemModified__DelegateSignature, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_OnItemModified_MetaData), NewProp_OnItemModified_MetaData) }; // 2110759853
@@ -1663,18 +1672,18 @@ UNarrativeItem::~UNarrativeItem() {}
 // End Class UNarrativeItem
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
-		{ FNarrativeItemStat::StaticStruct, Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewStructOps, TEXT("NarrativeItemStat"), &Z_Registration_Info_UScriptStruct_NarrativeItemStat, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNarrativeItemStat), 3104358497U) },
+		{ FNarrativeItemStat::StaticStruct, Z_Construct_UScriptStruct_FNarrativeItemStat_Statics::NewStructOps, TEXT("NarrativeItemStat"), &Z_Registration_Info_UScriptStruct_NarrativeItemStat, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FNarrativeItemStat), 3878473346U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeItem, UNarrativeItem::StaticClass, TEXT("UNarrativeItem"), &Z_Registration_Info_UClass_UNarrativeItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeItem), 1251771875U) },
+		{ Z_Construct_UClass_UNarrativeItem, UNarrativeItem::StaticClass, TEXT("UNarrativeItem"), &Z_Registration_Info_UClass_UNarrativeItem, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeItem), 3380934775U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_3367709513(TEXT("/Script/NarrativeInventory"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_1046245327(TEXT("/Script/NarrativeInventory"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeInventory_Public_NarrativeItem_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

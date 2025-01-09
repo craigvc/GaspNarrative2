@@ -3,6 +3,7 @@
 
 #include "NarrativeItemBlueprintFactory.h"
 #include "NarrativeItem.h"
+#include "InventoryComponent.h"
 #include <Kismet2/KismetEditorUtilities.h>
 #include "NarrativeItemBlueprint.h"
 
@@ -24,4 +25,16 @@ UObject* UNarrativeItemBlueprintFactory::FactoryCreateNew(UClass* Class, UObject
 UObject* UNarrativeItemBlueprintFactory::FactoryCreateNew(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn)
 {
 	return FactoryCreateNew(Class, InParent, Name, Flags, Context, Warn, NAME_None);
+}
+
+
+UItemCollectionFactory::UItemCollectionFactory()
+{
+	SupportedClass = UItemCollection::StaticClass();
+	bCreateNew = true; 
+}
+
+UObject* UItemCollectionFactory::FactoryCreateNew(UClass* Class, UObject* InParent, FName Name, EObjectFlags Flags, UObject* Context, FFeedbackContext* Warn)
+{
+	return NewObject<UItemCollection>(InParent, Class, Name, Flags, Context);
 }

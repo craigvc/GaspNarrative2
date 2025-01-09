@@ -5,7 +5,7 @@
 #include "Tales/QuestSM.h"
 #include "Tales/QuestBlueprintGeneratedClass.h"
 #include "Tales/NarrativeEvent.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeFunctionLibrary.h"
 #include "Tales/NarrativePartyComponent.h"
 #include <GameFramework/PlayerController.h>
@@ -52,7 +52,7 @@ void UQuest::DuplicateAndInitializeFromQuest(UQuest* QuestTemplate)
 	}
 }
 
-bool UQuest::Initialize(class UNarrativeComponent* InitializingComp, const FName& QuestStartID /*= NAME_None*/)
+bool UQuest::Initialize(class UTalesComponent* InitializingComp, const FName& QuestStartID /*= NAME_None*/)
 {
 	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
@@ -287,6 +287,12 @@ void UQuest::SetQuestName(const FText& NewName)
 void UQuest::SetQuestDescription(const FText& NewDescription)
 {
 	QuestDescription = NewDescription;
+}
+
+void UQuest::QuestPostLoad()
+{
+	BPQuestPostLoad();
+	OnQuestPostLoad.Broadcast(this);
 }
 
 void UQuest::FailQuest(FText QuestFailedMessage)

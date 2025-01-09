@@ -63,12 +63,45 @@ DEFINE_FUNCTION(UNarrativeCameraComponent::execSetCameraMode)
 }
 // End Class UNarrativeCameraComponent Function SetCameraMode
 
+// Begin Class UNarrativeCameraComponent Function SetCameraModeToDefault
+struct Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Narrative Camera" },
+		{ "Comment", "//Set the camera mode back to the default mode. \n" },
+		{ "ModuleRelativePath", "Public/Camera/NarrativeCameraComponent.h" },
+		{ "ToolTip", "Set the camera mode back to the default mode." },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeCameraComponent, nullptr, "SetCameraModeToDefault", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeCameraComponent::execSetCameraModeToDefault)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetCameraModeToDefault();
+	P_NATIVE_END;
+}
+// End Class UNarrativeCameraComponent Function SetCameraModeToDefault
+
 // Begin Class UNarrativeCameraComponent
 void UNarrativeCameraComponent::StaticRegisterNativesUNarrativeCameraComponent()
 {
 	UClass* Class = UNarrativeCameraComponent::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "SetCameraMode", &UNarrativeCameraComponent::execSetCameraMode },
+		{ "SetCameraModeToDefault", &UNarrativeCameraComponent::execSetCameraModeToDefault },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -114,6 +147,7 @@ struct Z_Construct_UClass_UNarrativeCameraComponent_Statics
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraMode, "SetCameraMode" }, // 70402480
+		{ &Z_Construct_UFunction_UNarrativeCameraComponent_SetCameraModeToDefault, "SetCameraModeToDefault" }, // 3764976448
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -124,7 +158,7 @@ struct Z_Construct_UClass_UNarrativeCameraComponent_Statics
 const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_DefaultCameraMode = { "DefaultCameraMode", nullptr, (EPropertyFlags)0x0024080000010005, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeCameraComponent, DefaultCameraMode), Z_Construct_UClass_UClass, Z_Construct_UClass_UNarrativeCameraMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultCameraMode_MetaData), NewProp_DefaultCameraMode_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_CurrentCameraMode = { "CurrentCameraMode", nullptr, (EPropertyFlags)0x0124080000000004, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeCameraComponent, CurrentCameraMode), Z_Construct_UClass_UNarrativeCameraMode_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CurrentCameraMode_MetaData), NewProp_CurrentCameraMode_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_CameraModeInstances_Inner = { "CameraModeInstances", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UClass_UNarrativeCameraMode_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_CameraModeInstances = { "CameraModeInstances", nullptr, (EPropertyFlags)0x0020080000000000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeCameraComponent, CameraModeInstances), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraModeInstances_MetaData), NewProp_CameraModeInstances_MetaData) };
+const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_CameraModeInstances = { "CameraModeInstances", nullptr, (EPropertyFlags)0x0020080000002000, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeCameraComponent, CameraModeInstances), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CameraModeInstances_MetaData), NewProp_CameraModeInstances_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeCameraComponent_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_DefaultCameraMode,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeCameraComponent_Statics::NewProp_CurrentCameraMode,
@@ -169,14 +203,14 @@ UNarrativeCameraComponent::~UNarrativeCameraComponent() {}
 // End Class UNarrativeCameraComponent
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeCameraComponent, UNarrativeCameraComponent::StaticClass, TEXT("UNarrativeCameraComponent"), &Z_Registration_Info_UClass_UNarrativeCameraComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCameraComponent), 862064233U) },
+		{ Z_Construct_UClass_UNarrativeCameraComponent, UNarrativeCameraComponent::StaticClass, TEXT("UNarrativeCameraComponent"), &Z_Registration_Info_UClass_UNarrativeCameraComponent, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeCameraComponent), 3786498751U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_1312221633(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_3130939366(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Camera_NarrativeCameraComponent_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

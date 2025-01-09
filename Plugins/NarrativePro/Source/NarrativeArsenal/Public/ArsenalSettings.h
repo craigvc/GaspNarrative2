@@ -20,25 +20,33 @@ public:
 
 	UArsenalSettings();
 
-	///**If true, equipped weapons will be holstered upon equip. Otherwise, they will be out on equip. */
-	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Gameplay Functionality")
-	bool bHolsterWeaponOnEquip;
-
-	//** If empty we'll keep Unreal assigned username, but if set to a valid string, game mode will override your player to use this.  */
-	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Gameplay Functionality")
-	FString DefaultUsername;
-
-	/** The map that the default main menu will load. */
-	UPROPERTY(config, EditAnywhere, Category = "Narrative Pro|Maps", meta=(AllowedClasses="/Script/Engine.World"))
-	FSoftObjectPath GameEntryMap;
-
 	/** This is the default save game name */
 	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Save System")
 	FString DefaultSaveName; 
 
+	//** If empty we'll keep Unreal assigned username, but if set to a valid string, game mode will override your player to use this.  */
+	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Gameplay")
+	FString DefaultUsername;
+
+	/** The map that the default main menu will load. */
+	UPROPERTY(config, EditAnywhere, BlueprintReadOnly,Category = "Narrative Pro|Maps", meta=(AllowedClasses="/Script/Engine.World"))
+	FSoftObjectPath GameEntryMap;
+
+	/** The map that we'll open when the player wants to open the character creator */
+	UPROPERTY(config, EditAnywhere, BlueprintReadOnly,Category = "Narrative Pro|Maps", meta=(AllowedClasses="/Script/Engine.World"))
+	FSoftObjectPath CharacterCreatorMap;
+
+	/** If true, starting a new game will load the character creator, instead of loading the entry map. (The default character creator will then throw you into the entry map when you finish creation.) */
+	UPROPERTY(config, EditAnywhere, BlueprintReadOnly,Category = "Narrative Pro|Maps")
+	bool bLoadCharacterCreatorOnNewGame;
+
 	/** How many save slots the default menu should support */
 	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Save System")
 	int32 NumSaveSlots;
+
+	/** The save file name we'll use to store metadata about our main saves. */
+	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Save System")
+	FString MetadataSaveFileName;
 
 	/** TargetLocation BB key name  */
 	UPROPERTY(VisibleAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Blackboard Keys")
@@ -55,6 +63,10 @@ public:
 	/** PlayerPawn BB key name  */
 	UPROPERTY(VisibleAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Blackboard Keys")
 	FName BBKey_PlayerPawn;
+
+	/** FollowTarget BB key name  */
+	UPROPERTY(VisibleAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Blackboard Keys")
+	FName BBKey_FollowTarget;
 
 	/** Attack target BB key name  */
 	UPROPERTY(VisibleAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Blackboard Keys")
@@ -92,11 +104,11 @@ public:
 	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Sounds")
 	TSoftObjectPtr<USoundWave> MainMenuSoundWave;
 
-	/** Primary color UI elements will set themselves to.  */
-	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|User Interface")
-	FLinearColor UIPrimaryColor;
+	/** Default pause menu gameplay music. */
+	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Sounds")
+	TSoftObjectPtr<USoundWave> PauseSoundWave;
 
-	/** Primary color UI elements will set themselves to.  */
-	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|User Interface")
-	FLinearColor UIInvertColor;
+	/** Default character menu gameplay music. */
+	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Sounds")
+	TSoftObjectPtr<USoundWave> CharacterCreatorSoundWave;
 };

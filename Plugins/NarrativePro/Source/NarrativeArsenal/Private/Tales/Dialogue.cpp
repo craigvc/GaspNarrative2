@@ -2,7 +2,7 @@
 
 #include "Tales/Dialogue.h"
 #include "Tales/NarrativeDialogueSettings.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/DialogueBlueprintGeneratedClass.h"
 #include "Tales/DialogueSM.h"
 #include "Tales/NarrativeDialogueSequence.h"
@@ -32,6 +32,8 @@
 
 #include "AI/NPCDefinition.h"
 #include "AI/NarrativeNPCSubsystem.h"
+#include "UnrealFramework/NarrativePlayerController.h"
+#include "ArsenalStatics.h"
 
 
 static const FName NAME_PlayerSpeakerID("Player");
@@ -68,7 +70,7 @@ UWorld* UDialogue::GetWorld() const
 	return nullptr;
 }
 
-bool UDialogue::Initialize(class UNarrativeComponent* InitializingComp, const FDialoguePlayParams InPlayParams)
+bool UDialogue::Initialize(class UTalesComponent* InitializingComp, const FDialoguePlayParams InPlayParams)
 {
 	if (!HasAnyFlags(RF_ClassDefaultObject))
 	{
@@ -586,6 +588,15 @@ void UDialogue::OnBeginDialogue()
 
 	InitSpeakerAvatars();
 
+	//Tell the speakers they are in a dialogue. 
+	for (auto& SpeakerAvatarKVP : SpeakerAvatars)
+	{
+		if (ANarrativeCharacter* NChar = Cast<ANarrativeCharacter>(SpeakerAvatarKVP.Value))
+		{
+			NChar->OnEnterDialogue(this);
+		}
+	}
+
 	if (OwningController && OwningController->IsLocalPlayerController())
 	{
 		if (DialogueCameraShake)
@@ -875,6 +886,15 @@ void UDialogue::OnEndDialogue()
 		}
 	}
 
+	//Tell the speakers they are exiting dialogue
+	for (auto& SpeakerAvatarKVP : SpeakerAvatars)
+	{
+		if (ANarrativeCharacter* NChar = Cast<ANarrativeCharacter>(SpeakerAvatarKVP.Value))
+		{
+			NChar->OnEndDialogue(this);
+		}
+	}
+
 	CleanUpSpeakerAvatars();
 
 	if (DialogueCameraShake && OwningController)
@@ -1103,6 +1123,8 @@ void UDialogue::PlayPlayerDialogueNode(class UDialogueNode_Player* PlayerReply)
 
 void UDialogue::ReplaceStringVariables(const class UDialogueNode* Node, const FDialogueLine& Line, FText& OutLine)
 {
+	OutLine = UArsenalStatics::ReplaceInputVariables(Cast<ANarrativePlayerController>(OwningController), OutLine);
+
 	//Replace variables in dialogue line
 	FString LineString = OutLine.ToString();
 
@@ -1782,6 +1804,11 @@ float UDialogue::GetLineDuration_Implementation(class UDialogueNode* Node, const
 
 FString UDialogue::GetStringVariable_Implementation(const class UDialogueNode* Node, const FDialogueLine& Line, const FString& VariableName)
 {
+	if (VariableName == "Time")
+	{
+		return UArsenalStatics::GetTimeOfDayAsString(GetWorld());
+	}
+
 	return VariableName;
 }
 

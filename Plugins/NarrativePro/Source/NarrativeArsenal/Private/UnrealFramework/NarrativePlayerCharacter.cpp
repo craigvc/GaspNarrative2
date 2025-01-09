@@ -6,6 +6,7 @@
 #include "UnrealFramework/NarrativePlayerState.h"
 #include "UnrealFramework/NarrativeCharacter.h"
 #include "UnrealFramework/NarrativeAnimInstance.h"
+#include "Interaction/PlayerInteractionComponent.h"
 #include "GAS/NarrativeAbilitySystemComponent.h"
 #include "GAS/NarrativeAbilityInputMapping.h"
 #include "NarrativeArsenal.h"
@@ -18,7 +19,11 @@
 #include "EnhancedInputSubsystems.h"
 #include "NavigatorGameplayTags.h"
 #include <UObject/ConstructorHelpers.h>
+#include "NarrativeItem.h"
 #include <Engine/LocalPlayer.h>
+#include "Net/UnrealNetwork.h"
+#include "Character/PlayerDefinition.h"
+#include "Items/WeaponItem.h"
 
 ANarrativePlayerCharacter::ANarrativePlayerCharacter(const class FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -84,6 +89,12 @@ void ANarrativePlayerCharacter::PossessedBy(AController* NewController)
 		AddStartupEffects();
 		AddDefaultAbilities();
 
+		//Need to call this here as OnDefinitionSet requires valid Pstate since it runs init code 
+		if (PlayerDefinition)
+		{
+			OnDefinitionSet(PlayerDefinition);
+			//AbilitySystemComponent->AddLooseGameplayTags(PlayerDefinition->DefaultOwnedTags);
+		}
 	}
 }
 
@@ -111,6 +122,88 @@ void ANarrativePlayerCharacter::OnRep_PlayerState()
 
 			// Set Health/Mana/Stamina to their max. This is only necessary for *Respawn*.
 			SetHealth(GetMaxHealth());
+
+			//Need to call this here as OnDefinitionSet requires valid Pstate.
+			if (PlayerDefinition)
+			{
+				OnDefinitionSet(PlayerDefinition);
+				//AbilitySystemComponent->AddLooseGameplayTags(PlayerDefinition->DefaultOwnedTags);
+			}
+		}
+	}
+}
+
+void ANarrativePlayerCharacter::GetLifetimeReplicatedProps(TArray<FLifetimeProperty>& OutLifetimeProps) const
+{
+	Super::GetLifetimeReplicatedProps(OutLifetimeProps);
+
+	DOREPLIFETIME_CONDITION(ANarrativePlayerCharacter, PlayerDefinition, COND_InitialOnly);
+}
+
+FGameplayTagContainer ANarrativePlayerCharacter::GetFactions() const
+{
+	if (ANarrativePlayerState* PS = GetPlayerState<ANarrativePlayerState>())
+	{
+		return PS->GetFactions();
+	}
+
+	return FGameplayTagContainer::EmptyContainer;
+}
+
+void ANarrativePlayerCharacter::AddFaction(const FGameplayTag& Faction)
+{
+	if (ANarrativePlayerState* PS = GetPlayerState<ANarrativePlayerState>())
+	{
+		return PS->AddFaction(Faction);
+	}
+}
+
+void ANarrativePlayerCharacter::RemoveFaction(const FGameplayTag& Faction)
+{
+	if (ANarrativePlayerState* PS = GetPlayerState<ANarrativePlayerState>())
+	{
+		return PS->RemoveFaction(Faction);
+	}
+}
+
+class UNarrativeInteractionComponent* ANarrativePlayerCharacter::GetInteractionComponent() const
+{
+	if (ANarrativePlayerController* NarrativePC = Cast<ANarrativePlayerController>(Controller))
+	{
+		return NarrativePC->GetInteractionComponent();
+	}
+
+	return nullptr; 
+}
+
+void ANarrativePlayerCharacter::WieldWeapon(class UWeaponItem* Weapon)
+{
+	Super::WieldWeapon(Weapon);
+
+	if (Weapon && IsLocallyControlled())
+	{
+		if (FollowCamera)
+		{
+			if (IsValid(Weapon->WeaponCameraMode))
+			{
+				FollowCamera->SetCameraMode(Weapon->WeaponCameraMode);
+			}
+		}
+	}
+}
+
+void ANarrativePlayerCharacter::UnWieldWeapon(class UWeaponItem* Weapon)
+{
+	Super::UnWieldWeapon(Weapon);
+
+	if (Weapon && IsLocallyControlled())
+	{
+		if (FollowCamera)
+		{
+			if (IsValid(Weapon->WeaponCameraMode))
+			{
+				FollowCamera->SetCameraModeToDefault();
+			}
 		}
 	}
 }
@@ -209,5 +302,27 @@ void ANarrativePlayerCharacter::SetupPlayerInputComponent(class UInputComponent*
 				}
 			}
 		}
+	}
+}
+
+class UCharacterDefinition* ANarrativePlayerCharacter::GetCharacterDefinition() const
+{
+	return PlayerDefinition;
+}
+
+void ANarrativePlayerCharacter::OnRep_PlayerDefinition()
+{
+	if (PlayerDefinition)
+	{
+		OnDefinitionSet(PlayerDefinition);
+	}
+}
+
+void ANarrativePlayerCharacter::SetPlayerDefinition(class UPlayerDefinition* PDef)
+{
+	if(PDef)
+	{
+		PlayerDefinition = PDef;
+		OnRep_PlayerDefinition();
 	}
 }

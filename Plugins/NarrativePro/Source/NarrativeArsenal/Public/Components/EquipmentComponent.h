@@ -5,24 +5,12 @@
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
 #include "Items/EquippableItem.h"
+#include <GameplayTagContainer.h>
 #include "EquipmentComponent.generated.h"
 
 /**Called on server when an item is added to this inventory*/
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemEquipped, const EEquippableSlot, Slot, class UEquippableItem*, Equippable);
-DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemUnequipped, const EEquippableSlot, Slot, class UEquippableItem*, Equippable);
-
-USTRUCT()
-struct FDefaultClothingMeshMaterials
-{
-
-	GENERATED_BODY()
-
-	FDefaultClothingMeshMaterials(){};
-	FDefaultClothingMeshMaterials(TArray<class UMaterialInterface*> InMaterials) : Materials(InMaterials){};
-
-	UPROPERTY()
-	TArray<class UMaterialInterface*> Materials;
-};
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemEquipped, const FGameplayTag, Slot, class UEquippableItem*, Equippable);
+DECLARE_DYNAMIC_MULTICAST_DELEGATE_TwoParams(FOnItemUnequipped, const FGameplayTag, Slot, class UEquippableItem*, Equippable);
 
 /**
 
@@ -48,11 +36,34 @@ public:
 	@param ClothingMeshes The map which maps each clothing slot to the skeletal mesh component the clothing will equip to 
 	@param LeaderPoseComponent the component all of the equipped items will be told to follow upon equipping. */
 	UFUNCTION(BlueprintCallable, Category = "Equipment")
-	virtual void Initialize(TMap<EEquippableSlot, USkeletalMeshComponent*> ClothingMeshes, class USkeletalMeshComponent* LeaderPoseComponent);
+	virtual void Initialize(TMap<FGameplayTag, USkeletalMeshComponent*> ClothingMeshes, class USkeletalMeshComponent* LeaderPoseComponent);
+
+	UFUNCTION(BlueprintCallable, Category = "Equipment")
+	virtual void SetGroomMap(TMap<FGameplayTag, class UGroomComponent*> Grooms);
 
 	//Return the item equipped at the given slot
 	UFUNCTION(BlueprintPure, Category = "Equipment")
-	class UEquippableItem* GetEquippedItemAtSlot(const EEquippableSlot Slot);
+	class UEquippableItem* GetEquippedItemAtSlot(UPARAM(meta = (Categories = "Narrative.Equipment.Slot"))const FGameplayTag Slot); 
+
+	//Return the items equipped that match the slot subtag
+	UFUNCTION(BlueprintPure, Category = "Equipment")
+	TArray<class UEquippableItem*> GetItemsWithSlot(UPARAM(meta = (Categories = "Narrative.Equipment.Slot"))const FGameplayTag Slot);
+
+	//Return the items that match the given equippable class
+	UFUNCTION(BlueprintCallable, Category="Equipment",  meta=(DeterminesOutputType="EquippableClass", DynamicOutputParam="OutEquippables"))
+	void GetEquippedItemsOfClass( TSubclassOf<UEquippableItem> EquippableClass, TArray<UEquippableItem*>& OutEquippables);
+
+	//Return the weapon equipped at the given slot
+	UFUNCTION(BlueprintPure, Category = "Equipment")
+	class UWeaponItem* GetEquippedWeaponAtSlot(UPARAM(meta = (Categories = "Narrative.Equipment.Slot.Weapon"))const FGameplayTag Slot); 
+
+	//Return the mesh for the given slot
+	UFUNCTION(BlueprintPure, Category = "Equipment")
+	class USkeletalMeshComponent* GetMeshComponentAtSlot( UPARAM(meta = (Categories = "Narrative.Equipment.Slot.Mesh")) const FGameplayTag Slot);
+
+	//Return the groom for the given slot
+	UFUNCTION(BlueprintPure, Category = "Equipment")
+	class UGroomComponent* GetGroomComponentAtSlot( UPARAM(meta = (Categories = "Narrative.Equipment.Slot.Groom")) const FGameplayTag Slot);
 
 	//Return how much all of our equipped items weigh
 	UFUNCTION(BlueprintPure, Category = "Equipment")
@@ -74,27 +85,22 @@ protected:
 	UPROPERTY()
 	class USkeletalMeshComponent* LeaderPoseComponent;
 
-	/**We cache this so when an item is removed we can set it back to the default*/
-	UPROPERTY()
-	TMap<EEquippableSlot, USkeletalMesh*> DefaultClothing;
-
-	/**We cache this so when an item is removed we can set it back to the default materials*/
-	UPROPERTY()
-	TMap<EEquippableSlot, FDefaultClothingMeshMaterials> DefaultClothingMaterials;
-
 	/**The skeletal meshes we'll be changing if a player equips an item*/
 	UPROPERTY()
-	TMap<EEquippableSlot, USkeletalMeshComponent*> EquippableComponents;
+	TMap<FGameplayTag, USkeletalMeshComponent*> EquippableComponents;
+
+	/**The grooms we'll be changing if a player equips an item*/
+	UPROPERTY()
+	TMap<FGameplayTag, class UGroomComponent*> GroomComponents;
 
 	/**All of the items that are currently equipped are stored in here*/
 	UPROPERTY(BlueprintReadOnly, Category = "Equipment")
-	TMap<EEquippableSlot, UEquippableItem*> EquippedItems;
+	TMap<FGameplayTag, UEquippableItem*> EquippedItems;
 
 
 public:
 
 	FORCEINLINE class USkeletalMeshComponent* GetLeaderPoseComponent() const {return LeaderPoseComponent;};
-	FORCEINLINE TMap<EEquippableSlot, USkeletalMeshComponent*> GetEquippableComponents() const {return EquippableComponents;};
-	FORCEINLINE TMap<EEquippableSlot, USkeletalMesh*> GetDefaultClothing() const {return DefaultClothing;};
+	FORCEINLINE TMap<FGameplayTag, USkeletalMeshComponent*> GetEquippableComponents() const {return EquippableComponents;};
 
 };

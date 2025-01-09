@@ -11,6 +11,7 @@
 #include <Kismet/GameplayStatics.h>
 #include "NarrativeLogChannels.h"
 
+
 UNarrativeNPCSubsystem::UNarrativeNPCSubsystem()
 {
 
@@ -26,6 +27,9 @@ void UNarrativeNPCSubsystem::PostInitialize()
 	{
 		FOnActorDestroyed::FDelegate ActorDestroyed = FOnActorDestroyed::FDelegate::CreateUObject(this, &UNarrativeNPCSubsystem::OnActorDestroyed);
 		ActorDestroyedHandle = World->AddOnActorDestroyedHandler(ActorDestroyed);
+
+		FOnActorSpawned::FDelegate ActorSpawned = FOnActorSpawned::FDelegate::CreateUObject(this, &UNarrativeNPCSubsystem::OnActorSpawned);
+		ActorSpawnedHandle = World->AddOnActorSpawnedHandler(ActorSpawned);
 	}
 }
 
@@ -34,6 +38,8 @@ void UNarrativeNPCSubsystem::Deinitialize()
 	Super::Deinitialize();
 
 	NPCMap.Empty();
+	CharacterMap.Empty();
+	ActorSpawnedHandle.Reset();
 	ActorDestroyedHandle.Reset();
 }
 
@@ -103,6 +109,21 @@ class ANarrativeNPCCharacter* UNarrativeNPCSubsystem::FindNPC(const UNPCDefiniti
 	return nullptr;
 }
 
+class ANarrativeCharacter* UNarrativeNPCSubsystem::FindCharacter(const UCharacterDefinition* CharacterDefinition) const
+{
+	if (CharacterMap.Contains(CharacterDefinition))
+	{
+		for (auto& Char : CharacterMap[CharacterDefinition].Characters)
+		{
+			if (IsValid(Char))
+			{
+				return Char;
+			}
+		}
+	}
+	return nullptr;
+}
+
 void UNarrativeNPCSubsystem::FindNPCs(const UNPCDefinition* NPCData, TArray<ANarrativeNPCCharacter*>& OutActors) const
 {
 	if (NPCMap.Contains(NPCData))
@@ -111,15 +132,24 @@ void UNarrativeNPCSubsystem::FindNPCs(const UNPCDefinition* NPCData, TArray<ANar
 	}
 }
 
-bool UNarrativeNPCSubsystem::IsNPCSpawned(const UNPCDefinition* NPCData) const
+void UNarrativeNPCSubsystem::FindCharacters(const UCharacterDefinition* CharacterDefinition, TArray<ANarrativeCharacter*>& OutActors) const
 {
-	if (NPCMap.Contains(NPCData))
+	if (CharacterMap.Contains(CharacterDefinition))
 	{
-		return NPCMap[NPCData].HasValidNPCs();
+		OutActors = CharacterMap[CharacterDefinition].Characters;
+	}
+}
+
+bool UNarrativeNPCSubsystem::IsCharacterSpawned(const UCharacterDefinition* CharacterDefinition) const
+{
+	if (CharacterMap.Contains(CharacterDefinition))
+	{
+		return CharacterMap[CharacterDefinition].HasValidCharacters();
 	}
 
-	return false;
+	return false; 
 }
+
 
 class ANarrativeNPCCharacter* UNarrativeNPCSubsystem::SpawnNPC_Internal(UNPCDefinition* NPCData, const FTransform& SpawnTransform)
 {
@@ -134,6 +164,7 @@ class ANarrativeNPCCharacter* UNarrativeNPCSubsystem::SpawnNPC_Internal(UNPCDefi
 				const TSubclassOf<ANarrativeNPCCharacter> NPCClass =  NPCData->NPCClassPath.LoadSynchronous();
 
 				FNPCArray& NPCArray = NPCMap.FindOrAdd(NPCData);
+				FCharacterArray& CharArray = CharacterMap.FindOrAdd(NPCData);
 
 				//The NPC array already has an NPC spawned under this key. This instance cannot be created, lets destroy the NPC we tried to spawn 
 				if (NPCArray.HasValidNPCs() && !NPCData->bAllowMultipleInstances)
@@ -159,6 +190,8 @@ class ANarrativeNPCCharacter* UNarrativeNPCSubsystem::SpawnNPC_Internal(UNPCDefi
 						}
 
 						NPCArray.NPCs.AddUnique(NPC);
+						CharArray.Characters.AddUnique(NPC);
+
 						OnNPCSpawned.Broadcast(NPCData, NPC);
 
 						return NPC;
@@ -169,6 +202,23 @@ class ANarrativeNPCCharacter* UNarrativeNPCSubsystem::SpawnNPC_Internal(UNPCDefi
 		}
 	}
 	return nullptr;
+}
+
+void UNarrativeNPCSubsystem::RegisterCharacter(class ANarrativeCharacter* Character)
+{
+	if (IsValid(Character))
+	{
+		if (UCharacterDefinition* CharDef = Character->GetCharacterDefinition())
+		{
+			FCharacterArray& CharArray = CharacterMap.FindOrAdd(CharDef);
+
+			CharArray.Characters.AddUnique(Character);
+		}
+		else
+		{
+			UE_LOG(LogTemp, Warning, TEXT("NChar %s was spawned but didn't have valid chardef so we cannot map it. "), *GetNameSafe(Character));
+		}
+	}
 }
 
 void UNarrativeNPCSubsystem::OnNPCClassLoaded(FPrimaryAssetId LoadedId, const FTransform SpawnTransform)
@@ -185,23 +235,60 @@ void UNarrativeNPCSubsystem::OnNPCClassLoaded(FPrimaryAssetId LoadedId, const FT
 	}
 }
 
+void UNarrativeNPCSubsystem::OnActorSpawned(class AActor* SpawnedActor)
+{
+	//NPCs and Player spawning logic both just call this manually as more efficient and we can ensure character state is ready 
+	//if (ANarrativeCharacter* NChar = Cast<ANarrativeCharacter>(SpawnedActor))
+	//{
+	//	if (IsValid(NChar))
+	//	{
+	//		if (UCharacterDefinition* CharDef = NChar->GetCharacterDefiniton())
+	//		{
+	//			FCharacterArray& CharArray = CharacterMap.FindOrAdd(CharDef);
+
+	//			CharArray.Characters.AddUnique(NChar);
+	//		}
+	//		else
+	//		{
+	//			UE_LOG(LogTemp, Warning, TEXT("NChar %s was spawned but didn't have valid chardef so we cannot map it. "), *GetNameSafe(NChar));
+	//		}
+	//	}
+	//}
+}
+
 void UNarrativeNPCSubsystem::OnActorDestroyed(class AActor* DestroyedActor)
 {
-	//Remove the destroyed NPC from its map
-	if (ANarrativeNPCCharacter* DestroyedNPC = Cast<ANarrativeNPCCharacter>(DestroyedActor))
+	if (ANarrativeCharacter* NChar = Cast<ANarrativeCharacter>(DestroyedActor))
 	{
-		if (UNPCDefinition* NPCData = DestroyedNPC->NPCData)
+		if (UCharacterDefinition* CharDef = NChar->GetCharacterDefinition())
 		{
-			if (NPCMap.Contains(NPCData))
+			if (CharacterMap.Contains(CharDef))
 			{
-				NPCMap[NPCData].NPCs.Remove(DestroyedNPC);
+				CharacterMap[CharDef].Characters.Remove(NChar);
 			}
 			else
 			{
-				UE_LOG(LogNPCs, Warning, TEXT("UNarrativeNPCSubsystem::OnActorDestroyed tried removing NPC from map but it had null NPCData! "));
+				UE_LOG(LogNPCs, Warning, TEXT("UNarrativeNPCSubsystem::OnActorDestroyed tried removing character from map but it had null CharDef! "));
+			}
+		}
+
+		//Remove the destroyed NPC from its map
+		if (ANarrativeNPCCharacter* DestroyedNPC = Cast<ANarrativeNPCCharacter>(DestroyedActor))
+		{
+			if (UNPCDefinition* NPCData = DestroyedNPC->NPCData)
+			{
+				if (NPCMap.Contains(NPCData))
+				{
+					NPCMap[NPCData].NPCs.Remove(DestroyedNPC);
+				}
+				else
+				{
+					UE_LOG(LogNPCs, Warning, TEXT("UNarrativeNPCSubsystem::OnActorDestroyed tried removing NPC from map but it had null NPCData! "));
+				}
 			}
 		}
 	}
+
 }
 
 

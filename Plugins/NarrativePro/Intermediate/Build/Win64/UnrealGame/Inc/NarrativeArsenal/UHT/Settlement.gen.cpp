@@ -21,6 +21,8 @@ NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativeNPCCharacter_NoRegiste
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ASettlement();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ASettlement_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNPCDefinition_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_USettlementActivityComponent_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_USettlementActivitySchedule_NoRegister();
 NARRATIVEARSENAL_API UScriptStruct* Z_Construct_UScriptStruct_FSettlementSpawn();
 NARRATIVENAVIGATOR_API UClass* Z_Construct_UClass_UPOINavigationMarker_NoRegister();
 NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_UNarrativeSavableActor_NoRegister();
@@ -376,6 +378,55 @@ DEFINE_FUNCTION(ASettlement::execGetSpawnData)
 }
 // End Class ASettlement Function GetSpawnData
 
+// Begin Class ASettlement Function IsActive
+struct Z_Construct_UFunction_ASettlement_IsActive_Statics
+{
+	struct Settlement_eventIsActive_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settlement" },
+		{ "Comment", "//Check whether settlement is active or whether WP has deactivated it \n" },
+		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
+		{ "ToolTip", "Check whether settlement is active or whether WP has deactivated it" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ASettlement_IsActive_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((Settlement_eventIsActive_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASettlement_IsActive_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Settlement_eventIsActive_Parms), &Z_Construct_UFunction_ASettlement_IsActive_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASettlement_IsActive_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASettlement_IsActive_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_IsActive_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASettlement_IsActive_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASettlement, nullptr, "IsActive", nullptr, nullptr, Z_Construct_UFunction_ASettlement_IsActive_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_IsActive_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASettlement_IsActive_Statics::Settlement_eventIsActive_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x54020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_IsActive_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASettlement_IsActive_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASettlement_IsActive_Statics::Settlement_eventIsActive_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASettlement_IsActive()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASettlement_IsActive_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASettlement::execIsActive)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->IsActive();
+	P_NATIVE_END;
+}
+// End Class ASettlement Function IsActive
+
 // Begin Class ASettlement Function IsCleared
 struct Z_Construct_UFunction_ASettlement_IsCleared_Statics
 {
@@ -477,6 +528,119 @@ DEFINE_FUNCTION(ASettlement::execReleaseNPC)
 }
 // End Class ASettlement Function ReleaseNPC
 
+// Begin Class ASettlement Function SetActive
+struct Z_Construct_UFunction_ASettlement_SetActive_Statics
+{
+	struct Settlement_eventSetActive_Parms
+	{
+		bool bActive;
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settlement" },
+		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bActive_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bActive_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bActive;
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_bActive_SetBit(void* Obj)
+{
+	((Settlement_eventSetActive_Parms*)Obj)->bActive = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_bActive = { "bActive", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Settlement_eventSetActive_Parms), &Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_bActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bActive_MetaData), NewProp_bActive_MetaData) };
+void Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((Settlement_eventSetActive_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Settlement_eventSetActive_Parms), &Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASettlement_SetActive_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_bActive,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASettlement_SetActive_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetActive_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASettlement_SetActive_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASettlement, nullptr, "SetActive", nullptr, nullptr, Z_Construct_UFunction_ASettlement_SetActive_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetActive_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASettlement_SetActive_Statics::Settlement_eventSetActive_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetActive_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASettlement_SetActive_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASettlement_SetActive_Statics::Settlement_eventSetActive_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASettlement_SetActive()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASettlement_SetActive_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASettlement::execSetActive)
+{
+	P_GET_UBOOL(Z_Param_bActive);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->SetActive(Z_Param_bActive);
+	P_NATIVE_END;
+}
+// End Class ASettlement Function SetActive
+
+// Begin Class ASettlement Function SetDisabled
+struct Z_Construct_UFunction_ASettlement_SetDisabled_Statics
+{
+	struct Settlement_eventSetDisabled_Parms
+	{
+		bool bNewDisabled;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settlement" },
+		{ "Comment", "//Disable the settlement\n" },
+		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
+		{ "ToolTip", "Disable the settlement" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bNewDisabled_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bNewDisabled_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bNewDisabled;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_ASettlement_SetDisabled_Statics::NewProp_bNewDisabled_SetBit(void* Obj)
+{
+	((Settlement_eventSetDisabled_Parms*)Obj)->bNewDisabled = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_ASettlement_SetDisabled_Statics::NewProp_bNewDisabled = { "bNewDisabled", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(Settlement_eventSetDisabled_Parms), &Z_Construct_UFunction_ASettlement_SetDisabled_Statics::NewProp_bNewDisabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bNewDisabled_MetaData), NewProp_bNewDisabled_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_ASettlement_SetDisabled_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_ASettlement_SetDisabled_Statics::NewProp_bNewDisabled,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetDisabled_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ASettlement_SetDisabled_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ASettlement, nullptr, "SetDisabled", nullptr, nullptr, Z_Construct_UFunction_ASettlement_SetDisabled_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetDisabled_Statics::PropPointers), sizeof(Z_Construct_UFunction_ASettlement_SetDisabled_Statics::Settlement_eventSetDisabled_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04080401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ASettlement_SetDisabled_Statics::Function_MetaDataParams), Z_Construct_UFunction_ASettlement_SetDisabled_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_ASettlement_SetDisabled_Statics::Settlement_eventSetDisabled_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_ASettlement_SetDisabled()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ASettlement_SetDisabled_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ASettlement::execSetDisabled)
+{
+	P_GET_UBOOL(Z_Param_bNewDisabled);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetDisabled(Z_Param_bNewDisabled);
+	P_NATIVE_END;
+}
+// End Class ASettlement Function SetDisabled
+
 // Begin Class ASettlement
 void ASettlement::StaticRegisterNativesASettlement()
 {
@@ -486,8 +650,11 @@ void ASettlement::StaticRegisterNativesASettlement()
 		{ "ClaimNPC", &ASettlement::execClaimNPC },
 		{ "Deactivate", &ASettlement::execDeactivate },
 		{ "GetSpawnData", &ASettlement::execGetSpawnData },
+		{ "IsActive", &ASettlement::execIsActive },
 		{ "IsCleared", &ASettlement::execIsCleared },
 		{ "ReleaseNPC", &ASettlement::execReleaseNPC },
+		{ "SetActive", &ASettlement::execSetActive },
+		{ "SetDisabled", &ASettlement::execSetDisabled },
 	};
 	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
@@ -500,10 +667,10 @@ struct Z_Construct_UClass_ASettlement_Statics
 {
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Class_MetaDataParams[] = {
-		{ "Comment", "/**\nIntended for non-multiplayer games, Settlements are useful for creating towns, villages, bandit camps, etc. They are always loaded into the world, however exist in a lightweight\ndeactivated state until activated. In this deactivated state you can access their name, location, check/modify which NPCs will spawn there etc. \nThis means you can change which NPCs spawn at a settlement, check if a settlement is cleared, move spawns around, etc even if a settlement\nisn't activated.  however none of their NPCs will be spawned in this deactivated state. \n\nOnce activated, settlements will spawn their NPCs in, and remove them when deactivated. They are typically activated by an ASettlementLoader. When World Partition\nloads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be loaded in! \n\nFinally, settlements are saved to disk. That means that if your ever change what NPC is spawned at a settlement, or whether you've discovered or cleared a \nsettlement, when you come back in and load your save the settlement will be as you left it. \n*/" },
+		{ "Comment", "/**\nIntended for non-multiplayer games, Settlements are useful for creating towns, villages, bandit camps, etc. They are always loaded into the world, however exist in a lightweight\ndeactivated state until activated. In this deactivated state you can access their name, location, check/modify which NPCs will spawn there etc. \nThis means you can change which NPCs spawn at a settlement, check if a settlement is cleared, move spawns around, etc even if a settlement\nisn't activated.  however none of their NPCs will be spawned in this deactivated state. \n\nOnce activated, settlements will spawn their NPCs in, and remove them when deactivated. They are typically activated by an ASettlementLoader. When World Partition\nloads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be activated, and have their loaded in! \nThis means you get good performance. If your game has hundreds of towns or villages, only nearby ones will have their NPCs kept in the world. \n\nFinally, settlements are saved to disk. That means that if your ever change what NPC is spawned at a settlement, or whether you've discovered or cleared a \nsettlement, when you come back in and load your save the settlement will be as you left it. \n*/" },
 		{ "IncludePath", "Settlements/Settlement.h" },
 		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
-		{ "ToolTip", "Intended for non-multiplayer games, Settlements are useful for creating towns, villages, bandit camps, etc. They are always loaded into the world, however exist in a lightweight\ndeactivated state until activated. In this deactivated state you can access their name, location, check/modify which NPCs will spawn there etc.\nThis means you can change which NPCs spawn at a settlement, check if a settlement is cleared, move spawns around, etc even if a settlement\nisn't activated.  however none of their NPCs will be spawned in this deactivated state.\n\nOnce activated, settlements will spawn their NPCs in, and remove them when deactivated. They are typically activated by an ASettlementLoader. When World Partition\nloads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be loaded in!\n\nFinally, settlements are saved to disk. That means that if your ever change what NPC is spawned at a settlement, or whether you've discovered or cleared a\nsettlement, when you come back in and load your save the settlement will be as you left it." },
+		{ "ToolTip", "Intended for non-multiplayer games, Settlements are useful for creating towns, villages, bandit camps, etc. They are always loaded into the world, however exist in a lightweight\ndeactivated state until activated. In this deactivated state you can access their name, location, check/modify which NPCs will spawn there etc.\nThis means you can change which NPCs spawn at a settlement, check if a settlement is cleared, move spawns around, etc even if a settlement\nisn't activated.  however none of their NPCs will be spawned in this deactivated state.\n\nOnce activated, settlements will spawn their NPCs in, and remove them when deactivated. They are typically activated by an ASettlementLoader. When World Partition\nloads/unloads the settlement loader, it will automatically activate or deactivate the settlement, meaning only settlements your player is near will be activated, and have their loaded in!\nThis means you get good performance. If your game has hundreds of towns or villages, only nearby ones will have their NPCs kept in the world.\n\nFinally, settlements are saved to disk. That means that if your ever change what NPC is spawned at a settlement, or whether you've discovered or cleared a\nsettlement, when you come back in and load your save the settlement will be as you left it." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SettlementRoot_MetaData[] = {
 		{ "Category", "Components" },
@@ -511,6 +678,13 @@ struct Z_Construct_UClass_ASettlement_Statics
 		{ "EditInline", "true" },
 		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
 		{ "ToolTip", "Root component - we want the settlement to have a transform" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SettlementActivityManager_MetaData[] = {
+		{ "Category", "Components" },
+		{ "Comment", "//The settlement activity component. \n" },
+		{ "EditInline", "true" },
+		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
+		{ "ToolTip", "The settlement activity component." },
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_POIMarker_MetaData[] = {
 		{ "Category", "Components" },
@@ -557,6 +731,12 @@ struct Z_Construct_UClass_ASettlement_Statics
 		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
 		{ "ToolTip", "The display name of the settlement." },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SettlementSchedule_MetaData[] = {
+		{ "Category", "Settlement Configuration" },
+		{ "Comment", "//The settlements schedule, if one is desired.\n" },
+		{ "ModuleRelativePath", "Public/Settlements/Settlement.h" },
+		{ "ToolTip", "The settlements schedule, if one is desired." },
+	};
 #if WITH_EDITORONLY_DATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SpriteComponent_MetaData[] = {
 		{ "AllowPrivateAccess", "true" },
@@ -573,6 +753,7 @@ struct Z_Construct_UClass_ASettlement_Statics
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SettlementRoot;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SettlementActivityManager;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_POIMarker;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_Spawns_Inner;
 	static const UECodeGen_Private::FArrayPropertyParams NewProp_Spawns;
@@ -582,6 +763,7 @@ struct Z_Construct_UClass_ASettlement_Statics
 	static const UECodeGen_Private::FStructPropertyParams NewProp_SettlementTag;
 	static const UECodeGen_Private::FStructPropertyParams NewProp_POITag;
 	static const UECodeGen_Private::FTextPropertyParams NewProp_SettlementDisplayName;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_SettlementSchedule;
 #if WITH_EDITORONLY_DATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_SpriteComponent;
 #endif // WITH_EDITORONLY_DATA
@@ -594,8 +776,11 @@ struct Z_Construct_UClass_ASettlement_Statics
 		{ &Z_Construct_UFunction_ASettlement_ClaimNPC, "ClaimNPC" }, // 1316704991
 		{ &Z_Construct_UFunction_ASettlement_Deactivate, "Deactivate" }, // 3960373170
 		{ &Z_Construct_UFunction_ASettlement_GetSpawnData, "GetSpawnData" }, // 1281479680
+		{ &Z_Construct_UFunction_ASettlement_IsActive, "IsActive" }, // 360478883
 		{ &Z_Construct_UFunction_ASettlement_IsCleared, "IsCleared" }, // 2249618123
 		{ &Z_Construct_UFunction_ASettlement_ReleaseNPC, "ReleaseNPC" }, // 2840418125
+		{ &Z_Construct_UFunction_ASettlement_SetActive, "SetActive" }, // 1765730615
+		{ &Z_Construct_UFunction_ASettlement_SetDisabled, "SetDisabled" }, // 3206541371
 	};
 	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static const UECodeGen_Private::FImplementedInterfaceParams InterfaceParams[];
@@ -604,19 +789,21 @@ struct Z_Construct_UClass_ASettlement_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementRoot = { "SettlementRoot", nullptr, (EPropertyFlags)0x001000000009001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementRoot), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementRoot_MetaData), NewProp_SettlementRoot_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_POIMarker = { "POIMarker", nullptr, (EPropertyFlags)0x001000000009001d, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, POIMarker), Z_Construct_UClass_UPOINavigationMarker_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_POIMarker_MetaData), NewProp_POIMarker_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementRoot = { "SettlementRoot", nullptr, (EPropertyFlags)0x011400000009001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementRoot), Z_Construct_UClass_USceneComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementRoot_MetaData), NewProp_SettlementRoot_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementActivityManager = { "SettlementActivityManager", nullptr, (EPropertyFlags)0x011400000009001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementActivityManager), Z_Construct_UClass_USettlementActivityComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementActivityManager_MetaData), NewProp_SettlementActivityManager_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_POIMarker = { "POIMarker", nullptr, (EPropertyFlags)0x011400000009001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, POIMarker), Z_Construct_UClass_UPOINavigationMarker_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_POIMarker_MetaData), NewProp_POIMarker_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_Spawns_Inner = { "Spawns", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, Z_Construct_UScriptStruct_FSettlementSpawn, METADATA_PARAMS(0, nullptr) }; // 1158354933
 const UECodeGen_Private::FArrayPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_Spawns = { "Spawns", nullptr, (EPropertyFlags)0x0010000001000015, UECodeGen_Private::EPropertyGenFlags::Array, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, Spawns), EArrayPropertyFlags::None, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Spawns_MetaData), NewProp_Spawns_MetaData) }; // 1158354933
 void Z_Construct_UClass_ASettlement_Statics::NewProp_bDisabled_SetBit(void* Obj)
 {
 	((ASettlement*)Obj)->bDisabled = 1;
 }
-const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_bDisabled = { "bDisabled", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASettlement), &Z_Construct_UClass_ASettlement_Statics::NewProp_bDisabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bDisabled_MetaData), NewProp_bDisabled_MetaData) };
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_bDisabled = { "bDisabled", nullptr, (EPropertyFlags)0x0010000001000015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASettlement), &Z_Construct_UClass_ASettlement_Statics::NewProp_bDisabled_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bDisabled_MetaData), NewProp_bDisabled_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementGUID = { "SettlementGUID", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementGUID), Z_Construct_UScriptStruct_FGuid, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementGUID_MetaData), NewProp_SettlementGUID_MetaData) };
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementTag = { "SettlementTag", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementTag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementTag_MetaData), NewProp_SettlementTag_MetaData) }; // 1298103297
 const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_POITag = { "POITag", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, POITag), Z_Construct_UScriptStruct_FGameplayTag, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_POITag_MetaData), NewProp_POITag_MetaData) }; // 1298103297
 const UECodeGen_Private::FTextPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementDisplayName = { "SettlementDisplayName", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Text, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementDisplayName), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementDisplayName_MetaData), NewProp_SettlementDisplayName_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementSchedule = { "SettlementSchedule", nullptr, (EPropertyFlags)0x0114000000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SettlementSchedule), Z_Construct_UClass_USettlementActivitySchedule_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SettlementSchedule_MetaData), NewProp_SettlementSchedule_MetaData) };
 #if WITH_EDITORONLY_DATA
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_SpriteComponent = { "SpriteComponent", nullptr, (EPropertyFlags)0x01440008000a001d, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ASettlement, SpriteComponent), Z_Construct_UClass_UBillboardComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SpriteComponent_MetaData), NewProp_SpriteComponent_MetaData) };
 #endif // WITH_EDITORONLY_DATA
@@ -627,6 +814,7 @@ void Z_Construct_UClass_ASettlement_Statics::NewProp_bActive_SetBit(void* Obj)
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_ASettlement_Statics::NewProp_bActive = { "bActive", nullptr, (EPropertyFlags)0x0020080000000014, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(ASettlement), &Z_Construct_UClass_ASettlement_Statics::NewProp_bActive_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bActive_MetaData), NewProp_bActive_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASettlement_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementRoot,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementActivityManager,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_POIMarker,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_Spawns_Inner,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_Spawns,
@@ -635,6 +823,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ASettleme
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementTag,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_POITag,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementDisplayName,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SettlementSchedule,
 #if WITH_EDITORONLY_DATA
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ASettlement_Statics::NewProp_SpriteComponent,
 #endif // WITH_EDITORONLY_DATA
@@ -647,7 +836,7 @@ UObject* (*const Z_Construct_UClass_ASettlement_Statics::DependentSingletons[])(
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ASettlement_Statics::DependentSingletons) < 16);
 const UECodeGen_Private::FImplementedInterfaceParams Z_Construct_UClass_ASettlement_Statics::InterfaceParams[] = {
-	{ Z_Construct_UClass_UNarrativeSavableActor_NoRegister, (int32)VTABLE_OFFSET(ASettlement, INarrativeSavableActor), false },  // 4265298697
+	{ Z_Construct_UClass_UNarrativeSavableActor_NoRegister, (int32)VTABLE_OFFSET(ASettlement, INarrativeSavableActor), false },  // 2545445142
 };
 const UECodeGen_Private::FClassParams Z_Construct_UClass_ASettlement_Statics::ClassParams = {
 	&ASettlement::StaticClass,
@@ -681,18 +870,18 @@ ASettlement::~ASettlement() {}
 // End Class ASettlement
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FSettlementSpawn::StaticStruct, Z_Construct_UScriptStruct_FSettlementSpawn_Statics::NewStructOps, TEXT("SettlementSpawn"), &Z_Registration_Info_UScriptStruct_SettlementSpawn, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FSettlementSpawn), 1158354933U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ASettlement, ASettlement::StaticClass, TEXT("ASettlement"), &Z_Registration_Info_UClass_ASettlement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASettlement), 3560293790U) },
+		{ Z_Construct_UClass_ASettlement, ASettlement::StaticClass, TEXT("ASettlement"), &Z_Registration_Info_UClass_ASettlement, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ASettlement), 2562519173U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_103620582(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_691572669(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Settlements_Settlement_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

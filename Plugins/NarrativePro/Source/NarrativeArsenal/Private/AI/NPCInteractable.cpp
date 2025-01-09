@@ -2,11 +2,12 @@
 
 
 #include "AI/NPCInteractable.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeFunctionLibrary.h"
 #include "InventoryFunctionLibrary.h"
 #include "InventoryComponent.h"
 #include "NarrativeGameplayTags.h"
+#include "UnrealFramework/NarrativePlayerController.h"
 
 #define LOCTEXT_NAMESPACE "NPCInteractable"
 
@@ -17,24 +18,30 @@ UNPCInteractable::UNPCInteractable(const FObjectInitializer& ObjectInitializer)
 
 bool UNPCInteractable::Interact(class APawn* Interactor, class UNarrativeInteractionComponent* InteractionComp)
 {
-	if (ANarrativeNPCCharacter* NPC = Cast<ANarrativeNPCCharacter>(GetOwner()))
+	if (Interactor)
 	{
-		if (NPC->IsAlive())
+		if (ANarrativeNPCCharacter* NPC = Cast<ANarrativeNPCCharacter>(GetOwner()))
 		{
-			if (UNarrativeComponent* TalesComp = UNarrativeFunctionLibrary::GetNarrativeComponent(Interactor))
+			if (NPC->IsAlive())
 			{
-				FDialoguePlayParams PlayParams;
-				PlayParams.NonUniqueNPCs.Add(NPC);
+				if (ANarrativePlayerController* PController = Cast<ANarrativePlayerController>(Interactor->GetController()))
+				{
+					if (UTalesComponent* TalesComponent = PController->GetTalesComponent())
+					{
+						FDialoguePlayParams PlayParams;
+						PlayParams.NonUniqueNPCs.Add(NPC);
 
-				//TODO load this async, potentially before we're even started the interact 
-				TalesComp->BeginDialogue(Dialogue, PlayParams);
+						//TODO load this async, potentially before we're even started the interact 
+						TalesComponent->BeginDialogue(Dialogue, PlayParams);
+					}
+				}
 			}
-		}
-		else
-		{
-			if (UNarrativeInventoryComponent* Looter = UInventoryFunctionLibrary::GetInventoryComponentFromTarget(Interactor))
+			else
 			{
-				Looter->SetLootSource(NPC->GetInventoryComponent());
+				if (UNarrativeInventoryComponent* Looter = UInventoryFunctionLibrary::GetInventoryComponentFromTarget(Interactor))
+				{
+					Looter->SetLootSource(NPC->GetInventoryComponent());
+				}
 			}
 		}
 	}
@@ -48,13 +55,18 @@ bool UNPCInteractable::CanInteract_Implementation(class APawn* Interactor, class
 	{
 		if (NPC->IsAlive() && NPC->GetNPCData())
 		{
+			if (!IsValid(Dialogue))
+			{
+				return false; 
+			}
+
 			if (NPC->HasMatchingGameplayTag(FNarrativeGameplayTags::Get().State_NPC_IsBusy))
 			{
 				OutErrorText = FText::Format(LOCTEXT("NPCIsBusyError", "{0} is busy right now."), NPC->GetNPCData()->NPCName);
 				return false; 
 			}
 
-			if (UNarrativeComponent* Narrative = UNarrativeFunctionLibrary::GetNarrativeComponent(Interactor))
+			if (UTalesComponent* Narrative = UNarrativeFunctionLibrary::GetTalesComponent(Interactor))
 			{
 				if (IsValid(Narrative->CurrentDialogue) && !Narrative->CurrentDialogue->bCanBeExited)
 				{

@@ -35,13 +35,13 @@ void EmptyLinkFunctionForGeneratedCodeNarrativeInventory_init() {}
 				SingletonFuncArray,
 				UE_ARRAY_COUNT(SingletonFuncArray),
 				PKG_CompiledIn | 0x00000000,
-				0x9D191763,
-				0xF72EDB5B,
+				0xF03B3012,
+				0xC42FA0A1,
 				METADATA_PARAMS(0, nullptr)
 			};
 			UECodeGen_Private::ConstructUPackage(Z_Registration_Info_UPackage__Script_NarrativeInventory.OuterSingleton, PackageParams);
 		}
 		return Z_Registration_Info_UPackage__Script_NarrativeInventory.OuterSingleton;
 	}
-	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NarrativeInventory(Z_Construct_UPackage__Script_NarrativeInventory, TEXT("/Script/NarrativeInventory"), Z_Registration_Info_UPackage__Script_NarrativeInventory, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0x9D191763, 0xF72EDB5B));
+	static FRegisterCompiledInInfo Z_CompiledInDeferPackage_UPackage__Script_NarrativeInventory(Z_Construct_UPackage__Script_NarrativeInventory, TEXT("/Script/NarrativeInventory"), Z_Registration_Info_UPackage__Script_NarrativeInventory, CONSTRUCT_RELOAD_VERSION_INFO(FPackageReloadVersionInfo, 0xF03B3012, 0xC42FA0A1));
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

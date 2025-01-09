@@ -6,7 +6,7 @@
 #include "KismetCompiler.h"
 #include "BlueprintActionMenuBuilder.h"
 #include "Tales/NarrativeFunctionLibrary.h"
-#include "Tales/NarrativeComponent.h"
+#include "Tales/TalesComponent.h"
 #include "Tales/NarrativeDataTask.h"
 #include "BlueprintActionDatabaseRegistrar.h"
 #include "BlueprintNodeSpawner.h"
@@ -38,7 +38,7 @@ void UK2Node_CompleteNarrativeTask::AllocateDefaultPins()
 	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_Exec, UEdGraphSchema_K2::PN_Execute);
 	CreatePin(EGPD_Output, UEdGraphSchema_K2::PC_Exec, UEdGraphSchema_K2::PN_Then);
 
-	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_Object, UNarrativeComponent::StaticClass(), NarrativePinNames::TargetPinName);
+	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_Object, UTalesComponent::StaticClass(), NarrativePinNames::TargetPinName);
 	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_Object, UNarrativeDataTask::StaticClass(), NarrativePinNames::EventPinName);
 	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_String, NarrativePinNames::ArgumentPinName);
 	CreatePin(EGPD_Input, UEdGraphSchema_K2::PC_Int, NarrativePinNames::QuantityPinName);

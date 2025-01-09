@@ -22,30 +22,7 @@ FText UTreePerk::GetPerkDescription_Implementation()
 	return PerkDescription;
 }
 
-class UTreeSkill* UTreePerk::GetOwningSkill() const
-{
-	//Simply work our way up the outer chain until we find the owning skill
-	UObject* Outer = GetOuter();
-
-	while (Outer)
-	{
-		if (UTreeSkill* Skill = Cast<UTreeSkill>(Outer))
-		{
-			return Skill;
-		}
-
-		Outer = Outer->GetOuter();
-	}
-
-	return nullptr; 
-}
-
 class USkillTreeComponent* UTreePerk::GetOwningComponent() const
 {
-	if (UTreeSkill* SkillOwner = GetOwningSkill())
-	{
-		return Cast<USkillTreeComponent>(SkillOwner->GetOuter());
-	}
-
-	return nullptr; 
+	return Cast<USkillTreeComponent>(GetOuter());
 }

@@ -4,7 +4,7 @@
 #include "Tales/NarrativeCondition.h"
 
 
-bool UNarrativeCondition::CheckCondition_Implementation(APawn* Pawn, APlayerController* Controller, class UNarrativeComponent* NarrativeComponent)
+bool UNarrativeCondition::CheckCondition_Implementation(APawn* Pawn, APlayerController* Controller, class UTalesComponent* NarrativeComponent)
 {
 	return true;
 }

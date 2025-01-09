@@ -25,9 +25,11 @@ public:
 	class UAbilitySystemComponent* GetAbilitySystemComponent() const override;
 	class UNarrativeAttributeSetBase* GetAttributeSetBase() const;
 
-	void SetGenericTeamId(const FGenericTeamId& TeamID) override;
-	FGenericTeamId GetGenericTeamId() const override;
-	ETeamAttitude::Type GetTeamAttitudeTowards(const AActor& Other) const override;
+	//void SetGenericTeamId(const FGenericTeamId& TeamID) override;
+	//FGenericTeamId GetGenericTeamId() const override;
+	virtual FGameplayTagContainer GetFactions() const override;
+	virtual void AddFaction(const FGameplayTag& Faction) override;
+	virtual void RemoveFaction(const FGameplayTag& Faction) override;
 
 	UFUNCTION(BlueprintCallable, Category = "Narrative")
 	bool IsAlive() const;
@@ -47,13 +49,13 @@ protected:
 	FGameplayTag EffectRemoveOnDeathTag;
 
 	//Our affiliation 
-	UPROPERTY(EditDefaultsOnly, ReplicatedUsing=OnRep_Faction, Category = "Factions")
-	TObjectPtr<class UFactionDefinition> Faction;
+	UPROPERTY(EditDefaultsOnly, SaveGame, ReplicatedUsing=OnRep_Faction, Category = "Factions")
+	FGameplayTagContainer Factions;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Narrative|Components")
 	TObjectPtr<class UNarrativeAbilitySystemComponent> AbilitySystemComponent;
 
-	UPROPERTY()
+	UPROPERTY(Transient)
 	TObjectPtr<class UNarrativeAttributeSetBase> AttributeSetBase;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere, Category = "Narrative|Components")
@@ -72,7 +74,7 @@ public:
 	FORCEINLINE class USkillTreeComponent* GetSkillTreeComponent() const {return SkillTreeComponent;};
 
 	UFUNCTION(BlueprintCallable, Category = "Factions")
-	virtual void SetFaction(UFactionDefinition* NewFaction);
+	virtual void SetFactions(UPARAM(meta = (Categories="Narrative.Factions"))const FGameplayTagContainer& NewFactions);
 
 protected:
 

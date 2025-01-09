@@ -14,7 +14,7 @@ void UNavigationSubsystem::OnWorldBeginPlay(UWorld& InWorld)
 {
 	Super::OnWorldBeginPlay(InWorld);
 
-	//Any actors with a POI nav marker should be auto-cached 
+	//Any actors with a POI nav marker should be auto-cached - todo use interface to find all actors that want to be POIs
 	for (FActorIterator It(GetWorld()); It; ++It)
 	{
 		AActor* Actor = *It;
@@ -102,4 +102,41 @@ bool UNavigationSubsystem::GetPointOfInterest(FPointOfInterestLocation& OutPoint
 	}
 
 	return false; 
+}
+
+bool UNavigationSubsystem::GetNearestPOIToPoint(FPointOfInterestLocation& OutPointOfInterest, const FVector& TestLocation)
+{
+	if (PointsOfInterest.Num() <= 0)
+	{
+		return false; 
+	}
+	
+	FPointOfInterestLocation BestPOI;
+	float BestDistance = -1.f;
+
+	for (auto& POIKVP : PointsOfInterest)
+	{
+		FPointOfInterestLocation& POI = POIKVP.Value;
+
+		const float Dist = FVector::Dist2D(POI.GetPOILocation(), TestLocation);
+
+		if (Dist < BestDistance || BestDistance == -1.f)
+		{
+			BestPOI = POI;
+			BestDistance = Dist;
+		}
+	}
+
+	OutPointOfInterest = BestPOI;
+	return BestDistance != -1.f;
+}
+
+FVector FPointOfInterestLocation::GetPOILocation() const
+{
+	if (POIActor.IsValid())
+	{
+		return POIActor->GetActorLocation();
+	}
+
+	return POILocation;
 }

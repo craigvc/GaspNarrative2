@@ -115,6 +115,34 @@ UScriptStruct* Z_Construct_UScriptStruct_FInputActionBindingHandle()
 }
 // End ScriptStruct FInputActionBindingHandle
 
+// Begin Class UNarrativeActivatableWidget Function RegisterActions
+static const FName NAME_UNarrativeActivatableWidget_RegisterActions = FName(TEXT("RegisterActions"));
+void UNarrativeActivatableWidget::RegisterActions()
+{
+	UFunction* Func = FindFunctionChecked(NAME_UNarrativeActivatableWidget_RegisterActions);
+	ProcessEvent(Func,NULL);
+}
+struct Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/NarrativeActivatableWidget.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeActivatableWidget, nullptr, "RegisterActions", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x08080800, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+// End Class UNarrativeActivatableWidget Function RegisterActions
+
 // Begin Class UNarrativeActivatableWidget Function RegisterBinding
 struct Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterBinding_Statics
 {
@@ -336,9 +364,31 @@ struct Z_Construct_UClass_UNarrativeActivatableWidget_Statics
 		{ "IncludePath", "NarrativeActivatableWidget.h" },
 		{ "ModuleRelativePath", "Public/NarrativeActivatableWidget.h" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bUseGameInput_MetaData[] = {
+		{ "Category", "Narrative Activatable Widget" },
+		{ "ModuleRelativePath", "Public/NarrativeActivatableWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bDeactivateOnBack_MetaData[] = {
+		{ "Category", "Narrative Activatable Widget" },
+		{ "ModuleRelativePath", "Public/NarrativeActivatableWidget.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bFocusDesiredTargetOnActivate_MetaData[] = {
+		{ "Category", "Narrative Activatable Widget" },
+		{ "Comment", "//If true we'll automatically focus GetDesiredFocusTarget() when widget activates\n" },
+		{ "ModuleRelativePath", "Public/NarrativeActivatableWidget.h" },
+		{ "ToolTip", "If true we'll automatically focus GetDesiredFocusTarget() when widget activates" },
+	};
 #endif // WITH_METADATA
+	static void NewProp_bUseGameInput_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bUseGameInput;
+	static void NewProp_bDeactivateOnBack_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bDeactivateOnBack;
+	static void NewProp_bFocusDesiredTargetOnActivate_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bFocusDesiredTargetOnActivate;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterActions, "RegisterActions" }, // 1271419264
 		{ &Z_Construct_UFunction_UNarrativeActivatableWidget_RegisterBinding, "RegisterBinding" }, // 447237085
 		{ &Z_Construct_UFunction_UNarrativeActivatableWidget_SetBindingDisplayName, "SetBindingDisplayName" }, // 1764803238
 		{ &Z_Construct_UFunction_UNarrativeActivatableWidget_UnregisterAllBindings, "UnregisterAllBindings" }, // 2761119814
@@ -350,6 +400,27 @@ struct Z_Construct_UClass_UNarrativeActivatableWidget_Statics
 	};
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
+void Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bUseGameInput_SetBit(void* Obj)
+{
+	((UNarrativeActivatableWidget*)Obj)->bUseGameInput = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bUseGameInput = { "bUseGameInput", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeActivatableWidget), &Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bUseGameInput_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bUseGameInput_MetaData), NewProp_bUseGameInput_MetaData) };
+void Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bDeactivateOnBack_SetBit(void* Obj)
+{
+	((UNarrativeActivatableWidget*)Obj)->bDeactivateOnBack = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bDeactivateOnBack = { "bDeactivateOnBack", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeActivatableWidget), &Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bDeactivateOnBack_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bDeactivateOnBack_MetaData), NewProp_bDeactivateOnBack_MetaData) };
+void Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bFocusDesiredTargetOnActivate_SetBit(void* Obj)
+{
+	((UNarrativeActivatableWidget*)Obj)->bFocusDesiredTargetOnActivate = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bFocusDesiredTargetOnActivate = { "bFocusDesiredTargetOnActivate", nullptr, (EPropertyFlags)0x0020080000010001, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeActivatableWidget), &Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bFocusDesiredTargetOnActivate_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bFocusDesiredTargetOnActivate_MetaData), NewProp_bFocusDesiredTargetOnActivate_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeActivatableWidget_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bUseGameInput,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bDeactivateOnBack,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeActivatableWidget_Statics::NewProp_bFocusDesiredTargetOnActivate,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeActivatableWidget_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UNarrativeActivatableWidget_Statics::DependentSingletons[])() = {
 	(UObject* (*)())Z_Construct_UClass_UCommonActivatableWidget,
 	(UObject* (*)())Z_Construct_UPackage__Script_NarrativeCommonUI,
@@ -361,11 +432,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_UNarrativeActivatableWi
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
 	FuncInfo,
-	nullptr,
+	Z_Construct_UClass_UNarrativeActivatableWidget_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
 	UE_ARRAY_COUNT(FuncInfo),
-	0,
+	UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeActivatableWidget_Statics::PropPointers),
 	0,
 	0x00B010A0u,
 	METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeActivatableWidget_Statics::Class_MetaDataParams), Z_Construct_UClass_UNarrativeActivatableWidget_Statics::Class_MetaDataParams)
@@ -382,24 +453,23 @@ template<> NARRATIVECOMMONUI_API UClass* StaticClass<UNarrativeActivatableWidget
 {
 	return UNarrativeActivatableWidget::StaticClass();
 }
-UNarrativeActivatableWidget::UNarrativeActivatableWidget(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer) {}
 DEFINE_VTABLE_PTR_HELPER_CTOR(UNarrativeActivatableWidget);
 UNarrativeActivatableWidget::~UNarrativeActivatableWidget() {}
 // End Class UNarrativeActivatableWidget
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics
 {
 	static constexpr FStructRegisterCompiledInInfo ScriptStructInfo[] = {
 		{ FInputActionBindingHandle::StaticStruct, Z_Construct_UScriptStruct_FInputActionBindingHandle_Statics::NewStructOps, TEXT("InputActionBindingHandle"), &Z_Registration_Info_UScriptStruct_InputActionBindingHandle, CONSTRUCT_RELOAD_VERSION_INFO(FStructReloadVersionInfo, sizeof(FInputActionBindingHandle), 4144393550U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeActivatableWidget, UNarrativeActivatableWidget::StaticClass, TEXT("UNarrativeActivatableWidget"), &Z_Registration_Info_UClass_UNarrativeActivatableWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeActivatableWidget), 667348496U) },
+		{ Z_Construct_UClass_UNarrativeActivatableWidget, UNarrativeActivatableWidget::StaticClass, TEXT("UNarrativeActivatableWidget"), &Z_Registration_Info_UClass_UNarrativeActivatableWidget, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeActivatableWidget), 227274200U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_3976446958(TEXT("/Script/NarrativeCommonUI"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ClassInfo),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ScriptStructInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_2219813094(TEXT("/Script/NarrativeCommonUI"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ClassInfo),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ScriptStructInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeCommonUI_Public_NarrativeActivatableWidget_h_Statics::ScriptStructInfo),
 	nullptr, 0);
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

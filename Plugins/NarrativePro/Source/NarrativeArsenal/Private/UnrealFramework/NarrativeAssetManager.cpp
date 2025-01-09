@@ -32,7 +32,6 @@ void UNarrativeAssetManager::InitializeGAS()
 {
 	UAbilitySystemGlobals::Get().InitGlobalData();
 
-	//Initialize our tag manager 
-	FNarrativeGameplayTags::InitializeNativeTags();
+	//Initialize our tag manager - we now do this in the module
 	
 }

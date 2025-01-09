@@ -284,11 +284,16 @@ struct Z_Construct_UClass_UNarrativeGameplayAbility_Statics
 		{ "ModuleRelativePath", "Public/GAS/NarrativeGameplayAbility.h" },
 		{ "ToolTip", "Tells an ability to activate immediately when its granted" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_CharacterOwner_MetaData[] = {
+		{ "Category", "Narrative Ability" },
+		{ "ModuleRelativePath", "Public/GAS/NarrativeGameplayAbility.h" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FBytePropertyParams NewProp_InputID_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_InputID;
 	static void NewProp_bActivateAbilityOnGranted_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bActivateAbilityOnGranted;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_CharacterOwner;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
@@ -305,16 +310,18 @@ struct Z_Construct_UClass_UNarrativeGameplayAbility_Statics
 	static const UECodeGen_Private::FClassParams ClassParams;
 };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_InputID_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_InputID = { "InputID", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeGameplayAbility, InputID), Z_Construct_UEnum_NarrativeArsenal_ENarrativeAbilityInputID, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InputID_MetaData), NewProp_InputID_MetaData) }; // 2226385575
+const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_InputID = { "InputID", nullptr, (EPropertyFlags)0x0010000000000015, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeGameplayAbility, InputID), Z_Construct_UEnum_NarrativeArsenal_ENarrativeAbilityInputID, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_InputID_MetaData), NewProp_InputID_MetaData) }; // 818456468
 void Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_bActivateAbilityOnGranted_SetBit(void* Obj)
 {
 	((UNarrativeGameplayAbility*)Obj)->bActivateAbilityOnGranted = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_bActivateAbilityOnGranted = { "bActivateAbilityOnGranted", nullptr, (EPropertyFlags)0x0010000000000005, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeGameplayAbility), &Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_bActivateAbilityOnGranted_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bActivateAbilityOnGranted_MetaData), NewProp_bActivateAbilityOnGranted_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_CharacterOwner = { "CharacterOwner", nullptr, (EPropertyFlags)0x0114000000000014, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeGameplayAbility, CharacterOwner), Z_Construct_UClass_ANarrativeCharacter_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_CharacterOwner_MetaData), NewProp_CharacterOwner_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeGameplayAbility_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_InputID_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_InputID,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_bActivateAbilityOnGranted,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameplayAbility_Statics::NewProp_CharacterOwner,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeGameplayAbility_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UNarrativeGameplayAbility_Statics::DependentSingletons[])() = {
@@ -354,14 +361,14 @@ UNarrativeGameplayAbility::~UNarrativeGameplayAbility() {}
 // End Class UNarrativeGameplayAbility
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeGameplayAbility, UNarrativeGameplayAbility::StaticClass, TEXT("UNarrativeGameplayAbility"), &Z_Registration_Info_UClass_UNarrativeGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeGameplayAbility), 4040638496U) },
+		{ Z_Construct_UClass_UNarrativeGameplayAbility, UNarrativeGameplayAbility::StaticClass, TEXT("UNarrativeGameplayAbility"), &Z_Registration_Info_UClass_UNarrativeGameplayAbility, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeGameplayAbility), 3104542454U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_912504994(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_3144673698(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_GAS_NarrativeGameplayAbility_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

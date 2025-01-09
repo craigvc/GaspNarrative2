@@ -13,10 +13,10 @@ void EmptyLinkFunctionForGeneratedCodeNarrativeFunctionLibrary() {}
 COREUOBJECT_API UClass* Z_Construct_UClass_UObject_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_AActor_NoRegister();
 ENGINE_API UClass* Z_Construct_UClass_UBlueprintFunctionLibrary();
-NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeComponent_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeDataTask_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeFunctionLibrary();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeFunctionLibrary_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UTalesComponent_NoRegister();
 UPackage* Z_Construct_UPackage__Script_NarrativeArsenal();
 // End Cross Module References
 
@@ -25,7 +25,7 @@ struct Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDat
 {
 	struct NarrativeFunctionLibrary_eventCompleteLooseNarrativeDataTask_Parms
 	{
-		UNarrativeComponent* Target;
+		UTalesComponent* Target;
 		FString Argument;
 		int32 Quantity;
 		bool ReturnValue;
@@ -57,7 +57,7 @@ struct Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDat
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteLooseNarrativeDataTask_Parms, Target), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Target_MetaData), NewProp_Target_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteLooseNarrativeDataTask_Parms, Target), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Target_MetaData), NewProp_Target_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask_Statics::NewProp_Argument = { "Argument", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteLooseNarrativeDataTask_Parms, Argument), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Argument_MetaData), NewProp_Argument_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask_Statics::NewProp_Quantity = { "Quantity", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteLooseNarrativeDataTask_Parms, Quantity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Quantity_MetaData), NewProp_Quantity_MetaData) };
 void Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask_Statics::NewProp_ReturnValue_SetBit(void* Obj)
@@ -85,7 +85,7 @@ UFunction* Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativ
 }
 DEFINE_FUNCTION(UNarrativeFunctionLibrary::execCompleteLooseNarrativeDataTask)
 {
-	P_GET_OBJECT(UNarrativeComponent,Z_Param_Target);
+	P_GET_OBJECT(UTalesComponent,Z_Param_Target);
 	P_GET_PROPERTY(FStrProperty,Z_Param_Argument);
 	P_GET_PROPERTY(FIntProperty,Z_Param_Quantity);
 	P_FINISH;
@@ -100,7 +100,7 @@ struct Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask
 {
 	struct NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms
 	{
-		UNarrativeComponent* Target;
+		UTalesComponent* Target;
 		const UNarrativeDataTask* Task;
 		FString Argument;
 		int32 Quantity;
@@ -138,7 +138,7 @@ struct Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms, Target), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Target_MetaData), NewProp_Target_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000080080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms, Target), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Target_MetaData), NewProp_Target_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask_Statics::NewProp_Task = { "Task", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms, Task), Z_Construct_UClass_UNarrativeDataTask_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Task_MetaData), NewProp_Task_MetaData) };
 const UECodeGen_Private::FStrPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask_Statics::NewProp_Argument = { "Argument", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Str, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms, Argument), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Argument_MetaData), NewProp_Argument_MetaData) };
 const UECodeGen_Private::FIntPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask_Statics::NewProp_Quantity = { "Quantity", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Int, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventCompleteNarrativeDataTask_Parms, Quantity), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_Quantity_MetaData), NewProp_Quantity_MetaData) };
@@ -168,7 +168,7 @@ UFunction* Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeData
 }
 DEFINE_FUNCTION(UNarrativeFunctionLibrary::execCompleteNarrativeDataTask)
 {
-	P_GET_OBJECT(UNarrativeComponent,Z_Param_Target);
+	P_GET_OBJECT(UTalesComponent,Z_Param_Target);
 	P_GET_OBJECT(UNarrativeDataTask,Z_Param_Task);
 	P_GET_PROPERTY(FStrProperty,Z_Param_Argument);
 	P_GET_PROPERTY(FIntProperty,Z_Param_Quantity);
@@ -179,69 +179,13 @@ DEFINE_FUNCTION(UNarrativeFunctionLibrary::execCompleteNarrativeDataTask)
 }
 // End Class UNarrativeFunctionLibrary Function CompleteNarrativeDataTask
 
-// Begin Class UNarrativeFunctionLibrary Function GetNarrativeComponent
-struct Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics
-{
-	struct NarrativeFunctionLibrary_eventGetNarrativeComponent_Parms
-	{
-		const UObject* WorldContextObject;
-		UNarrativeComponent* ReturnValue;
-	};
-#if WITH_METADATA
-	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
-		{ "Category", "Narrative" },
-		{ "Comment", "/**\n\x09* Grab the narrative component from the local pawn or player controller, whichever it exists on. \n\x09* \n\x09* @return The narrative component.\n\x09*/" },
-		{ "ModuleRelativePath", "Public/Tales/NarrativeFunctionLibrary.h" },
-		{ "ToolTip", "Grab the narrative component from the local pawn or player controller, whichever it exists on.\n\n@return The narrative component." },
-		{ "WorldContext", "WorldContextObject" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WorldContextObject_MetaData[] = {
-		{ "NativeConst", "" },
-	};
-	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[] = {
-		{ "EditInline", "true" },
-	};
-#endif // WITH_METADATA
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_WorldContextObject;
-	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
-	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
-	static const UECodeGen_Private::FFunctionParams FuncParams;
-};
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NewProp_WorldContextObject = { "WorldContextObject", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetNarrativeComponent_Parms, WorldContextObject), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WorldContextObject_MetaData), NewProp_WorldContextObject_MetaData) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetNarrativeComponent_Parms, ReturnValue), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
-const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::PropPointers[] = {
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NewProp_WorldContextObject,
-	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NewProp_ReturnValue,
-};
-static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::PropPointers) < 2048);
-const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeFunctionLibrary, nullptr, "GetNarrativeComponent", nullptr, nullptr, Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NarrativeFunctionLibrary_eventGetNarrativeComponent_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::Function_MetaDataParams) };
-static_assert(sizeof(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::NarrativeFunctionLibrary_eventGetNarrativeComponent_Parms) < MAX_uint16);
-UFunction* Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent()
-{
-	static UFunction* ReturnFunction = nullptr;
-	if (!ReturnFunction)
-	{
-		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent_Statics::FuncParams);
-	}
-	return ReturnFunction;
-}
-DEFINE_FUNCTION(UNarrativeFunctionLibrary::execGetNarrativeComponent)
-{
-	P_GET_OBJECT(UObject,Z_Param_WorldContextObject);
-	P_FINISH;
-	P_NATIVE_BEGIN;
-	*(UNarrativeComponent**)Z_Param__Result=UNarrativeFunctionLibrary::GetNarrativeComponent(Z_Param_WorldContextObject);
-	P_NATIVE_END;
-}
-// End Class UNarrativeFunctionLibrary Function GetNarrativeComponent
-
 // Begin Class UNarrativeFunctionLibrary Function GetNarrativeComponentFromTarget
 struct Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics
 {
 	struct NarrativeFunctionLibrary_eventGetNarrativeComponentFromTarget_Parms
 	{
 		AActor* Target;
-		UNarrativeComponent* ReturnValue;
+		UTalesComponent* ReturnValue;
 	};
 #if WITH_METADATA
 	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
@@ -261,7 +205,7 @@ struct Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFrom
 	static const UECodeGen_Private::FFunctionParams FuncParams;
 };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::NewProp_Target = { "Target", nullptr, (EPropertyFlags)0x0010000000000080, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetNarrativeComponentFromTarget_Parms, Target), Z_Construct_UClass_AActor_NoRegister, METADATA_PARAMS(0, nullptr) };
-const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetNarrativeComponentFromTarget_Parms, ReturnValue), Z_Construct_UClass_UNarrativeComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetNarrativeComponentFromTarget_Parms, ReturnValue), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::NewProp_Target,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget_Statics::NewProp_ReturnValue,
@@ -283,10 +227,66 @@ DEFINE_FUNCTION(UNarrativeFunctionLibrary::execGetNarrativeComponentFromTarget)
 	P_GET_OBJECT(AActor,Z_Param_Target);
 	P_FINISH;
 	P_NATIVE_BEGIN;
-	*(UNarrativeComponent**)Z_Param__Result=UNarrativeFunctionLibrary::GetNarrativeComponentFromTarget(Z_Param_Target);
+	*(UTalesComponent**)Z_Param__Result=UNarrativeFunctionLibrary::GetNarrativeComponentFromTarget(Z_Param_Target);
 	P_NATIVE_END;
 }
 // End Class UNarrativeFunctionLibrary Function GetNarrativeComponentFromTarget
+
+// Begin Class UNarrativeFunctionLibrary Function GetTalesComponent
+struct Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics
+{
+	struct NarrativeFunctionLibrary_eventGetTalesComponent_Parms
+	{
+		const UObject* WorldContextObject;
+		UTalesComponent* ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Narrative" },
+		{ "Comment", "/**\n\x09* Grab the narrative component from the local pawn or player controller, whichever it exists on. \n\x09* \n\x09* @return The narrative component.\n\x09*/" },
+		{ "ModuleRelativePath", "Public/Tales/NarrativeFunctionLibrary.h" },
+		{ "ToolTip", "Grab the narrative component from the local pawn or player controller, whichever it exists on.\n\n@return The narrative component." },
+		{ "WorldContext", "WorldContextObject" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_WorldContextObject_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_ReturnValue_MetaData[] = {
+		{ "EditInline", "true" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_WorldContextObject;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NewProp_WorldContextObject = { "WorldContextObject", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetTalesComponent_Parms, WorldContextObject), Z_Construct_UClass_UObject_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_WorldContextObject_MetaData), NewProp_WorldContextObject_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000080588, UECodeGen_Private::EPropertyGenFlags::Object, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeFunctionLibrary_eventGetTalesComponent_Parms, ReturnValue), Z_Construct_UClass_UTalesComponent_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_ReturnValue_MetaData), NewProp_ReturnValue_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NewProp_WorldContextObject,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeFunctionLibrary, nullptr, "GetTalesComponent", nullptr, nullptr, Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NarrativeFunctionLibrary_eventGetTalesComponent_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14022401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::NarrativeFunctionLibrary_eventGetTalesComponent_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeFunctionLibrary::execGetTalesComponent)
+{
+	P_GET_OBJECT(UObject,Z_Param_WorldContextObject);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(UTalesComponent**)Z_Param__Result=UNarrativeFunctionLibrary::GetTalesComponent(Z_Param_WorldContextObject);
+	P_NATIVE_END;
+}
+// End Class UNarrativeFunctionLibrary Function GetTalesComponent
 
 // Begin Class UNarrativeFunctionLibrary Function GetTaskByName
 struct Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTaskByName_Statics
@@ -408,8 +408,8 @@ void UNarrativeFunctionLibrary::StaticRegisterNativesUNarrativeFunctionLibrary()
 	static const FNameNativePtrPair Funcs[] = {
 		{ "CompleteLooseNarrativeDataTask", &UNarrativeFunctionLibrary::execCompleteLooseNarrativeDataTask },
 		{ "CompleteNarrativeDataTask", &UNarrativeFunctionLibrary::execCompleteNarrativeDataTask },
-		{ "GetNarrativeComponent", &UNarrativeFunctionLibrary::execGetNarrativeComponent },
 		{ "GetNarrativeComponentFromTarget", &UNarrativeFunctionLibrary::execGetNarrativeComponentFromTarget },
+		{ "GetTalesComponent", &UNarrativeFunctionLibrary::execGetTalesComponent },
 		{ "GetTaskByName", &UNarrativeFunctionLibrary::execGetTaskByName },
 		{ "MakeDisplayString", &UNarrativeFunctionLibrary::execMakeDisplayString },
 	};
@@ -432,10 +432,10 @@ struct Z_Construct_UClass_UNarrativeFunctionLibrary_Statics
 #endif // WITH_METADATA
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
-		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask, "CompleteLooseNarrativeDataTask" }, // 2135849645
-		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask, "CompleteNarrativeDataTask" }, // 1146367917
-		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponent, "GetNarrativeComponent" }, // 2545586582
-		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget, "GetNarrativeComponentFromTarget" }, // 3527724052
+		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteLooseNarrativeDataTask, "CompleteLooseNarrativeDataTask" }, // 4051869218
+		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_CompleteNarrativeDataTask, "CompleteNarrativeDataTask" }, // 4137418037
+		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_GetNarrativeComponentFromTarget, "GetNarrativeComponentFromTarget" }, // 422107062
+		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTalesComponent, "GetTalesComponent" }, // 3357579402
 		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_GetTaskByName, "GetTaskByName" }, // 2398938004
 		{ &Z_Construct_UFunction_UNarrativeFunctionLibrary_MakeDisplayString, "MakeDisplayString" }, // 381546721
 	};
@@ -483,14 +483,14 @@ UNarrativeFunctionLibrary::~UNarrativeFunctionLibrary() {}
 // End Class UNarrativeFunctionLibrary
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeFunctionLibrary, UNarrativeFunctionLibrary::StaticClass, TEXT("UNarrativeFunctionLibrary"), &Z_Registration_Info_UClass_UNarrativeFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeFunctionLibrary), 1064720527U) },
+		{ Z_Construct_UClass_UNarrativeFunctionLibrary, UNarrativeFunctionLibrary::StaticClass, TEXT("UNarrativeFunctionLibrary"), &Z_Registration_Info_UClass_UNarrativeFunctionLibrary, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeFunctionLibrary), 1410111460U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_4014228003(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_2146444325(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_Tales_NarrativeFunctionLibrary_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

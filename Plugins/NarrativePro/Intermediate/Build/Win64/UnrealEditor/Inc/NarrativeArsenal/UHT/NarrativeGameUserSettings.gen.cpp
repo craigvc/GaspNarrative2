@@ -115,6 +115,48 @@ DEFINE_FUNCTION(UNarrativeGameUserSettings::execGetDialogueAudioVolume)
 }
 // End Class UNarrativeGameUserSettings Function GetDialogueAudioVolume
 
+// Begin Class UNarrativeGameUserSettings Function GetFieldOfView
+struct Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics
+{
+	struct NarrativeGameUserSettings_eventGetFieldOfView_Parms
+	{
+		float ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settings" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeGameUserSettings_eventGetFieldOfView_Parms, ReturnValue), METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeGameUserSettings, nullptr, "GetFieldOfView", nullptr, nullptr, Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::NarrativeGameUserSettings_eventGetFieldOfView_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x14020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::NarrativeGameUserSettings_eventGetFieldOfView_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeGameUserSettings::execGetFieldOfView)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(float*)Z_Param__Result=P_THIS->GetFieldOfView();
+	P_NATIVE_END;
+}
+// End Class UNarrativeGameUserSettings Function GetFieldOfView
+
 // Begin Class UNarrativeGameUserSettings Function GetGameplayDifficulty
 struct Z_Construct_UFunction_UNarrativeGameUserSettings_GetGameplayDifficulty_Statics
 {
@@ -328,6 +370,53 @@ DEFINE_FUNCTION(UNarrativeGameUserSettings::execGetUIAudioVolume)
 }
 // End Class UNarrativeGameUserSettings Function GetUIAudioVolume
 
+// Begin Class UNarrativeGameUserSettings Function InventoryWantsTile
+struct Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics
+{
+	struct NarrativeGameUserSettings_eventInventoryWantsTile_Parms
+	{
+		bool ReturnValue;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settings" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_ReturnValue_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_ReturnValue;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NewProp_ReturnValue_SetBit(void* Obj)
+{
+	((NarrativeGameUserSettings_eventInventoryWantsTile_Parms*)Obj)->ReturnValue = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NewProp_ReturnValue = { "ReturnValue", nullptr, (EPropertyFlags)0x0010000000000580, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(NarrativeGameUserSettings_eventInventoryWantsTile_Parms), &Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NewProp_ReturnValue_SetBit, METADATA_PARAMS(0, nullptr) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NewProp_ReturnValue,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeGameUserSettings, nullptr, "InventoryWantsTile", nullptr, nullptr, Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NarrativeGameUserSettings_eventInventoryWantsTile_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::NarrativeGameUserSettings_eventInventoryWantsTile_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeGameUserSettings::execInventoryWantsTile)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	*(bool*)Z_Param__Result=P_THIS->InventoryWantsTile();
+	P_NATIVE_END;
+}
+// End Class UNarrativeGameUserSettings Function InventoryWantsTile
+
 // Begin Class UNarrativeGameUserSettings Function SetDialogueAudioVolume
 struct Z_Construct_UFunction_UNarrativeGameUserSettings_SetDialogueAudioVolume_Statics
 {
@@ -373,6 +462,52 @@ DEFINE_FUNCTION(UNarrativeGameUserSettings::execSetDialogueAudioVolume)
 	P_NATIVE_END;
 }
 // End Class UNarrativeGameUserSettings Function SetDialogueAudioVolume
+
+// Begin Class UNarrativeGameUserSettings Function SetFieldOfView
+struct Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics
+{
+	struct NarrativeGameUserSettings_eventSetFieldOfView_Parms
+	{
+		float NewFieldOfView;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settings" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_NewFieldOfView_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_NewFieldOfView;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::NewProp_NewFieldOfView = { "NewFieldOfView", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(NarrativeGameUserSettings_eventSetFieldOfView_Parms, NewFieldOfView), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_NewFieldOfView_MetaData), NewProp_NewFieldOfView_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::NewProp_NewFieldOfView,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeGameUserSettings, nullptr, "SetFieldOfView", nullptr, nullptr, Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::NarrativeGameUserSettings_eventSetFieldOfView_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::NarrativeGameUserSettings_eventSetFieldOfView_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeGameUserSettings::execSetFieldOfView)
+{
+	P_GET_PROPERTY(FFloatProperty,Z_Param_NewFieldOfView);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetFieldOfView(Z_Param_NewFieldOfView);
+	P_NATIVE_END;
+}
+// End Class UNarrativeGameUserSettings Function SetFieldOfView
 
 // Begin Class UNarrativeGameUserSettings Function SetGameplayDifficulty
 struct Z_Construct_UFunction_UNarrativeGameUserSettings_SetGameplayDifficulty_Statics
@@ -424,6 +559,59 @@ DEFINE_FUNCTION(UNarrativeGameUserSettings::execSetGameplayDifficulty)
 	P_NATIVE_END;
 }
 // End Class UNarrativeGameUserSettings Function SetGameplayDifficulty
+
+// Begin Class UNarrativeGameUserSettings Function SetInventoryWantsTile
+struct Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics
+{
+	struct NarrativeGameUserSettings_eventSetInventoryWantsTile_Parms
+	{
+		bool bNewInventoryWantsTile;
+	};
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "Category", "Settings" },
+		{ "Comment", "//Set whether or not inventory menu is set to tile. \n" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+		{ "ToolTip", "Set whether or not inventory menu is set to tile." },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bNewInventoryWantsTile_MetaData[] = {
+		{ "NativeConst", "" },
+	};
+#endif // WITH_METADATA
+	static void NewProp_bNewInventoryWantsTile_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bNewInventoryWantsTile;
+	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+void Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NewProp_bNewInventoryWantsTile_SetBit(void* Obj)
+{
+	((NarrativeGameUserSettings_eventSetInventoryWantsTile_Parms*)Obj)->bNewInventoryWantsTile = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NewProp_bNewInventoryWantsTile = { "bNewInventoryWantsTile", nullptr, (EPropertyFlags)0x0010000000000082, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(NarrativeGameUserSettings_eventSetInventoryWantsTile_Parms), &Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NewProp_bNewInventoryWantsTile_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bNewInventoryWantsTile_MetaData), NewProp_bNewInventoryWantsTile_MetaData) };
+const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::PropPointers[] = {
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NewProp_bNewInventoryWantsTile,
+};
+static_assert(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::PropPointers) < 2048);
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_UNarrativeGameUserSettings, nullptr, "SetInventoryWantsTile", nullptr, nullptr, Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::PropPointers, UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::PropPointers), sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NarrativeGameUserSettings_eventSetInventoryWantsTile_Parms), RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x04020401, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::Function_MetaDataParams), Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::Function_MetaDataParams) };
+static_assert(sizeof(Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::NarrativeGameUserSettings_eventSetInventoryWantsTile_Parms) < MAX_uint16);
+UFunction* Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(UNarrativeGameUserSettings::execSetInventoryWantsTile)
+{
+	P_GET_UBOOL(Z_Param_bNewInventoryWantsTile);
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->SetInventoryWantsTile(Z_Param_bNewInventoryWantsTile);
+	P_NATIVE_END;
+}
+// End Class UNarrativeGameUserSettings Function SetInventoryWantsTile
 
 // Begin Class UNarrativeGameUserSettings Function SetMusicAudioVolume
 struct Z_Construct_UFunction_UNarrativeGameUserSettings_SetMusicAudioVolume_Statics
@@ -715,13 +903,17 @@ void UNarrativeGameUserSettings::StaticRegisterNativesUNarrativeGameUserSettings
 	UClass* Class = UNarrativeGameUserSettings::StaticClass();
 	static const FNameNativePtrPair Funcs[] = {
 		{ "GetDialogueAudioVolume", &UNarrativeGameUserSettings::execGetDialogueAudioVolume },
+		{ "GetFieldOfView", &UNarrativeGameUserSettings::execGetFieldOfView },
 		{ "GetGameplayDifficulty", &UNarrativeGameUserSettings::execGetGameplayDifficulty },
 		{ "GetMusicAudioVolume", &UNarrativeGameUserSettings::execGetMusicAudioVolume },
 		{ "GetOverallAudioVolume", &UNarrativeGameUserSettings::execGetOverallAudioVolume },
 		{ "GetSFXAudioVolume", &UNarrativeGameUserSettings::execGetSFXAudioVolume },
 		{ "GetUIAudioVolume", &UNarrativeGameUserSettings::execGetUIAudioVolume },
+		{ "InventoryWantsTile", &UNarrativeGameUserSettings::execInventoryWantsTile },
 		{ "SetDialogueAudioVolume", &UNarrativeGameUserSettings::execSetDialogueAudioVolume },
+		{ "SetFieldOfView", &UNarrativeGameUserSettings::execSetFieldOfView },
 		{ "SetGameplayDifficulty", &UNarrativeGameUserSettings::execSetGameplayDifficulty },
+		{ "SetInventoryWantsTile", &UNarrativeGameUserSettings::execSetInventoryWantsTile },
 		{ "SetMusicAudioVolume", &UNarrativeGameUserSettings::execSetMusicAudioVolume },
 		{ "SetOverallAudioVolume", &UNarrativeGameUserSettings::execSetOverallAudioVolume },
 		{ "SetSFXAudioVolume", &UNarrativeGameUserSettings::execSetSFXAudioVolume },
@@ -766,10 +958,20 @@ struct Z_Construct_UClass_UNarrativeGameUserSettings_Statics
 		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
 		{ "ToolTip", "If true, crouch button toggles crouch, otherwise it needs to be held for as long as you require the crouch." },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_bInventoryWantsTile_MetaData[] = {
+		{ "Comment", "///** Whether the inventory menu wants to display using grid or tile mode */\n" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+		{ "ToolTip", "Whether the inventory menu wants to display using grid or tile mode" },
+	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_GameplayDifficulty_MetaData[] = {
 		{ "Comment", "//The gameplay difficulty, can be read from the user settings by any gameplay elements that need it. \n" },
 		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
 		{ "ToolTip", "The gameplay difficulty, can be read from the user settings by any gameplay elements that need it." },
+	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_FieldOfView_MetaData[] = {
+		{ "Comment", "///** The FOV the default camera mode will use. */\n" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativeGameUserSettings.h" },
+		{ "ToolTip", "The FOV the default camera mode will use." },
 	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_OverallAudioVolume;
@@ -779,19 +981,26 @@ struct Z_Construct_UClass_UNarrativeGameUserSettings_Statics
 	static const UECodeGen_Private::FFloatPropertyParams NewProp_MusicAudioVolume;
 	static void NewProp_bCrouchToggles_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bCrouchToggles;
+	static void NewProp_bInventoryWantsTile_SetBit(void* Obj);
+	static const UECodeGen_Private::FBoolPropertyParams NewProp_bInventoryWantsTile;
 	static const UECodeGen_Private::FBytePropertyParams NewProp_GameplayDifficulty_Underlying;
 	static const UECodeGen_Private::FEnumPropertyParams NewProp_GameplayDifficulty;
+	static const UECodeGen_Private::FFloatPropertyParams NewProp_FieldOfView;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetDialogueAudioVolume, "GetDialogueAudioVolume" }, // 704720594
+		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetFieldOfView, "GetFieldOfView" }, // 2942690131
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetGameplayDifficulty, "GetGameplayDifficulty" }, // 138702011
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetMusicAudioVolume, "GetMusicAudioVolume" }, // 3479935305
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetOverallAudioVolume, "GetOverallAudioVolume" }, // 4086502452
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetSFXAudioVolume, "GetSFXAudioVolume" }, // 3088093670
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_GetUIAudioVolume, "GetUIAudioVolume" }, // 1505039752
+		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_InventoryWantsTile, "InventoryWantsTile" }, // 3375182192
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetDialogueAudioVolume, "SetDialogueAudioVolume" }, // 2791284053
+		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetFieldOfView, "SetFieldOfView" }, // 1200646881
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetGameplayDifficulty, "SetGameplayDifficulty" }, // 3259126872
+		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetInventoryWantsTile, "SetInventoryWantsTile" }, // 3133748740
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetMusicAudioVolume, "SetMusicAudioVolume" }, // 272028704
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetOverallAudioVolume, "SetOverallAudioVolume" }, // 492860267
 		{ &Z_Construct_UFunction_UNarrativeGameUserSettings_SetSFXAudioVolume, "SetSFXAudioVolume" }, // 171716484
@@ -815,8 +1024,14 @@ void Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bCrouchToggl
 	((UNarrativeGameUserSettings*)Obj)->bCrouchToggles = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bCrouchToggles = { "bCrouchToggles", nullptr, (EPropertyFlags)0x0020080000004000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeGameUserSettings), &Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bCrouchToggles_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bCrouchToggles_MetaData), NewProp_bCrouchToggles_MetaData) };
+void Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bInventoryWantsTile_SetBit(void* Obj)
+{
+	((UNarrativeGameUserSettings*)Obj)->bInventoryWantsTile = 1;
+}
+const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bInventoryWantsTile = { "bInventoryWantsTile", nullptr, (EPropertyFlags)0x0020080000004000, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(UNarrativeGameUserSettings), &Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bInventoryWantsTile_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bInventoryWantsTile_MetaData), NewProp_bInventoryWantsTile_MetaData) };
 const UECodeGen_Private::FBytePropertyParams Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_GameplayDifficulty_Underlying = { "UnderlyingType", nullptr, (EPropertyFlags)0x0000000000000000, UECodeGen_Private::EPropertyGenFlags::Byte, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, 0, nullptr, METADATA_PARAMS(0, nullptr) };
 const UECodeGen_Private::FEnumPropertyParams Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_GameplayDifficulty = { "GameplayDifficulty", nullptr, (EPropertyFlags)0x0020080000004000, UECodeGen_Private::EPropertyGenFlags::Enum, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeGameUserSettings, GameplayDifficulty), Z_Construct_UEnum_NarrativeArsenal_ENarrativeGameplayDifficulty, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_GameplayDifficulty_MetaData), NewProp_GameplayDifficulty_MetaData) }; // 4013433520
+const UECodeGen_Private::FFloatPropertyParams Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_FieldOfView = { "FieldOfView", nullptr, (EPropertyFlags)0x0020080000004000, UECodeGen_Private::EPropertyGenFlags::Float, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(UNarrativeGameUserSettings, FieldOfView), METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_FieldOfView_MetaData), NewProp_FieldOfView_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativeGameUserSettings_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_OverallAudioVolume,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_DialogueAudioVolume,
@@ -824,8 +1039,10 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_UNarrativ
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_SFXAudioVolume,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_MusicAudioVolume,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bCrouchToggles,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_bInventoryWantsTile,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_GameplayDifficulty_Underlying,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_GameplayDifficulty,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_UNarrativeGameUserSettings_Statics::NewProp_FieldOfView,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_UNarrativeGameUserSettings_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_UNarrativeGameUserSettings_Statics::DependentSingletons[])() = {
@@ -865,18 +1082,18 @@ UNarrativeGameUserSettings::~UNarrativeGameUserSettings() {}
 // End Class UNarrativeGameUserSettings
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics
 {
 	static constexpr FEnumRegisterCompiledInInfo EnumInfo[] = {
 		{ ENarrativeGameplayDifficulty_StaticEnum, TEXT("ENarrativeGameplayDifficulty"), &Z_Registration_Info_UEnum_ENarrativeGameplayDifficulty, CONSTRUCT_RELOAD_VERSION_INFO(FEnumReloadVersionInfo, 4013433520U) },
 	};
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_UNarrativeGameUserSettings, UNarrativeGameUserSettings::StaticClass, TEXT("UNarrativeGameUserSettings"), &Z_Registration_Info_UClass_UNarrativeGameUserSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeGameUserSettings), 2310934623U) },
+		{ Z_Construct_UClass_UNarrativeGameUserSettings, UNarrativeGameUserSettings::StaticClass, TEXT("UNarrativeGameUserSettings"), &Z_Registration_Info_UClass_UNarrativeGameUserSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(UNarrativeGameUserSettings), 3751405750U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_465350467(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_3696258210(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::ClassInfo),
 	nullptr, 0,
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::EnumInfo));
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::EnumInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativeGameUserSettings_h_Statics::EnumInfo));
 // End Registration
 PRAGMA_ENABLE_DEPRECATION_WARNINGS

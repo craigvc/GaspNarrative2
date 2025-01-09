@@ -7,9 +7,15 @@
 #include <LevelSequence.h>
 #include <MovieScene.h>
 #include "AI/NPCDefinition.h"
-#include "Sections/MovieScene3DTransformSection.h"
-#include <Tracks/MovieScene3DTransformTrack.h>
 #include <Components/LODSyncComponent.h>
+#include <UnrealEngine.h>
+#include "UnrealFramework/NarrativePlayerController.h"
+#include "Settings/NarrativeCombatDeveloperSettings.h"
+#include "NarrativeUIDeveloperSettings.h"
+#include "Settings/NarrativeTimeOfDaySettings.h"
+#include "UnrealFramework/NarrativeGameState.h"
+#include "UnrealFramework/NarrativeGameMode.h"
+#include "AI/Activities/NPCActivity.h"
 
 bool UArsenalStatics::IsSameTeam(const AActor* A, const AActor* B)
 {
@@ -20,7 +26,7 @@ bool UArsenalStatics::IsSameTeam(const AActor* A, const AActor* B)
 
 		if (ATeam && BTeam)
 		{
-			return ATeam->GetGenericTeamId() == BTeam->GetGenericTeamId();
+			return ATeam->GetFactions().HasAny(BTeam->GetFactions());
 		}
 	}
 
@@ -43,60 +49,38 @@ ETeamAttitude::Type UArsenalStatics::GetAttitude(const AActor* TestActor, const 
 	return ETeamAttitude::Neutral;
 }
 
-FTransform UArsenalStatics::GetNPCSequenceStartTransform(class ULevelSequence* Sequence, class UNPCDefinition* NPC)
+void UArsenalStatics::AddFactionsToActor(AActor* Actor, const FGameplayTagContainer& Factions)
 {
-	if (Sequence && NPC)
+	if (Actor)
 	{
-		UMovieScene* MovieScene = Sequence->GetMovieScene();
-
-		for (int i = 0; i < MovieScene->GetPossessableCount(); i++)
+		if (INarrativeTeamAgentInterface* ActorTeam = Cast<INarrativeTeamAgentInterface>(Actor))
 		{
-			FMovieScenePossessable& Possessable = MovieScene->GetPossessable(i);
-			
-			//TODO - this only worksm because Possessable.GetName() isn't editor only, but it will likely be in future - we need to find a more robust way to do this possibly with GUIDs. 
-			if (Possessable.GetName().Equals(NPC->NPCID.ToString(), ESearchCase::IgnoreCase))
-			{
-				//MovieScene->FindTrack is not working in packaged games 
-				if (const UMovieScene3DTransformTrack* TransformTrack = MovieScene->FindTrack<UMovieScene3DTransformTrack>(Possessable.GetGuid(), FName("Transform")))
-				{
-					const TArray<UMovieSceneSection*>& Sections = TransformTrack->GetAllSections();
+			TArray<FGameplayTag> FactionsTags;
+			Factions.GetGameplayTagArray(FactionsTags);
 
-					if (Sections.Num() > 0)
-					{
-						const UMovieSceneSection* Section0 = Sections[0];
-
-						const FMovieSceneChannelProxy& Proxy = Section0->GetChannelProxy();
-
-						//Find the float values in the transform 
-						auto Channels = Proxy.GetChannels<FMovieSceneDoubleChannel>();
-
-						int32 NumChannels = Channels.Num() - 1; 
-
-						TArray<double> TransformData;
-
-						for (int32 x = 0; x < NumChannels; x++)
-						{
-							if (Channels.IsValidIndex(x))
-							{
-								double Val = 0.0f;
-								bool Succeeded = Channels[x]->Evaluate(FFrameTime(0), Val);
-
-								TransformData.Add(Val);
-							}
-						}
-					
-						//Map the floats into the transform, dont worry about scale. 
-						FVector Location = FVector(TransformData[0], TransformData[1], TransformData[2]);
-						FRotator Rotation = FRotator(TransformData[4], TransformData[5], TransformData[3]);
-
-						return FTransform(Rotation, Location);
-					}
-				}
+			for (auto& T : FactionsTags)
+			{			
+				ActorTeam->AddFaction(T);
 			}
 		}
 	}
+}
 
-	return FTransform();
+void UArsenalStatics::RemoveFactionsFromActor(AActor* Actor, const FGameplayTagContainer& Factions)
+{
+	if (Actor)
+	{
+		if (INarrativeTeamAgentInterface* ActorTeam = Cast<INarrativeTeamAgentInterface>(Actor))
+		{
+			TArray<FGameplayTag> FactionsTags;
+			Factions.GetGameplayTagArray(FactionsTags);
+
+			for (auto& T : FactionsTags)
+			{			
+				ActorTeam->RemoveFaction(T);
+			}
+		}
+	}
 }
 
 class UArsenalSettings* UArsenalStatics::GetNarrativeProSettings()
@@ -110,11 +94,51 @@ class UArsenalSettings* UArsenalStatics::GetNarrativeProSettings()
 	return nullptr; 
 }
 
+class UNarrativeTimeOfDaySettings* UArsenalStatics::GetTimeOfDaySettings()
+{
+	if (UNarrativeTimeOfDaySettings* Settings = GetMutableDefault<UNarrativeTimeOfDaySettings>())
+	{
+		return Settings;
+	}
+
+	return nullptr; 
+}
+
+class UNarrativeUIDeveloperSettings* UArsenalStatics::GetNarrativeUISettings()
+{
+	if (UNarrativeUIDeveloperSettings* Settings = GetMutableDefault<UNarrativeUIDeveloperSettings>())
+	{
+		return Settings;
+	}
+
+	return nullptr; 
+}
+
+class UNarrativeCombatDeveloperSettings* UArsenalStatics::GetCombatSettings()
+{
+	if (UNarrativeCombatDeveloperSettings* Settings = GetMutableDefault<UNarrativeCombatDeveloperSettings>())
+	{
+		return Settings;
+	}
+
+	return nullptr; 
+}
+
 FName UArsenalStatics::GetGameEntryMapName()
 {
 	if (UArsenalSettings* Settings = GetMutableDefault<UArsenalSettings>())
 	{
 		return Settings->GameEntryMap.GetLongPackageFName();
+	}
+
+	return FName();
+}
+
+FName UArsenalStatics::GetCharacterCreatorMapName()
+{
+	if (UArsenalSettings* Settings = GetMutableDefault<UArsenalSettings>())
+	{
+		return Settings->CharacterCreatorMap.GetLongPackageFName();
 	}
 
 	return FName();
@@ -134,3 +158,141 @@ ENarrativeGameplayDifficulty UArsenalStatics::GetGameplayDifficultyLevel()
 	return ENarrativeGameplayDifficulty::Easy;
 }
 
+FVector2D UArsenalStatics::GetGameResolution()
+{
+	FVector2D Result = FVector2D( 1, 1 );
+
+	Result.X = GSystemResolution.ResX;
+	Result.Y = GSystemResolution.ResY;
+
+	return Result;
+}
+
+FText UArsenalStatics::ReplaceInputVariables(class ANarrativePlayerController* PC, FText TextToReplace)
+{
+	if (PC)
+	{
+		//Replace variables in dialogue line
+		FString LineString = TextToReplace.ToString();
+
+		int32 OpenBraceIdx = -1;
+		int32 CloseBraceIdx = -1;
+		bool bFoundOpenBrace = LineString.FindChar('{', OpenBraceIdx);
+		bool bFoundCloseBrace = LineString.FindChar('}', CloseBraceIdx);
+		uint32 Iters = 0; // More than 50 wildcard replaces and something has probably gone wrong, so safeguard against that
+
+		while (bFoundOpenBrace && bFoundCloseBrace && OpenBraceIdx < CloseBraceIdx && Iters < 50)
+		{
+			const FString VariableName = LineString.Mid(OpenBraceIdx + 1, CloseBraceIdx - OpenBraceIdx - 1);
+			FString VariableVal = VariableName;
+
+			FString L, R;
+
+			//In Narrative Pro you can do {Input.Attack} and this should be replaced with the platform specific rich text ie <img id="Input.Xbox.Attack"/>
+			if (VariableName.Split(".", &L, &R))
+			{
+				if (L.Equals("Input", ESearchCase::IgnoreCase))
+				{
+					const FString InputDeviceName = PC->GetNarrativeInputDeviceName();
+
+					if (!InputDeviceName.IsEmpty())
+					{
+						VariableVal = FString::Printf(TEXT("<img id=\"Input.%s.%s\"/>"), *InputDeviceName, *R);
+					}
+
+					if (!VariableVal.IsEmpty())
+					{
+						LineString.RemoveAt(OpenBraceIdx, CloseBraceIdx - OpenBraceIdx + 1);
+						LineString.InsertAt(OpenBraceIdx, VariableVal);
+					}
+				}
+			}
+
+			bFoundOpenBrace = LineString.FindChar('{', OpenBraceIdx);
+			bFoundCloseBrace = LineString.FindChar('}', CloseBraceIdx);
+
+			Iters++;
+		}
+
+		if (Iters > 0)
+		{
+			return FText::FromString(LineString);
+		}
+	}
+
+
+	return TextToReplace;
+}
+
+float UArsenalStatics::GetTimeOfDay(const UObject* WorldContextObject)
+{
+	if (const UWorld* World = WorldContextObject->GetWorld())
+	{
+		if (ANarrativeGameState* NarrativeGameState = World->GetGameState<ANarrativeGameState>())
+		{
+			return NarrativeGameState->GetTimeOfDay();
+		}
+	}
+	return 0.f; 
+}
+
+bool UArsenalStatics::IsTimeInRange(const float Time, const float RangeStart, const float RangeEnd)
+{
+	//Time is on same day 
+	if (RangeStart <= RangeEnd)
+	{
+		return Time >= RangeStart && Time <= RangeEnd;
+	}
+	else // time spans into next day 
+	{ 
+		return Time >= RangeStart || Time <= RangeEnd;
+	}
+}
+
+FString UArsenalStatics::GetTimeOfDayAsString(const UObject* WorldContextObject)
+{
+	const float Time = UArsenalStatics::GetTimeOfDay(WorldContextObject);
+
+	return TimeToString(Time);
+}
+
+FString UArsenalStatics::TimeToString(const float Time)
+{
+	const FString Hour = FString::FromInt(FMath::FloorToInt(Time / 100.f)); 
+	const int32 MinuteInt = FMath::TruncToInt((FMath::Fmod(Time, 100.f) / 100.f) * 60.f);
+	const FString Minute = MinuteInt <= 9 ? "0" + FString::FromInt(MinuteInt) : FString::FromInt(MinuteInt);
+
+	return FString::Printf(TEXT("%s:%s"), *Hour, *Minute);
+}
+
+float UArsenalStatics::GetTotalAccumulatedTime(const UObject* WorldContextObject)
+{
+	if (const UWorld* World = WorldContextObject->GetWorld())
+	{
+		if (ANarrativeGameState* NarrativeGameState = World->GetGameState<ANarrativeGameState>())
+		{
+			return NarrativeGameState->GetAccumulatedTime();
+		}
+	}
+	return 0.f; 
+}
+
+ANarrativeGameState* UArsenalStatics::GetNarrativeGameState(const UObject* WorldContextObject)
+{
+	if (const UWorld* World = WorldContextObject->GetWorld())
+	{
+		return World->GetGameState<ANarrativeGameState>();
+	}
+
+	return nullptr; 
+}
+
+ANarrativeGameMode* UArsenalStatics::GetNarrativeGameMode(const UObject* WorldContextObject)
+{
+	if (const UWorld* World = WorldContextObject->GetWorld())
+	{
+		return World->GetAuthGameMode<ANarrativeGameMode>();
+	}
+
+	return nullptr;
+}

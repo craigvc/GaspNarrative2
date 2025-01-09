@@ -64,7 +64,7 @@ class NARRATIVEARSENAL_API UNarrativeTask : public UObject
 public:
 
 	friend class UQuestBranch; // Needed as branches "own" tasks and need to manage them 
-	friend class UNarrativeComponent; // Needed for client processing quest updates 
+	friend class UTalesComponent; // Needed for client processing quest updates 
 
 	UNarrativeTask();
 
@@ -184,7 +184,7 @@ protected:
 	int32 CurrentProgress;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Task")
-	class UNarrativeComponent* OwningComp;
+	class UTalesComponent* OwningComp;
 
 	UPROPERTY(BlueprintReadOnly, Category = "Task")
 	class APawn* OwningPawn;

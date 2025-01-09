@@ -68,12 +68,25 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Settings)
 	bool ShouldCrouchToggle();
 
+	//Set whether or not inventory menu is set to tile. 
+	UFUNCTION(BlueprintCallable, Category = Settings)
+	void SetInventoryWantsTile(const bool bNewInventoryWantsTile);
+
+	UFUNCTION(BlueprintCallable, Category = Settings)
+	bool InventoryWantsTile();
+
 	//Set the current gameplay difficulty
 	UFUNCTION(BlueprintCallable, Category = Settings)
 	void SetGameplayDifficulty(const ENarrativeGameplayDifficulty NewDifficulty);
 
 	UFUNCTION(BlueprintCallable, Category = Settings)
 	ENarrativeGameplayDifficulty GetGameplayDifficulty();
+
+	UFUNCTION(BlueprintPure, Category = Settings)
+	float GetFieldOfView();
+
+	UFUNCTION(BlueprintCallable, Category = Settings)
+	void SetFieldOfView(const float NewFieldOfView);
 
 protected:
 
@@ -96,7 +109,15 @@ protected:
 	UPROPERTY(config)
 	bool bCrouchToggles;
 
+	///** Whether the inventory menu wants to display using grid or tile mode */
+	UPROPERTY(config)
+	bool bInventoryWantsTile;
+
 	//The gameplay difficulty, can be read from the user settings by any gameplay elements that need it. 
 	UPROPERTY(config)
 	ENarrativeGameplayDifficulty GameplayDifficulty;
+
+	///** The FOV the default camera mode will use. */
+	UPROPERTY(config)
+	float FieldOfView;
 };

@@ -6,8 +6,9 @@
 
 UNarrativeCameraMode::UNarrativeCameraMode(const FObjectInitializer& ObjectInitializer)
 {
-	FOVInterpSpeed = 10.f;
+	DefaultFOVBlendSpeed = 10.f;
 	OffsetInterpSpeed = 50.f;
+	TargetArmLength = 300.f;
 }
 
 void UNarrativeCameraMode::EnterMode_Implementation()
@@ -20,12 +21,18 @@ void UNarrativeCameraMode::ExitMode_Implementation()
 
 }
 
+void UNarrativeCameraMode::GetDesiredFOV_Implementation(float& FOV, float& FOVBlendSpeed)
+{
+	FOV = DefaultFOV;
+	FOVBlendSpeed = DefaultFOVBlendSpeed;
+}
+
 FVector UNarrativeCameraMode::GetCameraDesiredOffset_Implementation()
 {
 	return Offset;
 }
 
-FVector UNarrativeCameraMode::GetCameraPivotLocation_Implementation()
+FVector UNarrativeCameraMode::GetCameraRootLocation_Implementation()
 {
 	return FVector::ZeroVector;
 }

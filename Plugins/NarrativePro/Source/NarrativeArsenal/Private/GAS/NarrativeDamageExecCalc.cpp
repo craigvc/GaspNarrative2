@@ -5,6 +5,7 @@
 #include "GAS/NarrativeAbilitySystemComponent.h"
 #include "GAS/NarrativeAttributeSetBase.h"
 #include "NarrativeGameplayTags.h"
+#include "UnrealFramework/NarrativePhysicalMaterial.h"
 
 struct FDamageStatics
 {
@@ -72,8 +73,17 @@ void UNarrativeDamageExecCalc::Execute_Implementation(const FGameplayEffectCusto
 	//Armor is basically the same but we'll divide by it. So 30PTS defence = FinalDamage (12) / 1.3 = 9.23 points damage 
 	const float DefenceMultiplier = (1.f + Armor / 100.f);
 
+	float MaterialMultiplier = 1.f;
+	if (const FHitResult* Hit = Spec.GetContext().GetHitResult())
+	{
+		if (UNarrativePhysicalMaterial* NPM = Cast<UNarrativePhysicalMaterial>(Hit->PhysMaterial.Get()))
+		{
+			MaterialMultiplier = NPM->DamageMultiplier;
+		}
+	}
+
 	//10 * 120% = 12 / 1.f
-	float FinalDamage = (Damage * AttackMultiplier) / DefenceMultiplier; 
+	float FinalDamage = ((Damage * AttackMultiplier) / DefenceMultiplier) * MaterialMultiplier; 
 
 	if (FinalDamage > 0.f)
 	{

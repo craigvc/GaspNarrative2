@@ -14,11 +14,11 @@ struct FNarrativeSaveComponent
 public:
 
 	/* Which component this is */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	FName ComponentName;
 
     /* Contains all 'SaveGame' marked variables of the component  */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<uint8> ByteData;
 
 };
@@ -31,39 +31,39 @@ struct FNarrativeActorRecord
 public:
 	
 	/** The GUID we use to identify what actor this was */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	FGuid ActorGUID;
 
 	/* Identifier for which Actor this belongs to - TODO probably cant be removed isnt required */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	FName ActorName;
 
 	/* Save transform of actor */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	FTransform Transform;
 
 	/* Whether the actor has been destroyed. This is only relevant for actors placed in the level - dynamic actors simply have their save record removed. */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	bool bDestroyed = false;
 
 	/* Whether the actor is net startup or was spawned dynamically.  */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	bool bNetStartup;
 
 	/* Whether the actor wants the save system to spawn the actor back in, or whether it should let our own code do so. */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	bool bNeedsDynamicSpawn;
 
 	/* Dynamically spawned actors need to remember their class so we can respawn the actor in when loading.  */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TSoftClassPtr<class AActor> ActorSoftClass;
 
 	/* Contains all saved component data */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<FNarrativeSaveComponent> SavedComponents;
 
     /* Contains all 'SaveGame' marked variables of the Actor */
-	UPROPERTY()
+	UPROPERTY(SaveGame)
 	TArray<uint8> ByteData;
 
 	bool IsValid() const { return !ActorName.IsNone(); };
@@ -138,7 +138,7 @@ public:
 		SavedDataVersion = ENarrativeSaveGameVersion::LatestVersion;
 	}
 
-	//The name of the map we had loaded.
+	//The name of the map we had loaded - note that the main menu loads whatever is saved in here, the subsystem doesn't use it on its end 
 	UPROPERTY(BlueprintReadOnly, Category = "Narrative Save")
 	FString LevelName;
 
@@ -154,6 +154,10 @@ public:
 	We also store player data independently of level by default - this is typically how you want your save system to work - the players level, attributes, items, etc aren't tied to the level. */
 	UPROPERTY()
 	FNarrativeSavePlayer PlayerData;
+
+	//Overrides the level we have loaded on the save file. This is only used by the character creator. 
+	UFUNCTION(BlueprintCallable, Category = "Narrative Save")
+	void OverrideLevelName(const FString& InLevelName);
 
 protected:
 

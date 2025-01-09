@@ -23,9 +23,9 @@ void UNarrativeCombatAbility::CommitExecute(const FGameplayAbilitySpecHandle Han
 {
 	Super::CommitExecute(Handle, ActorInfo, ActivationInfo);
 
-	if (ANarrativeCharacter* OwnerCharacter = GetOwningNarrativeCharacter())
+	if (CharacterOwner)
 	{
-		if (UWeaponItem* Weapon = OwnerCharacter->GetWeapon())
+		if (UWeaponItem* Weapon = CharacterOwner->GetWeapon())
 		{
 			if (bRequiresAmmo)
 			{
@@ -53,6 +53,39 @@ bool UNarrativeCombatAbility::CanActivateAbility(const FGameplayAbilitySpecHandl
 	return Super::CanActivateAbility(Handle, ActorInfo, SourceTags, TargetTags, OptionalRelevantTags);
 }
 
+void UNarrativeCombatAbility::ActivateAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, const FGameplayEventData* TriggerEventData)
+{
+	// Bind target data callback
+	UAbilitySystemComponent* MyAbilityComponent = CurrentActorInfo->AbilitySystemComponent.Get();
+	check(MyAbilityComponent);
+
+	//We use this method from lyra to avoid using targeting actors and just call the target datas ourselves 
+	OnTargetDataReadyCallbackDelegateHandle = MyAbilityComponent->AbilityTargetDataSetDelegate(CurrentSpecHandle, CurrentActivationInfo.GetActivationPredictionKey()).AddUObject(this, &ThisClass::FinalizeTargetData);
+
+	Super::ActivateAbility(Handle, ActorInfo, ActivationInfo, TriggerEventData);
+}
+
+void UNarrativeCombatAbility::EndAbility(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, const FGameplayAbilityActivationInfo ActivationInfo, bool bReplicateEndAbility, bool bWasCancelled)
+{
+	if (IsEndAbilityValid(Handle, ActorInfo))
+	{
+		if (ScopeLockCount > 0)
+		{
+			WaitingToExecute.Add(FPostLockDelegate::CreateUObject(this, &ThisClass::EndAbility, Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled));
+			return;
+		}
+
+		UAbilitySystemComponent* MyAbilityComponent = CurrentActorInfo->AbilitySystemComponent.Get();
+		check(MyAbilityComponent);
+
+		// When ability ends, consume target data and remove delegate
+		MyAbilityComponent->AbilityTargetDataSetDelegate(CurrentSpecHandle, CurrentActivationInfo.GetActivationPredictionKey()).Remove(OnTargetDataReadyCallbackDelegateHandle);
+		MyAbilityComponent->ConsumeClientReplicatedTargetData(CurrentSpecHandle, CurrentActivationInfo.GetActivationPredictionKey());
+
+		Super::EndAbility(Handle, ActorInfo, ActivationInfo, bReplicateEndAbility, bWasCancelled);
+	}
+}
+
 bool UNarrativeCombatAbility::CheckCost(const FGameplayAbilitySpecHandle Handle, const FGameplayAbilityActorInfo* ActorInfo, OUT FGameplayTagContainer* OptionalRelevantTags /*= nullptr*/) const
 {
 	return true; 
@@ -67,9 +100,9 @@ bool UNarrativeCombatAbility::HasAmmo() const
 		return true;
 	}
 
-	if (ANarrativeCharacter* OwnerCharacter = GetOwningNarrativeCharacter())
+	if (CharacterOwner)
 	{
-		if (UWeaponItem* Weapon = OwnerCharacter->GetWeapon())
+		if (UWeaponItem* Weapon = CharacterOwner->GetWeapon())
 		{
 			return Weapon->HasAmmo();
 		}
@@ -96,19 +129,31 @@ void UNarrativeCombatAbility::GenerateTargetDataUsingTrace(const FCombatTraceDat
 			const float TraceLen  = TraceData.TraceDistance + FVector::Dist(GetAvatarActorFromActorInfo()->GetActorLocation(), TargetViewPoint.GetLocation());
 			const FVector EndTrace = (TargetViewPoint.GetUnitAxis(EAxis::X) * TraceLen) + StartTrace;
 
-			FHitResult Hit = PerformTrace(StartTrace, EndTrace, TraceData.TraceRadius);
+			TArray<FHitResult> Hits;
+
+			if (TraceData.bTraceMulti)
+			{
+				Hits.Append(PerformTraceMulti(StartTrace, EndTrace, TraceData.TraceRadius));
+			}
+			else
+			{
+				Hits.Add(PerformTrace(StartTrace, EndTrace, TraceData.TraceRadius));
+			}
 
 			FGameplayAbilityTargetDataHandle TargetData;
-			FGameplayAbilityTargetData_SingleTargetHit* SingleTargetHit = new FGameplayAbilityTargetData_SingleTargetHit(Hit);
-			
-			TargetData.Add(SingleTargetHit);
 
-			FinalizeTargetData(TargetData);
+			for (auto& Hit : Hits)
+			{
+				FGameplayAbilityTargetData_SingleTargetHit* SingleTargetHit = new FGameplayAbilityTargetData_SingleTargetHit(Hit);
+				TargetData.Add(SingleTargetHit);
+			}
+
+			FinalizeTargetData(TargetData, FGameplayTag());
 		}
 	}
 }
 
-void UNarrativeCombatAbility::FinalizeTargetData(const FGameplayAbilityTargetDataHandle& TargetData)
+void UNarrativeCombatAbility::FinalizeTargetData(const FGameplayAbilityTargetDataHandle& TargetData, FGameplayTag ApplicationTag)
 {
 	UAbilitySystemComponent* ASC = CurrentActorInfo->AbilitySystemComponent.Get();
 
@@ -116,7 +161,7 @@ void UNarrativeCombatAbility::FinalizeTargetData(const FGameplayAbilityTargetDat
 	{
 		FScopedPredictionWindow	ScopedPrediction(ASC);
 
-		//Lyra does this and seems to make sense - we don't want the data be invalidated by anything else (In testing that did seem to happen)
+		//We use this method from lyra to avoid using targeting actors and just call the target datas ourselves 
 		FGameplayAbilityTargetDataHandle LocalTargetDataHandle(MoveTemp(const_cast<FGameplayAbilityTargetDataHandle&>(TargetData)));
 
 		//We call this function manually instead of using the target data node, which is inefficient and spawns a target data generating actor. We're basically just overriding that to just do a nice lightweight trace instead! 
@@ -148,7 +193,12 @@ FHitResult UNarrativeCombatAbility::PerformTrace(const FVector& Start, const FVe
 	CQP.bTraceComplex = true;
 	CQP.bReturnPhysicalMaterial = true; 
 	CQP.AddIgnoredActor(GetAvatarActorFromActorInfo());
+	CQP.TraceTag = FName("CombatTrace");
 
+#if (!(UE_BUILD_SHIPPING || UE_BUILD_TEST) || WITH_EDITOR)
+	CQP.bDebugQuery = bDrawDebugTraces;
+	GetWorld()->DebugDrawTraceTag = bDrawDebugTraces ? CQP.TraceTag : NAME_None;
+#endif 
 	
 	if (FMath::IsNearlyZero(SweepRadius))
 	{
@@ -157,25 +207,61 @@ FHitResult UNarrativeCombatAbility::PerformTrace(const FVector& Start, const FVe
 	else
 	{
 		const FCollisionShape Sphere = FCollisionShape::MakeSphere(SweepRadius);
-
 		GetWorld()->SweepSingleByChannel(Hit, Start, End, FQuat::Identity, TraceChannel, Sphere, CQP);
 	}
+
+#if (!(UE_BUILD_SHIPPING || UE_BUILD_TEST) || WITH_EDITOR)
+	GetWorld()->DebugDrawTraceTag = NAME_None;
+#endif 
 
 	return Hit;
 }
 
+TArray<FHitResult> UNarrativeCombatAbility::PerformTraceMulti(const FVector& Start, const FVector& End, const float SweepRadius)
+{
+	TArray<FHitResult> Hits;
+	ECollisionChannel TraceChannel = Narrative_TraceChannel_Weapon;
+
+	FCollisionQueryParams CQP;
+	CQP.bTraceComplex = true;
+	CQP.bReturnPhysicalMaterial = true; 
+	CQP.AddIgnoredActor(GetAvatarActorFromActorInfo());
+	CQP.TraceTag = FName("CombatTrace");
+
+#if (!(UE_BUILD_SHIPPING || UE_BUILD_TEST) || WITH_EDITOR)
+	CQP.bDebugQuery = bDrawDebugTraces;
+	GetWorld()->DebugDrawTraceTag = bDrawDebugTraces ? CQP.TraceTag : NAME_None;
+#endif
+
+	if (FMath::IsNearlyZero(SweepRadius))
+	{
+		GetWorld()->LineTraceMultiByChannel(Hits, Start, End, TraceChannel, CQP);
+	}
+	else
+	{
+		const FCollisionShape Sphere = FCollisionShape::MakeSphere(SweepRadius);
+		GetWorld()->SweepMultiByChannel(Hits, Start, End, FQuat::Identity, TraceChannel, Sphere, CQP);
+	}
+
+#if (!(UE_BUILD_SHIPPING || UE_BUILD_TEST) || WITH_EDITOR)
+	GetWorld()->DebugDrawTraceTag = NAME_None;
+#endif 
+
+	return Hits;
+}
+
 FCombatTraceData UNarrativeCombatAbility::GetTraceData_Implementation() const
 {
-	if (ANarrativeCharacter* OwnerCharacter = GetOwningNarrativeCharacter())
+	if (CharacterOwner)
 	{
 		//Ranged and melee weapons share the same base weapon item and combat ability. 
-		if (UWeaponItem* Weapon = OwnerCharacter->GetWeapon())
+		if (UWeaponItem* Weapon  = CharacterOwner->GetWeapon())
 		{
-			return Weapon->TraceData;
+			return Weapon->GetTraceData();
 		}
 		else
 		{
-			return OwnerCharacter->UnarmedCombatData.TraceData;
+			return CharacterOwner->UnarmedCombatData;
 		}
 	}
 
@@ -195,3 +281,4 @@ FTransform UNarrativeCombatAbility::GetTargetingViewPoint_Implementation() const
 
 	return FTransform(EyesRot, EyesLoc);
 }
+

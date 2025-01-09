@@ -18,12 +18,47 @@ NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativePlayerCharacter();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_ANarrativePlayerCharacter_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeAbilityInputMapping_NoRegister();
 NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UNarrativeCameraComponent_NoRegister();
+NARRATIVEARSENAL_API UClass* Z_Construct_UClass_UPlayerDefinition_NoRegister();
 UPackage* Z_Construct_UPackage__Script_NarrativeArsenal();
 // End Cross Module References
+
+// Begin Class ANarrativePlayerCharacter Function OnRep_PlayerDefinition
+struct Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition_Statics
+{
+#if WITH_METADATA
+	static constexpr UECodeGen_Private::FMetaDataPairParam Function_MetaDataParams[] = {
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativePlayerCharacter.h" },
+	};
+#endif // WITH_METADATA
+	static const UECodeGen_Private::FFunctionParams FuncParams;
+};
+const UECodeGen_Private::FFunctionParams Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition_Statics::FuncParams = { (UObject*(*)())Z_Construct_UClass_ANarrativePlayerCharacter, nullptr, "OnRep_PlayerDefinition", nullptr, nullptr, nullptr, 0, 0, RF_Public|RF_Transient|RF_MarkAsNative, (EFunctionFlags)0x00080400, 0, 0, METADATA_PARAMS(UE_ARRAY_COUNT(Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition_Statics::Function_MetaDataParams), Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition_Statics::Function_MetaDataParams) };
+UFunction* Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition()
+{
+	static UFunction* ReturnFunction = nullptr;
+	if (!ReturnFunction)
+	{
+		UECodeGen_Private::ConstructUFunction(&ReturnFunction, Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition_Statics::FuncParams);
+	}
+	return ReturnFunction;
+}
+DEFINE_FUNCTION(ANarrativePlayerCharacter::execOnRep_PlayerDefinition)
+{
+	P_FINISH;
+	P_NATIVE_BEGIN;
+	P_THIS->OnRep_PlayerDefinition();
+	P_NATIVE_END;
+}
+// End Class ANarrativePlayerCharacter Function OnRep_PlayerDefinition
 
 // Begin Class ANarrativePlayerCharacter
 void ANarrativePlayerCharacter::StaticRegisterNativesANarrativePlayerCharacter()
 {
+	UClass* Class = ANarrativePlayerCharacter::StaticClass();
+	static const FNameNativePtrPair Funcs[] = {
+		{ "OnRep_PlayerDefinition", &ANarrativePlayerCharacter::execOnRep_PlayerDefinition },
+	};
+	FNativeFunctionRegistrar::RegisterFunctions(Class, Funcs, UE_ARRAY_COUNT(Funcs));
 }
 IMPLEMENT_CLASS_NO_AUTO_REGISTRATION(ANarrativePlayerCharacter);
 UClass* Z_Construct_UClass_ANarrativePlayerCharacter_NoRegister()
@@ -92,6 +127,13 @@ struct Z_Construct_UClass_ANarrativePlayerCharacter_Statics
 		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativePlayerCharacter.h" },
 		{ "ToolTip", "MappingContext" },
 	};
+	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_PlayerDefinition_MetaData[] = {
+		{ "AllowPrivateAccess", "true" },
+		{ "Category", "NarrativeCharacter" },
+		{ "Comment", "/** The player definition for this character */" },
+		{ "ModuleRelativePath", "Public/UnrealFramework/NarrativePlayerCharacter.h" },
+		{ "ToolTip", "The player definition for this character" },
+	};
 #endif // WITH_METADATA
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_CameraBoom;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_FollowCamera;
@@ -101,8 +143,13 @@ struct Z_Construct_UClass_ANarrativePlayerCharacter_Statics
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilityCancelAction;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_AbilityInputMappings;
 	static const UECodeGen_Private::FObjectPropertyParams NewProp_DefaultMappingContext;
+	static const UECodeGen_Private::FObjectPropertyParams NewProp_PlayerDefinition;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
+	static constexpr FClassFunctionLinkInfo FuncInfo[] = {
+		{ &Z_Construct_UFunction_ANarrativePlayerCharacter_OnRep_PlayerDefinition, "OnRep_PlayerDefinition" }, // 2920656086
+	};
+	static_assert(UE_ARRAY_COUNT(FuncInfo) < 2048);
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
 		TCppClassTypeTraits<ANarrativePlayerCharacter>::IsAbstract,
 	};
@@ -116,6 +163,7 @@ const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlay
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_AbilityCancelAction = { "AbilityCancelAction", nullptr, (EPropertyFlags)0x0124080000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerCharacter, AbilityCancelAction), Z_Construct_UClass_UInputAction_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilityCancelAction_MetaData), NewProp_AbilityCancelAction_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_AbilityInputMappings = { "AbilityInputMappings", nullptr, (EPropertyFlags)0x0124080000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerCharacter, AbilityInputMappings), Z_Construct_UClass_UNarrativeAbilityInputMapping_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_AbilityInputMappings_MetaData), NewProp_AbilityInputMappings_MetaData) };
 const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_DefaultMappingContext = { "DefaultMappingContext", nullptr, (EPropertyFlags)0x0124080000000015, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerCharacter, DefaultMappingContext), Z_Construct_UClass_UInputMappingContext_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_DefaultMappingContext_MetaData), NewProp_DefaultMappingContext_MetaData) };
+const UECodeGen_Private::FObjectPropertyParams Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_PlayerDefinition = { "PlayerDefinition", "OnRep_PlayerDefinition", (EPropertyFlags)0x0124080100000035, UECodeGen_Private::EPropertyGenFlags::Object | UECodeGen_Private::EPropertyGenFlags::ObjectPtr, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(ANarrativePlayerCharacter, PlayerDefinition), Z_Construct_UClass_UPlayerDefinition_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_PlayerDefinition_MetaData), NewProp_PlayerDefinition_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANarrativePlayerCharacter_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_CameraBoom,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_FollowCamera,
@@ -125,6 +173,7 @@ const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_ANarrativ
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_AbilityCancelAction,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_AbilityInputMappings,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_DefaultMappingContext,
+	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_ANarrativePlayerCharacter_Statics::NewProp_PlayerDefinition,
 };
 static_assert(UE_ARRAY_COUNT(Z_Construct_UClass_ANarrativePlayerCharacter_Statics::PropPointers) < 2048);
 UObject* (*const Z_Construct_UClass_ANarrativePlayerCharacter_Statics::DependentSingletons[])() = {
@@ -137,11 +186,11 @@ const UECodeGen_Private::FClassParams Z_Construct_UClass_ANarrativePlayerCharact
 	"Game",
 	&StaticCppClassTypeInfo,
 	DependentSingletons,
-	nullptr,
+	FuncInfo,
 	Z_Construct_UClass_ANarrativePlayerCharacter_Statics::PropPointers,
 	nullptr,
 	UE_ARRAY_COUNT(DependentSingletons),
-	0,
+	UE_ARRAY_COUNT(FuncInfo),
 	UE_ARRAY_COUNT(Z_Construct_UClass_ANarrativePlayerCharacter_Statics::PropPointers),
 	0,
 	0x009000A4u,
@@ -159,19 +208,26 @@ template<> NARRATIVEARSENAL_API UClass* StaticClass<ANarrativePlayerCharacter>()
 {
 	return ANarrativePlayerCharacter::StaticClass();
 }
+void ANarrativePlayerCharacter::ValidateGeneratedRepEnums(const TArray<struct FRepRecord>& ClassReps) const
+{
+	static const FName Name_PlayerDefinition(TEXT("PlayerDefinition"));
+	const bool bIsValid = true
+		&& Name_PlayerDefinition == ClassReps[(int32)ENetFields_Private::PlayerDefinition].Property->GetFName();
+	checkf(bIsValid, TEXT("UHT Generated Rep Indices do not match runtime populated Rep Indices for properties in ANarrativePlayerCharacter"));
+}
 DEFINE_VTABLE_PTR_HELPER_CTOR(ANarrativePlayerCharacter);
 ANarrativePlayerCharacter::~ANarrativePlayerCharacter() {}
 // End Class ANarrativePlayerCharacter
 
 // Begin Registration
-struct Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics
+struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_ANarrativePlayerCharacter, ANarrativePlayerCharacter::StaticClass, TEXT("ANarrativePlayerCharacter"), &Z_Registration_Info_UClass_ANarrativePlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANarrativePlayerCharacter), 1779634249U) },
+		{ Z_Construct_UClass_ANarrativePlayerCharacter, ANarrativePlayerCharacter::StaticClass, TEXT("ANarrativePlayerCharacter"), &Z_Registration_Info_UClass_ANarrativePlayerCharacter, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(ANarrativePlayerCharacter), 1653516821U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_135052496(TEXT("/Script/NarrativeArsenal"),
-	Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics::ClassInfo),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_2876483544(TEXT("/Script/NarrativeArsenal"),
+	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeArsenal_Public_UnrealFramework_NarrativePlayerCharacter_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);
 // End Registration

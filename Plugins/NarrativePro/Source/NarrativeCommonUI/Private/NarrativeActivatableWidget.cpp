@@ -4,6 +4,13 @@
 #include "NarrativeActivatableWidget.h"
 #include "Input/CommonUIInputTypes.h"
 
+UNarrativeActivatableWidget::UNarrativeActivatableWidget()
+{
+	bUseGameInput = false; 
+	bFocusDesiredTargetOnActivate = true; 
+	bDeactivateOnBack = false; 
+}
+
 void UNarrativeActivatableWidget::NativeDestruct()
 {
 	for (FUIActionBindingHandle Handle : BindingHandles)
@@ -16,6 +23,17 @@ void UNarrativeActivatableWidget::NativeDestruct()
 	BindingHandles.Empty();
 
 	Super::NativeDestruct();
+}
+
+TOptional<FUIInputConfig> UNarrativeActivatableWidget::GetDesiredInputConfig() const
+{
+	if (bUseGameInput)
+	{
+		FUIInputConfig GameInput = FUIInputConfig(ECommonInputMode::Game, EMouseCaptureMode::CapturePermanently, true);
+		return TOptional<FUIInputConfig>(GameInput);
+	}
+
+	return Super::GetDesiredInputConfig();
 }
 
 void UNarrativeActivatableWidget::RegisterBinding(FDataTableRowHandle InputAction, const FInputActionExecutedDelegate& Callback, FInputActionBindingHandle& BindingHandle, FText OverrideDisplayName, const bool bShouldDisplayInActionBar/*=true*/)
@@ -57,4 +75,32 @@ void UNarrativeActivatableWidget::SetBindingDisplayName(FInputActionBindingHandl
 	{
 		BindingHandle.Handle.SetDisplayName(NewDisplayName);
 	}
+}
+
+void UNarrativeActivatableWidget::NativeOnActivated()
+{
+	Super::NativeOnActivated();
+
+	if (bFocusDesiredTargetOnActivate)
+	{
+		if (UWidget* Widget = NativeGetDesiredFocusTarget())
+		{
+			Widget->SetFocus();
+		}
+	}
+
+	NativeRegisterActions();
+	RegisterActions();
+}
+
+void UNarrativeActivatableWidget::NativeOnDeactivated()
+{
+	Super::NativeOnDeactivated();
+
+	UnregisterAllBindings();
+}
+
+void UNarrativeActivatableWidget::NativeRegisterActions()
+{
+
 }

@@ -106,7 +106,7 @@ public:
 
 	//Get the quest that this quest node belongs to
 	UQuest* GetOwningQuest() const;
-	class UNarrativeComponent* GetOwningNarrativeComp() const;
+	class UTalesComponent* GetOwningNarrativeComp() const;
 
 	//The title the node should have on the quest node title
 	virtual FText GetNodeTitle() const { return FText::FromString("Node"); };
