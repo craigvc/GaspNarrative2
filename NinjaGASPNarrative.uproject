@@ -166,6 +166,21 @@
 			"Name": "AdvancedEditorUtilities",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f375645593fc4d909bf8c79b9f64a066"
+		},
+		{
+			"Name": "Freezer",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/670c085be7d2470abf756507eaba50da"
+		},
+		{
+			"Name": "SnappingHelper",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1e0699cf59d64105957b4aa40f367252"
+		},
+		{
+			"Name": "WinchSystem",
+			"Enabled": true,
+			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/466b6a1cd5154973ba9946ca7db48556"
 		}
 	],
 	"EpicSampleNameHash": "1673045636"
