@@ -10,9 +10,8 @@ PRAGMA_DISABLE_DEPRECATION_WARNINGS
 void EmptyLinkFunctionForGeneratedCodeSaveSystemDeveloperSettings() {}
 
 // Begin Cross Module References
-COREUOBJECT_API UClass* Z_Construct_UClass_UClass();
+COREUOBJECT_API UScriptStruct* Z_Construct_UScriptStruct_FSoftClassPath();
 DEVELOPERSETTINGS_API UClass* Z_Construct_UClass_UDeveloperSettings();
-NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_UNarrativeSave_NoRegister();
 NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_USaveSystemDeveloperSettings();
 NARRATIVESAVESYSTEM_API UClass* Z_Construct_UClass_USaveSystemDeveloperSettings_NoRegister();
 UPackage* Z_Construct_UPackage__Script_NarrativeSaveSystem();
@@ -46,14 +45,15 @@ struct Z_Construct_UClass_USaveSystemDeveloperSettings_Statics
 	};
 	static constexpr UECodeGen_Private::FMetaDataPairParam NewProp_SaveGameClass_MetaData[] = {
 		{ "Category", "Narrative Pro|Save System" },
-		{ "Comment", "/** The save class we'll use to save our world to disk. */" },
+		{ "Comment", "/** The class to use when instantiating the transient GameInstance class */" },
+		{ "MetaClass", "/Script/NarrativeSaveSystem.NarrativeSave" },
 		{ "ModuleRelativePath", "Public/SaveSystemDeveloperSettings.h" },
-		{ "ToolTip", "The save class we'll use to save our world to disk." },
+		{ "ToolTip", "The class to use when instantiating the transient GameInstance class" },
 	};
 #endif // WITH_METADATA
 	static void NewProp_bAutoLoadFirstSaveInEditor_SetBit(void* Obj);
 	static const UECodeGen_Private::FBoolPropertyParams NewProp_bAutoLoadFirstSaveInEditor;
-	static const UECodeGen_Private::FClassPropertyParams NewProp_SaveGameClass;
+	static const UECodeGen_Private::FStructPropertyParams NewProp_SaveGameClass;
 	static const UECodeGen_Private::FPropertyParamsBase* const PropPointers[];
 	static UObject* (*const DependentSingletons[])();
 	static constexpr FCppClassTypeInfoStatic StaticCppClassTypeInfo = {
@@ -66,7 +66,7 @@ void Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_bAutoLoadF
 	((USaveSystemDeveloperSettings*)Obj)->bAutoLoadFirstSaveInEditor = 1;
 }
 const UECodeGen_Private::FBoolPropertyParams Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_bAutoLoadFirstSaveInEditor = { "bAutoLoadFirstSaveInEditor", nullptr, (EPropertyFlags)0x0010000000004015, UECodeGen_Private::EPropertyGenFlags::Bool | UECodeGen_Private::EPropertyGenFlags::NativeBool, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, sizeof(bool), sizeof(USaveSystemDeveloperSettings), &Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_bAutoLoadFirstSaveInEditor_SetBit, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_bAutoLoadFirstSaveInEditor_MetaData), NewProp_bAutoLoadFirstSaveInEditor_MetaData) };
-const UECodeGen_Private::FClassPropertyParams Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_SaveGameClass = { "SaveGameClass", nullptr, (EPropertyFlags)0x0014000000004015, UECodeGen_Private::EPropertyGenFlags::Class, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveSystemDeveloperSettings, SaveGameClass), Z_Construct_UClass_UClass, Z_Construct_UClass_UNarrativeSave_NoRegister, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SaveGameClass_MetaData), NewProp_SaveGameClass_MetaData) };
+const UECodeGen_Private::FStructPropertyParams Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_SaveGameClass = { "SaveGameClass", nullptr, (EPropertyFlags)0x0010000002004001, UECodeGen_Private::EPropertyGenFlags::Struct, RF_Public|RF_Transient|RF_MarkAsNative, nullptr, nullptr, 1, STRUCT_OFFSET(USaveSystemDeveloperSettings, SaveGameClass), Z_Construct_UScriptStruct_FSoftClassPath, METADATA_PARAMS(UE_ARRAY_COUNT(NewProp_SaveGameClass_MetaData), NewProp_SaveGameClass_MetaData) };
 const UECodeGen_Private::FPropertyParamsBase* const Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::PropPointers[] = {
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_bAutoLoadFirstSaveInEditor,
 	(const UECodeGen_Private::FPropertyParamsBase*)&Z_Construct_UClass_USaveSystemDeveloperSettings_Statics::NewProp_SaveGameClass,
@@ -112,10 +112,10 @@ USaveSystemDeveloperSettings::~USaveSystemDeveloperSettings() {}
 struct Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_SaveSystemDeveloperSettings_h_Statics
 {
 	static constexpr FClassRegisterCompiledInInfo ClassInfo[] = {
-		{ Z_Construct_UClass_USaveSystemDeveloperSettings, USaveSystemDeveloperSettings::StaticClass, TEXT("USaveSystemDeveloperSettings"), &Z_Registration_Info_UClass_USaveSystemDeveloperSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveSystemDeveloperSettings), 1600930226U) },
+		{ Z_Construct_UClass_USaveSystemDeveloperSettings, USaveSystemDeveloperSettings::StaticClass, TEXT("USaveSystemDeveloperSettings"), &Z_Registration_Info_UClass_USaveSystemDeveloperSettings, CONSTRUCT_RELOAD_VERSION_INFO(FClassReloadVersionInfo, sizeof(USaveSystemDeveloperSettings), 2225066077U) },
 	};
 };
-static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_SaveSystemDeveloperSettings_h_3878127114(TEXT("/Script/NarrativeSaveSystem"),
+static FRegisterCompiledInInfo Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_SaveSystemDeveloperSettings_h_642333802(TEXT("/Script/NarrativeSaveSystem"),
 	Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_SaveSystemDeveloperSettings_h_Statics::ClassInfo, UE_ARRAY_COUNT(Z_CompiledInDeferFile_FID_build_U5M_Marketplace_Sync_LocalBuilds_PluginTemp_HostProject_Plugins_NarrativePro_Source_NarrativeSaveSystem_Public_SaveSystemDeveloperSettings_h_Statics::ClassInfo),
 	nullptr, 0,
 	nullptr, 0);

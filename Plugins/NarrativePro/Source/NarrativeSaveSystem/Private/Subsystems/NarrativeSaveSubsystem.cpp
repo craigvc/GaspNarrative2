@@ -826,9 +826,9 @@ TSubclassOf<class UNarrativeSave> UNarrativeSaveSubsystem::GetSaveGameClass() co
 
 	if (const USaveSystemDeveloperSettings* SaveDevSettings = GetDefault<USaveSystemDeveloperSettings>())
 	{
-		if (IsValid(SaveDevSettings->SaveGameClass))
+		if (SaveDevSettings->SaveGameClass.IsValid())
 		{
-			SaveClass = SaveDevSettings->SaveGameClass;
+			SaveClass = SaveDevSettings->SaveGameClass.TryLoadClass<UNarrativeSave>();
 		}
 	}
 

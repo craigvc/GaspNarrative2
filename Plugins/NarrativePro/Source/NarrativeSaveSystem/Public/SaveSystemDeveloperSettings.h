@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "NarrativeSave.h"
 #include "Engine/DeveloperSettings.h"
 #include "SaveSystemDeveloperSettings.generated.h"
 
@@ -23,8 +24,8 @@ public:
 	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Save System")
 	bool bAutoLoadFirstSaveInEditor;
 
-		/** The save class we'll use to save our world to disk. */
-	UPROPERTY(EditAnywhere, config, BlueprintReadOnly, Category = "Narrative Pro|Save System")
-	TSubclassOf<class UNarrativeSave> SaveGameClass;
+	/** The class to use when instantiating the transient GameInstance class */
+	UPROPERTY(config, noclear, EditAnywhere, Category = "Narrative Pro|Save System", meta=(MetaClass="/Script/NarrativeSaveSystem.NarrativeSave"))
+	FSoftClassPath SaveGameClass;
 
 };

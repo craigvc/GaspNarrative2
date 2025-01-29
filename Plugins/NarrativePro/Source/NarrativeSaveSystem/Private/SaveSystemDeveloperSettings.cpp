@@ -8,4 +8,5 @@ USaveSystemDeveloperSettings::USaveSystemDeveloperSettings()
 {
 	bAutoLoadFirstSaveInEditor = true;
 	SaveGameClass = UNarrativeSave::StaticClass();
+
 }

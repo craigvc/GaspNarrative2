@@ -1,5 +1,4 @@
-// Fill out your copyright notice in the Description page of Project Settings.
-
+// Copyright Narrative Tools 2024. 
 
 #include "Tales/NarrativeQuestSettings.h"
 
