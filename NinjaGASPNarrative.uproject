@@ -76,10 +76,6 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/da30946a-08c2-4133-9c92-46a5697d7214"
 		},
 		{
-			"Name": "GraphNUnrealPlugin",
-			"Enabled": true
-		},
-		{
 			"Name": "AutoSizeComments",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/ae89a2c4ab384de0a3f213b23de324f3"
@@ -105,11 +101,6 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/5cb2a394d0c04e73891762be4cbd7216"
 		},
 		{
-			"Name": "ElevenVoice",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/1f706006858d482b9c13cf1f093c4ec6"
-		},
-		{
 			"Name": "FlatNodes",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/b719437f3fb54c259b34227363df8cab"
@@ -120,33 +111,9 @@
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/46a9f8827b824d63b31233c3078a1703"
 		},
 		{
-			"Name": "GraphFormatter",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/content/297159d6d3f4425b9c095b18a811a401"
-		},
-		{
 			"Name": "NinjaFactions",
 			"Enabled": false,
 			"MarketplaceURL": "com.epicgames.launcher://ue/Fab/product/bda9ddb0-0067-493f-9923-052a2fe1db5d"
-		},
-		{
-			"Name": "AssetsManager",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/79c035629a94f1d87828c22b193f79e"
-		},
-		{
-			"Name": "Rocket",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/dc179ca63d3a49af89be1172585e2f7b"
-		},
-		{
-			"Name": "rdSplineTools",
-			"Enabled": true
-		},
-		{
-			"Name": "ProjectCleaner",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/4d7f5dc837fc4b009bb91e678adf9fd0"
 		},
 		{
 			"Name": "ErrantPaths",
@@ -158,16 +125,6 @@
 			"MarketplaceURL": "com.epicgames.launcher//ue/marketplace/product/aa40d0e693b24d92bcfa1553463cf542"
 		},
 		{
-			"Name": "RestartEditor",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/a00eb1e478ae4a8fb655aa22f9125b07"
-		},
-		{
-			"Name": "AdvancedEditorUtilities",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/f375645593fc4d909bf8c79b9f64a066"
-		},
-		{
 			"Name": "Freezer",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/670c085be7d2470abf756507eaba50da"
@@ -176,11 +133,6 @@
 			"Name": "SnappingHelper",
 			"Enabled": true,
 			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/1e0699cf59d64105957b4aa40f367252"
-		},
-		{
-			"Name": "WinchSystem",
-			"Enabled": true,
-			"MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/466b6a1cd5154973ba9946ca7db48556"
 		}
 	],
 	"EpicSampleNameHash": "1673045636"
